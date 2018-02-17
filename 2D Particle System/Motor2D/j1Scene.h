@@ -35,13 +35,11 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-private:
-	
-	int randomAngles[100];
-	Particle* testParticle[50];
 
-	ParticleEngine* pEngine;
-	
+private:
+
+	Particle* testParticle[100];
+
 };
 
 #endif // __j1SCENE_H__
