@@ -1,5 +1,5 @@
 #include "ParticleEngine.h"
-
+/*
 ParticleEngine::ParticleEngine(int maxParticles, iPoint pos)
 {
 	this->pos.x = pos.x;
@@ -45,3 +45,5 @@ void ParticleEngine::Refresh()
 		}
 	}
 }
+
+*/

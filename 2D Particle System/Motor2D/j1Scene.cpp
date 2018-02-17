@@ -29,8 +29,16 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
+	srand(time(NULL));
 
-	
+	for (int i = 0; i < 100; i++)
+	{
+		float randomSpeed = rand() % (50 - 150 + 1) + 50;
+		float randomAngle = rand() % (0 - 360 + 1) + 0;;
+		int randomLife = rand() % (0 - 150 + 1) + 0;
+
+		testParticle[i] = new Particle({ 500, 500 }, randomSpeed, randomAngle, randomLife);
+	}
 
 	return true;
 }
@@ -44,8 +52,11 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	
-
+	for (int i = 0; i < 100; i++)
+	{
+		if (!testParticle[i]->IsDead())
+			testParticle[i]->Update(dt);
+	}
 
 	return true;
 }
@@ -66,6 +77,10 @@ bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
 
-	delete pEngine;
+	for (int i = 0; i < 50; i++)
+	{
+		delete testParticle[i];
+	}
+
 	return true;
 }

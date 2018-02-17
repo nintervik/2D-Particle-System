@@ -2,44 +2,43 @@
 #include "j1App.h"
 #include "j1Render.h"
 #include "j1Window.h"
+#include "p2Log.h"
+#include <math.h>
 
-
-Particle::Particle(iPoint pos, iPoint vel, uint life)
+Particle::Particle(iPoint pos, float speed, float angle, uint life)
 {
 	this->pos = pos;
-	this ->endTime = SDL_GetTicks() + life;
-	this->vel = vel;
+	vel.x = speed * cos(DEG_TO_RAD(angle));
+	vel.y = -speed * sin(DEG_TO_RAD(angle));
+	this->life = life;
 }
 
-void Particle::MoveParticle()
+void Particle::Move(float dt)
 {
-	pos.x += vel.x;
-	pos.y += vel.y;
+	life -= dt;
+	if (life > 0)
+	{
+		pos.x += vel.x * dt;
+		pos.y += vel.y * dt;
+	}
 
-	uint w, h;
-	App->win->GetWindowSize(w, h);
-
-	if (pos.x < 0)
-		pos.x = 0;
-	if (pos.y < 0)
-		pos.y = 0;
-
-	if (pos.x > w)
-		pos.x = w - 1;
-	if (pos.y > h)
-		pos.y = h - 1;
 }
 
 void Particle::Draw()
 {
-	App->render->DrawQuad({ pos.x, pos.y, 100, 100 }, 234, 44, 22, 100);
+	App->render->DrawCircle(pos.x, pos.y, 15, 255, 0, 0, 100, true);
 }
 
-bool Particle::isDead()
+void Particle::Update(float dt)
 {
-	uint w, h;
-	App->win->GetWindowSize(w, h);
+	Move(dt);
+	Draw();
+}
 
-	return (SDL_GetTicks() >= endTime || pos.x == 0 || pos.y == 0 ||
-			pos.x == w - 1 || pos.y == h - 1);
+bool Particle::IsDead()
+{
+	if (life > 0)
+		return false;
+	else
+		return true;
 }
