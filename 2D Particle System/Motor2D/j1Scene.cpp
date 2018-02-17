@@ -54,7 +54,7 @@ bool j1Scene::Update(float dt)
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		App->render->camera.x += 1;
 
-	App->render->DrawCircle(100, 100, 30, 245, 123, 34, 100);
+	App->render->DrawCircle(300, 500, 30, 245, 123, 34, 100, true);
 
 	std::string title = "Title";
 
