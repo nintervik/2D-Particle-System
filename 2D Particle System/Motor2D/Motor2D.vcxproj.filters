@@ -31,6 +31,18 @@
     <ClCompile Include="PugiXml\src\pugixml.cpp">
       <Filter>Desenvolupament  ========\Tools\PuguiXML</Filter>
     </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Desenvolupament  ========\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEngine.cpp">
+      <Filter>Desenvolupament  ========\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="j1Timer.cpp">
+      <Filter>Desenvolupament  ========\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="j1PerfTimer.cpp">
+      <Filter>Desenvolupament  ========\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -72,6 +84,18 @@
     <ClInclude Include="PugiXml\src\pugixml.hpp">
       <Filter>Desenvolupament  ========\Tools\PuguiXML</Filter>
     </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Desenvolupament  ========\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEngine.h">
+      <Filter>Desenvolupament  ========\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Timer.h">
+      <Filter>Desenvolupament  ========\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="j1PerfTimer.h">
+      <Filter>Desenvolupament  ========\Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">
@@ -91,6 +115,9 @@
     </Filter>
     <Filter Include="Desenvolupament  ========\Tools\PuguiXML">
       <UniqueIdentifier>{7cb78d67-17cc-45eb-af97-e2106becce7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\Particles">
+      <UniqueIdentifier>{ea93f3cf-2cfa-4d42-862f-727a238cdcb5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

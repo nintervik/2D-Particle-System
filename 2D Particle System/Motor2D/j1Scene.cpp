@@ -29,7 +29,9 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
+
 	
+
 	return true;
 }
 
@@ -42,23 +44,9 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		App->render->camera.y -= 1;
+	
 
-	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		App->render->camera.y += 1;
 
-	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		App->render->camera.x -= 1;
-
-	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		App->render->camera.x += 1;
-
-	App->render->DrawCircle(300, 500, 30, 245, 123, 34, 100, true);
-
-	std::string title = "Title";
-
-	App->win->SetTitle(title.data());
 	return true;
 }
 
@@ -78,5 +66,6 @@ bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
 
+	delete pEngine;
 	return true;
 }

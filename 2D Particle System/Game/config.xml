@@ -1,13 +1,13 @@
 <!-- Config file for the game -->
 
 <config>
-  <app>
+  <app framerate_cap="60">
     <title>Particle System</title>
     <organization>UPC</organization>
   </app>
 	
   <renderer>
-    <vsync value="false"/>
+    <vsync value="true"/>
   </renderer>
 
   <window>

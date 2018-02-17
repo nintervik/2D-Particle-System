@@ -2,6 +2,9 @@
 #define __j1SCENE_H__
 
 #include "j1Module.h"
+#include "Particle.h"
+#include "ParticleEngine.h"
+#include "p2Point.h"
 
 struct SDL_Texture;
 
@@ -33,6 +36,12 @@ public:
 	bool CleanUp();
 
 private:
+	
+	int randomAngles[100];
+	Particle* testParticle[50];
+
+	ParticleEngine* pEngine;
+	
 };
 
 #endif // __j1SCENE_H__
