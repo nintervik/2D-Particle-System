@@ -37,7 +37,7 @@ bool j1Scene::Start()
 		float randomAngle = rand() % (0 - 360 + 1) + 0;;
 		int randomLife = rand() % (0 - 150 + 1) + 0;
 
-		testParticle[i] = new Particle({ 500, 500 }, randomSpeed, randomAngle, randomLife);
+		testParticle[i] = new Particle({ 500, 500 }, randomSpeed, randomAngle, 15, randomLife);
 	}
 
 	return true;

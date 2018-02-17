@@ -15,12 +15,17 @@ class Particle
 	iPoint pos = { 0, 0 };
 	iPoint vel = { 0, 0 };
 	uint life = 0;
+	uint start_life = 0;
 	bool dead = false;
+	float radius = 0.0f;
+	float ageRatio = 0.0f;
+	int alpha = 0;
+	float start_radius = 0.0f;
 	float angle = 0.0f;
 
 	public:
 
-	Particle::Particle(iPoint pos, float speed, float angle, uint life);
+	Particle::Particle(iPoint pos, float speed, float angle, float start_radius, uint life);
 
 	void Move(float dt);
 	void Draw();
