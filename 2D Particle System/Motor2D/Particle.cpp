@@ -10,41 +10,42 @@ Particle::Particle():life(0), start_life(0) {}
 
 void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life)
 {
-	this->pos = pos;
-	vel.x = speed * cos(DEG_TO_RAD(angle));
-	vel.y = -speed * sin(DEG_TO_RAD(angle));
+	pState.pLive.pos = pos;
+	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
+	pState.pLive.vel.y = -speed * sin(DEG_TO_RAD(angle));
 	this->life = this->start_life = life;
-	this->radius = this->start_radius = start_radius;
+	pState.pLive.radius = pState.pLive.start_radius = start_radius;
 }
 
-void Particle::Move(float dt)
+bool Particle::Animate(float dt)
 {
-	life -= dt;
+	if (!IsAlive()) return false;
 
-	if (!IsDead())
-	{
-		ageRatio = (float)this->life / (float)this->start_life;
-		radius = start_radius * ageRatio;
-		alpha = (int)(ageRatio * 255.0f);
+	life--;
 
-		pos.x += vel.x * dt;
-		pos.y += vel.y * dt;
-	}
+	pState.pLive.ageRatio = (float)this->life / (float)this->start_life;
+	pState.pLive.radius = pState.pLive.start_radius * pState.pLive.ageRatio;
+	pState.pLive.alpha = (int)(pState.pLive.ageRatio * 255.0f);
 
+	pState.pLive.pos.x += pState.pLive.vel.x * dt;
+	pState.pLive.pos.y += pState.pLive.vel.y * dt;
+
+	App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);
+
+	return life == 0;
 }
 
-void Particle::Draw()
+bool Particle::IsAlive()
 {
-	App->render->DrawCircle(pos.x, pos.y, floor(radius), 255, 0, 0, alpha, true);
+	return (life > 0);
 }
 
-void Particle::Update(float dt)
+Particle * Particle::GetNext()
 {
-	Move(dt);
-	Draw();
+	return pState.next;
 }
 
-bool Particle::IsDead()
+void Particle::SetNext(Particle * next)
 {
-	return (life <= 0);
+	pState.next = next;
 }
