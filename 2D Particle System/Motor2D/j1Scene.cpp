@@ -3,10 +3,11 @@
 #include "j1App.h"
 #include "j1Input.h"
 #include "j1Textures.h"
-#include "j1Audio.h"
+//#include "j1Audio.h"
 #include "j1Render.h"
 #include "j1Window.h"
 #include "j1Scene.h"
+#include <time.h>
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -31,15 +32,6 @@ bool j1Scene::Start()
 {
 	srand(time(NULL));
 
-	for (int i = 0; i < 100; i++)
-	{
-		float randomSpeed = rand() % (50 - 150 + 1) + 50;
-		float randomAngle = rand() % (0 - 360 + 1) + 0;;
-		int randomLife = rand() % (0 - 150 + 1) + 0;
-
-		testParticle[i] = new Particle({ 500, 500 }, randomSpeed, randomAngle, 15, randomLife);
-	}
-
 	return true;
 }
 
@@ -54,9 +46,21 @@ bool j1Scene::Update(float dt)
 {
 	for (int i = 0; i < 100; i++)
 	{
+		randSpeed[i] = rand() % (50 - 150 + 1) + 50;
+		randAngle[i] = rand() % (0 - 360 + 1) + 0;
+		randLife[i] = rand() % (0 - 150 + 1) + 0;
+
+		testParticle.Generate({ 500, 500 }, randSpeed[i], randAngle[i], 15, randLife[i]);
+	}
+
+	testParticle.Update(dt);
+
+
+	/*for (int i = 0; i < 100; i++)
+	{
 		if (!testParticle[i]->IsDead())
 			testParticle[i]->Update(dt);
-	}
+	}*/
 
 	return true;
 }
@@ -76,11 +80,6 @@ bool j1Scene::PostUpdate()
 bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
-
-	for (int i = 0; i < 50; i++)
-	{
-		delete testParticle[i];
-	}
 
 	return true;
 }

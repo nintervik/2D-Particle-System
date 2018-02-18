@@ -2,7 +2,6 @@
 #define __PARTICLE_H__
 
 #include "p2Point.h"
-#include "p2Defs.h"
 
 #define PI 3.14159265359f
 #define DEG_TO_RAD(a) a * PI / 180.0f
@@ -25,14 +24,14 @@ class Particle
 
 	public:
 
-	Particle::Particle(iPoint pos, float speed, float angle, float start_radius, uint life);
+	Particle();
+	void Init(iPoint pos, float speed, float angle, float start_radius, uint life);
 
 	void Move(float dt);
 	void Draw();
 	void Update(float dt);
 
 	bool IsDead();
-
 };
 
 #endif

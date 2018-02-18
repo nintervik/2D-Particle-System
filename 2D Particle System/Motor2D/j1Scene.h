@@ -3,7 +3,7 @@
 
 #include "j1Module.h"
 #include "Particle.h"
-#include "ParticleEngine.h"
+#include "ParticlePool.h"
 #include "p2Point.h"
 
 struct SDL_Texture;
@@ -38,7 +38,10 @@ public:
 
 private:
 
-	Particle* testParticle[100];
+	ParticlePool testParticle;
+	float randAngle[100];
+	float randSpeed[100];
+	int randLife[100];
 
 };
 

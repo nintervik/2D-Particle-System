@@ -88,7 +88,7 @@
     <ClCompile Include="j1Textures.cpp" />
     <ClCompile Include="j1Window.cpp" />
     <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="ParticleEngine.cpp" />
+    <ClCompile Include="ParticlePool.cpp" />
     <ClCompile Include="PugiXml\src\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +106,7 @@
     <ClInclude Include="j1Textures.h" />
     <ClInclude Include="j1Window.h" />
     <ClInclude Include="Particle.h" />
-    <ClInclude Include="ParticleEngine.h" />
+    <ClInclude Include="ParticlePool.h" />
     <ClInclude Include="PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="PugiXml\src\pugixml.hpp" />
   </ItemGroup>

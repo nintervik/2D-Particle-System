@@ -5,7 +5,10 @@
 #include "p2Log.h"
 #include <math.h>
 
-Particle::Particle(iPoint pos, float speed, float angle, float start_radius, uint life)
+
+Particle::Particle():life(0), start_life(0) {}
+
+void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life)
 {
 	this->pos = pos;
 	vel.x = speed * cos(DEG_TO_RAD(angle));
@@ -18,7 +21,7 @@ void Particle::Move(float dt)
 {
 	life -= dt;
 
-	if (life > 0)
+	if (!IsDead())
 	{
 		ageRatio = (float)this->life / (float)this->start_life;
 		radius = start_radius * ageRatio;
@@ -43,8 +46,5 @@ void Particle::Update(float dt)
 
 bool Particle::IsDead()
 {
-	if (life > 0)
-		return false;
-	else
-		return true;
+	return (life <= 0);
 }
