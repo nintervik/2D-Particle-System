@@ -4,6 +4,7 @@ void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_ra
 {
 	for (int i = 0; i < POOL_SIZE; i++)
 	{
+		if (particles[i].IsDead())
 		{
 			particles[i].Init(pos, speed, angle, start_radius, life);
 			return;
