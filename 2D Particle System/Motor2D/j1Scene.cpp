@@ -44,23 +44,13 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	for (int i = 0; i < 100; i++)
-	{
-		randSpeed[i] = rand() % (50 - 150 + 1) + 50;
-		randAngle[i] = rand() % (0 - 360 + 1) + 0;
-		randLife[i] = rand() % (0 - 150 + 1) + 0;
 
-		testParticle.Generate({ 500, 500 }, randSpeed[i], randAngle[i], 15, randLife[i]);
-	}
-
+	int randSpeed = rand() % (50 - 150 + 1) + 50;
+	int randAngle = rand() % (0 - 360 + 1) + 0;
+	int randLife = rand() % (0 - 150 + 1) + 0;
+	
+	testParticle.Generate({ 500, 500 }, randSpeed, randAngle, 15, randLife);
 	testParticle.Update(dt);
-
-
-	/*for (int i = 0; i < 100; i++)
-	{
-		if (!testParticle[i]->IsDead())
-			testParticle[i]->Update(dt);
-	}*/
 
 	return true;
 }
