@@ -44,17 +44,15 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	
-
 	int randSpeed = rand() % (50 - 200 + 1) + 50;
 	int randAngle = rand() % (0 - 360 + 1) + 0;
 	int randLife = 50;
 	int randRadius = rand() % (5 - 25 + 1) + 5;
 	
+	//TODO: find a way to control emission rate
 	testParticle.Generate({ 500, 500 }, randSpeed, randAngle, randRadius, randLife);
 
 	testParticle.Update(dt);
-	counter++;
 	return true;
 }
 
