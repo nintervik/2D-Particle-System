@@ -45,11 +45,12 @@ bool j1Scene::PreUpdate()
 bool j1Scene::Update(float dt)
 {
 
-	int randSpeed = rand() % (50 - 150 + 1) + 50;
+	int randSpeed = rand() % (50 - 200 + 1) + 50;
 	int randAngle = rand() % (0 - 360 + 1) + 0;
 	int randLife = rand() % (0 - 150 + 1) + 0;
+	int randRadius = rand() % (5 - 25 + 1) + 5;
 	
-	testParticle.Generate({ 500, 500 }, randSpeed, randAngle, 15, randLife);
+	testParticle.Generate({ 500, 500 }, randSpeed, randAngle, randRadius, randLife);
 	testParticle.Update(dt);
 
 	return true;
