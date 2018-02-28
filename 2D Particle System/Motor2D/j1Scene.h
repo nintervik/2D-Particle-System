@@ -4,6 +4,7 @@
 #include "j1Module.h"
 #include "Particle.h"
 #include "ParticlePool.h"
+#include "Emitter.h"
 #include "p2Point.h"
 
 struct SDL_Texture;
@@ -38,10 +39,16 @@ public:
 
 private:
 
+	// TODO: delete this
+
 	ParticlePool testParticle;
 	float randAngle[100];
 	float randSpeed[100];
 	int randLife[100];
+
+	// Good stuff
+
+	std::list<Emitter*> emitters_list;
 
 };
 

@@ -49,10 +49,28 @@ bool j1Scene::Update(float dt)
 	int randLife = 50;
 	int randRadius = rand() % (5 - 25 + 1) + 5;
 	
-	//TODO: find a way to control emission rate
-	testParticle.Generate({ 500, 500 }, randSpeed, randAngle, randRadius, randLife);
+	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		iPoint pos(mx, my);
 
-	testParticle.Update(dt);
+		emitters_list.push_back(new Emitter(pos, randAngle, randSpeed));
+ 	}
+
+	if (!emitters_list.empty())
+	{
+		std::list<Emitter*>::reverse_iterator it;
+		for (it = emitters_list.rbegin(); it != emitters_list.rend(); ++it)
+		{
+			(*it)->Update(dt);
+		}
+	}
+
+	//TODO: find a way to control emission rate
+	/*testParticle.Generate({ 500, 500 }, randSpeed, randAngle, randRadius, randLife);
+
+	testParticle.Update(dt);*/
 	return true;
 }
 
@@ -71,6 +89,12 @@ bool j1Scene::PostUpdate()
 bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
+
+	std::list<Emitter*>::reverse_iterator it;
+	for (it = emitters_list.rbegin(); it != emitters_list.rend(); ++it)
+	{
+		delete (*it);
+	}
 
 	return true;
 }

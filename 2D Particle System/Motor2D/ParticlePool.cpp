@@ -1,6 +1,8 @@
-
 #include "ParticlePool.h"
 #include <assert.h>
+
+//TODO: maybe pool size could be an argument in the constructor
+//TODO: or maybe I sould use a vector instead
 
 // This pool constructer sets our particles to available
 ParticlePool::ParticlePool()
