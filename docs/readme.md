@@ -20,4 +20,4 @@ Well, without further delay let's get into playing with these particles!
 
 ***
 
-### **What is A Particle System**
+### **What is A Particle System and why do we care?**
