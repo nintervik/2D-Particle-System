@@ -12,8 +12,6 @@ class Particle
 {
 	private:
 
-	
-	
 	uint life = 0, start_life = 0;
 
 	union ParticleInfo
@@ -53,7 +51,6 @@ class Particle
 
 	Particle* GetNext();
 	void SetNext(Particle* next);
-
 };
 
 #endif

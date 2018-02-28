@@ -5,8 +5,6 @@
 #include "p2Log.h"
 #include <math.h>
 
-// Hello
-
 Particle::Particle():life(0), start_life(0) {}
 
 void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life)

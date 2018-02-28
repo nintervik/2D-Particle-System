@@ -14,15 +14,15 @@ ParticlePool::ParticlePool()
 		particles[i].SetNext(&particles[i + 1]);
 	}
 
-	// The last particles points to NULL indicating the end of the list
-	particles[POOL_SIZE - 1].SetNext(NULL);
+	// The last particles points to nullptr indicating the end of the list
+	particles[POOL_SIZE - 1].SetNext(nullptr);
 
 }
 
 void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_radius, uint life)
 {
 	// Check if the pool is not full
-	assert(firstAvailable != NULL);
+	assert(firstAvailable != nullptr);
 
 	// Remove it from the available list
 	Particle* newParticle = firstAvailable;

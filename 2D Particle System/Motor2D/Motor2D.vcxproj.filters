@@ -32,7 +32,7 @@
       <Filter>Desenvolupament  ========\Tools\PuguiXML</Filter>
     </ClCompile>
     <ClCompile Include="Particle.cpp">
-      <Filter>Desenvolupament  ========\Particle System</Filter>
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClCompile>
     <ClCompile Include="j1Timer.cpp">
       <Filter>Desenvolupament  ========\Tools</Filter>
@@ -41,7 +41,13 @@
       <Filter>Desenvolupament  ========\Tools</Filter>
     </ClCompile>
     <ClCompile Include="ParticlePool.cpp">
-      <Filter>Desenvolupament  ========\Particle System</Filter>
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Emitter.cpp">
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,7 +91,7 @@
       <Filter>Desenvolupament  ========\Tools\PuguiXML</Filter>
     </ClInclude>
     <ClInclude Include="Particle.h">
-      <Filter>Desenvolupament  ========\Particle System</Filter>
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClInclude>
     <ClInclude Include="j1Timer.h">
       <Filter>Desenvolupament  ========\Tools</Filter>
@@ -94,7 +100,13 @@
       <Filter>Desenvolupament  ========\Tools</Filter>
     </ClInclude>
     <ClInclude Include="ParticlePool.h">
-      <Filter>Desenvolupament  ========\Particle System</Filter>
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Emitter.h">
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +128,7 @@
     <Filter Include="Desenvolupament  ========\Tools\PuguiXML">
       <UniqueIdentifier>{7cb78d67-17cc-45eb-af97-e2106becce7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Desenvolupament  ========\Particle System">
+    <Filter Include="Desenvolupament  ========\2D Particle Engine">
       <UniqueIdentifier>{ea93f3cf-2cfa-4d42-862f-727a238cdcb5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
