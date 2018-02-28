@@ -14,4 +14,4 @@ There are three main things that I wll be focused on for this tutorial:
 
 Another important thing that I want to remark is that the way I'm going to explain how to implement the system is not unique and probably not the best. There are a lot of ways to do it and professional people that knows a lot more that I do. If you want to learn more about this topic I encourage you to check the references that helped me doing this.
 
-Well, without further delay let's get into playing with this particles!
+Well, without further delay let's get into playing with these particles!
