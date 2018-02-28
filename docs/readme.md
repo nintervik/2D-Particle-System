@@ -13,7 +13,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ***
 
-### **Introduction**
+## **Introduction**
 
 In this website I will explain what it is, how it works and how to program a 2D Particle System in computer graphics. The system will be programmed in C++ using Visual Studio 2017 as IDE and SDL 2.0 to render the graphics. The end goal of the tutorial is to success on creating a fire and smoke effect.
 
@@ -28,6 +28,6 @@ Well, without further delay let's get into playing with these particles!
 
 ***
 
-### **What is a Particle System and why do we care?**
+## **What is a Particle System and why do we care?**
 
 Back in the old days...
