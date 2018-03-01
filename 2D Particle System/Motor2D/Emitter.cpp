@@ -2,6 +2,8 @@
 #include <time.h>
 #include <stdlib.h>
 
+// TODO: emitter should inherit from j1Module...
+
 Emitter::Emitter(iPoint pos, float angle, float speed) : pos(pos), angle(angle), speed(speed) 
 { 
 	srand(time(NULL));

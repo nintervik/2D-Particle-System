@@ -43,10 +43,10 @@
     <ClCompile Include="ParticlePool.cpp">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
+    <ClCompile Include="Emitter.cpp">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Emitter.cpp">
+    <ClCompile Include="j1ParticleSystem.cpp">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,10 +102,10 @@
     <ClInclude Include="ParticlePool.h">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleSystem.h">
+    <ClInclude Include="Emitter.h">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Emitter.h">
+    <ClInclude Include="j1ParticleSystem.h">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClInclude>
   </ItemGroup>

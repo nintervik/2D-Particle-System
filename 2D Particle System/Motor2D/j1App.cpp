@@ -9,6 +9,7 @@
 #include "j1Textures.h"
 #include "j1Audio.h"
 #include "j1Scene.h"
+#include "j1ParticleSystem.h"
 #include "j1App.h"
 
 // Constructor
@@ -21,7 +22,9 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	render = new j1Render();
 	tex = new j1Textures();
 	audio = new j1Audio();
+	psystem = new j1ParticleSystem();
 	scene = new j1Scene();
+	
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -29,7 +32,9 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(win);
 	AddModule(tex);
 	AddModule(audio);
+	AddModule(psystem);
 	AddModule(scene);
+	
 
 	// Render last to swap buffer
 	AddModule(render);
