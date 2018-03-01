@@ -22,6 +22,8 @@ There are three main things that I wll be focused on for this tutorial:
 - **Good performance.** Particles can really affect framerate and performance so it's important to manage in an optimized way. That's something we will take care of.
 - **Well structured, robust and flexible system.** If you have a good structure, building new particle effects on top of it is not very difficult; it's just about adding and tweaking a few parameters. But the base underneath must be solid and work properly. This system should be flexible enough to develop new and more complex features on top of it.
 
+This web page is focused on the structure and behaviour of a 2D particle system but it assumes all the loop and rendering part of the code.
+
 Another important thing that I want to remark is that the way I'm going to explain how to implement the system is not unique and probably not the best. There are a lot of ways to do it and professional people that knows a lot more that I do. If you want to learn more about this topic I encourage you to check the references that helped me doing this.
 
 Well, without further delay let's get into playing with these particles!
