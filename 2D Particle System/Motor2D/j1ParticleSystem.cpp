@@ -40,12 +40,12 @@ bool j1ParticleSystem::PreUpdate()
 
 bool j1ParticleSystem::Update(float dt)
 {
-	return false;
+	return true;
 }
 
 bool j1ParticleSystem::PostUpdate()
 {
-	for (uint i = emitters.size() - 1; i >= 0; i--) 
+	for (uint i = emitters.size() - 1; i >= 0 && !emitters.empty(); i--) 
 	{
 		if (emitters[i]->to_destroy) 
 		{
