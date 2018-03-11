@@ -18,3 +18,8 @@ void Emitter::Update(float dt)
 	emitterPool.Generate(pos, randSpeed, randAngle, randRadius, 50);
 	emitterPool.Update(dt);
 }
+
+void Emitter::Draw(SDL_Texture * texture)
+{
+	
+}

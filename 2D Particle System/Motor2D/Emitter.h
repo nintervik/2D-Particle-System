@@ -14,15 +14,16 @@ class Emitter
 {
 private:
 
-	iPoint pos;
-	int emissionRate = 0;
+	iPoint pos = { 0, 0 };
 	float angle = 0.0f;
 	float speed = 0.0f;
 	ParticlePool emitterPool;
-	j1Module* callback = nullptr; // TODO: Do we need this?
 	SDL_Texture* emitter_tex = nullptr;
 
-
+	// ---------------------------------------------------------
+	// TODO later
+	j1Module* callback = nullptr; // TODO: Do we need this?
+	int emissionRate = 0;
 	// TODO: add emissionRate and other stuff from the pdf of Star Treck
 	//int particlesPerFrame = 0;
 
@@ -32,8 +33,9 @@ public:
 	//TODO: add emissionRate to constuctor
 
 	Emitter(iPoint pos, float angle, float speed);
+	
 	void Update(float dt);
-	//bool Remove();
+	void Draw(SDL_Texture* texture);
 };
 
 #endif

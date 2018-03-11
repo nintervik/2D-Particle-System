@@ -10,7 +10,7 @@ Particle::Particle():life(0), start_life(0)
 {
 	// TODO: particle should recieve a texture to load. Maybe we could store particle texture
 	// types inside a vector in the ParticleSystem. We could even do an enum type for each 
-	// texture. 
+	// texture. Also, we could store each texture inside each emitter class.
 
 	if (App != nullptr)
 		pTexture = App->tex->Load("textures/particle.png");
@@ -30,10 +30,8 @@ void Particle::Init(iPoint pos, float speed, float angle, float start_radius, ui
 	pState.pLive.radius = pState.pLive.start_radius = start_radius;
 }
 
-bool Particle::Animate(float dt)
+void Particle::Update(float dt)
 {
-	if (!IsAlive()) return false;
-
 	life--;
 
 	pState.pLive.ageRatio = (float)this->life / (float)this->start_life;
@@ -42,12 +40,14 @@ bool Particle::Animate(float dt)
 
 	pState.pLive.pos.x += pState.pLive.vel.x * dt;
 	pState.pLive.pos.y += pState.pLive.vel.y * dt;
+}
 
+void Particle::Draw()
+{
 	App->render->Blit(pTexture, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
 
-	//App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);
-
-	return life == 0;
+	// Render circle
+	// App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);
 }
 
 bool Particle::IsAlive()

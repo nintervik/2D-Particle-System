@@ -37,7 +37,12 @@ void ParticlePool::Update(float dt)
 {
 	for (int i = 0; i < POOL_SIZE; i++)
 	{
-		if (particles[i].Animate(dt))
+		if (particles[i].IsAlive())
+		{
+			particles[i].Update(dt);
+			particles[i].Draw();
+		}
+		else
 		{
 			// Add this particle to the front of the list
 			particles[i].SetNext(firstAvailable);

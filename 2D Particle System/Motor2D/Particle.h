@@ -51,7 +51,11 @@ class Particle
 	Particle();
 	void Init(iPoint pos, float speed, float angle, float start_radius, uint life);
 
-	bool Animate(float dt);
+	void Update(float dt);
+
+	// TODO: this shoudl require a texture
+
+	void Draw(/*SDL_Texture* texture*/);
 
 	bool IsAlive();
 
