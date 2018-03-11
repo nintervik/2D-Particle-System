@@ -3,9 +3,7 @@
 #include "j1ParticleSystem.h"
 #include "j1App.h"
 
-// TODO: we should be able to add different types of emitters.
-// For now, we wil stay with one to make sure it works. Then we
-// can add more.
+
 
 j1ParticleSystem::j1ParticleSystem() : j1Module()
 {
@@ -30,6 +28,7 @@ bool j1ParticleSystem::Start()
 // TODO: need to figure out if only call update or also preupdate.
 // This will depend on the way the emitter is organized in terms of
 // drawing and updating the particles with one or more methods.
+
 bool j1ParticleSystem::PreUpdate()
 {
 	/*for (int i = 0; i < emitters.size(); i++)
@@ -88,6 +87,10 @@ bool j1ParticleSystem::CleanUp()
 
 	return false;
 }
+
+// TODO: we should be able to add different types of emitters.
+// For now, we wil stay with one to make sure it works. Then we
+// can add more.
 
 Emitter * j1ParticleSystem::AddEmiter(/*arguments for the constructor*/)
 {

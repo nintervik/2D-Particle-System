@@ -3,16 +3,22 @@
 
 #include "p2Point.h"
 #include "Particle.h"
+#include "SDL/include/SDL.h"
 
 #define PI 3.14159265359f
 #define DEG_TO_RAD(a) a * PI / 180.0f
 #define RAD_TO_DEG(a) a * 180.0f / PI
+
+struct SDL_Texture;
 
 class Particle
 {
 	private:
 
 	uint life = 0, start_life = 0;
+
+	SDL_Texture* pTexture = nullptr;
+	SDL_Rect pRect;
 
 	union ParticleInfo
 	{

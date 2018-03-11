@@ -24,8 +24,6 @@ private:
 
 
 	// TODO: add emissionRate and other stuff from the pdf of Star Treck
-
-
 	//int particlesPerFrame = 0;
 
 public:

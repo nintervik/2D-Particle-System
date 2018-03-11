@@ -2,10 +2,24 @@
 #include "j1App.h"
 #include "j1Render.h"
 #include "j1Window.h"
+#include "j1Textures.h"
 #include "p2Log.h"
 #include <math.h>
 
-Particle::Particle():life(0), start_life(0) {}
+Particle::Particle():life(0), start_life(0) 
+{
+	// TODO: particle should recieve a texture to load. Maybe we could store particle texture
+	// types inside a vector in the ParticleSystem. We could even do an enum type for each 
+	// texture. 
+
+	if (App != nullptr)
+		pTexture = App->tex->Load("textures/particle.png");
+
+	pRect.x = 0;
+	pRect.y = 0;
+	pRect.w = 16;
+	pRect.h = 16;
+}
 
 void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life)
 {
@@ -29,7 +43,9 @@ bool Particle::Animate(float dt)
 	pState.pLive.pos.x += pState.pLive.vel.x * dt;
 	pState.pLive.pos.y += pState.pLive.vel.y * dt;
 
-	App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);
+	App->render->Blit(pTexture, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
+
+	//App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);
 
 	return life == 0;
 }

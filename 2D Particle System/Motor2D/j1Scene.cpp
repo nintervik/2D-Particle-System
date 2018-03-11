@@ -79,7 +79,7 @@ bool j1Scene::PostUpdate()
 {
 	bool ret = true;
 
-	if(App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
 
 	return ret;
@@ -91,6 +91,7 @@ bool j1Scene::CleanUp()
 	LOG("Freeing scene");
 
 	std::list<Emitter*>::reverse_iterator it;
+
 	for (it = emitters_list.rbegin(); it != emitters_list.rend(); ++it)
 	{
 		delete (*it);
