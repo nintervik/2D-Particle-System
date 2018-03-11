@@ -42,7 +42,7 @@ void ParticlePool::Update(float dt)
 			particles[i].Update(dt);
 			particles[i].Draw();
 		}
-		else
+		else // if a particle dies it becomes the first available one in the pool
 		{
 			// Add this particle to the front of the list
 			particles[i].SetNext(firstAvailable);

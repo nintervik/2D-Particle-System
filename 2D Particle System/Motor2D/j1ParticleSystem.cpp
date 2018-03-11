@@ -2,6 +2,7 @@
 #include "p2Log.h"
 #include "j1ParticleSystem.h"
 #include "j1App.h"
+#include "j1Textures.h"
 
 
 
@@ -22,6 +23,8 @@ bool j1ParticleSystem::Awake(pugi::xml_node &)
 
 bool j1ParticleSystem::Start()
 {
+	particleAtlas = App->tex->Load("textures/particle.png");
+
 	return true;
 }
 
@@ -85,6 +88,8 @@ bool j1ParticleSystem::CleanUp()
 
 	emitters.clear();
 
+	App->tex->UnLoad(particleAtlas);
+	
 	return false;
 }
 
@@ -125,4 +130,9 @@ bool j1ParticleSystem::RemoveAllEmitters()
 	}
 
 	return ret;
+}
+
+const SDL_Texture* j1ParticleSystem::GetParticleAtlas() const
+{
+	return particleAtlas;
 }

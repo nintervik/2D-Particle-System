@@ -128,6 +128,8 @@ bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section,
 	bool ret = true;
 	uint scale = App->win->GetScale();
 
+	
+
 	SDL_Rect rect;
 	rect.x = (int)(camera.x * speed) + x * scale;
 	rect.y = (int)(camera.y * speed) + y * scale;
@@ -154,6 +156,11 @@ bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section,
 		pivot.y = pivot_y;
 		p = &pivot;
 	}
+	
+	//TODO: customize Blit method to take rgb and alpaha parameters
+	SDL_SetTextureColorMod(texture, 255, 100, 0);
+	SDL_SetTextureAlphaMod(texture, 50);
+
 
 	if(SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, SDL_FLIP_NONE) != 0)
 	{

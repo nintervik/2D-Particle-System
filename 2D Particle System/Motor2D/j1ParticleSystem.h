@@ -7,12 +7,14 @@
 #include <vector>
 
 class Emitter;
+struct SDL_Texture;
 
 class j1ParticleSystem : public j1Module
 {
 private:
 
 	std::vector<Emitter*> emitters;
+	SDL_Texture* particleAtlas = nullptr;
 	
 public:
 
@@ -42,7 +44,7 @@ public:
 	Emitter* AddEmiter();
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();
-
+	const SDL_Texture* GetParticleAtlas() const;
 };
 
 #endif

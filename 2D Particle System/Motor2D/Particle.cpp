@@ -17,8 +17,8 @@ Particle::Particle():life(0), start_life(0)
 
 	pRect.x = 0;
 	pRect.y = 0;
-	pRect.w = 16;
-	pRect.h = 16;
+	pRect.w = 32;
+	pRect.h = 32;
 }
 
 void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life)
@@ -44,6 +44,8 @@ void Particle::Update(float dt)
 
 void Particle::Draw()
 {
+	// TODO: control alpha value
+
 	App->render->Blit(pTexture, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
 
 	// Render circle
