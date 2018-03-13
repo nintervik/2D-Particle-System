@@ -157,9 +157,12 @@ bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section,
 		p = &pivot;
 	}
 	
-	//TODO: customize Blit method to take rgb and alpaha parameters
+	//TODO: customize Blit method to take rgb and alpha parameters
+	// The methods below should be error proof! Remeber to check for errors!
+	
 	SDL_SetTextureColorMod(texture, 255, 100, 0);
 	SDL_SetTextureAlphaMod(texture, 50);
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_ADD);
 
 
 	if(SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, SDL_FLIP_NONE) != 0)

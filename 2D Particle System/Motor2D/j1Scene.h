@@ -48,7 +48,7 @@ private:
 
 	// Good stuff
 
-	std::list<Emitter*> emitters_list;
+	Emitter* testEmitter = nullptr;
 
 };
 

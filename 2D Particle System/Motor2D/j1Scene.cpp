@@ -44,33 +44,20 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	int randSpeed = rand() % (50 - 200 + 1) + 50;
-	int randAngle = rand() % (0 - 360 + 1) + 0;
+	float randSpeed = rand() % (50 - 200 + 1) + 50;
+	float randAngle = rand() % (-45 + 45 + 1) + 45;
 	int randLife = 50;
 	int randRadius = rand() % (5 - 25 + 1) + 5;
-	
+
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
 	{
-		int mx, my;
-		App->input->GetMousePosition(mx, my);
-		iPoint pos(mx, my);
+	int mx, my;
+	App->input->GetMousePosition(mx, my);
+	iPoint pos(mx, my);
 
-		emitters_list.push_back(new Emitter(pos, randAngle, randSpeed));
- 	}
-
-	if (!emitters_list.empty())
-	{
-		std::list<Emitter*>::reverse_iterator it;
-		for (it = emitters_list.rbegin(); it != emitters_list.rend(); ++it)
-		{
-			(*it)->Update(dt);
-		}
+	App->psystem->AddEmiter(pos, randAngle, randSpeed);
 	}
-
-	//TODO: find a way to control emission rate
-	/*testParticle.Generate({ 500, 500 }, randSpeed, randAngle, randRadius, randLife);
-
-	testParticle.Update(dt);*/
+	
 	return true;
 }
 
@@ -92,10 +79,23 @@ bool j1Scene::CleanUp()
 
 	std::list<Emitter*>::reverse_iterator it;
 
-	for (it = emitters_list.rbegin(); it != emitters_list.rend(); ++it)
-	{
-		delete (*it);
-	}
+	testEmitter = nullptr;
 
 	return true;
 }
+
+
+// TODO IMPORTANT:
+
+// 1. Make a random method to generate a number from -1 to 1 (check bookmarks) and muliply it for a value
+// 2. Random numbers should be handled inside the emitter classs, not in scene
+// 3. Each emitter should have a rect that will be passed to particle as an argument in its constructor
+// 4. Particle equations will be done in emitter, all particles are the same, the emitter is the one who changes. 
+//    Emitters should be a parent class and types of emitters will be child classes maybe.
+// 5. Modify Blit() method to take RGB and alpha as arguments. Look for belnding modes too (check Drive notes)
+// 6. Emitter could have an enum to determine shape, or a shape pos in each child class
+// 7. Particles should have acceleration and emitters should have motion equations to calculate physics
+// 8. Emitter should have an emission rate according to framerate and particles' life
+// 9. Remember that particle values should be floats no matter what. 
+//    We don't want to lose precision when multiplying by dt. Then Blit() will ceil() them but that's okay
+//    as calcculations will already be done.

@@ -11,8 +11,8 @@ Emitter::Emitter(iPoint pos, float angle, float speed) : pos(pos), angle(angle),
 
 void Emitter::Update(float dt)
 {
-	int randSpeed = rand() % (50 - 200 + 1) + 50;
-	int randAngle = rand() % (0 - 360 + 1) + 0;
+	float randSpeed = rand() % (50 - 200 + 1) + 50;
+	float randAngle = rand() % (-45 - 45 + 1) + 45;
 	int randRadius = rand() % (5 - 25 + 1) + 5;
 
 	emitterPool.Generate(pos, randSpeed, randAngle, randRadius, 50);

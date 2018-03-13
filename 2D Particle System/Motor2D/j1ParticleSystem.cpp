@@ -32,24 +32,31 @@ bool j1ParticleSystem::Start()
 // This will depend on the way the emitter is organized in terms of
 // drawing and updating the particles with one or more methods.
 
+// if emitters have two separe methods for update and draw we would call
+// update on preUpdate and draw on Update
+
 bool j1ParticleSystem::PreUpdate()
 {
-	/*for (int i = 0; i < emitters.size(); i++)
-		if (emitters.at(i) != nullptr) emitters[i]->Update();*/
 
 	return true;
 }
 
 bool j1ParticleSystem::Update(float dt)
 {
+	for (int i = 0; i < emitters.size(); i++)
+	{
+		if (emitters.at(i) != nullptr)
+			emitters[i]->Update(dt);
+	}
+
 	return true;
 }
 
 bool j1ParticleSystem::PostUpdate()
 {
-	for (uint i = emitters.size() - 1; i >= 0 && !emitters.empty(); i--) 
+	for (int i = emitters.size() - 1; i >= 0 && !emitters.empty(); --i)
 	{
-		if (emitters[i]->to_destroy) 
+		if (emitters[i]->to_destroy)
 		{
 			delete(emitters[i]);
 			emitters[i] = nullptr;
@@ -63,6 +70,8 @@ bool j1ParticleSystem::PostUpdate()
 			}
 		}
 	}
+
+	return true;
 }
 
 bool j1ParticleSystem::CleanUp()
@@ -97,9 +106,9 @@ bool j1ParticleSystem::CleanUp()
 // For now, we wil stay with one to make sure it works. Then we
 // can add more.
 
-Emitter * j1ParticleSystem::AddEmiter(/*arguments for the constructor*/)
+Emitter * j1ParticleSystem::AddEmiter(iPoint pos, float angle, float speed)
 {
-	Emitter* tmp_emitter = nullptr;/*new Emitter(arguments for the constructor);*/
+	Emitter* tmp_emitter = new Emitter(pos, angle, speed);
 	emitters.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -131,8 +140,8 @@ bool j1ParticleSystem::RemoveAllEmitters()
 
 	return ret;
 }
-
-const SDL_Texture* j1ParticleSystem::GetParticleAtlas() const
+ 
+SDL_Texture* j1ParticleSystem::GetParticleAtlas() const
 {
 	return particleAtlas;
 }

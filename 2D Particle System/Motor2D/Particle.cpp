@@ -3,6 +3,7 @@
 #include "j1Render.h"
 #include "j1Window.h"
 #include "j1Textures.h"
+#include "j1ParticleSystem.h"
 #include "p2Log.h"
 #include <math.h>
 
@@ -46,7 +47,7 @@ void Particle::Draw()
 {
 	// TODO: control alpha value
 
-	App->render->Blit(pTexture, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
+	App->render->Blit(App->psystem->GetParticleAtlas(), pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
 
 	// Render circle
 	// App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);

@@ -41,10 +41,10 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	Emitter* AddEmiter();
+	Emitter* AddEmiter(iPoint pos, float angle, float speed);
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();
-	const SDL_Texture* GetParticleAtlas() const;
+	SDL_Texture* GetParticleAtlas() const;
 };
 
 #endif
