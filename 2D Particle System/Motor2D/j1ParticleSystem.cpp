@@ -61,13 +61,8 @@ bool j1ParticleSystem::PostUpdate()
 			delete(emitters[i]);
 			emitters[i] = nullptr;
 
-			if (!emitters.empty())
-				emitters.pop_back();
-			else
-			{
-				LOG("Error removing emitter.");
-				return false;
-			}
+			emitters.erase(emitters.cbegin() + i);
+			emitters.shrink_to_fit();
 		}
 	}
 
@@ -85,13 +80,8 @@ bool j1ParticleSystem::CleanUp()
 			delete emitters[i];
 			emitters[i] = nullptr;
 
-			if (!emitters.empty())
-				emitters.pop_back();
-			else
-			{
-				LOG("Error removing emitter.");
-				return false;
-			}
+			emitters.erase(emitters.cbegin() + i);
+			emitters.shrink_to_fit();
 		}
 	}
 
@@ -99,7 +89,7 @@ bool j1ParticleSystem::CleanUp()
 
 	App->tex->UnLoad(particleAtlas);
 	
-	return false;
+	return true;
 }
 
 // TODO: we should be able to add different types of emitters.
