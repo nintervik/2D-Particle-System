@@ -104,3 +104,10 @@ bool j1Scene::CleanUp()
 // 9. Remember that particle values should be floats no matter what. 
 //    We don't want to lose precision when multiplying by dt. Then Blit() will ceil() them but that's okay
 //    as calcculations will already be done.
+
+// Emitter rate
+// Blending modes
+// Alpha changing over time
+// Color changing over time
+// Random generator
+// Particles acceleration movement
