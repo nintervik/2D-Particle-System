@@ -106,6 +106,16 @@ bool j1Scene::CleanUp()
 //    as calcculations will already be done.
 
 // Emitter rate
+// Emitter shape
+// Emitter should be able to be active or not
+// Pool should be a dynamic array (vector) and you should be able to
+//   say with a parameter how big the pool is or the emission rate and then the pool size should 
+//   change according to that. Use allocate and shrink_to_fit methods in vector.
+// Read attributes from an xml. When setting an emitter you say "fire" and read from the xml the attributes
+// Emitters should be able to spaen other emitters
+// Emitters should be able to sapwn particle for a certain time and the stop for example.
+//   Or even change its type and then start sapwning another types of particles. So it's like
+//   a chain of emissions. Fire, explosion, smoke in a loop for example.
 // Blending modes
 // Alpha changing over time
 // Color changing over time
