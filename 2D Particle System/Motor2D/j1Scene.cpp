@@ -44,10 +44,6 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	float randSpeed = rand() % (50 - 200 + 1) + 50;
-	float randAngle = rand() % (-45 + 45 + 1) + 45;
-	int randLife = 50;
-	int randRadius = rand() % (5 - 25 + 1) + 5;
 
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
 	{
@@ -55,7 +51,7 @@ bool j1Scene::Update(float dt)
 	App->input->GetMousePosition(mx, my);
 	iPoint pos(mx, my);
 
-	testEmitter = App->psystem->AddEmiter(pos, randAngle, randSpeed);
+	testEmitter = App->psystem->AddEmiter(pos, 100, 20, 50, { 0.0f, 90.0f }, 200.0f, 45.0f);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
@@ -107,6 +103,7 @@ bool j1Scene::CleanUp()
 
 // Emitter rate
 // Emitter shape
+// Rect for textures in emitters
 // Emitter should be able to be active or not
 // Pool should be a dynamic array (vector) and you should be able to
 //   say with a parameter how big the pool is or the emission rate and then the pool size should 
@@ -117,6 +114,7 @@ bool j1Scene::CleanUp()
 // Emitters should be able to spawn particle for a certain time and the stop for example.
 //   Or even change its type and then start sapwning another types of particles. So it's like
 //   a chain of emissions. Fire, explosion, smoke in a loop for example. Do Start() and Stop() methods
+// Move() method for emitters! IMPORTANT
 // Blending modes
 // Alpha changing over time
 // Color changing over time

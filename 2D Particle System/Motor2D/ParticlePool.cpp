@@ -5,8 +5,10 @@
 //TODO: or maybe I sould use a vector instead
 
 // This pool constructer sets our particles to available
-ParticlePool::ParticlePool()
+ParticlePool::ParticlePool(Emitter* emitter)
 {
+	poolSize = emitter->GetPoolSize();
+
 	// The first particle is available
 	firstAvailable = &particles[0];
 

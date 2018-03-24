@@ -41,7 +41,7 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	Emitter* AddEmiter(iPoint pos, float angle, float speed);
+	Emitter* AddEmiter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize);
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();
 	SDL_Texture* GetParticleAtlas() const;

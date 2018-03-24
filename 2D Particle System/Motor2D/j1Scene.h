@@ -40,8 +40,6 @@ public:
 private:
 
 	// TODO: delete this
-
-	ParticlePool testParticle;
 	float randAngle[100];
 	float randSpeed[100];
 	int randLife[100];
