@@ -4,6 +4,7 @@
 #include "Particle.h"
 #include "Emitter.h"
 #include "p2Point.h"
+#include <vector>
 
 class Emitter;
 
@@ -13,6 +14,7 @@ private:
 	static const int POOL_SIZE = 100;
 	int poolSize = 0;
 	Particle particles[POOL_SIZE];
+	std::vector<Particle> particles_vec;
 	Particle* firstAvailable;
 
 public:

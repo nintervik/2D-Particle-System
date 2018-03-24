@@ -17,7 +17,6 @@ class Particle
 
 	uint life = 0, start_life = 0;
 
-	SDL_Texture* pTexture = nullptr;
 	SDL_Rect pRect;
 
 	union ParticleInfo

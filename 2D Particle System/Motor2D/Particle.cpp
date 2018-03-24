@@ -13,9 +13,6 @@ Particle::Particle():life(0), start_life(0)
 	// types inside a vector in the ParticleSystem. We could even do an enum type for each 
 	// texture. Also, we could store each texture inside each emitter class.
 
-	if (App != nullptr)
-		pTexture = App->tex->Load("textures/particle.png");
-
 	pRect.x = 0;
 	pRect.y = 0;
 	pRect.w = 32;
