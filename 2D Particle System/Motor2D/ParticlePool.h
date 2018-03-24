@@ -11,10 +11,9 @@ class Emitter;
 class ParticlePool
 {
 private:
-	static const int POOL_SIZE = 100;
+	static const int POOL_SIZE = 6000;
 	int poolSize = 0;
 	Particle particles[POOL_SIZE];
-	std::vector<Particle> particles_vec;
 	Particle* firstAvailable;
 
 public:

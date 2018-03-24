@@ -51,7 +51,7 @@ bool j1Scene::Update(float dt)
 	App->input->GetMousePosition(mx, my);
 	iPoint pos(mx, my);
 
-	testEmitter = App->psystem->AddEmiter(pos, 100, 20, 50, { 0.0f, 90.0f }, 200.0f, 45.0f);
+	testEmitter = App->psystem->AddEmiter(pos, 1, 5, 50, { 0.0f, 90.0f }, 200.0f, 45.0f);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)

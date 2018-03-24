@@ -28,7 +28,14 @@ void Emitter::Update(float dt)
 	float randRadius = maxSize * RangeRandomNum(0.0f, 1.0f);
 
 	// TODO: do a for loop according to emisionRate to generate as many particles as needed
-	emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife);
+	// This calculations should be float and then ceil
+
+	emissionRate = emitNumber + emitVariance * RangeRandomNum();
+	for (int i = 0; i <= emissionRate; i++)
+	{
+		emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife);
+	}
+
 	emitterPool->Update(dt);
 
 }

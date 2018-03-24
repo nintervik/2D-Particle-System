@@ -25,12 +25,12 @@ class Particle
 		// it's being update (it's still alive).
 		struct ParticleState
 		{
-			iPoint pos = { 0, 0 };
-			iPoint vel = { 0, 0 };
-			float radius = 0.0f, start_radius = 0.0f;
-			float ageRatio = 0.0f;
-			int alpha = 0;
-			float angle = 0.0f;
+			iPoint pos;
+			iPoint vel;
+			float radius, start_radius;
+			float ageRatio;
+			int alpha;
+			float angle;
 
 			ParticleState() {}
 
@@ -52,9 +52,7 @@ class Particle
 
 	void Update(float dt);
 
-	// TODO: this shoudl require a texture
-
-	void Draw(/*SDL_Texture* texture*/);
+	void Draw();
 
 	bool IsAlive();
 
