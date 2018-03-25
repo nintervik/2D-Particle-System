@@ -2,8 +2,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-// TODO: emitter should inherit from j1Module...
-
 Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize)
 { 
 	srand(time(NULL));
@@ -19,6 +17,12 @@ Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 
 	emitterPool = new ParticlePool(this);
 
+}
+
+Emitter::~Emitter()
+{
+	delete emitterPool;
+	emitterPool = nullptr;
 }
 
 void Emitter::Update(float dt)
@@ -42,7 +46,7 @@ void Emitter::Update(float dt)
 
 void Emitter::Draw(SDL_Texture * texture)
 {
-	
+	// TODO: draw here?
 }
 
 float Emitter::RangeRandomNum(float min, float max)

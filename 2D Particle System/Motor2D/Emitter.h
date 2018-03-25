@@ -44,6 +44,7 @@ public:
 	//TODO: add emissionRate to constuctor
 
 	Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize);
+	virtual ~Emitter();
 	
 	void Update(float dt);
 	void Draw(SDL_Texture* texture);

@@ -9,6 +9,11 @@ ParticlePool::ParticlePool(Emitter* emitter)
 {
 	poolSize = emitter->GetPoolSize();
 
+	for (int i = 0; i < poolSize; i++)
+		vec.push_back(new Particle());
+
+	vec.shrink_to_fit();
+
 	// The first particle is available
 	firstAvailable = &particles[0];
 
@@ -21,6 +26,19 @@ ParticlePool::ParticlePool(Emitter* emitter)
 	// The last particles points to nullptr indicating the end of the list
 	particles[POOL_SIZE - 1].SetNext(nullptr);
 
+}
+
+ParticlePool::~ParticlePool()
+{
+	std::vector<Particle*>::const_iterator it_particle = this->vec.begin();
+
+	while (it_particle != this->vec.end()) 
+	{
+		delete *it_particle;
+		it_particle++;
+	}
+
+	vec.clear();
 }
 
 void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_radius, uint life)
@@ -51,4 +69,9 @@ void ParticlePool::Update(float dt)
 			firstAvailable = &particles[i];
 		}
 	}
+}
+
+void CleanParticles()
+{
+
 }

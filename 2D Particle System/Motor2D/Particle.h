@@ -42,6 +42,7 @@ class Particle
 		// particle after this one.
 		Particle* next;
 
+
 		ParticleInfo() {}
 	} pState;
 

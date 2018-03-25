@@ -62,18 +62,30 @@ bool j1ParticleSystem::PostUpdate()
 			emitters[i] = nullptr;
 
 			emitters.erase(emitters.cbegin() + i);
-			emitters.shrink_to_fit();
 		}
 	}
+
+	emitters.shrink_to_fit();
 
 	return true;
 }
 
+// TODO: check inputcombo cleanup
 bool j1ParticleSystem::CleanUp()
 {
 	LOG("Freeing emitters from the system.");
 
-	for (int i = 0; i < emitters.size(); i++)
+	std::vector<Emitter*>::const_iterator itEmitter = this->emitters.begin();
+
+	while (itEmitter!= this->emitters.end())
+	{
+		delete *itEmitter;
+		itEmitter++;
+	}
+
+	emitters.clear();
+
+	/*for (int i = 0; i < emitters.size(); i++)
 	{
 		if (emitters[i] != nullptr)
 		{
@@ -81,12 +93,10 @@ bool j1ParticleSystem::CleanUp()
 			emitters[i] = nullptr;
 
 			emitters.erase(emitters.cbegin() + i);
-			emitters.shrink_to_fit();
 		}
-	}
+	}*/
 
 	emitters.clear();
-
 	App->tex->UnLoad(particleAtlas);
 	
 	return true;
