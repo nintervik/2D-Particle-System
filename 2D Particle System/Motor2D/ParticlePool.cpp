@@ -4,16 +4,28 @@
 //TODO: maybe pool size could be an argument in the constructor
 //TODO: or maybe I sould use a vector instead
 
-// This pool constructer sets our particles to available
+// This pool constructor sets our particles to available
 ParticlePool::ParticlePool(Emitter* emitter)
 {
 	poolSize = emitter->GetPoolSize();
 
 	for (int i = 0; i < poolSize; i++)
-		vec.push_back(new Particle());
+		particlesVec.push_back(new Particle());
 
-	vec.shrink_to_fit();
+	particlesVec.shrink_to_fit();
 
+	// The first particle is available
+	firstAvailable = particlesVec[0];
+
+	// Each particle points to the next one
+	for (int i = 0; i < poolSize - 1; i++)
+		particlesVec[i]->SetNext(particlesVec[i + 1]);
+
+	// The last particles points to nullptr indicating the end of the list
+	particlesVec[poolSize - 1]->SetNext(nullptr);
+
+	// --- Original code
+	/*
 	// The first particle is available
 	firstAvailable = &particles[0];
 
@@ -26,19 +38,21 @@ ParticlePool::ParticlePool(Emitter* emitter)
 	// The last particles points to nullptr indicating the end of the list
 	particles[POOL_SIZE - 1].SetNext(nullptr);
 
+	*/
+
 }
 
 ParticlePool::~ParticlePool()
 {
-	std::vector<Particle*>::const_iterator it_particle = this->vec.begin();
+	std::vector<Particle*>::const_iterator it_particle = this->particlesVec.begin();
 
-	while (it_particle != this->vec.end()) 
+	while (it_particle != this->particlesVec.end()) 
 	{
 		delete *it_particle;
 		it_particle++;
 	}
 
-	vec.clear();
+	particlesVec.clear();
 }
 
 void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_radius, uint life)
@@ -55,6 +69,23 @@ void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_ra
 
 void ParticlePool::Update(float dt)
 {
+	for (int i = 0; i < poolSize; i++)
+	{
+		if (particlesVec[i]->IsAlive())
+		{
+			particlesVec[i]->Update(dt);
+			particlesVec[i]->Draw();
+		}
+		else // if a particle dies it becomes the first available one in the pool
+		{
+			// Add this particle to the front of the list
+			particlesVec[i]->SetNext(firstAvailable);
+			firstAvailable = particlesVec[i];
+		}
+	}
+
+	// Original code
+	/*
 	for (int i = 0; i < POOL_SIZE; i++)
 	{
 		if (particles[i].IsAlive())
@@ -69,9 +100,5 @@ void ParticlePool::Update(float dt)
 			firstAvailable = &particles[i];
 		}
 	}
-}
-
-void CleanParticles()
-{
-
+	*/
 }

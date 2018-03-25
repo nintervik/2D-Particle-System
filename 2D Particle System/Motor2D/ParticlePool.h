@@ -15,7 +15,7 @@ private:
 	int poolSize = 0;
 	Particle particles[POOL_SIZE];
 	Particle* firstAvailable;
-	std::vector<Particle*> vec;
+	std::vector<Particle*> particlesVec;
 
 public:
 	ParticlePool(Emitter* emitter);
