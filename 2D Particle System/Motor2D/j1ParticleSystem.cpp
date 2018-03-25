@@ -96,7 +96,6 @@ bool j1ParticleSystem::CleanUp()
 		}
 	}*/
 
-	emitters.clear();
 	App->tex->UnLoad(particleAtlas);
 	
 	return true;
