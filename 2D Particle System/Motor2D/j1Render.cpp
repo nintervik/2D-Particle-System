@@ -122,13 +122,11 @@ void j1Render::ResetViewPort()
 	SDL_RenderSetViewport(renderer, &viewport);
 }
 
-// Blit to screen
-bool j1Render::Blit(SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, float speed, double angle, int pivot_x, int pivot_y) const
+// Blit particle to screen
+bool j1Render::BlitParticle(SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, float speed, double angle, int pivot_x, int pivot_y) const
 {
 	bool ret = true;
 	uint scale = App->win->GetScale();
-
-	
 
 	SDL_Rect rect;
 	rect.x = (int)(camera.x * speed) + x * scale;
