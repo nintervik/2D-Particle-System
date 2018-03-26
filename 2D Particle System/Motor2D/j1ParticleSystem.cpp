@@ -43,10 +43,21 @@ bool j1ParticleSystem::PreUpdate()
 
 bool j1ParticleSystem::Update(float dt)
 {
+	// old code
+	/*
 	for (int i = 0; i < emitters.size(); i++)
 	{
 		if (emitters.at(i) != nullptr)
 			emitters[i]->Update(dt);
+	}
+	*/
+
+	std::list<Emitter*>::const_iterator it;
+
+	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	{
+		if ((*it) != nullptr)
+			(*it)->Update(dt);
 	}
 
 	return true;
@@ -54,6 +65,20 @@ bool j1ParticleSystem::Update(float dt)
 
 bool j1ParticleSystem::PostUpdate()
 {
+
+	std::list<Emitter*>::const_iterator it;
+
+	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	{
+		if ((*it)->to_destroy)
+		{
+			delete (*it);
+			emittersList.erase(it);
+		}
+	}
+
+	//old code
+	/*
 	for (int i = emitters.size() - 1; i >= 0 && !emitters.empty(); --i)
 	{
 		if (emitters[i]->to_destroy)
@@ -66,6 +91,7 @@ bool j1ParticleSystem::PostUpdate()
 	}
 
 	emitters.shrink_to_fit();
+	*/
 
 	return true;
 }
@@ -75,7 +101,18 @@ bool j1ParticleSystem::CleanUp()
 {
 	LOG("Freeing emitters from the system.");
 
-	std::vector<Emitter*>::const_iterator itEmitter = this->emitters.begin();
+	std::list<Emitter*>::const_iterator it;
+
+	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	{
+		if ((*it) != nullptr)
+			delete (*it);
+	}
+
+	emittersList.clear();
+	App->tex->UnLoad(particleAtlas);
+
+	/*std::vector<Emitter*>::const_iterator itEmitter = this->emitters.begin();
 
 	while (itEmitter!= this->emitters.end())
 	{
@@ -83,7 +120,7 @@ bool j1ParticleSystem::CleanUp()
 		itEmitter++;
 	}
 
-	emitters.clear();
+	emitters.clear();*/
 
 	/*for (int i = 0; i < emitters.size(); i++)
 	{
@@ -96,7 +133,7 @@ bool j1ParticleSystem::CleanUp()
 		}
 	}*/
 
-	App->tex->UnLoad(particleAtlas);
+
 	
 	return true;
 }
@@ -108,13 +145,26 @@ bool j1ParticleSystem::CleanUp()
 Emitter * j1ParticleSystem::AddEmiter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize)
 {
 	Emitter* tmp_emitter = new Emitter(pos, emitNumber, emitVariance, maxParticleLife, angleRange, maxSpeed, maxSize);
-	emitters.push_back(tmp_emitter);
+	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
 }
 
 bool j1ParticleSystem::RemoveEmitter(Emitter & emitter)
 {
+	std::list<Emitter*>::const_iterator it;
+
+	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	{
+
+		if ((*it) == &emitter)
+		{
+			(*it)->to_destroy = true;
+			return true;
+		}
+	}
+
+	/*
 	for (uint i = 0; i < emitters.size(); i++) 
 	{
 		if (emitters.at(i) == &emitter) 
@@ -122,7 +172,7 @@ bool j1ParticleSystem::RemoveEmitter(Emitter & emitter)
 			emitters[i]->to_destroy = true;
 			return true;
 		}
-	}
+	}*/
 
 	return false;
 }
@@ -131,11 +181,19 @@ bool j1ParticleSystem::RemoveAllEmitters()
 {
 	bool ret = false;
 
-	for (uint i = 0; i < emitters.size(); i++) 
+	std::list<Emitter*>::const_iterator it;
+
+	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	{
+		if ((*it) != nullptr) (*it)->to_destroy = true;
+		ret = true;
+	}
+
+	/*for (uint i = 0; i < emitters.size(); i++) 
 	{
 		if (emitters.at(i) != nullptr) emitters[i]->to_destroy = true;
 		ret = true;
-	}
+	}*/
 
 	return ret;
 }

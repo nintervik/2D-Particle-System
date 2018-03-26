@@ -5,6 +5,7 @@
 #include "j1Module.h"
 #include "Emitter.h"
 #include <vector>
+#include <list>
 
 class Emitter;
 struct SDL_Texture;
@@ -14,6 +15,7 @@ class j1ParticleSystem : public j1Module
 private:
 
 	std::vector<Emitter*> emitters;
+	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
 	
 public:
