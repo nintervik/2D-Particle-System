@@ -29,7 +29,7 @@ class Particle
 			iPoint vel;
 			float radius, start_radius;
 			float ageRatio;
-			int alpha;
+			uint alpha;
 			float angle;
 
 			ParticleState() {}

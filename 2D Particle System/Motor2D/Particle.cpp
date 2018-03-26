@@ -33,8 +33,9 @@ void Particle::Update(float dt)
 	life--;
 
 	pState.pLive.ageRatio = (float)this->life / (float)this->start_life;
-	pState.pLive.radius = pState.pLive.start_radius * pState.pLive.ageRatio;
 	pState.pLive.alpha = (int)(pState.pLive.ageRatio * 255.0f);
+	pState.pLive.radius = pState.pLive.start_radius * pState.pLive.ageRatio;
+	pState.pLive.alpha = (uint)(pState.pLive.ageRatio * 255.0f);
 
 	pState.pLive.pos.x += pState.pLive.vel.x * dt;
 	pState.pLive.pos.y += pState.pLive.vel.y * dt;
@@ -44,7 +45,7 @@ void Particle::Draw()
 {
 	// TODO: control alpha value
 
-	App->render->Blit(App->psystem->GetParticleAtlas(), pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
+	App->render->Blit(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
 
 	// Render circle
 	// App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);

@@ -123,7 +123,7 @@ void j1Render::ResetViewPort()
 }
 
 // Blit to screen
-bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section, float speed, double angle, int pivot_x, int pivot_y) const
+bool j1Render::Blit(SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, float speed, double angle, int pivot_x, int pivot_y) const
 {
 	bool ret = true;
 	uint scale = App->win->GetScale();
@@ -161,7 +161,7 @@ bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section,
 	// The methods below should be error proof! Remeber to check for errors!
 	
 	SDL_SetTextureColorMod(texture, 255, 100, 0);
-	SDL_SetTextureAlphaMod(texture, 50);
+	SDL_SetTextureAlphaMod(texture, alpha);
 	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_ADD);
 
 
