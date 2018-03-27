@@ -1,8 +1,8 @@
 theme: jekyll-theme-cayman
 
-title: [2D Particle System]
+title: [2wD Particle System]
 description: [A tutorial on how to implement a 2D particle system in computer graphics]
 show_downloads: ["true"]
 
 github:
-  another_url: another https://www.google.es/?gfe_rd=cr&dcr=0&ei=Nae6WpjKJImaX8SwkcAK
+  another_url: https://github.com/nintervik/Temple-Escape/releases/download/v1.0/Temple-Escape.zip
