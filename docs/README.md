@@ -54,7 +54,7 @@ This is a spritesheet of a fire caused by a a bomb in Gunbird (Psiskyo, 1994):
 
 You start to see the problem now right? What if the game is too complex to do it by a hand or is actually a 3D game? Well, that's when particle systems come into play.
 
-+A particle system is a structure that allows you to simulate particles of different types in an organic way with the advantage of tweaking the system to get the exact results you want very quickly and without effort. And the best part: you don’t have to draw any of these particles. You just need a base texture and that’s all. The system will be in charge of rendering the particles, the effects (such as glowing), physics calculations, emission rate and so on. You don't need to worry about anything, just playing around with it to get what you want.
+A particle system is a structure that allows you to simulate particles of different types in an organic way with the advantage of tweaking the system to get the exact results you want very quickly and without effort. And the best part: you don’t have to draw any of these particles. You just need a base texture and that’s all. The system will be in charge of rendering the particles, the effects (such as glowing), physics calculations, emission rate and so on. You don't need to worry about anything, just playing around with it to get what you want.
 
 -	Talk about Unity approach here and other systems like in Star Treck ( a bit of history)
 -	Talk about what we are going to do
