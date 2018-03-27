@@ -24,7 +24,6 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-
 	return true;
 }
 

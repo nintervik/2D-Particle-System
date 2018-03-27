@@ -23,7 +23,7 @@ bool j1ParticleSystem::Awake(pugi::xml_node &)
 
 bool j1ParticleSystem::Start()
 {
-	particleAtlas = App->tex->Load("textures/particle.png");
+	particleAtlas = App->tex->Load("textures/particles_sample.png");
 
 	return true;
 }
