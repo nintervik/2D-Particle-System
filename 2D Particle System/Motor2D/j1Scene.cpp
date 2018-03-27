@@ -1,13 +1,7 @@
-#include "p2Defs.h"
-#include "p2Log.h"
 #include "j1App.h"
 #include "j1Input.h"
-#include "j1Textures.h"
-//#include "j1Audio.h"
-#include "j1Render.h"
-#include "j1Window.h"
 #include "j1Scene.h"
-#include <time.h>
+#include "p2Log.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -30,7 +24,6 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	srand(time(NULL));
 
 	return true;
 }
@@ -77,8 +70,6 @@ bool j1Scene::PostUpdate()
 bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
-
-	std::list<Emitter*>::reverse_iterator it;
 
 	testEmitter = nullptr;
 

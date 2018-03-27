@@ -2,14 +2,11 @@
 #include "j1App.h"
 #include "j1Render.h"
 #include "j1ParticleSystem.h"
+#include "p2Defs.h"
 
 
 Particle::Particle():life(0), start_life(0) 
 {
-	// TODO: particle should recieve a texture to load. Maybe we could store particle texture
-	// types inside a vector in the ParticleSystem. We could even do an enum type for each 
-	// texture. Also, we could store each texture inside each emitter class.
-
 	pRect.x = 0;
 	pRect.y = 0;
 	pRect.w = 32;
@@ -41,9 +38,6 @@ void Particle::Update(float dt)
 void Particle::Draw()
 {
 	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
-
-	// Render circle
-	// App->render->DrawCircle(pState.pLive.pos.x, pState.pLive.pos.y, ceil(pState.pLive.radius), 255, 0, 0, pState.pLive.alpha, true);
 }
 
 bool Particle::IsAlive()

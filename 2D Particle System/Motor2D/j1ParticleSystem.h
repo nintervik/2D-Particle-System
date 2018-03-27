@@ -4,7 +4,6 @@
 #include "p2Point.h"
 #include "j1Module.h"
 #include "Emitter.h"
-#include <vector>
 #include <list>
 
 class Emitter;
@@ -14,7 +13,6 @@ class j1ParticleSystem : public j1Module
 {
 private:
 
-	std::vector<Emitter*> emitters;
 	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
 	
@@ -43,6 +41,7 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	// Emitter methods
 	Emitter* AddEmiter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize);
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();

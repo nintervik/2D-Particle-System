@@ -28,16 +28,8 @@ bool j1ParticleSystem::Start()
 	return true;
 }
 
-// TODO: need to figure out if only call update or also preupdate.
-// This will depend on the way the emitter is organized in terms of
-// drawing and updating the particles with one or more methods.
-
-// if emitters have two separe methods for update and draw we would call
-// update on preUpdate and draw on Update
-
 bool j1ParticleSystem::PreUpdate()
 {
-
 	return true;
 }
 
@@ -96,7 +88,6 @@ bool j1ParticleSystem::PostUpdate()
 	return true;
 }
 
-// TODO: check inputcombo cleanup
 bool j1ParticleSystem::CleanUp()
 {
 	LOG("Freeing emitters from the system.");

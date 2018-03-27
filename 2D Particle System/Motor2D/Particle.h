@@ -5,11 +5,8 @@
 #include "Particle.h"
 #include "SDL/include/SDL.h"
 
-#define PI 3.14159265359f
-#define DEG_TO_RAD(a) a * PI / 180.0f
-#define RAD_TO_DEG(a) a * 180.0f / PI
-
 struct SDL_Texture;
+
 
 class Particle
 {
@@ -42,7 +39,6 @@ class Particle
 		// particle after this one.
 		Particle* next;
 
-
 		ParticleInfo() {}
 	} pState;
 
@@ -52,7 +48,6 @@ class Particle
 	void Init(iPoint pos, float speed, float angle, float start_radius, uint life);
 
 	void Update(float dt);
-
 	void Draw();
 
 	bool IsAlive();
