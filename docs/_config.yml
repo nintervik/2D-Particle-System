@@ -1,8 +1,8 @@
 theme: jekyll-theme-cayman
 
-title: [The title of your site]
-description: [A short description of your site's purpose]
+title: [2D Partcile System]
+description: [A tutorial on how to implement a 2D particle system in computer graphics]
 
 github:
-  zip_url: http://example.com/download.zip
-  another_url: another value
+  zip_url: https://github.com/SoftCactusTeam/Warcraft-Heroes-Beyond-Time/releases/download/Warcraft-Heroes-Beyond-Time-v0.74/Warcraft_Heroes_Beyond_Time.zip
+  
