@@ -4,7 +4,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 > Download the latest release [here](https://github.com/nintervik/2D-Particle-System/releases)
 
-# [Heading Link](#Index)
+[create an anchor](#anchors-in-markdown)
 
 ***
 
