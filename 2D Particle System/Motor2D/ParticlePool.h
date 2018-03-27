@@ -11,15 +11,16 @@ class Emitter;
 class ParticlePool
 {
 private:
-	static const int POOL_SIZE = 6000;
+	
 	int poolSize = 0;
-	Particle particles[POOL_SIZE];
 	Particle* firstAvailable;
 	std::vector<Particle*> particlesVec;
 
 public:
+
 	ParticlePool(Emitter* emitter);
 	virtual ~ParticlePool();
+
 	void Generate(iPoint pos, float speed, float angle, float start_radius, uint life);
 	void Update(float dt);
 };

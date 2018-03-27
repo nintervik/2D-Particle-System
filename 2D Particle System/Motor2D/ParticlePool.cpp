@@ -1,12 +1,12 @@
 #include "ParticlePool.h"
 #include <assert.h>
 
-//TODO: maybe pool size could be an argument in the constructor
-//TODO: or maybe I sould use a vector instead
 
 // This pool constructor sets our particles to available
 ParticlePool::ParticlePool(Emitter* emitter)
 {
+	// Fill the pool according to poolSize needed for the emitter
+
 	poolSize = emitter->GetPoolSize();
 
 	for (int i = 0; i < poolSize; i++)
@@ -78,7 +78,7 @@ void ParticlePool::Update(float dt)
 		}
 		else // if a particle dies it becomes the first available one in the pool
 		{
-			// Add this particle to the front of the list
+			// Add this particle to the front of the vector
 			particlesVec[i]->SetNext(firstAvailable);
 			firstAvailable = particlesVec[i];
 		}
