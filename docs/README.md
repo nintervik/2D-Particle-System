@@ -60,5 +60,5 @@ You start to see the problem now right? What if the game is too complex to do it
 -	Talk about what we are going to do
 
 
-This is very nice, but first we have toi build the system in order to use it. So let's get to work!
+This is very nice, but first we must build the system in order to use it. So let's get to work!
 
