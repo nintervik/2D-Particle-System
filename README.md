@@ -2,7 +2,7 @@
 
 A 2D Particle system done with C++ and SDL 2.0
 
-* [Github repository]()  
+* [Github repository](https://github.com/nintervik/2D-Particle-System)  
 * [Website](https://nintervik.github.io/2D-Particle-System/)
 * [Latest release](https://github.com/nintervik/2D-Particle-System/releases)
 
@@ -14,7 +14,7 @@ _IMPORTANT: do not modify, change or add any folder or file as you might not be 
 
 ## Controls
 
-### Keyboard:
+### Keyboard and mouse:
 
 - Right click to create a emitter
 - Enter to remove all emitters
