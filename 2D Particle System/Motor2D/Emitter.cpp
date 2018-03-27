@@ -1,22 +1,25 @@
 #include "Emitter.h"
 #include <time.h>
-#include <stdlib.h>
+
 
 Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize)
 { 
 	srand(time(NULL));
+	
 	this->angleRange = angleRange;
 	this->maxSpeed = maxSpeed;
 	this->maxSize = maxSize;
 	this->pos = pos;
+
+	// Particle emission calculations
 	this->emitNumber = emitNumber;
 	this->emitVariance = emitVariance;
 	this->maxParticleLife = maxParticleLife;
 	maxParticlesPerFrame = emitNumber + emitVariance;
+
+	// Particles pool 
 	poolSize = maxParticlesPerFrame * maxParticleLife;
-
 	emitterPool = new ParticlePool(this);
-
 }
 
 Emitter::~Emitter()
@@ -34,19 +37,15 @@ void Emitter::Update(float dt)
 	// TODO: do a for loop according to emisionRate to generate as many particles as needed
 	// This calculations should be float and then ceil
 
+	// Particle generation from pool
+
 	emissionRate = emitNumber + emitVariance * RangeRandomNum();
+	
 	for (int i = 0; i <= emissionRate; i++)
-	{
 		emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife);
-	}
-
+	
+	// Updating particles in the pool
 	emitterPool->Update(dt);
-
-}
-
-void Emitter::Draw(SDL_Texture * texture)
-{
-	// TODO: draw here?
 }
 
 float Emitter::RangeRandomNum(float min, float max)

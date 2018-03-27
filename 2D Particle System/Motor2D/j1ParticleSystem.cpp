@@ -70,7 +70,7 @@ bool j1ParticleSystem::PostUpdate()
 
 	for (it = emittersList.begin(); it != emittersList.end(); ++it)
 	{
-		if ((*it)->to_destroy)
+		if ((*it)->toDestroy)
 		{
 			delete (*it);
 			emittersList.erase(it);
@@ -159,7 +159,7 @@ bool j1ParticleSystem::RemoveEmitter(Emitter & emitter)
 
 		if ((*it) == &emitter)
 		{
-			(*it)->to_destroy = true;
+			(*it)->toDestroy = true;
 			return true;
 		}
 	}
@@ -185,7 +185,7 @@ bool j1ParticleSystem::RemoveAllEmitters()
 
 	for (it = emittersList.begin(); it != emittersList.end(); ++it)
 	{
-		if ((*it) != nullptr) (*it)->to_destroy = true;
+		if ((*it) != nullptr) (*it)->toDestroy = true;
 		ret = true;
 	}
 

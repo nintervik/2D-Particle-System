@@ -1,11 +1,8 @@
 #include "Particle.h"
 #include "j1App.h"
 #include "j1Render.h"
-#include "j1Window.h"
-#include "j1Textures.h"
 #include "j1ParticleSystem.h"
-#include "p2Log.h"
-#include <math.h>
+
 
 Particle::Particle():life(0), start_life(0) 
 {
@@ -43,8 +40,6 @@ void Particle::Update(float dt)
 
 void Particle::Draw()
 {
-	// TODO: control alpha value
-
 	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
 
 	// Render circle
@@ -56,12 +51,12 @@ bool Particle::IsAlive()
 	return (life > 0);
 }
 
-Particle * Particle::GetNext()
+Particle* Particle::GetNext()
 {
 	return pState.next;
 }
 
-void Particle::SetNext(Particle * next)
+void Particle::SetNext(Particle* next)
 {
 	pState.next = next;
 }
