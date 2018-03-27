@@ -44,7 +44,15 @@ This example is very simple but sprites can become complex...
 
 ...a lot actually...
 
-![ms](https://user-images.githubusercontent.com/25589509/37985384-e2391592-31f8-11e8-9e6c-2beec9a12e26.png)
+![sm](https://user-images.githubusercontent.com/25589509/37985996-9ec846b4-31fa-11e8-91b0-44b38edd1c7c.jpg)
+
+So, what happens when we need something more organic, more chaotic; like a fire, a smoke, a fog, fireworks, snow… Yes, you’ve guessed it. It has to be drawn by hand by the artist. If the game has a low-res pixel art style it may not be a problem, but as the game becomes more detailed natural elements are more difficult to reproduce and if you have to timeline for your project this is a problem. 
+
+This is a spritesheet of a fire caused bya a bomb in Gunbird (Psiskyo, 1994):
+
+![tetsu_explosion_death](https://user-images.githubusercontent.com/25589509/37986157-0dd24af0-31fb-11e8-9aa3-6d9906ec676c.png)
+
+You start to see the problem now right? What if the game is too complex to do it by a hand or is actually a 3D game? Well, that's when particle systems comes into play.
 
 
 
