@@ -19,7 +19,7 @@ In this website I will explain what it is, how it works and how to program a 2D 
 
 There are three main things that I will be focused on for this tutorial:
 - **Generic and understandable.** Anyone, regardless of the lanaguage they're using or purpose should be able to understand the concepts and implement his own particle system from the information here presented. The system should be generic enough to be implemented in any project without almost any modification.
-- **Good performance.** Particles can really affect framerate and performance so it's important to manage in an optimized way. That's something we will take care of.
+- **Good performance.** Particles can really affect framerate and performance so optimization is key. That's something we will take care of.
 - **Well structured, robust and flexible system.** If you have a good structure, building new particle effects on top of it is not very difficult; it's just about adding and tweaking a few parameters. But the base underneath must be solid and work properly. This system should be flexible enough to develop new and more complex features on top of it.
 
 Be aware that this web page is focused on the structure and behaviour of a 2D particle system but it assumes you have a base program loop and can render textures on screen at least. However, we will talk about the render part only for particle effects purposes, not the actual rendering of the texture.
