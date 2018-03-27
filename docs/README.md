@@ -1,4 +1,4 @@
-﻿# **2D Particle System** 
+# **2D Particle System** 
 
 I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/), student of the [Bachelor’s Degree in Video Games by UPC at CITM](https://www.citm.upc.edu/ing/estudis/graus-videojocs/). This content is generated for the second year’s subject Project 2, under supervision of lecturer [Ricard Pillosu](https://es.linkedin.com/in/ricardpillosu).
 
@@ -11,7 +11,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 * [Introduction](https://nintervik.github.io/2D-Particle-System/#introduction)
 * [What is a Particle System and why do we care?](https://nintervik.github.io/2D-Particle-System/#what-is-a-particle-system-and-why-do-we-care)
 * [A bit of history](https://nintervik.github.io/2D-Particle-System/#a-bit-of-history)
-* [Our approuch](https://nintervik.github.io/2D-Particle-System/#our-approuch)
+* [Our approach](https://nintervik.github.io/2D-Particle-System/#our-approach)
 * [References](https://nintervik.github.io/2D-Particle-System/#references)
 * [License](https://nintervik.github.io/2D-Particle-System/#license)
 
