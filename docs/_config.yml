@@ -3,6 +3,3 @@ theme: jekyll-theme-cayman
 title: [2D Particle System]
 description: [A tutorial on how to implement a 2D particle system in computer graphics]
 show_downloads: ["true"]
-
-github:
-  zip_url: https://github.com/SoftCactusTeam/Warcraft-Heroes-Beyond-Time/releases/download/Warcraft-Heroes-Beyond-Time-v0.74/Warcraft_Heroes_Beyond_Time.zip
