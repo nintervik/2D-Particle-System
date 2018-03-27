@@ -32,4 +32,19 @@ Well, without further delay let's get into playing with these particles!
 
 ## **What is a Particle System and why do we care?**
 
-Back in the old days...
+What is a particle system and why do we need one? Well, first let’s dig a bit into computer graphics stuff.
+
+If you have programmed games or computer graphics related stuff is quite common to work with sprites and sprites sheets. For those unfamiliar with this term, a sprite is simply a two-dimensional bitmap used to be displayed on the screen. It is used especially in 2D videogames to render both static and animated elements of the game. It’s also very frequent to find them as a pixel art form. To save memory they are normally grouped into a same bitmap called sprite sheet. Down below there’s an example of a sprite sheet of Fire Man from the NES Mega Man game:
+
+![77885](https://user-images.githubusercontent.com/25589509/37985238-841e7f38-31f8-11e8-96fe-99673a9012c1.png)
+
+This example is very simple but sprites can become complex...
+
+![super_sonic_1_sprite_sheet_by_winstontheechidna-dbhwb26](https://user-images.githubusercontent.com/25589509/37985355-cfefc1a6-31f8-11e8-8be3-9c2be803dc9e.png)
+
+...a lot actually...
+
+![ms](https://user-images.githubusercontent.com/25589509/37985384-e2391592-31f8-11e8-9e6c-2beec9a12e26.png)
+
+
+
