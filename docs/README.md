@@ -32,7 +32,7 @@ Another important thing that I want to remark is that the way I'm going to expla
 
 Well, without further delay let's get into playing with these particles!
 
-[Back to index](https://nintervik.github.io/2D-Particle-System/#index)
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
@@ -62,7 +62,7 @@ You start to see the problem now right? What if the game is too complex to do it
 
 A particle system is a structure that allows you to simulate particles of different types in an organic way with the advantage of just tweaking some particle properties to get the exact results you want very quickly and without effort. And the best part: you don’t have to draw any of these particles. You just need a base texture and that’s all. The system will be in charge of rendering the particles, the effects (such as glowing), physics calculations, emission rate and so on. You don't need to worry about anything, just playing around with it to get what you want.
 
-[Back to index](https://nintervik.github.io/2D-Particle-System/#index)
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
@@ -72,7 +72,7 @@ A particle system is a structure that allows you to simulate particles of differ
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
-[Back to index](https://nintervik.github.io/2D-Particle-System/#index)
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
@@ -80,13 +80,13 @@ This is very nice, but first we must build the system in order to use it. So let
 
 -	Talk about what we are going to do (2D, not 3D!)
 
-[Back to index](https://nintervik.github.io/2D-Particle-System/#index)
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
 ## **References**
 
-[Back to index](https://nintervik.github.io/2D-Particle-System/#index)
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 
 ***
@@ -94,4 +94,4 @@ This is very nice, but first we must build the system in order to use it. So let
 ## **License**
 
 
-[Back to index](https://nintervik.github.io/2D-Particle-System/#index)
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
