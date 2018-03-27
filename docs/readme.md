@@ -15,7 +15,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ## **Introduction**
 
-In this website I will explain what it is, how it works and how to program a 2D Particle System in computer graphics. The system will be programmed in C++ using Visual Studio 2017 as IDE and SDL 2.0 to render the graphics. The end goal of the tutorial is to success on creating a fire and smoke effect.
+In this website I will explain what it is, how it works and how to program a 2D Particle System in computer graphics. The system will be programmed in C++ using [Visual Studio 2017]( https://www.visualstudio.com/es/downloads/?rr=https%3A%2F%2Fwww.google.es%2F) as IDE, [SDL 2.0](https://www.libsdl.org/download-2.0.php) to render the graphics and [pugixml](https://pugixml.org/) for data parsing. The end goal of the tutorial is to success on creating a fire and smoke effect.
 
 There are three main things that I wll be focused on for this tutorial:
 - **Generic and understandable.** Anyone, regardless of the lanaguage they're using or purpose should be able to understand the concepts and implement his own particle system from the information here presented. The system should be generic enough to be implemented in any project without almost any modification.
