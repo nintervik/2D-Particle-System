@@ -64,6 +64,7 @@ A particle system is a structure that allows you to simulate particles of differ
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
+***
 
 ## **Our approach**
 
