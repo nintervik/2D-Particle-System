@@ -9,7 +9,10 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 * Introduction
 * What is a Particle System and why do we care?
+* A bit of history
+* Our approuch
 * References
+* License
 
 ***
 
@@ -70,5 +73,13 @@ This is very nice, but first we must build the system in order to use it. So let
 
 -	Talk about what we are going to do (2D, not 3D!)
 
+***
+
+## **References**
+
+
+***
+
+## **License**
 
 
