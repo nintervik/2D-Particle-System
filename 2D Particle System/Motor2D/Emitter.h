@@ -46,6 +46,8 @@ public:
 	int GetPoolSize() const;
 	void StartEmission();
 	void StopEmission();
+	void MoveEmitter(iPoint newPos);
+	iPoint GetEmitterPos() const;
 };
 
 #endif

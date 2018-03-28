@@ -76,3 +76,13 @@ void Emitter::StopEmission()
 {
 	active = false;
 }
+
+void Emitter::MoveEmitter(iPoint newPos)
+{
+	pos = newPos;
+}
+
+iPoint Emitter::GetEmitterPos() const
+{
+	return pos;
+}

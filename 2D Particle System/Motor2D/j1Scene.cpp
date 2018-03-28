@@ -56,9 +56,46 @@ bool j1Scene::Update(float dt)
 		testEmitter->StopEmission();
 	}
 
+	if (testEmitter != nullptr)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		iPoint pos(mx, my);
+		testEmitter->MoveEmitter(pos);
+	}
+
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && testEmitter != nullptr)
 	{
 		testEmitter->StartEmission();
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && testEmitter != nullptr)
+	{
+		iPoint newPos = testEmitter->GetEmitterPos();
+		newPos.x += 5;
+		
+		testEmitter->MoveEmitter(newPos);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && testEmitter != nullptr)
+	{
+		iPoint newPos = testEmitter->GetEmitterPos();
+		newPos.x -= 5;
+
+		testEmitter->MoveEmitter(newPos);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && testEmitter != nullptr)
+	{
+		iPoint newPos = testEmitter->GetEmitterPos();
+		newPos.y -= 5;
+
+		testEmitter->MoveEmitter(newPos);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && testEmitter != nullptr)
+	{
+		iPoint newPos = testEmitter->GetEmitterPos();
+		newPos.y += 5;
+
+		testEmitter->MoveEmitter(newPos);
 	}
 	
 	return true;
