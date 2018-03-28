@@ -4,6 +4,7 @@
 #include "p2Point.h"
 #include "j1ParticleSystem.h"
 #include "ParticlePool.h"
+#include "j1PerfTimer.h"
 #include "SDL/include/SDL.h"
 
 struct SDL_Texture;
@@ -34,6 +35,8 @@ private:
 
 	bool active = false;
 	SDL_Rect textureRect;
+	j1PerfTimer emitterTimer;
+	double stopTime = 0.0f;
 
 public:
 
@@ -46,7 +49,7 @@ public:
 	float RangeRandomNum(float min = -1.0f, float max = 1.0f);
 	int GetPoolSize() const;
 	void StartEmission();
-	void StopEmission();
+	void StopEmission(double timer = 0.0f);
 	void MoveEmitter(iPoint newPos);
 	iPoint GetEmitterPos() const;
 };

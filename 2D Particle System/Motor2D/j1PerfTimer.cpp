@@ -34,5 +34,3 @@ uint64 j1PerfTimer::ReadTicks() const
 {
 	return SDL_GetPerformanceCounter() - started_at;
 }
-
-

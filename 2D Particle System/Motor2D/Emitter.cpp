@@ -49,7 +49,14 @@ void Emitter::Update(float dt)
 		for (int i = 0; i <= emissionRate; i++)
 			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife, textureRect);
 	}
-
+	else if (stopTime > 0.0f)
+	{
+		if (emitterTimer.ReadMs() >= stopTime)
+		{
+			active = true;
+			stopTime = 0.0f;
+		}
+	}
 	// Updating particles in the pool
 	emitterPool->Update(dt);
 }
@@ -73,9 +80,11 @@ void Emitter::StartEmission()
 	active = true;
 }
 
-void Emitter::StopEmission()
+void Emitter::StopEmission(double timer)
 {
 	active = false;
+	stopTime = timer;
+	emitterTimer.Start();
 }
 
 void Emitter::MoveEmitter(iPoint newPos)
