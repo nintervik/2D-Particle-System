@@ -18,7 +18,8 @@ Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 	maxParticlesPerFrame = emitNumber + emitVariance;
 
 	// Particles pool 
-	poolSize = maxParticlesPerFrame * maxParticleLife;
+	poolSize = maxParticlesPerFrame * (maxParticleLife + 1);
+	
 	emitterPool = new ParticlePool(this);
 
 	active = true;
