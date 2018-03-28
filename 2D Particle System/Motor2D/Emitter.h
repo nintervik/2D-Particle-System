@@ -35,20 +35,24 @@ private:
 
 	bool active = false;
 	SDL_Rect textureRect;
-	j1PerfTimer emitterTimer;
+	j1PerfTimer stopTimer;
+	j1PerfTimer emissionTimer;
+	j1PerfTimer lifeTimer;
 	double stopTime = 0.0f;
+	double emissionTime = 0.0f;
+	double lifeTime = -1.0f;
 
 public:
 
 	bool toDestroy = false;
 
-	Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect);
+	Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
 	virtual ~Emitter();
 	
 	void Update(float dt);
 	float RangeRandomNum(float min = -1.0f, float max = 1.0f);
 	int GetPoolSize() const;
-	void StartEmission();
+	void StartEmission(double timer = -1.0f);
 	void StopEmission(double timer = 0.0f);
 	void MoveEmitter(iPoint newPos);
 	iPoint GetEmitterPos() const;

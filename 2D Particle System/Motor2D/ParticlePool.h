@@ -22,7 +22,7 @@ public:
 	virtual ~ParticlePool();
 
 	void Generate(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
-	void Update(float dt);
+	bool Update(float dt);
 };
 
 #endif

@@ -67,14 +67,17 @@ void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_ra
 	newParticle->Init(pos, speed, angle, start_radius, life, textureRect);
 }
 
-void ParticlePool::Update(float dt)
+bool ParticlePool::Update(float dt)
 {
+	bool ret = false;
+
 	for (int i = 0; i < poolSize; i++)
 	{
 		if (particlesVec[i]->IsAlive())
 		{
 			particlesVec[i]->Update(dt);
 			particlesVec[i]->Draw();
+			ret = true;
 		}
 		else // if a particle dies it becomes the first available one in the pool
 		{
@@ -101,4 +104,6 @@ void ParticlePool::Update(float dt)
 		}
 	}
 	*/
+
+	return ret;
 }

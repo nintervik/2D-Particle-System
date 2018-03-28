@@ -2,7 +2,7 @@
 #include <time.h>
 
 
-Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect)
+Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime)
 { 
 	srand(time(NULL));
 	
@@ -23,6 +23,10 @@ Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 
 	active = true;
 	this->textureRect = textureRect;
+	this->lifeTime = lifeTime;
+
+	if (this->lifeTime != -1.0f && this->lifeTime > 0.0f)
+		lifeTimer.Start();
 }
 
 Emitter::~Emitter()
@@ -49,16 +53,39 @@ void Emitter::Update(float dt)
 		for (int i = 0; i <= emissionRate; i++)
 			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife, textureRect);
 	}
-	else if (stopTime > 0.0f)
+	
+	if (stopTime > 0.0f && !active)
 	{
-		if (emitterTimer.ReadMs() >= stopTime)
+		emissionTime = 0.0f;
+		if (stopTimer.ReadMs() >= stopTime)
 		{
 			active = true;
 			stopTime = 0.0f;
 		}
 	}
+	
+	if (emissionTime > 0.0f)
+	{
+		stopTime = 0.0f;
+		if (emissionTimer.ReadMs() >= emissionTime)
+		{
+			active = false;
+			emissionTime = 0.0f;
+		}
+	}
+
+	if (lifeTime > 0.0f)
+	{
+		if (lifeTimer.ReadMs() >= lifeTime)
+		{
+			active = false;
+			lifeTime = 0.0f;
+		}
+	}
+
 	// Updating particles in the pool
-	emitterPool->Update(dt);
+	if (!emitterPool->Update(dt) && lifeTime == 0.0f)
+		toDestroy = true;
 }
 
 float Emitter::RangeRandomNum(float min, float max)
@@ -75,16 +102,24 @@ int Emitter::GetPoolSize() const
 	return poolSize;
 }
 
-void Emitter::StartEmission()
+void Emitter::StartEmission(double timer)
 {
-	active = true;
+	if (!active)
+	{
+		active = true;
+		emissionTime = timer;
+		emissionTimer.Start();
+	}
 }
 
 void Emitter::StopEmission(double timer)
 {
-	active = false;
-	stopTime = timer;
-	emitterTimer.Start();
+	if (active)
+	{
+		active = false;
+		stopTime = timer;
+		stopTimer.Start();
+	}
 }
 
 void Emitter::MoveEmitter(iPoint newPos)
