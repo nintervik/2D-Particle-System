@@ -45,7 +45,7 @@ class Particle
 	public:
 
 	Particle();
-	void Init(iPoint pos, float speed, float angle, float start_radius, uint life);
+	void Init(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
 
 	void Update(float dt);
 	void Draw();

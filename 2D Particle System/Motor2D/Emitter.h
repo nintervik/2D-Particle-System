@@ -33,12 +33,13 @@ private:
 	int poolSize = 0;
 
 	bool active = false;
+	SDL_Rect textureRect;
 
 public:
 
 	bool toDestroy = false;
 
-	Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize);
+	Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect);
 	virtual ~Emitter();
 	
 	void Update(float dt);

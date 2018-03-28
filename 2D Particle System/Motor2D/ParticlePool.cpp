@@ -55,7 +55,7 @@ ParticlePool::~ParticlePool()
 	particlesVec.clear();
 }
 
-void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_radius, uint life)
+void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
 {
 	// Check if the pool is not full
 	assert(firstAvailable != nullptr);
@@ -64,7 +64,7 @@ void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_ra
 	Particle* newParticle = firstAvailable;
 	firstAvailable = newParticle->GetNext();
 
-	newParticle->Init(pos, speed, angle, start_radius, life);
+	newParticle->Init(pos, speed, angle, start_radius, life, textureRect);
 }
 
 void ParticlePool::Update(float dt)

@@ -7,19 +7,17 @@
 
 Particle::Particle():life(0), start_life(0) 
 {
-	pRect.x = 0;
-	pRect.y = 0;
-	pRect.w = 32;
-	pRect.h = 32;
+
 }
 
-void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life)
+void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
 {
 	pState.pLive.pos = pos;
 	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
 	pState.pLive.vel.y = -speed * sin(DEG_TO_RAD(angle));
 	this->life = this->start_life = life;
 	pState.pLive.radius = pState.pLive.start_radius = start_radius;
+	pRect = textureRect;
 }
 
 void Particle::Update(float dt)

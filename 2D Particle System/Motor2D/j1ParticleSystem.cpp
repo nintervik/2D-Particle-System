@@ -133,9 +133,9 @@ bool j1ParticleSystem::CleanUp()
 // For now, we wil stay with one to make sure it works. Then we
 // can add more.
 
-Emitter * j1ParticleSystem::AddEmiter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize)
+Emitter * j1ParticleSystem::AddEmiter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect)
 {
-	Emitter* tmp_emitter = new Emitter(pos, emitNumber, emitVariance, maxParticleLife, angleRange, maxSpeed, maxSize);
+	Emitter* tmp_emitter = new Emitter(pos, emitNumber, emitVariance, maxParticleLife, angleRange, maxSpeed, maxSize, textureRect);
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;

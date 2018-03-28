@@ -2,7 +2,7 @@
 #include <time.h>
 
 
-Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize)
+Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect)
 { 
 	srand(time(NULL));
 	
@@ -22,6 +22,7 @@ Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 	emitterPool = new ParticlePool(this);
 
 	active = true;
+	this->textureRect = textureRect;
 }
 
 Emitter::~Emitter()
@@ -46,7 +47,7 @@ void Emitter::Update(float dt)
 		emissionRate = emitNumber + emitVariance * RangeRandomNum();
 
 		for (int i = 0; i <= emissionRate; i++)
-			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife);
+			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife, textureRect);
 	}
 
 	// Updating particles in the pool
