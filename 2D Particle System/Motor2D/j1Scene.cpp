@@ -50,6 +50,16 @@ bool j1Scene::Update(float dt)
 	{
 		App->psystem->RemoveAllEmitters();
 	}
+
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN && testEmitter != nullptr)
+	{
+		testEmitter->StopEmission();
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && testEmitter != nullptr)
+	{
+		testEmitter->StartEmission();
+	}
 	
 	return true;
 }

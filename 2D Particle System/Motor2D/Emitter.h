@@ -32,6 +32,8 @@ private:
 	ParticlePool* emitterPool = nullptr;
 	int poolSize = 0;
 
+	bool active = false;
+
 public:
 
 	bool toDestroy = false;
@@ -42,6 +44,8 @@ public:
 	void Update(float dt);
 	float RangeRandomNum(float min = -1.0f, float max = 1.0f);
 	int GetPoolSize() const;
+	void StartEmission();
+	void StopEmission();
 };
 
 #endif
