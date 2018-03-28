@@ -14,8 +14,6 @@ class Particle
 
 	uint life = 0, start_life = 0;
 
-	SDL_Rect pRect;
-
 	union ParticleInfo
 	{
 		// This struct holds the state of the particle when 
@@ -28,6 +26,7 @@ class Particle
 			float ageRatio;
 			uint alpha;
 			float angle;
+			SDL_Rect pRect;
 
 			ParticleState() {}
 

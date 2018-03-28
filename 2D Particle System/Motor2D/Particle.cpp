@@ -17,7 +17,7 @@ void Particle::Init(iPoint pos, float speed, float angle, float start_radius, ui
 	pState.pLive.vel.y = -speed * sin(DEG_TO_RAD(angle));
 	this->life = this->start_life = life;
 	pState.pLive.radius = pState.pLive.start_radius = start_radius;
-	pRect = textureRect;
+	pState.pLive.pRect = textureRect;
 }
 
 void Particle::Update(float dt)
@@ -35,7 +35,7 @@ void Particle::Update(float dt)
 
 void Particle::Draw()
 {
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pRect);
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pState.pLive.pRect);
 }
 
 bool Particle::IsAlive()
