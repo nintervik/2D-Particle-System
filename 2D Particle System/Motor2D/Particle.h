@@ -27,6 +27,7 @@ class Particle
 			uint alpha;
 			float angle;
 			SDL_Rect pRect;
+			SDL_Rect rectSize;
 
 			ParticleState() {}
 

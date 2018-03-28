@@ -123,7 +123,7 @@ void j1Render::ResetViewPort()
 }
 
 // Blit particle to screen
-bool j1Render::BlitParticle(SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, float speed, double angle, int pivot_x, int pivot_y) const
+bool j1Render::BlitParticle(SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, float speed, double angle, int pivot_x, int pivot_y) const
 {
 	bool ret = true;
 	uint scale = App->win->GetScale();
@@ -132,7 +132,12 @@ bool j1Render::BlitParticle(SDL_Texture* texture, float alpha, int x, int y, con
 	rect.x = (int)(camera.x * speed) + x * scale;
 	rect.y = (int)(camera.y * speed) + y * scale;
 
-	if(section != NULL)
+	if (rectSize != NULL)
+	{
+		rect.w = rectSize->w;
+		rect.h = rectSize->h;
+	}
+	else if(section != NULL)
 	{
 		rect.w = section->w;
 		rect.h = section->h;

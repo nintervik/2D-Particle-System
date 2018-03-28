@@ -17,7 +17,7 @@ void Particle::Init(iPoint pos, float speed, float angle, float start_radius, ui
 	pState.pLive.vel.y = -speed * sin(DEG_TO_RAD(angle));
 	this->life = this->start_life = life;
 	pState.pLive.radius = pState.pLive.start_radius = start_radius;
-	pState.pLive.pRect = textureRect;
+	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
 }
 
 void Particle::Update(float dt)
@@ -27,6 +27,7 @@ void Particle::Update(float dt)
 	pState.pLive.ageRatio = (float)this->life / (float)this->start_life;
 	pState.pLive.alpha = (int)(pState.pLive.ageRatio * 255.0f);
 	pState.pLive.radius = pState.pLive.start_radius * pState.pLive.ageRatio;
+	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.radius;
 	pState.pLive.alpha = (uint)(pState.pLive.ageRatio * 255.0f);
 
 	pState.pLive.pos.x += pState.pLive.vel.x * dt;
@@ -35,7 +36,7 @@ void Particle::Update(float dt)
 
 void Particle::Draw()
 {
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pState.pLive.pRect);
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, pState.pLive.pos.x, pState.pLive.pos.y, &pState.pLive.pRect, &pState.pLive.rectSize);
 }
 
 bool Particle::IsAlive()
