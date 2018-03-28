@@ -123,37 +123,35 @@ bool j1Scene::CleanUp()
 }
 
 
-// TODO IMPORTANT:
+/* Things left TODO:
 
-// 1. Make a random method to generate a number from -1 to 1 (check bookmarks) and muliply it for a value - done
-// 2. Random numbers should be handled inside the emitter classs, not in scene - done
-// 3. Each emitter should have a rect that will be passed to particle as an argument in its constructor
-// 4. Particle equations will be done in emitter, all particles are the same, the emitter is the one who changes. 
-//    Emitters should be a parent class and types of emitters will be child classes maybe.
-// 5. Modify Blit() method to take RGB and alpha as arguments. Look for belnding modes too (check Drive notes) - in progress
-// 6. Emitter could have an enum to determine shape, or a shape pos in each child class
-// 7. Particles should have acceleration and emitters should have motion equations to calculate physics
-// 8. Emitter should have an emission rate according to framerate and particles' life - done
-// 9. Remember that particle values should be floats no matter what. 
-//    We don't want to lose precision when multiplying by dt. Then Blit() will ceil() them but that's okay
-//    as calculations will already be done.
+   1. Read attributes from an xml. When setting an emitter you say "fire" and read 
+      from the xml the attributes. textureRect should not be in constructor anymore, 
+	  just read form the xml file.
 
-// Emitter rate -done
-// Emitter shape
-// Rect for textures in emitters
-// Emitter should be able to be active or not
-// Pool should be a dynamic array (vector) and you should be able to
-//   say with a parameter how big the pool is or the emission rate and then the pool size should 
-//   change according to that. Use allocate and shrink_to_fit methods in vector. -
-//   Formula: emitter rate pdf  and pool size = (max particles per frame) * (max life of a particle)
-// Read attributes from an xml. When setting an emitter you say "fire" and read from the xml the attributes
-// Emitters should be able to spawn other emitters
-// Emitters should be able to spawn particle for a certain time and the stop for example.
-//   Or even change its type and then start spawning another types of particles. So it's like
-//   a chain of emissions. Fire, explosion, smoke in a loop for example. Do Start() and Stop() methods
-// Move() method for emitters! IMPORTANT
-// Blending modes
-// Alpha changing over time -done
-// Color changing over time
-// Random generator - done
-// Particles acceleration movement
+   2. Find about blending modes.
+
+   3. Improve random generator.
+
+   4. Particle physics: movement equations + bezier.
+
+   5. Color interpolation in particles.
+
+   6. Emitters shapes.
+
+   7. Emitters should be able to spawn other emitters.
+
+   8. Emitters should be able to have a chain reaction, i.e: change its type and 
+      then start spawning another types of particles. So it's like a chain of 
+	  emissions. Fire, explosion, smoke in a loop for example.
+
+   9. Remember that particle values should be floats no matter what. We don't want to
+      lose precision when multiplying by dt. Then Blit() will ceil() them but that's 
+	  okay as calculations will already be done.
+
+  10. Once everything is set up try to do different types of particles an create a 
+      unique atlas to store all the textures needed for each type of particle.
+
+  11. Clean code, add comments and test!
+
+ */
