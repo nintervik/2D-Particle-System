@@ -43,7 +43,7 @@ bool j1Scene::Update(float dt)
 	App->input->GetMousePosition(mx, my);
 	iPoint pos(mx, my);
 
-	testEmitter = App->psystem->AddEmiter(pos, 1, 1, 50, { 0.0f, 120.0f }, 200.0f, 100.0f, { 0, 0, 128, 128 });
+	testEmitter = App->psystem->AddEmiter(pos, 1, 0, 50, { 0.0f, 120.0f }, 200.0f, 100.0f, { 0, 0, 128, 128 });
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
@@ -151,6 +151,8 @@ bool j1Scene::CleanUp()
 
   10. Once everything is set up try to do different types of particles an create a 
       unique atlas to store all the textures needed for each type of particle.
+
+  11. Emission rate could be lower than 1.
 
   11. Clean code, add comments and test!
 

@@ -40,19 +40,21 @@ void Emitter::Update(float dt)
 {
 	if (active)
 	{
-		float randSpeed = maxSpeed * RangeRandomNum(0.0f, 1.0f);
-		float randAngle = RangeRandomNum(angleRange.x, angleRange.y);
-		float randRadius = maxSize * RangeRandomNum(0.0f, 1.0f);
-
 		// TODO: do a for loop according to emisionRate to generate as many particles as needed
 		// This calculations should be float and then ceil
 
 		// Particle generation from pool
+		
 
 		emissionRate = emitNumber + emitVariance * RangeRandomNum();
 
-		for (int i = 0; i <= emissionRate; i++)
+		for (int i = 0; i < emissionRate; i++)
+		{
+			float randSpeed = maxSpeed * RangeRandomNum(0.0f, 1.0f);
+			float randAngle = RangeRandomNum(angleRange.x, angleRange.y);
+			float randRadius = maxSize * RangeRandomNum(0.0f, 1.0f);
 			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife, textureRect);
+		}
 	}
 	
 	if (stopTime > 0.0f && !active)
