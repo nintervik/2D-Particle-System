@@ -43,7 +43,7 @@ bool j1Scene::Update(float dt)
 	App->input->GetMousePosition(mx, my);
 	iPoint pos(mx, my);
 
-	testEmitter = App->psystem->AddEmiter(pos, 1, 0, 50, { 0.0f, 120.0f }, 200.0f, 100.0f, { 0, 0, 128, 128 });
+	testEmitter = App->psystem->AddEmiter(pos, 0, 2, 50, { 0.0f, 120.0f }, 200.0f, 100.0f, { 0, 0, 128, 128 });
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
@@ -129,11 +129,11 @@ bool j1Scene::CleanUp()
       from the xml the attributes. textureRect should not be in constructor anymore, 
 	  just read form the xml file.
 
-   2. Find about blending modes.
+   2. Find out about blending modes.
 
-   3. Improve random generator.
+   3. Improve random generator (bug in angles).
 
-   4. Particle physics: movement equations + bezier.
+   4. Particle physics: movement equations + bezier + vortex turbulence.
 
    5. Color interpolation in particles.
 
