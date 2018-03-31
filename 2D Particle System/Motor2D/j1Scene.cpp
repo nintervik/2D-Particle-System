@@ -51,7 +51,6 @@ bool j1Scene::Update(float dt)
 		testEmitter = App->psystem->AddEmiter({ 100, 100 }, EmitterType::EMITTER_TYPE_FIRE2);
 	}
 
-
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 	{
 		App->psystem->RemoveEmitter(*testEmitter);
@@ -128,38 +127,27 @@ bool j1Scene::CleanUp()
 	return true;
 }
 
-
 /* Things left TODO:
 
-   1. Read attributes from an xml. When setting an emitter you say "fire" and read 
-      from the xml the attributes. textureRect should not be in constructor anymore, 
-	  just read form the xml file.
+   -  Find out about blending modes.
 
-   2. Find out about blending modes.
+   -  Particle physics: movement equations + bezier + vortex turbulence.
 
-   3. Improve random generator (bug in angles). - DONE
+   -  Color interpolation in particles.
 
-   4. Particle physics: movement equations + bezier + vortex turbulence.
+   -  Emitters shapes.
 
-   5. Color interpolation in particles.
+   -  Emitters should be able to spawn other emitters.
 
-   6. Emitters shapes.
-
-   7. Emitters should be able to spawn other emitters.
-
-   8. Emitters should be able to have a chain reaction, i.e: change its type and 
+   -  Emitters should be able to have a chain reaction, i.e: change its type and 
       then start spawning another types of particles. So it's like a chain of 
 	  emissions. Fire, explosion, smoke in a loop for example.
 
-   9. Remember that particle values should be floats no matter what. We don't want to
-      lose precision when multiplying by dt. Then Blit() will ceil() them but that's 
-	  okay as calculations will already be done. - DONE
-
-  10. Once everything is set up try to do different types of particles an create a 
+   -  Once everything is set up try to do different types of particles and create a 
       unique atlas to store all the textures needed for each type of particle.
 
-  11. Emission rate could be lower than 1.
+   -  Emission rate could be lower than 1.
 
-  11. Clean code, add comments and test!
+   -  Clean code, add comments and test!
 
  */
