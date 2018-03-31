@@ -24,7 +24,7 @@ class Particle
 			fPoint vel;
 			float radius, start_radius;
 			float ageRatio;
-			uint alpha;
+			float alpha;
 			float angle;
 			SDL_Rect pRect;
 			SDL_Rect rectSize;

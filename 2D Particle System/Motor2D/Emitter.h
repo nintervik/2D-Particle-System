@@ -27,7 +27,7 @@ private:
 	uint emitNumber = 0u;
 	uint emitVariance = 0u;
 	uint maxParticleLife = 0u;
-	uint maxParticlesPerFrame = 0.0f;
+	uint maxParticlesPerFrame = 0u;
 
 	// Pool
 	ParticlePool* emitterPool = nullptr;

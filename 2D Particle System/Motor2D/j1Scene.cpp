@@ -41,9 +41,9 @@ bool j1Scene::Update(float dt)
 	{
 	int mx, my;
 	App->input->GetMousePosition(mx, my);
-	fPoint pos(mx, my);
+	fPoint pos((float)mx, (float)my);
 
-	testEmitter = App->psystem->AddEmiter(pos, 4, 2, 200, { 0.0f, 5.0f }, 300.0f, 100.0f, { 0, 0, 128, 128 });
+	testEmitter = App->psystem->AddEmiter(pos, 4, 2, 200, { 0.0f, 360.0f }, 200.0f, 100.0f, { 0, 0, 128, 128 });
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
@@ -60,7 +60,7 @@ bool j1Scene::Update(float dt)
 	{
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
-		fPoint pos(mx, my);
+		fPoint pos((float)mx, (float)my);
 		testEmitter->MoveEmitter(pos);
 	}
 
@@ -131,7 +131,7 @@ bool j1Scene::CleanUp()
 
    2. Find out about blending modes.
 
-   3. Improve random generator (bug in angles).
+   3. Improve random generator (bug in angles). - DONE
 
    4. Particle physics: movement equations + bezier + vortex turbulence.
 
@@ -147,7 +147,7 @@ bool j1Scene::CleanUp()
 
    9. Remember that particle values should be floats no matter what. We don't want to
       lose precision when multiplying by dt. Then Blit() will ceil() them but that's 
-	  okay as calculations will already be done.
+	  okay as calculations will already be done. - DONE
 
   10. Once everything is set up try to do different types of particles an create a 
       unique atlas to store all the textures needed for each type of particle.
