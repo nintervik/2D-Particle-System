@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<psystem>
+<emitters>
     <particleAtlas name="textures/particle.png">
       <emitter type ="fire">
         <angleRange min ="0" max ="360"/>
@@ -12,4 +12,4 @@
         <lifetime value ="100"/>
       </emitter>
     </particleAtlas>
-</psystem>
+</emitters>

@@ -27,30 +27,16 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	pugi::xml_node* node = &App->LoadEmitters(psystem_config);
 	nameParticleAtlas = node->child("particleAtlas").attribute("name").as_string();
 	
-	/*current_language.create(config.attribute("current").as_string());
-
-	for (pugi::xml_node languages = node->first_child(); languages && ret; languages = languages.next_sibling())
+	for (pugi::xml_node emitters = node->child("particleAtlas").child("emitter"); emitters && ret; emitters = emitters.next_sibling("emitter"))
 	{
-	p2SString tmp_language;
-	tmp_language.create(languages.name());
-	posible_languages.PushBack(tmp_language);
+		std::string tmp = emitters.attribute("type").as_string();
+
+		if (tmp == "fire")
+			int a = 0;
+			//LoadAnimation(animations, &right_idle);
+	
+
 	}
-
-	node = &node->child(current_language.GetString());
-
-	dictionary.press_space_btn.create(node->child("press_space").attribute("string").as_string());
-	dictionary.new_game_btn.create(node->child("new_game_btn").attribute("string").as_string());
-	dictionary.continue_btn.create(node->child("continue_btn").attribute("string").as_string());
-	dictionary.music_volume.create(node->child("music_volume").attribute("string").as_string());
-	dictionary.fx_volume.create(node->child("fx_volume").attribute("string").as_string());
-	dictionary.cap_to.create(node->child("cap_to").attribute("string").as_string());
-	dictionary.language_option.create(node->child("language_option").attribute("string").as_string());
-	dictionary.quit_lan.create(node->child("quit_lan").attribute("string").as_string());
-	dictionary.save_lan.create(node->child("save_lan").attribute("string").as_string());
-	dictionary.load_lan.create(node->child("load_lan").attribute("string").as_string());
-	dictionary.main_menu_lan.create(node->child("main_menu_lan").attribute("string").as_string());
-	dictionary.credits_btn.create(node->child("credits_btn").attribute("string").as_string());
-	*/
 	return ret;
 
 }
