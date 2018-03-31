@@ -6,18 +6,38 @@
 #include "Emitter.h"
 #include <list>
 #include <string>
+#include "SDL/include/SDL.h"
+
+#define MAX_NUM_EMITTERS_TYPE 3
 
 class Emitter;
 struct SDL_Texture;
 struct SDL_Rect;
+enum EmitterType;
 
 class j1ParticleSystem : public j1Module
 {
+
 private:
 
 	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
 	std::string nameParticleAtlas;
+
+	struct EmitterData
+	{
+		fPoint angleRange = { 0.0f, 0.0f };
+		float maxSpeed = 0.0f;
+		float maxSize = 0.0f;
+		uint emitNumber = 0u;
+		uint emitVariance = 0u;
+		uint maxParticleLife = 0u;
+		SDL_Rect textureRect = { 0, 0 };
+		double lifetime = -1.0f;
+		EmitterType type;
+	};
+
+	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];
 	
 public:
 
@@ -45,10 +65,11 @@ public:
 	bool CleanUp();
 
 	// Emitter methods
-	Emitter* AddEmiter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
+	Emitter* AddEmiter(fPoint pos, EmitterType type);
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();
 	SDL_Texture* GetParticleAtlas() const;
+	void LoadEmitterData(pugi::xml_node& config, EmitterType type);
 };
 
 #endif

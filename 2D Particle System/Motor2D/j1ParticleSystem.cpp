@@ -29,16 +29,16 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	
 	for (pugi::xml_node emitters = node->child("particleAtlas").child("emitter"); emitters && ret; emitters = emitters.next_sibling("emitter"))
 	{
-		std::string tmp = emitters.attribute("type").as_string();
+		std::string emitterType = emitters.attribute("type").as_string();
+		EmitterData tmpData;
 
-		if (tmp == "fire")
-			int a = 0;
-			//LoadAnimation(animations, &right_idle);
+		if (emitterType == "fire")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE);
+		else if (emitterType == "fire2")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE2);
 	
-
 	}
 	return ret;
-
 }
 
 bool j1ParticleSystem::Start()
@@ -144,8 +144,6 @@ bool j1ParticleSystem::CleanUp()
 		}
 	}*/
 
-
-	
 	return true;
 }
 
@@ -153,9 +151,11 @@ bool j1ParticleSystem::CleanUp()
 // For now, we wil stay with one to make sure it works. Then we
 // can add more.
 
-Emitter * j1ParticleSystem::AddEmiter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime)
+Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	Emitter* tmp_emitter = new Emitter(pos, emitNumber, emitVariance, maxParticleLife, angleRange, maxSpeed, maxSize, textureRect, lifeTime);
+	// uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime
+
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].maxSize, vecEmitterData[type].textureRect, vecEmitterData[type].lifetime);
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -212,4 +212,24 @@ bool j1ParticleSystem::RemoveAllEmitters()
 SDL_Texture* j1ParticleSystem::GetParticleAtlas() const
 {
 	return particleAtlas;
+}
+
+void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType type)
+{
+	EmitterData tmp;
+
+	tmp.angleRange.x = emitter.child("angleRange").attribute("min").as_float();
+	tmp.angleRange.y = emitter.child("angleRange").attribute("max").as_float();
+	tmp.maxSpeed = emitter.child("maxSpeed").attribute("value").as_float();
+	tmp.maxSize = emitter.child("maxSize").attribute("value").as_float();
+	tmp.emitNumber = emitter.child("emitNumber").attribute("value").as_uint();
+	tmp.emitVariance = emitter.child("emitVariance").attribute("value").as_uint();
+	tmp.maxParticleLife = emitter.child("maxParticleLife").attribute("value").as_uint();
+	tmp.textureRect.x = emitter.child("textureRect").attribute("x").as_int();
+	tmp.textureRect.y = emitter.child("textureRect").attribute("y").as_int();
+	tmp.textureRect.w = emitter.child("textureRect").attribute("w").as_int();
+	tmp.textureRect.h = emitter.child("textureRect").attribute("h").as_int();
+	tmp.lifetime = emitter.child("lifetime").attribute("value").as_double();
+
+	vecEmitterData[type] = tmp;
 }

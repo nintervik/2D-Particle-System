@@ -43,12 +43,18 @@ bool j1Scene::Update(float dt)
 	App->input->GetMousePosition(mx, my);
 	fPoint pos((float)mx, (float)my);
 
-	testEmitter = App->psystem->AddEmiter(pos, 4, 2, 200, { 0.0f, 360.0f }, 200.0f, 100.0f, { 0, 0, 128, 128 });
+	testEmitter = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE);
 	}
+
+	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	{
+		testEmitter = App->psystem->AddEmiter({ 100, 100 }, EmitterType::EMITTER_TYPE_FIRE2);
+	}
+
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 	{
-		App->psystem->RemoveAllEmitters();
+		App->psystem->RemoveEmitter(*testEmitter);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN && testEmitter != nullptr)

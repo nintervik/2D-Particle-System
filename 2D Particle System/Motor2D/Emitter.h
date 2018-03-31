@@ -12,6 +12,13 @@ class ParticlePool;
 
 // TODO: make an enum of Emitter types for different kind of particles
 
+enum EmitterType
+{
+	EMITTER_TYPE_NONE = -1,
+	EMITTER_TYPE_FIRE,
+	EMITTER_TYPE_FIRE2,
+};
+
 class Emitter
 {
 private:
@@ -41,7 +48,8 @@ private:
 	j1PerfTimer lifeTimer;
 	double stopTime = 0.0f;
 	double emissionTime = 0.0f;
-	double lifeTime = -1.0f;
+	double lifetime = -1.0f;
+	EmitterType type = EmitterType::EMITTER_TYPE_NONE;
 
 public:
 

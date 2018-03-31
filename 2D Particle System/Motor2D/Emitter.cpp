@@ -24,9 +24,9 @@ Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 
 	active = true;
 	this->textureRect = textureRect;
-	this->lifeTime = lifeTime;
+	this->lifetime = lifeTime;
 
-	if (this->lifeTime != -1.0f && this->lifeTime > 0.0f)
+	if (this->lifetime != -1.0f && this->lifetime > 0.0f)
 		lifeTimer.Start();
 }
 
@@ -46,7 +46,7 @@ void Emitter::Update(float dt)
 		// Particle generation from pool
 		
 
-		emissionRate = emitNumber + emitVariance * RangeRandomNum();
+		emissionRate = (int)(emitNumber + emitVariance * RangeRandomNum());
 
 		for (int i = 0; i < emissionRate; i++)
 		{
@@ -77,17 +77,17 @@ void Emitter::Update(float dt)
 		}
 	}
 
-	if (lifeTime > 0.0f)
+	if (lifetime > 0.0f)
 	{
-		if (lifeTimer.ReadMs() >= lifeTime)
+		if (lifeTimer.ReadMs() >= lifetime)
 		{
 			active = false;
-			lifeTime = 0.0f;
+			lifetime = 0.0f;
 		}
 	}
 
 	// Updating particles in the pool
-	if (!emitterPool->Update(dt) && lifeTime == 0.0f)
+	if (!emitterPool->Update(dt) && lifetime == 0.0f)
 		toDestroy = true;
 }
 

@@ -1,15 +1,27 @@
 <?xml version="1.0"?>
+
 <emitters>
     <particleAtlas name="textures/particle.png">
       <emitter type ="fire">
-        <angleRange min ="0" max ="360"/>
+        <angleRange min ="0" max ="120"/>
         <maxSpeed value ="100"/>
         <maxSize value ="100"/>
         <emitNumber value ="3"/>
         <emitVariance value ="4"/>
         <maxParticleLife value ="100"/>
         <textureRect x="0" y="0" w="128" h="128"/>
-        <lifetime value ="100"/>
+        <lifetime value ="-1"/>
       </emitter>
+      <emitter type ="fire2">
+        <angleRange min ="0" max ="360"/>
+        <maxSpeed value ="200"/>
+        <maxSize value ="100"/>
+        <emitNumber value ="3"/>
+        <emitVariance value ="4"/>
+        <maxParticleLife value ="200"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <lifetime value ="10000"/>
+      </emitter>
+      
     </particleAtlas>
 </emitters>
