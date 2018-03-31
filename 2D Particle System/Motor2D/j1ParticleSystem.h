@@ -5,6 +5,7 @@
 #include "j1Module.h"
 #include "Emitter.h"
 #include <list>
+#include <string>
 
 class Emitter;
 struct SDL_Texture;
@@ -16,6 +17,7 @@ private:
 
 	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
+	std::string nameParticleAtlas;
 	
 public:
 
@@ -25,7 +27,7 @@ public:
 	virtual ~j1ParticleSystem();
 
 	// Called when before render is available
-	bool Awake(pugi::xml_node&);
+	bool Awake(pugi::xml_node& config);
 
 	// Call before first frame
 	bool Start();

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<psystem>
+    <particleAtlas name="textures/particle.png">
+      <emitter type ="fire">
+        <angleRange min ="0" max ="360"/>
+        <maxSpeed value ="100"/>
+        <maxSize value ="100"/>
+        <emitNumber value ="3"/>
+        <emitVariance value ="4"/>
+        <maxParticleLife value ="100"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <lifetime value ="100"/>
+      </emitter>
+    </particleAtlas>
+</psystem>

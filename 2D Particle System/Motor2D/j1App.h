@@ -49,6 +49,9 @@ public:
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
 
+	pugi::xml_node j1App::LoadEmitters(pugi::xml_document& psystem_file) const;
+
+
 private:
 
 	// Load config file

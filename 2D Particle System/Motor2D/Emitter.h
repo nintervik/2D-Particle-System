@@ -27,6 +27,7 @@ private:
 	uint emitNumber = 0u;
 	uint emitVariance = 0u;
 	uint maxParticleLife = 0u;
+
 	uint maxParticlesPerFrame = 0u;
 
 	// Pool
@@ -46,7 +47,7 @@ public:
 
 	bool toDestroy = false;
 
-	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
+	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifetime = -1.0f);
 	virtual ~Emitter();
 	
 	void Update(float dt);
