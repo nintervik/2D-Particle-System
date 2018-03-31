@@ -3,12 +3,12 @@
 <emitters>
     <particleAtlas name="textures/particle.png">
       <emitter type ="fire">
-        <angleRange min ="0" max ="120"/>
+        <angleRange min ="80" max ="110"/>
         <maxSpeed value ="100"/>
         <maxSize value ="100"/>
         <emitNumber value ="3"/>
         <emitVariance value ="4"/>
-        <maxParticleLife value ="100"/>
+        <maxParticleLife value ="200"/>
         <textureRect x="0" y="0" w="128" h="128"/>
         <lifetime value ="-1"/>
       </emitter>

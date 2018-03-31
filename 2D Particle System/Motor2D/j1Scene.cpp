@@ -133,6 +133,10 @@ bool j1Scene::CleanUp()
 
    -  Particle physics: movement equations + bezier + vortex turbulence.
 
+   -  Method to apply forces.
+   
+   -  Acceletation should be a parameter?
+
    -  Color interpolation in particles.
 
    -  Emitters shapes.
