@@ -55,7 +55,7 @@ ParticlePool::~ParticlePool()
 	particlesVec.clear();
 }
 
-void ParticlePool::Generate(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
+void ParticlePool::Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
 {
 	// Check if the pool is not full
 	assert(firstAvailable != nullptr);

@@ -20,8 +20,8 @@ class Particle
 		// it's being update (it's still alive).
 		struct ParticleState
 		{
-			iPoint pos;
-			iPoint vel;
+			fPoint pos;
+			fPoint vel;
 			float radius, start_radius;
 			float ageRatio;
 			uint alpha;
@@ -45,7 +45,7 @@ class Particle
 	public:
 
 	Particle();
-	void Init(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
+	void Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
 
 	void Update(float dt);
 	void Draw();

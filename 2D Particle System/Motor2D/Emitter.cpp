@@ -2,7 +2,7 @@
 #include <time.h>
 
 
-Emitter::Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime)
+Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime)
 { 
 	srand(time(NULL));
 	
@@ -125,12 +125,12 @@ void Emitter::StopEmission(double timer)
 	}
 }
 
-void Emitter::MoveEmitter(iPoint newPos)
+void Emitter::MoveEmitter(fPoint newPos)
 {
 	pos = newPos;
 }
 
-iPoint Emitter::GetEmitterPos() const
+fPoint Emitter::GetEmitterPos() const
 {
 	return pos;
 }

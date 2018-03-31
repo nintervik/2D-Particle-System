@@ -10,7 +10,7 @@ Particle::Particle():life(0), start_life(0)
 
 }
 
-void Particle::Init(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
+void Particle::Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
 {
 	pState.pLive.pos = pos;
 	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
@@ -36,8 +36,9 @@ void Particle::Update(float dt)
 
 void Particle::Draw()
 {
-	int centerX = pState.pLive.pos.x + (pState.pLive.pRect.w - pState.pLive.rectSize.w) / 2;
-	int centerY = pState.pLive.pos.y + (pState.pLive.pRect.w - pState.pLive.rectSize.h) / 2;
+	SDL_Rect rectTest = { pState.pLive.start_radius , pState.pLive.start_radius };
+	int centerX = pState.pLive.pos.x + ((rectTest.w - pState.pLive.rectSize.w) / 2);
+	int centerY = pState.pLive.pos.y + ((rectTest.h - pState.pLive.rectSize.h) / 2);
 
 	// SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, float speed, double angle, int pivot_x, int pivot_y
 	App->render->BlitParticle(App->psystem->GetParticleAtlas(), pState.pLive.alpha, centerX, centerY, &pState.pLive.pRect, &pState.pLive.rectSize);

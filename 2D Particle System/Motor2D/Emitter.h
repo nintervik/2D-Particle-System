@@ -17,7 +17,7 @@ class Emitter
 private:
 
 	// Particles size and movement
-	iPoint pos = { 0, 0 };
+	fPoint pos = { 0.0f, 0.0f };
 	fPoint angleRange = { 0.0f, 360.0f };
 	float maxSpeed = 0.0f;
 	float maxSize = 0.0f;
@@ -46,7 +46,7 @@ public:
 
 	bool toDestroy = false;
 
-	Emitter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
+	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
 	virtual ~Emitter();
 	
 	void Update(float dt);
@@ -54,8 +54,8 @@ public:
 	int GetPoolSize() const;
 	void StartEmission(double timer = -1.0f);
 	void StopEmission(double timer = 0.0f);
-	void MoveEmitter(iPoint newPos);
-	iPoint GetEmitterPos() const;
+	void MoveEmitter(fPoint newPos);
+	fPoint GetEmitterPos() const;
 };
 
 #endif

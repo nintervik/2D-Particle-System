@@ -21,7 +21,7 @@ public:
 	ParticlePool(Emitter* emitter);
 	virtual ~ParticlePool();
 
-	void Generate(iPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
+	void Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
 	bool Update(float dt);
 };
 

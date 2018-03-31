@@ -43,7 +43,7 @@ public:
 	bool CleanUp();
 
 	// Emitter methods
-	Emitter* AddEmiter(iPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
+	Emitter* AddEmiter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime = -1.0f);
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();
 	SDL_Texture* GetParticleAtlas() const;
