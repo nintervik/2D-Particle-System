@@ -15,6 +15,7 @@ private:
 	int poolSize = 0;
 	Particle* firstAvailable;
 	std::vector<Particle*> particlesVec;
+	Particle* particleArray = nullptr;
 
 public:
 

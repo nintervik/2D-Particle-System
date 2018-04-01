@@ -48,7 +48,7 @@ void Emitter::Update(float dt)
 
 		emissionRate = (int)(emitNumber + emitVariance * RangeRandomNum());
 
-		for (int i = 0; i < emissionRate; i++)
+		for (int i = 1; i <= emissionRate; i++)
 		{
 			float randSpeed = maxSpeed * RangeRandomNum(0.0f, 1.0f);
 			float randAngle = RangeRandomNum(angleRange.x, angleRange.y);

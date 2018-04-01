@@ -6,8 +6,8 @@
         <angleRange min ="80" max ="110"/>
         <maxSpeed value ="100"/>
         <maxSize value ="100"/>
-        <emitNumber value ="3"/>
-        <emitVariance value ="4"/>
+        <emitNumber value ="0"/>
+        <emitVariance value ="0"/>
         <maxParticleLife value ="200"/>
         <textureRect x="0" y="0" w="128" h="128"/>
         <lifetime value ="-1"/>

@@ -9,20 +9,22 @@ ParticlePool::ParticlePool(Emitter* emitter)
 
 	poolSize = emitter->GetPoolSize();
 
-	for (int i = 0; i < poolSize; i++)
-		particlesVec.push_back(new Particle());
+	/*for (int i = 0; i < poolSize; i++)
+		particlesVec.push_back(new Particle());*/
 
-	particlesVec.shrink_to_fit();
+	particleArray = new Particle[poolSize];
+
+	//particlesVec.shrink_to_fit();
 
 	// The first particle is available
-	firstAvailable = particlesVec[0];
+	firstAvailable = &particleArray[0];
 
 	// Each particle points to the next one
 	for (int i = 0; i < poolSize - 1; i++)
-		particlesVec[i]->SetNext(particlesVec[i + 1]);
+		particleArray[i].SetNext(&particleArray[i + 1]);
 
 	// The last particles points to nullptr indicating the end of the list
-	particlesVec[poolSize - 1]->SetNext(nullptr);
+	particleArray[poolSize - 1].SetNext(nullptr);
 
 	// --- Original code
 	/*
@@ -53,6 +55,9 @@ ParticlePool::~ParticlePool()
 	}
 
 	particlesVec.clear();
+
+	delete[] particleArray;
+	particleArray = nullptr;
 }
 
 void ParticlePool::Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
@@ -73,17 +78,17 @@ bool ParticlePool::Update(float dt)
 
 	for (int i = 0; i < poolSize; i++)
 	{
-		if (particlesVec[i]->IsAlive())
+		if (particleArray[i].IsAlive())
 		{
-			particlesVec[i]->Update(dt);
-			particlesVec[i]->Draw();
+			particleArray[i].Update(dt);
+			particleArray[i].Draw();
 			ret = true;
 		}
 		else // if a particle dies it becomes the first available one in the pool
 		{
 			// Add this particle to the front of the vector
-			particlesVec[i]->SetNext(firstAvailable);
-			firstAvailable = particlesVec[i];
+			particleArray[i].SetNext(firstAvailable);
+			firstAvailable = &particleArray[i];
 		}
 	}
 
