@@ -13,6 +13,7 @@
 class Emitter;
 struct SDL_Texture;
 struct SDL_Rect;
+struct SDL_Color;
 enum EmitterType;
 
 class j1ParticleSystem : public j1Module
@@ -35,6 +36,8 @@ private:
 		SDL_Rect textureRect = { 0, 0 };
 		double lifetime = -1.0f;
 		EmitterType type;
+		SDL_Color startColor = { 0, 0, 0, 0 };
+		SDL_Color endColor = { 0, 0, 0, 0 };
 	};
 
 	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];

@@ -18,7 +18,6 @@ ParticlePool::ParticlePool(Emitter* emitter)
 
 	// The last particles points to nullptr indicating the end of the list
 	particleArray[poolSize - 1].SetNext(nullptr);
-
 }
 
 ParticlePool::~ParticlePool()
@@ -27,7 +26,7 @@ ParticlePool::~ParticlePool()
 	particleArray = nullptr;
 }
 
-void ParticlePool::Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect)
+void ParticlePool::Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor)
 {
 	// Check if the pool is not full
 	assert(firstAvailable != nullptr);
@@ -36,7 +35,8 @@ void ParticlePool::Generate(fPoint pos, float speed, float angle, float start_ra
 	Particle* newParticle = firstAvailable;
 	firstAvailable = newParticle->GetNext();
 
-	newParticle->Init(pos, speed, angle, start_radius, life, textureRect);
+	// Inizialize new alive particle
+	newParticle->Init(pos, speed, angle, start_radius, life, textureRect, startColor, endColor);
 }
 
 bool ParticlePool::Update(float dt)

@@ -36,6 +36,8 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE);
 		else if (emitterType == "fire2")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE2);
+		else if (emitterType == "fire3")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE3);
 	
 	}
 	return ret;
@@ -102,9 +104,7 @@ bool j1ParticleSystem::CleanUp()
 
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	// uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime
-
-	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].maxSize, vecEmitterData[type].textureRect, vecEmitterData[type].lifetime);
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].maxSize, vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].lifetime);
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -139,12 +139,6 @@ bool j1ParticleSystem::RemoveAllEmitters()
 		ret = true;
 	}
 
-	/*for (uint i = 0; i < emitters.size(); i++) 
-	{
-		if (emitters.at(i) != nullptr) emitters[i]->to_destroy = true;
-		ret = true;
-	}*/
-
 	return ret;
 }
  
@@ -157,18 +151,36 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 {
 	EmitterData tmp;
 
+	// Angle range
 	tmp.angleRange.x = emitter.child("angleRange").attribute("min").as_float();
 	tmp.angleRange.y = emitter.child("angleRange").attribute("max").as_float();
+	
 	tmp.maxSpeed = emitter.child("maxSpeed").attribute("value").as_float();
 	tmp.maxSize = emitter.child("maxSize").attribute("value").as_float();
 	tmp.emitNumber = emitter.child("emitNumber").attribute("value").as_uint();
 	tmp.emitVariance = emitter.child("emitVariance").attribute("value").as_uint();
 	tmp.maxParticleLife = emitter.child("maxParticleLife").attribute("value").as_uint();
+	
+	// Rect from particle atlas
 	tmp.textureRect.x = emitter.child("textureRect").attribute("x").as_int();
 	tmp.textureRect.y = emitter.child("textureRect").attribute("y").as_int();
 	tmp.textureRect.w = emitter.child("textureRect").attribute("w").as_int();
 	tmp.textureRect.h = emitter.child("textureRect").attribute("h").as_int();
+	
+	// Lifetime of emitter
 	tmp.lifetime = emitter.child("lifetime").attribute("value").as_double();
+
+	// Start color
+	tmp.startColor.r = emitter.child("startColor").attribute("r").as_uint();
+	tmp.startColor.g = emitter.child("startColor").attribute("g").as_uint();
+	tmp.startColor.b = emitter.child("startColor").attribute("b").as_uint();
+	tmp.startColor.a = emitter.child("startColor").attribute("a").as_uint();
+
+	// End color
+	tmp.endColor.r = emitter.child("endColor").attribute("r").as_uint();
+	tmp.endColor.g = emitter.child("endColor").attribute("g").as_uint();
+	tmp.endColor.b = emitter.child("endColor").attribute("b").as_uint();
+	tmp.endColor.a = emitter.child("endColor").attribute("a").as_uint();
 
 	vecEmitterData[type] = tmp;
 }

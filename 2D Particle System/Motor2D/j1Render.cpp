@@ -123,7 +123,7 @@ void j1Render::ResetViewPort()
 }
 
 // Blit particle to screen
-bool j1Render::BlitParticle(SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, float speed, double angle, int pivot_x, int pivot_y) const
+bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, SDL_Color color, float speed, double angle, int pivot_x, int pivot_y) const
 {
 	bool ret = true;
 	uint scale = App->win->GetScale();
@@ -163,8 +163,8 @@ bool j1Render::BlitParticle(SDL_Texture* texture, float alpha, int x, int y, con
 	//TODO: customize Blit method to take rgb and alpha parameters
 	// The methods below should be error proof! Remeber to check for errors!
 	
-	SDL_SetTextureColorMod(texture, 255, 100, 0);
-	SDL_SetTextureAlphaMod(texture, alpha);
+	SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
+	SDL_SetTextureAlphaMod(texture, color.a);
 	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_ADD);
 
 

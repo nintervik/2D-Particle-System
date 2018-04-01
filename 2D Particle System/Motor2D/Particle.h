@@ -2,17 +2,15 @@
 #define __PARTICLE_H__
 
 #include "p2Point.h"
-#include "Particle.h"
 #include "SDL/include/SDL.h"
 
 struct SDL_Texture;
-
 
 class Particle
 {
 	private:
 
-	uint life = 0, start_life = 0;
+	uint life = 0, startLife = 0;
 
 	union ParticleInfo
 	{
@@ -24,10 +22,12 @@ class Particle
 			fPoint vel;
 			float radius, start_radius;
 			float ageRatio;
-			float alpha;
 			float angle;
 			SDL_Rect pRect;
 			SDL_Rect rectSize;
+			SDL_Color startColor;
+			SDL_Color endColor;
+			float t;
 
 			ParticleState() {}
 
@@ -45,7 +45,7 @@ class Particle
 	public:
 
 	Particle();
-	void Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect);
+	void Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor);
 
 	void Update(float dt);
 	void Draw();
@@ -54,6 +54,8 @@ class Particle
 
 	Particle* GetNext();
 	void SetNext(Particle* next);
+
+	SDL_Color RgbInterpolation(SDL_Color startColor, SDL_Color endColor, float timeStep);
 };
 
 #endif

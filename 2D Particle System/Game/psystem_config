@@ -5,23 +5,41 @@
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
         <maxSpeed value ="100"/>
-        <maxSize value ="100"/>
-        <emitNumber value ="0"/>
+        <maxSize value ="120"/>
+        <emitNumber value ="1"/>
         <emitVariance value ="0"/>
-        <maxParticleLife value ="200"/>
+        <maxParticleLife value ="400"/>
         <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="210" g="210" b="210" a ="255"/>
         <lifetime value ="-1"/>
       </emitter>
       
       <emitter type ="fire2">
-        <angleRange min ="0" max ="360"/>
-        <maxSpeed value ="200"/>
-        <maxSize value ="100"/>
-        <emitNumber value ="3"/>
-        <emitVariance value ="4"/>
-        <maxParticleLife value ="200"/>
+        <angleRange min ="80" max ="110"/>
+        <maxSpeed value ="100"/>
+        <maxSize value ="120"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0"/>
+        <maxParticleLife value ="400"/>
         <textureRect x="0" y="0" w="128" h="128"/>
-        <lifetime value ="10000"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="255" g="100" b="0" a="255"/>
+        <lifetime value ="-1"/>
       </emitter>
+
+      <emitter type ="fire3">
+        <angleRange min ="80" max ="110"/>
+        <maxSpeed value ="100"/>
+        <maxSize value ="120"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0"/>
+        <maxParticleLife value ="400"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="158" g="248" b="45" a="255"/>
+        <endColor r ="192" g="67" b="252" a="255"/>
+        <lifetime value ="-1"/>
+      </emitter>
+      
     </particleAtlas>
 </emitters>

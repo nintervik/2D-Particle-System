@@ -2,7 +2,7 @@
 #include <time.h>
 
 
-Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifeTime)
+Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, double lifeTime)
 { 
 	srand(time(NULL));
 	
@@ -25,6 +25,11 @@ Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 	active = true;
 	this->textureRect = textureRect;
 	this->lifetime = lifeTime;
+
+	this->startColor = startColor;
+	this->endColor = endColor;
+
+	timeStep = 1.0f / (float)maxParticleLife;
 
 	if (this->lifetime != -1.0f && this->lifetime > 0.0f)
 		lifeTimer.Start();
@@ -49,7 +54,8 @@ void Emitter::Update(float dt)
 			float randSpeed = maxSpeed * RangeRandomNum(0.0f, 1.0f);
 			float randAngle = RangeRandomNum(angleRange.x, angleRange.y);
 			float randRadius = maxSize * RangeRandomNum(0.0f, 1.0f);
-			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife, textureRect);
+			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, maxParticleLife, textureRect, startColor, endColor);
+			timeStep += timeStep;
 		}
 	}
 	

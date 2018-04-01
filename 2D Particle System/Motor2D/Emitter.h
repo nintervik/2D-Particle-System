@@ -15,6 +15,7 @@ enum EmitterType
 	EMITTER_TYPE_NONE = -1,
 	EMITTER_TYPE_FIRE,
 	EMITTER_TYPE_FIRE2,
+	EMITTER_TYPE_FIRE3
 };
 
 class Emitter
@@ -49,11 +50,15 @@ private:
 	double lifetime = -1.0f;
 	EmitterType type = EmitterType::EMITTER_TYPE_NONE;
 
+	SDL_Color startColor = { 0, 0, 0, 0 };
+	SDL_Color endColor = { 0, 0, 0, 0 };
+	float timeStep = 0.0f;
+
 public:
 
 	bool toDestroy = false;
 
-	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, double lifetime = -1.0f);
+	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, double lifetime = -1.0f);
 	virtual ~Emitter();
 	
 	void Update(float dt);

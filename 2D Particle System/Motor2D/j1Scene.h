@@ -39,7 +39,9 @@ public:
 
 private:
 
-	Emitter* testEmitter = nullptr;
+	Emitter* testEmitter1 = nullptr;
+	Emitter* testEmitter2 = nullptr;
+	Emitter* testEmitter3 = nullptr;
 
 };
 
