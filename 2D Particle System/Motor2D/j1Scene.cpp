@@ -133,6 +133,8 @@ bool j1Scene::CleanUp()
 
    -  Particle physics: movement equations + bezier + vortex turbulence.
 
+   - Look framerate calculations in app.
+
    -  Method to apply forces.
    
    -  Acceletation should be a parameter?
