@@ -10,8 +10,6 @@
 struct SDL_Texture;
 class ParticlePool;
 
-// TODO: make an enum of Emitter types for different kind of particles
-
 enum EmitterType
 {
 	EMITTER_TYPE_NONE = -1,

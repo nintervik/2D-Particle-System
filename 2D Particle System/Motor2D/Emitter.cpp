@@ -40,12 +40,8 @@ void Emitter::Update(float dt)
 {
 	if (active)
 	{
-		// TODO: do a for loop according to emisionRate to generate as many particles as needed
-		// This calculations should be float and then ceil
-
 		// Particle generation from pool
 		
-
 		emissionRate = (int)(emitNumber + emitVariance * RangeRandomNum());
 
 		for (int i = 1; i <= emissionRate; i++)
