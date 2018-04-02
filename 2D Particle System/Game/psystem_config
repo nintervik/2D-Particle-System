@@ -9,7 +9,7 @@
         <maxSize value ="120"/>
         <emitNumber value ="1"/>
         <emitVariance value ="0"/>
-        <maxParticleLife value ="400"/>
+        <maxParticleLife value ="200"/>
         <textureRect x="0" y="0" w="128" h="128"/>
         <startColor r ="255" g="100" b="0" a="255"/>
         <endColor r ="210" g="210" b="210" a ="255"/>

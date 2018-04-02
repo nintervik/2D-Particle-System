@@ -133,6 +133,8 @@ bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
 
+	testEmitter2 = nullptr;
+	testEmitter3 = nullptr;
 	testEmitter1 = nullptr;
 
 	return true;
