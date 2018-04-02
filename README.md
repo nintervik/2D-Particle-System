@@ -10,7 +10,7 @@ A 2D Particle system done with C++ and SDL 2.0
 
 Download the zip file and unzip it. Open the folder, execute the .exe and enjoy!
 
-_IMPORTANT: do not modify, change or add any folder or file as you might not be able to execute the application._
+_IMPORTANT: do not modify, change or add any folder or file (unless specified) as you might not be able to execute the application._
 
 ## Controls
 
@@ -21,6 +21,8 @@ _IMPORTANT: do not modify, change or add any folder or file as you might not be 
 - Number 3 to create a green fire with purple smoke
 - Return key to remove all emitters
 - ESC to close application
+
+You can change the attributes of the three emitters by changing the its attributes inside the xml file called psystem_config.
 
 
 ## Tools used
