@@ -4,7 +4,7 @@ A 2D Particle system done with C++ and SDL 2.0
 
 * [Github repository](https://github.com/nintervik/2D-Particle-System)  
 * [Website](https://nintervik.github.io/2D-Particle-System/)
-* [Latest release](https://github.com/nintervik/2D-Particle-System/releases)
+* [Release](https://github.com/nintervik/2D-Particle-System/releases)
 
 ## Installation instructions
 
@@ -16,8 +16,11 @@ _IMPORTANT: do not modify, change or add any folder or file as you might not be 
 
 ### Keyboard and mouse:
 
-- Right click to create a emitter
-- Enter to remove all emitters
+- Right click to create a fire emitter
+- Number 2 to create a fire emitter without smoke
+- Number 3 to create a green fire with purple smoke
+- Return key to remove all emitters
+- ESC to close application
 
 
 ## Tools used
@@ -25,11 +28,10 @@ _IMPORTANT: do not modify, change or add any folder or file as you might not be 
 * Language: C++
 * Graphics and audio: SDL 2.0
 * Data: pugixml 1.8
-* Level editor: Tiled 0.17
 * Profiler: Brofiler
 * Code repository: GitHub
-* Others: Adobe Photoshop CS6 and MS Paint
+* Others: Adobe Photoshop CS6
 
 ## References
 
-
+soon...
