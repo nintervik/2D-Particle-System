@@ -123,7 +123,7 @@ void j1Render::ResetViewPort()
 }
 
 // Blit particle to screen
-bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, SDL_Color color, float speed, double angle, int pivot_x, int pivot_y) const
+bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, SDL_Color color, SDL_BlendMode blendMode, float speed, double angle, int pivot_x, int pivot_y) const
 {
 	bool ret = true;
 	uint scale = App->win->GetScale();
@@ -143,32 +143,31 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 		rect.h = section->h;
 	}
 	else
-	{
 		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
-	}
-
+	
 	rect.w *= scale;
 	rect.h *= scale;
 
 	SDL_Point* p = NULL;
 	SDL_Point pivot;
 
-	if(pivot_x != INT_MAX && pivot_y != INT_MAX)
+	if (pivot_x != INT_MAX && pivot_y != INT_MAX)
 	{
 		pivot.x = pivot_x;
 		pivot.y = pivot_y;
 		p = &pivot;
 	}
 	
-	//TODO: customize Blit method to take rgb and alpha parameters
-	// The methods below should be error proof! Remeber to check for errors!
+	if (SDL_SetTextureColorMod(texture, color.r, color.g, color.b) != 0)
+		LOG("Cannot set texture color mode. SDL_SetTextureColorMod error: %s", SDL_GetError());
+
+	if (SDL_SetTextureAlphaMod(texture, color.a) != 0)
+		LOG("Cannot set texture alpha mode. SDL_SetTextureAlphaMod error: %s", SDL_GetError());
+
+	if (SDL_SetTextureBlendMode(texture, blendMode) != 0)
+		LOG("Cannot set texture blend mode. SDL_SetTextureBlendMode error: %s", SDL_GetError());
 	
-	SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
-	SDL_SetTextureAlphaMod(texture, color.a);
-	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_ADD);
-
-
-	if(SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, SDL_FLIP_NONE) != 0)
+	if (SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, SDL_FLIP_NONE) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
 		ret = false;
@@ -186,7 +185,7 @@ bool j1Render::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
 	SDL_Rect rec(rect);
-	if(use_camera)
+	if (use_camera)
 	{
 		rec.x = (int)(camera.x + rect.x * scale);
 		rec.y = (int)(camera.y + rect.y * scale);
@@ -196,7 +195,7 @@ bool j1Render::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a
 
 	int result = (filled) ? SDL_RenderFillRect(renderer, &rec) : SDL_RenderDrawRect(renderer, &rec);
 
-	if(result != 0)
+	if (result != 0)
 	{
 		LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());
 		ret = false;
@@ -215,12 +214,12 @@ bool j1Render::DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 
 
 	int result = -1;
 
-	if(use_camera)
+	if (use_camera)
 		result = SDL_RenderDrawLine(renderer, camera.x + x1 * scale, camera.y + y1 * scale, camera.x + x2 * scale, camera.y + y2 * scale);
 	else
 		result = SDL_RenderDrawLine(renderer, x1 * scale, y1 * scale, x2 * scale, y2 * scale);
 
-	if(result != 0)
+	if (result != 0)
 	{
 		LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());
 		ret = false;

@@ -22,7 +22,7 @@ public:
 	ParticlePool(Emitter* emitter);
 	virtual ~ParticlePool();
 
-	void Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor);
+	void Generate(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode);
 	bool Update(float dt);
 };
 

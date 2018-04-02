@@ -38,6 +38,7 @@ private:
 		EmitterType type;
 		SDL_Color startColor = { 0, 0, 0, 0 };
 		SDL_Color endColor = { 0, 0, 0, 0 };
+		SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 	};
 
 	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];

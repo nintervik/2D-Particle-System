@@ -7,7 +7,7 @@
 
 Particle::Particle():life(0), startLife(0) { }
 
-void Particle::Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor)
+void Particle::Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
 {
 	pState.pLive.pos = pos;
 	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
@@ -17,6 +17,7 @@ void Particle::Init(fPoint pos, float speed, float angle, float start_radius, ui
 	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
 	pState.pLive.startColor = startColor;
 	pState.pLive.endColor = endColor;
+	pState.pLive.blendMode = blendMode;
 	pState.pLive.t = 0.0f;
 }
 
@@ -42,7 +43,7 @@ void Particle::Draw()
 
 	
 	// SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, float speed, double angle, int pivot_x, int pivot_y
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t));
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t), pState.pLive.blendMode);
 	
 	pState.pLive.t += (1.0f / (float)startLife);
 

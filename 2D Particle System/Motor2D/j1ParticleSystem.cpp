@@ -104,7 +104,7 @@ bool j1ParticleSystem::CleanUp()
 
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].maxSize, vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].lifetime);
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].maxSize, vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].blendMode, vecEmitterData[type].lifetime);
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -181,6 +181,18 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	tmp.endColor.g = emitter.child("endColor").attribute("g").as_uint();
 	tmp.endColor.b = emitter.child("endColor").attribute("b").as_uint();
 	tmp.endColor.a = emitter.child("endColor").attribute("a").as_uint();
+
+	// Blend mode
+	std::string blendModeString = emitter.child("blendMode").attribute("mode").as_string();
+
+	if (blendModeString == "add")
+		tmp.blendMode = SDL_BlendMode::SDL_BLENDMODE_ADD;
+	else if (blendModeString == "blend")
+		tmp.blendMode = SDL_BlendMode::SDL_BLENDMODE_BLEND;
+	else if (blendModeString == "mod")
+		tmp.blendMode = SDL_BlendMode::SDL_BLENDMODE_MOD;
+	else if (blendModeString == "none")
+		tmp.blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 
 	vecEmitterData[type] = tmp;
 }

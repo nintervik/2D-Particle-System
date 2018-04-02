@@ -52,13 +52,14 @@ private:
 
 	SDL_Color startColor = { 0, 0, 0, 0 };
 	SDL_Color endColor = { 0, 0, 0, 0 };
+	SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 	float timeStep = 0.0f;
 
 public:
 
 	bool toDestroy = false;
 
-	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, double lifetime = -1.0f);
+	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float maxSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE, double lifetime = -1.0f);
 	virtual ~Emitter();
 	
 	void Update(float dt);

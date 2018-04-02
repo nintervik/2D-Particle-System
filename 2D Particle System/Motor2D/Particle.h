@@ -27,6 +27,7 @@ class Particle
 			SDL_Rect rectSize;
 			SDL_Color startColor;
 			SDL_Color endColor;
+			SDL_BlendMode blendMode;
 			float t;
 
 			ParticleState() {}
@@ -45,7 +46,7 @@ class Particle
 	public:
 
 	Particle();
-	void Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor);
+	void Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode);
 
 	void Update(float dt);
 	void Draw();

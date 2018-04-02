@@ -140,8 +140,6 @@ bool j1Scene::CleanUp()
 
 /* Things left TODO:
 
-   -  Find out about blending modes.
-
    -  Particle physics: movement equations + bezier + vortex turbulence.
 
    -  Look framerate calculations in app.
@@ -149,8 +147,6 @@ bool j1Scene::CleanUp()
    -  Method to apply forces.
    
    -  Acceletation should be a parameter?
-
-   -  Color interpolation in particles.
 
    -  Emitters shapes.
 
