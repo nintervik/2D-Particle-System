@@ -2,6 +2,7 @@
 
 <emitters>
     <particleAtlas name="textures/particle.png">
+      
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
         <maxSpeed value ="100"/>
