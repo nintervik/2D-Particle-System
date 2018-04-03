@@ -70,6 +70,12 @@ A particle system is a structure that allows you to simulate particles of differ
 
 -	Talk about Unity approach here and other systems like in Star Treck (a bit of history)
 
+Particle systems are very common in computer graphics and have been used since the early 1980s. One of the first implementations was seen in _Star Trek II: The Wrath of Khan_ in 1982. The film featured a sequence called Genesis Demo where a planet is terraformed by a torpedo to make it habitable. For achieving this effect William T. Reeves, a researcher at Lucasfilm Ltd, did a research on particle systems on a paper called [_Particle Systems - A Technique for Modeling a Class of Fuzzy Objects_](https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/fuzzyParticles.pdf). As said in this paper:
+
+> "_A particle system is a collection of many minute particles that together represent
+a fuzzy object. Over a period of time, particles are generated into a system, move
+and change from within the system, and die from the system._"
+
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
