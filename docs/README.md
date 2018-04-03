@@ -76,6 +76,11 @@ Particle systems are very common in computer graphics and have been used since t
 a fuzzy object. Over a period of time, particles are generated into a system, move
 and change from within the system, and die from the system._"
 
+This is the sequence mentioned above, as you can see the results are quite impressive considering the time this was done:
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
