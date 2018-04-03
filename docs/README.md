@@ -78,7 +78,7 @@ and change from within the system, and die from the system._"
 
 This is the sequence mentioned above, as you can see the results are quite impressive considering the time this was done:
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
