@@ -43,6 +43,15 @@ class Particle
 		ParticleInfo() {}
 	} pState;
 
+	struct Vortex
+	{
+		fPoint pos = { 350.0f, 400.0f };
+		float speed = 20.0f;
+		float scale = 5.0f;
+	};
+
+	Vortex vortex;
+
 	public:
 
 	Particle();

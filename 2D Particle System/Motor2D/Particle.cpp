@@ -26,13 +26,26 @@ void Particle::Update(float dt)
 	life--;
 
 	pState.pLive.ageRatio = (float)this->life / (float)this->startLife;
-	float alpha = (pState.pLive.ageRatio * 255.0f);
-	pState.pLive.startColor.a = alpha;
-	pState.pLive.radius = pState.pLive.start_radius * pState.pLive.ageRatio;
+	pState.pLive.startColor.a = (pState.pLive.ageRatio * 255.0f);
+
+	if (pState.pLive.radius < 100.0f)
+		pState.pLive.radius = pState.pLive.start_radius / pState.pLive.ageRatio;
+
+
+
 	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.radius;
 
-	pState.pLive.pos.x += pState.pLive.vel.x * dt;
-	pState.pLive.pos.y += pState.pLive.vel.y * dt;
+	float dx = pState.pLive.pos.x - vortex.pos.x;
+	float dy = pState.pLive.pos.y - vortex.pos.y;
+	float vx = -dy * vortex.speed;
+	float vy = dx * vortex.speed;
+	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
+
+	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
+	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
+
+	//pState.pLive.pos.x += pState.pLive.vel.x * dt;
+	//pState.pLive.pos.y += pState.pLive.vel.y * dt;
 }
 
 void Particle::Draw()
@@ -40,10 +53,10 @@ void Particle::Draw()
 	SDL_Rect rectTest = { (int)pState.pLive.start_radius, (int)pState.pLive.start_radius };
 	float centerX = pState.pLive.pos.x + ((rectTest.w - pState.pLive.rectSize.w) / 2);
 	float centerY = pState.pLive.pos.y + ((rectTest.h - pState.pLive.rectSize.h) / 2); 
-
+	SDL_Color resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t);
+	resColor.a = pState.pLive.startColor.a;
 	
-	// SDL_Texture* texture, float alpha, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, float speed, double angle, int pivot_x, int pivot_y
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t), pState.pLive.blendMode);
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, resColor, pState.pLive.blendMode);
 	
 	pState.pLive.t += (1.0f / (float)startLife);
 

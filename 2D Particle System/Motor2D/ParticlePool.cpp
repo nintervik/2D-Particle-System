@@ -16,7 +16,7 @@ ParticlePool::ParticlePool(Emitter* emitter)
 	for (int i = 0; i < poolSize - 1; i++)
 		particleArray[i].SetNext(&particleArray[i + 1]);
 
-	// The last particles points to nullptr indicating the end of the list
+	// The last particles points to nullptr indicating the end of the vector
 	particleArray[poolSize - 1].SetNext(nullptr);
 }
 
