@@ -53,8 +53,17 @@ void Particle::Draw()
 	SDL_Rect rectTest = { (int)pState.pLive.start_radius, (int)pState.pLive.start_radius };
 	float centerX = pState.pLive.pos.x + ((rectTest.w - pState.pLive.rectSize.w) / 2);
 	float centerY = pState.pLive.pos.y + ((rectTest.h - pState.pLive.rectSize.h) / 2); 
-	SDL_Color resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t);
+
+	SDL_Color resColor = pState.pLive.startColor;
+
+	if (startLife > 15)
+	{
+		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t);
+	}
+	 
 	resColor.a = pState.pLive.startColor.a;
+
+
 	
 	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, resColor, pState.pLive.blendMode);
 	

@@ -142,27 +142,34 @@ bool j1Scene::CleanUp()
 
 /* Things left TODO:
 
-   -  Particle physics: movement equations + bezier + vortex turbulence.
-
-   -  Look framerate calculations in app.
-
-   -  Method to apply forces.
-   
-   -  Acceletation should be a parameter?
+   -  Particle physics: vortex, linear or parabole.
 
    -  Emitters shapes.
 
-   -  Emitters should be able to spawn other emitters.
+   -  Add rotation as a parameter
 
-   -  Emitters should be able to have a chain reaction, i.e: change its type and 
-      then start spawning another types of particles. So it's like a chain of 
-	  emissions. Fire, explosion, smoke in a loop for example.
+   -  Control randomization parameters
+
+   -  Add maxSize and minSize
+
+   -  Animations instead of textures?
 
    -  Once everything is set up try to do different types of particles and create a 
       unique atlas to store all the textures needed for each type of particle.
 
-   -  Emission rate could be lower than 1.
+   -  Look framerate calculations in app.
 
    -  Clean code, add comments and test!
+
+   // TO IMPROVE
+   
+   - Emitters of emitters
+    -  Emitters should be able to have a chain reaction, i.e: change its type and 
+      then start spawning another types of particles. So it's like a chain of 
+	  emissions. Fire, explosion, smoke in a loop for example.
+
+	  ----
+
+	  -  Emission rate could be lower than 1.
 
  */

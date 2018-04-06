@@ -46,8 +46,8 @@ class Particle
 	struct Vortex
 	{
 		fPoint pos = { 350.0f, 400.0f };
-		float speed = 20.0f;
-		float scale = 5.0f;
+		float speed = 25.0f;
+		float scale = 30.0f;
 	};
 
 	Vortex vortex;

@@ -25,9 +25,9 @@
         <emitVariance value ="0"/>
         <maxParticleLife value ="400"/>
         <textureRect x="0" y="0" w="128" h="128"/>
-        <startColor r ="255" g="100" b="0" a="255"/>
-        <endColor r ="255" g="100" b="0" a="255"/>
-        <blendMode mode ="add"/>
+        <startColor r ="210" g="210" b="210" a ="255"/>
+        <endColor r ="210" g="210" b="210" a ="255"/>
+        <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
       </emitter>
 
