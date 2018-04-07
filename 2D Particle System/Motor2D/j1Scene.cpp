@@ -46,20 +46,12 @@ bool j1Scene::Update(float dt)
 	testEmitter1 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE);
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	if (App->input->GetMouseButtonDown(SDL_BUTTON_RIGHT) == KEY_DOWN)
 	{
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		testEmitter2 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE2);
-	}
-
-	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
-	{
-		int mx, my;
-		App->input->GetMousePosition(mx, my);
-		fPoint pos((float)mx, (float)my);
-		testEmitter3 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE3);
+		testEmitter2 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_SMOKE);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
@@ -85,33 +77,33 @@ bool j1Scene::Update(float dt)
 		testEmitter1->StartEmission(5000.0f);
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && testEmitter1 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && testEmitter2 != nullptr)
 	{
-		fPoint newPos = testEmitter1->GetEmitterPos();
+		fPoint newPos = testEmitter2->GetEmitterPos();
 		newPos.x += 5.0f;
 		
-		testEmitter1->MoveEmitter(newPos);
+		testEmitter2->MoveEmitter(newPos);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && testEmitter1 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && testEmitter2 != nullptr)
 	{
-		fPoint newPos = testEmitter1->GetEmitterPos();
+		fPoint newPos = testEmitter2->GetEmitterPos();
 		newPos.x -= 5.0f;
 
-		testEmitter1->MoveEmitter(newPos);
+		testEmitter2->MoveEmitter(newPos);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && testEmitter1 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && testEmitter2 != nullptr)
 	{
-		fPoint newPos = testEmitter1->GetEmitterPos();
+		fPoint newPos = testEmitter2->GetEmitterPos();
 		newPos.y -= 5.0f;
 
-		testEmitter1->MoveEmitter(newPos);
+		testEmitter2->MoveEmitter(newPos);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && testEmitter1 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && testEmitter2 != nullptr)
 	{
-		fPoint newPos = testEmitter1->GetEmitterPos();
+		fPoint newPos = testEmitter2->GetEmitterPos();
 		newPos.y += 5.0f;
 
-		testEmitter1->MoveEmitter(newPos);
+		testEmitter2->MoveEmitter(newPos);
 	}
 	
 	return true;
@@ -134,7 +126,6 @@ bool j1Scene::CleanUp()
 	LOG("Freeing scene");
 
 	testEmitter2 = nullptr;
-	testEmitter3 = nullptr;
 	testEmitter1 = nullptr;
 
 	return true;
@@ -149,8 +140,6 @@ bool j1Scene::CleanUp()
    -  Add rotation as a parameter
 
    -  Control randomization parameters
-
-   -  Add maxSize and minSize
 
    -  Animations instead of textures?
 
