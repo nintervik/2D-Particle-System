@@ -16,6 +16,34 @@
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
       </emitter>
+
+      <emitter type ="fire_purple">
+        <angleRange min ="80" max ="110"/>
+        <maxSpeed value ="200"/>
+        <size startSize ="120" endSize ="120"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0"/>
+        <maxParticleLife value ="100"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="150" g="0" b="205" a ="0"/>
+        <blendMode mode ="blend"/>
+        <lifetime value ="-1"/>
+      </emitter>
+
+      <emitter type ="flame">
+        <angleRange min ="80" max ="110"/>
+        <maxSpeed value ="200"/>
+        <size startSize ="0" endSize ="120"/>
+        <emitNumber value ="3"/>
+        <emitVariance value ="2"/>
+        <maxParticleLife value ="100"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="-1"/>
+      </emitter>
       
       <emitter type ="smoke">
         <angleRange min ="50" max ="130"/>
@@ -29,6 +57,34 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
+      </emitter>
+
+      <emitter type ="burst">
+        <angleRange min ="0" max ="360"/>
+        <maxSpeed value ="300"/>
+        <size startSize ="0" endSize ="100"/>
+        <emitNumber value ="60"/>
+        <emitVariance value ="80"/>
+        <maxParticleLife value ="200"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="50"/>
+      </emitter>
+
+      <emitter type ="explosion">
+        <angleRange min ="50" max ="130"/>
+        <maxSpeed value ="0"/>
+        <size startSize ="0" endSize ="800"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0"/>
+        <maxParticleLife value ="40"/>
+        <textureRect x="128" y="0" w="256" h="256"/>
+        <startColor r ="255" g="100" b="0" a ="255"/>
+        <endColor r ="255" g="100" b="0" a ="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="20"/>
       </emitter>
       
     </particleAtlas>

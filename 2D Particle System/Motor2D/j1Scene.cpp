@@ -43,7 +43,7 @@ bool j1Scene::Update(float dt)
 	App->input->GetMousePosition(mx, my);
 	fPoint pos((float)mx, (float)my);
 
-	testEmitter1 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE);
+	eFire = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE);
 	}
 
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_RIGHT) == KEY_DOWN)
@@ -51,7 +51,32 @@ bool j1Scene::Update(float dt)
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		testEmitter2 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_SMOKE);
+		eSmoke = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_SMOKE);
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		fPoint pos((float)mx, (float)my);
+		eExplosion = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_EXPLOSION);
+		eBurst = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_BURST);
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		fPoint pos((float)mx, (float)my);
+		eFlame = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FLAME);
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		fPoint pos((float)mx, (float)my);
+		eFlame = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
@@ -59,51 +84,51 @@ bool j1Scene::Update(float dt)
 		App->psystem->RemoveAllEmitters();
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN && testEmitter1 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN && eFire != nullptr)
 	{
-		testEmitter1->StopEmission(5000.0f);
+		eFire->StopEmission(5000.0f);
 	}
 
-	if (testEmitter1 != nullptr)
+	if (eFire != nullptr)
 	{
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		testEmitter1->MoveEmitter(pos);
+		eFire->MoveEmitter(pos);
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && testEmitter1 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && eFire != nullptr)
 	{
-		testEmitter1->StartEmission(5000.0f);
+		eFire->StartEmission(5000.0f);
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && testEmitter2 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && eSmoke != nullptr)
 	{
-		fPoint newPos = testEmitter2->GetEmitterPos();
+		fPoint newPos = eSmoke->GetEmitterPos();
 		newPos.x += 5.0f;
 		
-		testEmitter2->MoveEmitter(newPos);
+		eSmoke->MoveEmitter(newPos);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && testEmitter2 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && eSmoke != nullptr)
 	{
-		fPoint newPos = testEmitter2->GetEmitterPos();
+		fPoint newPos = eSmoke->GetEmitterPos();
 		newPos.x -= 5.0f;
 
-		testEmitter2->MoveEmitter(newPos);
+		eSmoke->MoveEmitter(newPos);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && testEmitter2 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && eSmoke != nullptr)
 	{
-		fPoint newPos = testEmitter2->GetEmitterPos();
+		fPoint newPos = eSmoke->GetEmitterPos();
 		newPos.y -= 5.0f;
 
-		testEmitter2->MoveEmitter(newPos);
+		eSmoke->MoveEmitter(newPos);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && testEmitter2 != nullptr)
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && eSmoke != nullptr)
 	{
-		fPoint newPos = testEmitter2->GetEmitterPos();
+		fPoint newPos = eSmoke->GetEmitterPos();
 		newPos.y += 5.0f;
 
-		testEmitter2->MoveEmitter(newPos);
+		eSmoke->MoveEmitter(newPos);
 	}
 	
 	return true;
@@ -125,8 +150,8 @@ bool j1Scene::CleanUp()
 {
 	LOG("Freeing scene");
 
-	testEmitter2 = nullptr;
-	testEmitter1 = nullptr;
+	eSmoke = nullptr;
+	eFire = nullptr;
 
 	return true;
 }
