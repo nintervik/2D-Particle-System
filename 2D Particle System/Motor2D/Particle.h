@@ -20,7 +20,7 @@ class Particle
 		{
 			fPoint pos;
 			fPoint vel;
-			float radius, start_radius;
+			float currentSize, startSize, endSize;
 			float ageRatio;
 			float angle;
 			SDL_Rect pRect;
@@ -55,7 +55,7 @@ class Particle
 	public:
 
 	Particle();
-	void Init(fPoint pos, float speed, float angle, float start_radius, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode);
+	void Init(fPoint pos, float speed, float angle, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode);
 
 	void Update(float dt);
 	void Draw();

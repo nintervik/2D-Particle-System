@@ -5,28 +5,28 @@
       
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
-        <maxSpeed value ="100"/>
-        <maxSize value ="120"/>
+        <maxSpeed value ="200"/>
+        <size startSize ="120" endSize ="20"/>
         <emitNumber value ="1"/>
         <emitVariance value ="0"/>
-        <maxParticleLife value ="200"/>
+        <maxParticleLife value ="100"/>
         <textureRect x="0" y="0" w="128" h="128"/>
         <startColor r ="255" g="100" b="0" a="255"/>
-        <endColor r ="210" g="210" b="210" a ="255"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
       </emitter>
       
       <emitter type ="fire2">
-        <angleRange min ="80" max ="110"/>
-        <maxSpeed value ="100"/>
-        <maxSize value ="120"/>
-        <emitNumber value ="1"/>
-        <emitVariance value ="0"/>
+        <angleRange min ="50" max ="130"/>
+        <maxSpeed value ="120"/>
+        <size startSize ="20" endSize ="120"/>
+        <emitNumber value ="3"/>
+        <emitVariance value ="3"/>
         <maxParticleLife value ="400"/>
         <textureRect x="0" y="0" w="128" h="128"/>
-        <startColor r ="210" g="210" b="210" a ="255"/>
-        <endColor r ="210" g="210" b="210" a ="255"/>
+        <startColor r ="210" g="210" b="210" a ="50"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
       </emitter>
@@ -34,13 +34,13 @@
       <emitter type ="fire3">
         <angleRange min ="80" max ="110"/>
         <maxSpeed value ="100"/>
-        <maxSize value ="120"/>
+        <size startSize ="120" endSize ="20"/>
         <emitNumber value ="1"/>
         <emitVariance value ="0"/>
         <maxParticleLife value ="400"/>
         <textureRect x="0" y="0" w="128" h="128"/>
         <startColor r ="158" g="248" b="45" a="255"/>
-        <endColor r ="192" g="67" b="252" a="255"/>
+        <endColor r ="192" g="67" b="252" a="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
       </emitter>

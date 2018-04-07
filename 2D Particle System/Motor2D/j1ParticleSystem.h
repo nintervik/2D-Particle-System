@@ -29,7 +29,7 @@ private:
 	{
 		fPoint angleRange = { 0.0f, 0.0f };
 		float maxSpeed = 0.0f;
-		float maxSize = 0.0f;
+		float startSize = 0.0f, endSize = 0.0f;
 		uint emitNumber = 0u;
 		uint emitVariance = 0u;
 		uint maxParticleLife = 0u;

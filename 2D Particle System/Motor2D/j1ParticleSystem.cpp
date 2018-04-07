@@ -104,7 +104,7 @@ bool j1ParticleSystem::CleanUp()
 
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].maxSize, vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].blendMode, vecEmitterData[type].lifetime);
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].startSize, vecEmitterData[type].endSize,  vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].blendMode, vecEmitterData[type].lifetime);
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -156,7 +156,8 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	tmp.angleRange.y = emitter.child("angleRange").attribute("max").as_float();
 	
 	tmp.maxSpeed = emitter.child("maxSpeed").attribute("value").as_float();
-	tmp.maxSize = emitter.child("maxSize").attribute("value").as_float();
+	tmp.startSize = emitter.child("size").attribute("startSize").as_float();
+	tmp.endSize = emitter.child("size").attribute("endSize").as_float();
 	tmp.emitNumber = emitter.child("emitNumber").attribute("value").as_uint();
 	tmp.emitVariance = emitter.child("emitVariance").attribute("value").as_uint();
 	tmp.maxParticleLife = emitter.child("maxParticleLife").attribute("value").as_uint();
