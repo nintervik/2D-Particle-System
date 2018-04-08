@@ -59,7 +59,7 @@ bool j1Scene::Update(float dt)
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		//eExplosion = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_EXPLOSION);
+		eExplosion = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_EXPLOSION);
 		eBurst = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_BURST);
 	}
 

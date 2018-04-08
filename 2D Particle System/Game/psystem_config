@@ -99,7 +99,7 @@
         <maxSpeed value ="200"/>
         <size startSize = "60" endSize ="0"/>
         <emitNumber value ="1"/>
-        <emitVariance value ="1"/>
+        <emitVariance value ="3"/>
         <maxParticleLife value ="150"/>
         <textureRect x="0" y="128" w="32" h="32"/>
         <startColor r ="47" g="141" b="255" a ="255"/>
