@@ -58,7 +58,11 @@ This is a spritesheet of a fire caused by a a bomb in Gunbird (Psiskyo, 1994):
 
 ![tetsu_explosion_death](https://user-images.githubusercontent.com/25589509/37986157-0dd24af0-31fb-11e8-9aa3-6d9906ec676c.png)
 
-You start to see the problem now right? What if the game is too complex to do it by a hand or is actually a 3D game? Well, that's when particle systems come into play.
+You start to see the problem now right? What if the game is too complex to do it by a hand or is actually a 3D game? What if we want something like this:
+
+![explosion_01_dribbble](https://user-images.githubusercontent.com/25589509/38469869-b738adf0-3b5b-11e8-9274-9273ebb50281.gif)
+
+Well, that's when particle systems come into play.
 
 A particle system is a structure that allows you to simulate particles of different types in an organic way with the advantage of just tweaking some particle properties to get the exact results you want very quickly and without effort. And the best part: you don’t have to draw any of these particles. You just need a base texture and that’s all. The system will be in charge of rendering the particles, the effects (such as glowing), physics calculations, emission rate and so on. You don't need to worry about anything, just playing around with it to get what you want.
 
