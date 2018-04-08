@@ -70,7 +70,7 @@
         <size startSize ="10" endSize ="100"/>
         <emitNumber value ="15"/>
         <emitVariance value ="3"/>
-        <maxParticleLife value ="300"/>
+        <maxParticleLife value ="100"/>
         <textureRect x="640" y="0" w="512" h="512"/>
         <startColor r ="210" g="210" b="210" a ="50"/>
         <endColor r ="210" g="210" b="210" a ="0"/>

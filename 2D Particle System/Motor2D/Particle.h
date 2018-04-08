@@ -3,6 +3,7 @@
 
 #include "p2Point.h"
 #include "SDL/include/SDL.h"
+#include <list>
 
 struct SDL_Texture;
 
@@ -11,6 +12,15 @@ class Particle
 	private:
 
 	uint life = 0, startLife = 0;
+
+	struct Vortex
+	{
+		fPoint pos = { 250.0f, 200.0f };
+		float speed = 25.0f;
+		float scale = 30.0f;
+	};
+
+	std::list<Vortex> vortexList;
 
 	union ParticleInfo
 	{
@@ -45,15 +55,6 @@ class Particle
 		ParticleInfo() {}
 	} pState;
 
-	struct Vortex
-	{
-		fPoint pos = { 350.0f, 400.0f };
-		float speed = 25.0f;
-		float scale = 30.0f;
-	};
-
-	Vortex vortex;
-
 	public:
 
 	Particle();
@@ -68,6 +69,8 @@ class Particle
 	void SetNext(Particle* next);
 
 	SDL_Color RgbInterpolation(SDL_Color startColor, SDL_Color endColor, float timeStep);
+	void AddVortex(fPoint pos, float speed, float scale);
+	void CalculatePosFromVortex(float dt);
 };
 
 #endif
