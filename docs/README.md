@@ -17,7 +17,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ***
 
-## **Introduction**
+## **1. Introduction**
 
 In this website I will explain what it is, how it works and how to program a 2D particle system in computer graphics. The system will be programmed in C++ using [Visual Studio 2017]( https://www.visualstudio.com/es/downloads/?rr=https%3A%2F%2Fwww.google.es%2F) as IDE, [SDL 2.0](https://www.libsdl.org/download-2.0.php) to render the graphics and [pugixml](https://pugixml.org/) for data parsing. The end goal of the tutorial is to success on creating a fire and smoke effect.
 
@@ -62,13 +62,13 @@ You start to see the problem now right? What if the game is too complex to do it
 
 A particle system is a structure that allows you to simulate particles of different types in an organic way with the advantage of just tweaking some particle properties to get the exact results you want very quickly and without effort. And the best part: you don’t have to draw any of these particles. You just need a base texture and that’s all. The system will be in charge of rendering the particles, the effects (such as glowing), physics calculations, emission rate and so on. You don't need to worry about anything, just playing around with it to get what you want.
 
+This is just a generic description. Let's dive into more techical details of what this all means.
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
 ## **A bit of history**
-
--	Talk about Unity approach here and other systems like in Star Treck (a bit of history)
 
 Particle systems are very common in computer graphics and have been used since the early 1980s. One of the first implementations was seen in _Star Trek II: The Wrath of Khan_ in 1982. The film featured a sequence called Genesis Demo where a planet is terraformed by a torpedo to make it habitable. For achieving this effect William T. Reeves, a researcher at Lucasfilm Ltd, did a research on particle systems on a paper called [_Particle Systems - A Technique for Modeling a Class of Fuzzy Objects_](https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/fuzzyParticles.pdf).
 
@@ -77,6 +77,8 @@ Reeves describes a particle system in this paper as follows:
 > "_A particle system is a collection of many minute particles that together represent
 a fuzzy object. Over a period of time, particles are generated into a system, move
 and change from within the system, and die from the system._"
+
+Paricle 
 
 This is the sequence mentioned above, as you can see the results are quite impressive considering the time this was done:
 
