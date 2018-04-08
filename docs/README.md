@@ -104,6 +104,8 @@ Nowadays particle systems can be found in any almost any game engine or 3D softw
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
+### **2.3 The components**
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
