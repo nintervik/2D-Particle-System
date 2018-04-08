@@ -4,6 +4,8 @@
 #include "p2Point.h"
 #include "SDL/include/SDL.h"
 
+#define MIN_LIFE_TO_INTERPOLATE 15
+
 struct SDL_Texture;
 
 class Particle
@@ -16,9 +18,9 @@ class Particle
 
 	struct Vortex
 	{
-		fPoint pos = { 250.0f, 200.0f };
-		float speed = 25.0f;
-		float scale = 30.0f;
+		fPoint pos = { 0.0f, 0.0f };
+		float speed = 0.0f;
+		float scale = 0.0f;
 	} vortex;
 
 	union ParticleInfo
@@ -72,11 +74,14 @@ class Particle
 	void SetNext(Particle* next);
 
 	// Given two colors interpolates linearly over time and returns the resulting color
-	SDL_Color RgbInterpolation(SDL_Color startColor, SDL_Color endColor, float timeStep);
+	SDL_Color RgbInterpolation(SDL_Color startColor, float timeStep, SDL_Color endColor);
 
-	// Vortex methods
+	// Adds a vortex to the system
 	void AddVortex(fPoint pos, float speed, float scale);
-	void CalculatePosFromVortex(float dt);
+
+	/* Calculates particle position considering its velocity
+	   and if there's a vortex in the system*/
+	void CalculateParticlePos(float dt);
 };
 
 #endif

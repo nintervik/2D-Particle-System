@@ -9,57 +9,71 @@ Particle::Particle():life(0) { }
 
 void Particle::Init(fPoint pos, float speed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
 {
+	// Movement properties
 	pState.pLive.pos = pos;
 	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
 	pState.pLive.vel.y = -speed * sin(DEG_TO_RAD(angle));
+	pState.pLive.startRotSpeed = rotSpeed;
+	pState.pLive.currentRotSpeed = rotSpeed;
+
+	// Life properties
 	this->life = pState.pLive.startLife = life;
 	pState.pLive.currentSize = pState.pLive.startSize = startSize;
 	pState.pLive.endSize = endSize;
-	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
+	pState.pLive.t = 0.0f;
+
+	// Color properties
 	pState.pLive.startColor = startColor;
 	pState.pLive.endColor = endColor;
 	pState.pLive.blendMode = blendMode;
-	pState.pLive.startRotSpeed = rotSpeed;
-	pState.pLive.currentRotSpeed = rotSpeed;
-	pState.pLive.t = 0.0f;
+	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
 
+	// Add vortex to the system (optional and only one is allowed)
 	AddVortex({ 250.0f, 200.0f }, 25.0f, 30.0f);
-
 }
 
 void Particle::Update(float dt)
 {
-	life--;
+	// Age ratio is used to interpolate between particle properties
+	pState.pLive.ageRatio = (float)life / (float)pState.pLive.startLife;
 
-	pState.pLive.ageRatio = (float)this->life / (float)pState.pLive.startLife;
-
-	if (pState.pLive.startSize > pState.pLive.endSize && pState.pLive.currentSize <= pState.pLive.endSize)
+	// Particle size calculations
+	if (pState.pLive.startSize > pState.pLive.endSize && pState.pLive.currentSize > pState.pLive.endSize)
 		pState.pLive.currentSize = pState.pLive.startSize * pState.pLive.ageRatio;
-	else if (pState.pLive.startSize < pState.pLive.endSize && pState.pLive.currentSize <= pState.pLive.endSize)
-		pState.pLive.currentSize += 0.5f * (pState.pLive.endSize / pState.pLive.ageRatio - pState.pLive.endSize);
+	else if (pState.pLive.startSize < pState.pLive.endSize && pState.pLive.currentSize < pState.pLive.endSize)
+		pState.pLive.currentSize += pState.pLive.endSize / pState.pLive.ageRatio - pState.pLive.endSize;
 
+	// Assign new size to particle rect
 	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.currentSize;
 
-	CalculatePosFromVortex(dt);
+	// Calculates new particle position.
+	CalculateParticlePos(dt);
+
+	// Decrementing particle life
+	life--;
 }
 
 void Particle::Draw()
 {
-	SDL_Rect rectTest = { (int)pState.pLive.startSize, (int)pState.pLive.startSize };
-	float centerX = pState.pLive.pos.x + ((rectTest.w - pState.pLive.rectSize.w) / 2.0f);
-	float centerY = pState.pLive.pos.y + ((rectTest.h - pState.pLive.rectSize.h) / 2.0f); 
+	// Calculations to determine the current center of particle texture
+	SDL_Rect tmpRect = { (int)pState.pLive.startSize, (int)pState.pLive.startSize };
+	float centerX = pState.pLive.pos.x + ((tmpRect.w - pState.pLive.rectSize.w) / 2.0f);
+	float centerY = pState.pLive.pos.y + ((tmpRect.h - pState.pLive.rectSize.h) / 2.0f);
 
-	SDL_Color resColor = pState.pLive.startColor;
+	// Color interpolation, only if the particle has enough life
+	SDL_Color resColor;
 
-	if (pState.pLive.startLife > 15)
-		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t);
+	if (pState.pLive.startLife > MIN_LIFE_TO_INTERPOLATE)
+		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.t, pState.pLive.endColor);
 
-	if (pState.pLive.currentRotSpeed > 1)
-		int a = 0;
-
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
+	// Blitting particle on screen
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, 
+							  &pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
+	
+	// Calculating new rotation according to rotation speed
 	pState.pLive.currentRotSpeed += pState.pLive.startRotSpeed;
 
+	// Time step increment to interpolate colors
 	pState.pLive.t += (1.0f / (float)pState.pLive.startLife);
 
 	if (pState.pLive.t >= 1.0f)
@@ -68,7 +82,7 @@ void Particle::Draw()
 
 bool Particle::IsAlive()
 {
-	return (life > 0);
+	return life > 0;
 }
 
 Particle* Particle::GetNext()
@@ -81,7 +95,7 @@ void Particle::SetNext(Particle* next)
 	pState.next = next;
 }
 
-SDL_Color Particle::RgbInterpolation(SDL_Color startColor, SDL_Color endColor, float timeStep)
+SDL_Color Particle::RgbInterpolation(SDL_Color startColor, float timeStep, SDL_Color endColor)
 {
 	SDL_Color finalColor;
 
@@ -100,7 +114,7 @@ void Particle::AddVortex(fPoint pos, float speed, float scale)
 	vortex.scale = scale;
 }
 
-void Particle::CalculatePosFromVortex(float dt)
+void Particle::CalculateParticlePos(float dt)
 {
 	float dx = pState.pLive.pos.x - vortex.pos.x;
 	float dy = pState.pLive.pos.y - vortex.pos.y;
