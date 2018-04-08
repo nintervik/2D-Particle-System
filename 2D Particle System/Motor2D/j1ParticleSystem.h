@@ -14,13 +14,26 @@ class Emitter;
 struct SDL_Texture;
 struct SDL_Rect;
 struct SDL_Color;
-enum EmitterType;
+
+enum EmitterType
+{
+	EMITTER_TYPE_NONE = -1,
+	EMITTER_TYPE_FIRE,
+	EMITTER_TYPE_FIRE_PURPLE,
+	EMITTER_TYPE_FLAME,
+	EMITTER_TYPE_SMOKE_1,
+	EMITTER_TYPE_SMOKE_2,
+	EMITTER_TYPE_BURST,
+	EMITTER_TYPE_WAVE_1,
+	EMITTER_TYPE_WAVE_2,
+	EMITTER_TYPE_BUBBLE
+};
+
 
 class j1ParticleSystem : public j1Module
 {
 
 private:
-
 	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
 	std::string nameParticleAtlas;

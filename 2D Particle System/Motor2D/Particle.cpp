@@ -23,9 +23,8 @@ void Particle::Init(fPoint pos, float speed, float angle, double rotSpeed, float
 	pState.pLive.currentRotSpeed = rotSpeed;
 	pState.pLive.t = 0.0f;
 
-	//Vortex
-	AddVortex({ 600.0f, 500.0f }, 0.5f, 100.0f);
-	AddVortex({ 200.0f, 200.0f }, 5.0f, 30.0f);
+	AddVortex({ 250.0f, 200.0f }, 25.0f, 30.0f);
+
 }
 
 void Particle::Update(float dt)
@@ -41,33 +40,7 @@ void Particle::Update(float dt)
 
 	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.currentSize;
 
-	// Vortex code
-
-	/*float dx = pState.pLive.pos.x - vortex.pos.x;
-	float dy = pState.pLive.pos.y - vortex.pos.y;
-	float vx = -dy * vortex.speed;
-	float vy = dx * vortex.speed;
-	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
-
-	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
-	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
-
-	vortex.pos.x = 500.0f;
-	vortex.pos.y = 600.0f;
-	dx = pState.pLive.pos.x - vortex2.pos.x;
-	dy = pState.pLive.pos.y - vortex2.pos.y;
-	vx = -dy * vortex2.speed;
-	vy = dx * vortex2.speed;
-	float factor2 = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex2.scale);
-
-
-	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor2 + pState.pLive.vel.x * dt;
-	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor2 + pState.pLive.vel.y * dt;*/
-
 	CalculatePosFromVortex(dt);
-
-	//pState.pLive.pos.x += pState.pLive.vel.x * dt;
-	//pState.pLive.pos.y += pState.pLive.vel.y * dt;
 }
 
 void Particle::Draw()
@@ -122,27 +95,19 @@ SDL_Color Particle::RgbInterpolation(SDL_Color startColor, SDL_Color endColor, f
 
 void Particle::AddVortex(fPoint pos, float speed, float scale)
 {
-	Vortex tmpVortex;
-	tmpVortex.pos = pos;
-	tmpVortex.speed = speed;
-	tmpVortex.scale = scale;
-
-	vortexList.push_back(tmpVortex);
+	vortex.pos = pos;
+	vortex.speed = speed;
+	vortex.scale = scale;
 }
 
 void Particle::CalculatePosFromVortex(float dt)
 {
-	std::list<Vortex>::const_iterator item;
+	float dx = pState.pLive.pos.x - vortex.pos.x;
+	float dy = pState.pLive.pos.y - vortex.pos.y;
+	float vx = -dy * vortex.speed;
+	float vy = dx * vortex.speed;
+	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
 
-	for (item = vortexList.begin(); item != vortexList.end(); ++item)
-	{
-		float dx = pState.pLive.pos.x - (*item).pos.x;
-		float dy = pState.pLive.pos.y - (*item).pos.y;
-		float vx = -dy * (*item).speed;
-		float vy = dx * (*item).speed;
-		float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / (*item).scale);
-
-		pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
-		pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
-	}
+	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
+	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
 }

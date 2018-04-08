@@ -3,7 +3,6 @@
 
 #include "p2Point.h"
 #include "SDL/include/SDL.h"
-#include <list>
 
 struct SDL_Texture;
 
@@ -20,7 +19,7 @@ class Particle
 		float scale = 30.0f;
 	};
 
-	std::list<Vortex> vortexList;
+	Vortex vortex;
 
 	union ParticleInfo
 	{

@@ -6,6 +6,7 @@ Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 { 
 	srand(time(NULL));
 	
+	// Particles size and movement
 	this->angleRange = angleRange;
 	this->maxSpeed = maxSpeed;
 	this->startSize = startSize;
@@ -19,20 +20,20 @@ Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 	this->maxParticleLife = maxParticleLife;
 	maxParticlesPerFrame = emitNumber + emitVariance;
 
-	// Particles pool 
+	// Pool size calculations
 	poolSize = maxParticlesPerFrame * (maxParticleLife + 1);
-	
 	emitterPool = new ParticlePool(this);
 
-	active = true;
+	// Color and render properties
 	this->textureRect = textureRect;
-	this->lifetime = lifeTime;
-
 	this->startColor = startColor;
 	this->endColor = endColor;
 	this->blendMode = blendMode;
-
 	timeStep = 1.0f / (float)maxParticleLife;
+
+	// Emission properties
+	active = true;
+	this->lifetime = lifeTime;
 
 	if (this->lifetime != -1.0f && this->lifetime > 0.0f)
 		lifeTimer.Start();
@@ -62,6 +63,8 @@ void Emitter::Update(float dt)
 			timeStep += timeStep;
 		}
 	}
+
+	// Emission timing calculations
 	
 	if (stopTime > 0.0f && !active)
 	{
@@ -93,6 +96,8 @@ void Emitter::Update(float dt)
 	}
 
 	// Updating particles in the pool
+	/* NOTE: If lifetime is 0 and last particles have been update
+	then emitter is automatically destroyed */
 	if (!emitterPool->Update(dt) && lifetime == 0.0f)
 		toDestroy = true;
 }

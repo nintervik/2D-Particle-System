@@ -10,20 +10,6 @@
 struct SDL_Texture;
 class ParticlePool;
 
-enum EmitterType
-{
-	EMITTER_TYPE_NONE = -1,
-	EMITTER_TYPE_FIRE,
-	EMITTER_TYPE_FIRE_PURPLE,
-	EMITTER_TYPE_FLAME,
-	EMITTER_TYPE_SMOKE_1,
-	EMITTER_TYPE_SMOKE_2,
-	EMITTER_TYPE_BURST,
-	EMITTER_TYPE_WAVE_1,
-	EMITTER_TYPE_WAVE_2,
-	EMITTER_TYPE_BUBBLE
-};
-
 class Emitter
 {
 private:
@@ -41,25 +27,25 @@ private:
 	uint emitNumber = 0u;
 	uint emitVariance = 0u;
 	uint maxParticleLife = 0u;
-
 	uint maxParticlesPerFrame = 0u;
 
 	// Pool
 	ParticlePool* emitterPool = nullptr;
 	int poolSize = 0;
 
-	bool active = false;
-	SDL_Rect textureRect;
+	// Emission time
 	j1PerfTimer stopTimer;
 	j1PerfTimer emissionTimer;
 	j1PerfTimer lifeTimer;
 	double stopTime = 0.0f;
 	double emissionTime = 0.0f;
 	double lifetime = -1.0f;
-	EmitterType type = EmitterType::EMITTER_TYPE_NONE;
+	bool active = false;
 
+	// Color and render properties
 	SDL_Color startColor = { 0, 0, 0, 0 };
 	SDL_Color endColor = { 0, 0, 0, 0 };
+	SDL_Rect textureRect;
 	SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 	float timeStep = 0.0f;
 
@@ -71,10 +57,20 @@ public:
 	virtual ~Emitter();
 	
 	void Update(float dt);
+
+	// Generates arandom number between range
 	float RangeRandomNum(float min = -1.0f, float max = 1.0f);
+
+	// Returns emitter pool size
 	int GetPoolSize() const;
+
+	// Starts emission specified by timer, if not emission time is infinite
 	void StartEmission(double timer = -1.0f);
+
+	// Stops emission specified by timer, if not emission stop time is infinite
 	void StopEmission(double timer = 0.0f);
+
+	// Emitter move methods
 	void MoveEmitter(fPoint newPos);
 	fPoint GetEmitterPos() const;
 };
