@@ -5,14 +5,14 @@
 #include "p2Defs.h"
 
 
-Particle::Particle():life(0), startLife(0) { }
+Particle::Particle():life(0) { }
 
 void Particle::Init(fPoint pos, float speed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
 {
 	pState.pLive.pos = pos;
 	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
 	pState.pLive.vel.y = -speed * sin(DEG_TO_RAD(angle));
-	this->life = this->startLife = life;
+	this->life = pState.pLive.startLife = life;
 	pState.pLive.currentSize = pState.pLive.startSize = startSize;
 	pState.pLive.endSize = endSize;
 	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
@@ -31,7 +31,7 @@ void Particle::Update(float dt)
 {
 	life--;
 
-	pState.pLive.ageRatio = (float)this->life / (float)this->startLife;
+	pState.pLive.ageRatio = (float)this->life / (float)pState.pLive.startLife;
 
 	if (pState.pLive.startSize > pState.pLive.endSize && pState.pLive.currentSize <= pState.pLive.endSize)
 		pState.pLive.currentSize = pState.pLive.startSize * pState.pLive.ageRatio;
@@ -51,7 +51,7 @@ void Particle::Draw()
 
 	SDL_Color resColor = pState.pLive.startColor;
 
-	if (startLife > 15)
+	if (pState.pLive.startLife > 15)
 		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t);
 
 	if (pState.pLive.currentRotSpeed > 1)
@@ -60,7 +60,7 @@ void Particle::Draw()
 	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
 	pState.pLive.currentRotSpeed += pState.pLive.startRotSpeed;
 
-	pState.pLive.t += (1.0f / (float)startLife);
+	pState.pLive.t += (1.0f / (float)pState.pLive.startLife);
 
 	if (pState.pLive.t >= 1.0f)
 		pState.pLive.t = 0.0f;

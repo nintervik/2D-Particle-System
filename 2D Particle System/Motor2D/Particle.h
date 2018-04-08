@@ -10,7 +10,9 @@ class Particle
 {
 	private:
 
-	uint life = 0, startLife = 0;
+	/*  This is the only variable we care about no matter if
+	   the particle is alive or dead */
+	uint life = 0;
 
 	struct Vortex
 	{
@@ -25,6 +27,7 @@ class Particle
 		   it's being update (it's still alive).*/
 		struct ParticleState
 		{
+			uint startLife;
 			fPoint pos;
 			fPoint vel;
 			float currentSize, startSize, endSize;
