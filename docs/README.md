@@ -82,7 +82,7 @@ Reeves describes a particle system in this paper as follows:
 a fuzzy object. Over a period of time, particles are generated into a system, move
 and change from within the system, and die from the system._"
 
-Organic effects are difficult to simulate but what particle systems do is simplify the problem. We divide the effect in tiny and controllable particles that as a whole seems a like something bigger that behaves as natural phenomenas. By managing a large group of these particles we can represent natural effects like water, fire or smoke so much easier than if we tried to treat it as a whole.
+Organic effects are difficult to simulate but what particle systems do is simplify the problem. Like in physics, we divide the effect in tiny and controllable particles that as a whole seems like something bigger that behaves as natural phenomenas. By managing a large group of these particles we can represent natural effects like water, fire or smoke so much easier than if we tried to treat it as a whole thing.
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
