@@ -39,17 +39,17 @@ void Particle::Update(float dt)
 
 	// Vortex code
 
-	/*float dx = pState.pLive.pos.x - vortex.pos.x;
+	float dx = pState.pLive.pos.x - vortex.pos.x;
 	float dy = pState.pLive.pos.y - vortex.pos.y;
 	float vx = -dy * vortex.speed;
 	float vy = dx * vortex.speed;
 	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
 
 	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
-	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;*/
+	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
 
-	pState.pLive.pos.x += pState.pLive.vel.x * dt;
-	pState.pLive.pos.y += pState.pLive.vel.y * dt;
+	//pState.pLive.pos.x += pState.pLive.vel.x * dt;
+	//pState.pLive.pos.y += pState.pLive.vel.y * dt;
 }
 
 void Particle::Draw()

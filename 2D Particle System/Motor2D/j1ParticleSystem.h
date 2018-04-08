@@ -8,7 +8,7 @@
 #include <string>
 #include "SDL/include/SDL.h"
 
-#define MAX_NUM_EMITTERS_TYPE 8
+#define MAX_NUM_EMITTERS_TYPE 9
 
 class Emitter;
 struct SDL_Texture;
