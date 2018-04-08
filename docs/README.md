@@ -90,9 +90,16 @@ So basically a particle system contains a bunch of tiny objects called particles
 
 Organic effects are difficult to simulate but what particle systems do is simplify the problem. Like in physics, we divide the effect in tiny and controllable particles that as a whole seems like something bigger that behaves as natural phenomenas. By managing a large group of these particles we can represent natural effects like water, fire or smoke so much easier than if we tried to treat it as a whole thing.
 
+### **2.2 Particle systems nowadays**
+
 Since the Genesis effects things have evolved quickly but the foundation is the same as before. Here's a short video on how Pixar Animation Studios uses particle systems nowadays. William T. Reeves is currently working there too!
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/ovlVh-QgVao" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+Nowadays particle systems can be found in any almost any game engine or 3D software. Maya and 3D Max have one as well as Unity or Unreal Engine. Let's take a look at how Unity handles this.
+
+
+
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
