@@ -16,7 +16,7 @@ ParticlePool::ParticlePool(Emitter* emitter)
 	for (int i = 0; i < poolSize - 1; i++)
 		particleArray[i].SetNext(&particleArray[i + 1]);
 
-	// The last particles points to nullptr indicating the end of the vector
+	// The last particle points to nullptr indicating the end of the vector
 	particleArray[poolSize - 1].SetNext(nullptr);
 }
 
@@ -35,7 +35,7 @@ void ParticlePool::Generate(fPoint pos, float speed, float angle, float rotSpeed
 	Particle* newParticle = firstAvailable;
 	firstAvailable = newParticle->GetNext();
 
-	// Inizialize new alive particle
+	// Initialize new alive particle
 	newParticle->Init(pos, speed, angle, rotSpeed, startSize, endSize, life, textureRect, startColor, endColor, blendMode);
 }
 
@@ -51,7 +51,7 @@ bool ParticlePool::Update(float dt)
 			particleArray[i].Draw();
 			ret = true;
 		}
-		else // if a particle dies it becomes the first available one in the pool
+		else // if a particle dies it becomes the first available in the pool
 		{
 			// Add this particle to the front of the vector
 			particleArray[i].SetNext(firstAvailable);
