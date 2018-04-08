@@ -8,8 +8,8 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ## **Index**
 
-* [Introduction](https://nintervik.github.io/2D-Particle-System/#introduction)
-* [What is a Particle System and why do we care?](https://nintervik.github.io/2D-Particle-System/#what-is-a-particle-system-and-why-do-we-care)
+* [Introduction](https://nintervik.github.io/2D-Particle-System/#1-introduction)
+* [What is a Particle System and why do we care?](https://nintervik.github.io/2D-Particle-System/#2-what-is-a-particle-system-and-why-do-we-care)
 * [A bit of history](https://nintervik.github.io/2D-Particle-System/#a-bit-of-history)
 * [Our approach](https://nintervik.github.io/2D-Particle-System/#our-approach)
 * [References](https://nintervik.github.io/2D-Particle-System/#references)
@@ -17,7 +17,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ***
 
-## **Introduction**
+## **1. Introduction**
 
 In this website I will explain what it is, how it works and how to program a 2D particle system in computer graphics. The system will be programmed in C++ using [Visual Studio 2017]( https://www.visualstudio.com/es/downloads/?rr=https%3A%2F%2Fwww.google.es%2F) as IDE, [SDL 2.0](https://www.libsdl.org/download-2.0.php) to render the graphics and [pugixml](https://pugixml.org/) for data parsing. The end goal of the tutorial is to success on creating a fire and smoke effect.
 
@@ -36,7 +36,7 @@ Well, without further delay let's get into playing with these particles!
 
 ***
 
-## **What is a Particle System and why do we care?**
+## **2. What is a Particle System and why do we care?**
 
 What is a particle system and why do we need one? Well, first let’s dig a bit into computer graphics stuff.
 
@@ -68,7 +68,7 @@ This is just a generic description. Let's dive into more techical details of wha
 
 ***
 
-## **A bit of history**
+### ** 2.1 A bit of history**
 
 Particle systems are very common in computer graphics and have been used since the early 1980s. One of the first implementations was seen in _Star Trek II: The Wrath of Khan_ in 1982. The film featured a sequence called Genesis Demo where a planet is terraformed by a torpedo to make it habitable. For achieving this effect William T. Reeves, a researcher at Lucasfilm Ltd, did a research on particle systems on a paper called [_Particle Systems - A Technique for Modeling a Class of Fuzzy Objects_](https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/fuzzyParticles.pdf).
 
