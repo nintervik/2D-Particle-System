@@ -8,9 +8,9 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ## **Index**
 
-* [Introduction](https://nintervik.github.io/2D-Particle-System/#1-introduction)
-* [What is a Particle System and why do we care?](https://nintervik.github.io/2D-Particle-System/#2-what-is-a-particle-system-and-why-do-we-care)
-* [A bit of history](https://nintervik.github.io/2D-Particle-System/#a-bit-of-history)
+* [1. Introduction](https://nintervik.github.io/2D-Particle-System/#1-introduction)
+* [2. What is a Particle System and why do we care?](https://nintervik.github.io/2D-Particle-System/#2-what-is-a-particle-system-and-why-do-we-care)
+  * [2.1 A bit of history](https://nintervik.github.io/2D-Particle-System/#21a-bit-of-history)
 * [Our approach](https://nintervik.github.io/2D-Particle-System/#our-approach)
 * [References](https://nintervik.github.io/2D-Particle-System/#references)
 * [License](https://nintervik.github.io/2D-Particle-System/#license)
