@@ -80,7 +80,7 @@ class Particle
 	void AddVortex(fPoint pos, float speed, float scale);
 
 	/* Calculates particle position considering its velocity
-	   and if there's a vortex in the system*/
+	   and if there's a vortex in the system */
 	void CalculateParticlePos(float dt);
 };
 

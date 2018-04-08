@@ -58,7 +58,7 @@ public:
 	
 	void Update(float dt);
 
-	// Generates arandom number between range
+	// Generates random number between given range
 	float RangeRandomNum(float min = -1.0f, float max = 1.0f);
 
 	// Returns emitter pool size

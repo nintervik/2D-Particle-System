@@ -96,8 +96,8 @@ void Emitter::Update(float dt)
 	}
 
 	// Updating particles in the pool
-	/* NOTE: If lifetime is 0 and last particles have been update
-	then emitter is automatically destroyed */
+	/* NOTE: if lifetime is 0 and last particles have been updated
+	then the emitter is automatically destroyed */
 	if (!emitterPool->Update(dt) && lifetime == 0.0f)
 		toDestroy = true;
 }
