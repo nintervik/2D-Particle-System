@@ -104,6 +104,14 @@ bool j1Scene::Update(float dt)
 		eSmoke_2 = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_SMOKE_2);
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_7) == KEY_DOWN)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		fPoint pos((float)mx, (float)my);
+		eSpark = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_SPARK);
+	}
+
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 	{
 		App->psystem->RemoveAllEmitters();
@@ -184,6 +192,7 @@ bool j1Scene::CleanUp()
 	eBurst_1 = nullptr;
 	eBurst_2 = nullptr;
 	eBubbles = nullptr;
+	eSpark = nullptr;
 
 	return true;
 }

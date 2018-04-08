@@ -36,7 +36,6 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-
 private:
 
 	Emitter* eFire = nullptr;
@@ -48,6 +47,7 @@ private:
 	Emitter* eBurst_1 = nullptr;
 	Emitter* eBurst_2 = nullptr;
 	Emitter* eBubbles = nullptr;
+	Emitter* eSpark = nullptr;
 
 };
 

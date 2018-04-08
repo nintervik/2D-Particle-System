@@ -50,6 +50,8 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_2);
 		else if (emitterType == "bubbles")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
+		else if (emitterType == "spark")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SPARK);
 	}
 	return ret;
 }

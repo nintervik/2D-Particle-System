@@ -137,6 +137,21 @@
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
       </emitter>
+
+      <emitter type ="spark">
+        <angleRange min ="0" max ="360"/>
+        <rotSpeed value ="15"/>
+        <maxSpeed value ="300"/>
+        <size startSize = "30" endSize ="0"/>
+        <emitNumber value ="5"/>
+        <emitVariance value ="3"/>
+        <maxParticleLife value ="50"/>
+        <textureRect x="0" y="160" w="64" h="64"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="255" g="0" b="0" a="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="-1"/>
+      </emitter>
       
     </particleAtlas>
 </emitters>
