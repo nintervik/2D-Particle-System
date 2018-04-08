@@ -40,10 +40,12 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FLAME);
 		else if (emitterType == "smoke")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE);
-		else if (emitterType == "explosion")
-			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_EXPLOSION);
 		else if (emitterType == "burst")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BURST);
+		else if (emitterType == "explosion")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_EXPLOSION);
+		else if (emitterType == "bubbles")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
 	
 	}
 	return ret;
@@ -110,7 +112,7 @@ bool j1ParticleSystem::CleanUp()
 
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].maxSpeed, vecEmitterData[type].startSize, vecEmitterData[type].endSize,  vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].blendMode, vecEmitterData[type].lifetime);
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].rotSpeed, vecEmitterData[type].maxSpeed, vecEmitterData[type].startSize, vecEmitterData[type].endSize,  vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].blendMode, vecEmitterData[type].lifetime);
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -160,7 +162,9 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	// Angle range
 	tmp.angleRange.x = emitter.child("angleRange").attribute("min").as_float();
 	tmp.angleRange.y = emitter.child("angleRange").attribute("max").as_float();
-	
+
+	tmp.rotSpeed = emitter.child("rotSpeed").attribute("value").as_double();
+
 	tmp.maxSpeed = emitter.child("maxSpeed").attribute("value").as_float();
 	tmp.startSize = emitter.child("size").attribute("startSize").as_float();
 	tmp.endSize = emitter.child("size").attribute("endSize").as_float();

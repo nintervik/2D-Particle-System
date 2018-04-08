@@ -2,7 +2,7 @@
 #include <time.h>
 
 
-Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, double lifeTime)
+Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, double lifeTime)
 { 
 	srand(time(NULL));
 	
@@ -11,6 +11,7 @@ Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticl
 	this->startSize = startSize;
 	this->endSize = endSize;
 	this->pos = pos;
+	this->rotSpeed = rotSpeed;
 
 	// Particle emission calculations
 	this->emitNumber = emitNumber;
@@ -56,7 +57,8 @@ void Emitter::Update(float dt)
 			float randSpeed = maxSpeed * RangeRandomNum(0.0f, 1.0f);
 			float randAngle = RangeRandomNum(angleRange.x, angleRange.y);
 			float randRadius = startSize * RangeRandomNum(0.0f, 1.0f);
-			emitterPool->Generate(pos, randSpeed, randAngle, randRadius, endSize, maxParticleLife, textureRect, startColor, endColor, blendMode);
+			double randRotSpeed = rotSpeed * RangeRandomNum();
+			emitterPool->Generate(pos, randSpeed, randAngle, randRotSpeed, randRadius, endSize, maxParticleLife, textureRect, startColor, endColor, blendMode);
 			timeStep += timeStep;
 		}
 	}

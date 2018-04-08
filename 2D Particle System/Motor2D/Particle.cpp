@@ -7,7 +7,7 @@
 
 Particle::Particle():life(0), startLife(0) { }
 
-void Particle::Init(fPoint pos, float speed, float angle, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
+void Particle::Init(fPoint pos, float speed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
 {
 	pState.pLive.pos = pos;
 	pState.pLive.vel.x = speed * cos(DEG_TO_RAD(angle));
@@ -19,6 +19,8 @@ void Particle::Init(fPoint pos, float speed, float angle, float startSize, float
 	pState.pLive.startColor = startColor;
 	pState.pLive.endColor = endColor;
 	pState.pLive.blendMode = blendMode;
+	pState.pLive.startRotSpeed = rotSpeed;
+	pState.pLive.currentRotSpeed = rotSpeed;
 	pState.pLive.t = 0.0f;
 }
 
@@ -35,17 +37,19 @@ void Particle::Update(float dt)
 
 	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.currentSize;
 
-	float dx = pState.pLive.pos.x - vortex.pos.x;
+	// Vortex code
+
+	/*float dx = pState.pLive.pos.x - vortex.pos.x;
 	float dy = pState.pLive.pos.y - vortex.pos.y;
 	float vx = -dy * vortex.speed;
 	float vy = dx * vortex.speed;
 	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
 
 	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
-	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
+	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;*/
 
-	//pState.pLive.pos.x += pState.pLive.vel.x * dt;
-	//pState.pLive.pos.y += pState.pLive.vel.y * dt;
+	pState.pLive.pos.x += pState.pLive.vel.x * dt;
+	pState.pLive.pos.y += pState.pLive.vel.y * dt;
 }
 
 void Particle::Draw()
@@ -58,9 +62,13 @@ void Particle::Draw()
 
 	if (startLife > 15)
 		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.endColor, pState.pLive.t);
-	
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, resColor, pState.pLive.blendMode);
-	
+
+	if (pState.pLive.currentRotSpeed > 1)
+		int a = 0;
+
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
+	pState.pLive.currentRotSpeed += pState.pLive.startRotSpeed;
+
 	pState.pLive.t += (1.0f / (float)startLife);
 
 	if (pState.pLive.t >= 1.0f)

@@ -17,8 +17,9 @@ enum EmitterType
 	EMITTER_TYPE_FIRE_PURPLE,
 	EMITTER_TYPE_FLAME,
 	EMITTER_TYPE_SMOKE,
+	EMITTER_TYPE_BURST,
 	EMITTER_TYPE_EXPLOSION,
-	EMITTER_TYPE_BURST
+	EMITTER_TYPE_BUBBLE
 };
 
 class Emitter
@@ -31,6 +32,7 @@ private:
 	float maxSpeed = 0.0f;
 	float startSize = 0.0f;
 	float endSize = 0.0f;
+	double rotSpeed = 0;
 
 	// Particles emission
 	int emissionRate = 0;
@@ -63,7 +65,7 @@ public:
 
 	bool toDestroy = false;
 
-	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE, double lifetime = -1.0f);
+	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE, double lifetime = -1.0f);
 	virtual ~Emitter();
 	
 	void Update(float dt);

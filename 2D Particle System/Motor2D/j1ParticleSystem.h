@@ -8,7 +8,7 @@
 #include <string>
 #include "SDL/include/SDL.h"
 
-#define MAX_NUM_EMITTERS_TYPE 6
+#define MAX_NUM_EMITTERS_TYPE 7
 
 class Emitter;
 struct SDL_Texture;
@@ -39,6 +39,7 @@ private:
 		SDL_Color startColor = { 0, 0, 0, 0 };
 		SDL_Color endColor = { 0, 0, 0, 0 };
 		SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
+		double rotSpeed = 0;
 	};
 
 	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];

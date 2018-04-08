@@ -59,7 +59,7 @@ bool j1Scene::Update(float dt)
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		eExplosion = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_EXPLOSION);
+		//eExplosion = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_EXPLOSION);
 		eBurst = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_BURST);
 	}
 
@@ -79,6 +79,14 @@ bool j1Scene::Update(float dt)
 		eFlame = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN)
+	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		fPoint pos((float)mx, (float)my);
+		eBubbles = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_BUBBLE);
+	}
+
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 	{
 		App->psystem->RemoveAllEmitters();
@@ -89,12 +97,12 @@ bool j1Scene::Update(float dt)
 		eFire->StopEmission(5000.0f);
 	}
 
-	if (eFire != nullptr)
+	if (eBubbles != nullptr )
 	{
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		eFire->MoveEmitter(pos);
+		eBubbles->MoveEmitter(pos);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && eFire != nullptr)

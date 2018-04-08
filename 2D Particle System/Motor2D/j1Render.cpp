@@ -144,19 +144,25 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 	}
 	else
 		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+
+	int px = rect.w / 2;
+	int py = rect.h / 2;
 	
 	rect.w *= scale;
 	rect.h *= scale;
 
 	SDL_Point* p = NULL;
 	SDL_Point pivot;
+	pivot.x = px;
+	pivot.y = py;
+	p = &pivot;
 
-	if (pivot_x != INT_MAX && pivot_y != INT_MAX)
+	/*if (pivot_x != INT_MAX && pivot_y != INT_MAX)
 	{
 		pivot.x = pivot_x;
 		pivot.y = pivot_y;
 		p = &pivot;
-	}
+	}*/
 	
 	if (SDL_SetTextureColorMod(texture, color.r, color.g, color.b) != 0)
 		LOG("Cannot set texture color mode. SDL_SetTextureColorMod error: %s", SDL_GetError());
@@ -166,8 +172,9 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 
 	if (SDL_SetTextureBlendMode(texture, blendMode) != 0)
 		LOG("Cannot set texture blend mode. SDL_SetTextureBlendMode error: %s", SDL_GetError());
+
 	
-	if (SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, SDL_FLIP_NONE) != 0)
+	if (SDL_RenderCopyEx(renderer, texture, section, &rect, angle, NULL, SDL_FLIP_NONE) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
 		ret = false;

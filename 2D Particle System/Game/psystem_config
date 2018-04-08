@@ -5,6 +5,7 @@
       
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
+        <rotSpeed value ="0"/>
         <maxSpeed value ="200"/>
         <size startSize ="120" endSize ="20"/>
         <emitNumber value ="1"/>
@@ -19,6 +20,7 @@
 
       <emitter type ="fire_purple">
         <angleRange min ="80" max ="110"/>
+        <rotSpeed value ="0"/>
         <maxSpeed value ="200"/>
         <size startSize ="120" endSize ="120"/>
         <emitNumber value ="1"/>
@@ -33,6 +35,7 @@
 
       <emitter type ="flame">
         <angleRange min ="80" max ="110"/>
+        <rotSpeed value ="0"/>
         <maxSpeed value ="200"/>
         <size startSize ="0" endSize ="120"/>
         <emitNumber value ="3"/>
@@ -47,6 +50,7 @@
       
       <emitter type ="smoke">
         <angleRange min ="50" max ="130"/>
+        <rotSpeed value ="0"/>
         <maxSpeed value ="120"/>
         <size startSize ="20" endSize ="120"/>
         <emitNumber value ="3"/>
@@ -61,6 +65,7 @@
 
       <emitter type ="burst">
         <angleRange min ="0" max ="360"/>
+        <rotSpeed value ="1"/>
         <maxSpeed value ="300"/>
         <size startSize ="0" endSize ="100"/>
         <emitNumber value ="60"/>
@@ -75,6 +80,7 @@
 
       <emitter type ="explosion">
         <angleRange min ="50" max ="130"/>
+        <rotSpeed value ="0"/>
         <maxSpeed value ="0"/>
         <size startSize ="0" endSize ="800"/>
         <emitNumber value ="1"/>
@@ -85,6 +91,21 @@
         <endColor r ="255" g="100" b="0" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="20"/>
+      </emitter>
+      
+      <emitter type ="bubbles">
+        <angleRange min ="50" max ="110"/>
+        <rotSpeed value ="5"/>
+        <maxSpeed value ="200"/>
+        <size startSize = "60" endSize ="0"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="1"/>
+        <maxParticleLife value ="150"/>
+        <textureRect x="0" y="128" w="32" h="32"/>
+        <startColor r ="47" g="141" b="255" a ="255"/>
+        <endColor r ="57" g="255" b="20" a ="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="-1"/>
       </emitter>
       
     </particleAtlas>
