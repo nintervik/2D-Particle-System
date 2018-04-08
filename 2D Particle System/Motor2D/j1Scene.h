@@ -42,8 +42,10 @@ private:
 	Emitter* eFire = nullptr;
 	Emitter* eSmoke = nullptr;
 	Emitter* eFlame = nullptr;
-	Emitter* eExplosion = nullptr;
-	Emitter* eBurst = nullptr;
+	Emitter* eWave_1 = nullptr;
+	Emitter* eWave_2 = nullptr;
+	Emitter* eBurst_1 = nullptr;
+	Emitter* eBurst_2 = nullptr;
 	Emitter* eBubbles = nullptr;
 
 };

@@ -42,8 +42,10 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE);
 		else if (emitterType == "burst")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BURST);
-		else if (emitterType == "explosion")
-			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_EXPLOSION);
+		else if (emitterType == "wave_1")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_1);
+		else if (emitterType == "wave_2")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_2);
 		else if (emitterType == "bubbles")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
 	
