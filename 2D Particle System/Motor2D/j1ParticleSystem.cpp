@@ -50,7 +50,6 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_2);
 		else if (emitterType == "bubbles")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
-	
 	}
 	return ret;
 }
@@ -116,7 +115,14 @@ bool j1ParticleSystem::CleanUp()
 
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, vecEmitterData[type].rotSpeed, vecEmitterData[type].maxSpeed, vecEmitterData[type].startSize, vecEmitterData[type].endSize,  vecEmitterData[type].textureRect, vecEmitterData[type].startColor, vecEmitterData[type].endColor, vecEmitterData[type].blendMode, vecEmitterData[type].lifetime);
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, 
+									   vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, 
+		                               vecEmitterData[type].rotSpeed, vecEmitterData[type].maxSpeed, 
+		                               vecEmitterData[type].startSize, vecEmitterData[type].endSize,  
+		                               vecEmitterData[type].textureRect, vecEmitterData[type].startColor, 
+		                               vecEmitterData[type].endColor, vecEmitterData[type].blendMode, 
+		                               vecEmitterData[type].lifetime);
+
 	emittersList.push_back(tmp_emitter);
 	
 	return tmp_emitter;
@@ -128,7 +134,6 @@ bool j1ParticleSystem::RemoveEmitter(Emitter & emitter)
 
 	for (it = emittersList.begin(); it != emittersList.end(); ++it)
 	{
-
 		if ((*it) == &emitter)
 		{
 			(*it)->toDestroy = true;
@@ -167,13 +172,19 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	tmp.angleRange.x = emitter.child("angleRange").attribute("min").as_float();
 	tmp.angleRange.y = emitter.child("angleRange").attribute("max").as_float();
 
+	// Particle speeds
 	tmp.rotSpeed = emitter.child("rotSpeed").attribute("value").as_double();
-
 	tmp.maxSpeed = emitter.child("maxSpeed").attribute("value").as_float();
+
+	// Particle size
 	tmp.startSize = emitter.child("size").attribute("startSize").as_float();
 	tmp.endSize = emitter.child("size").attribute("endSize").as_float();
+
+	// Emission properties
 	tmp.emitNumber = emitter.child("emitNumber").attribute("value").as_uint();
 	tmp.emitVariance = emitter.child("emitVariance").attribute("value").as_uint();
+	
+	// Particle life
 	tmp.maxParticleLife = emitter.child("maxParticleLife").attribute("value").as_uint();
 	
 	// Rect from particle atlas

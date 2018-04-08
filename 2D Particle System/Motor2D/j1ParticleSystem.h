@@ -34,6 +34,7 @@ class j1ParticleSystem : public j1Module
 {
 
 private:
+
 	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
 	std::string nameParticleAtlas;
@@ -48,13 +49,13 @@ private:
 		uint maxParticleLife = 0u;
 		SDL_Rect textureRect = { 0, 0 };
 		double lifetime = -1.0f;
-		EmitterType type;
 		SDL_Color startColor = { 0, 0, 0, 0 };
 		SDL_Color endColor = { 0, 0, 0, 0 };
 		SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 		double rotSpeed = 0;
 	};
 
+	// Static array that stores all the data of emitters
 	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];
 	
 public:
@@ -86,6 +87,7 @@ public:
 	Emitter* AddEmiter(fPoint pos, EmitterType type);
 	bool RemoveEmitter(Emitter& emitter);
 	bool RemoveAllEmitters();
+
 	SDL_Texture* GetParticleAtlas() const;
 	void LoadEmitterData(pugi::xml_node& config, EmitterType type);
 };
