@@ -17,7 +17,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 
 ***
 
-## **1. Introduction**
+## **Introduction**
 
 In this website I will explain what it is, how it works and how to program a 2D particle system in computer graphics. The system will be programmed in C++ using [Visual Studio 2017]( https://www.visualstudio.com/es/downloads/?rr=https%3A%2F%2Fwww.google.es%2F) as IDE, [SDL 2.0](https://www.libsdl.org/download-2.0.php) to render the graphics and [pugixml](https://pugixml.org/) for data parsing. The end goal of the tutorial is to success on creating a fire and smoke effect.
 
@@ -72,18 +72,17 @@ This is just a generic description. Let's dive into more techical details of wha
 
 Particle systems are very common in computer graphics and have been used since the early 1980s. One of the first implementations was seen in _Star Trek II: The Wrath of Khan_ in 1982. The film featured a sequence called Genesis Demo where a planet is terraformed by a torpedo to make it habitable. For achieving this effect William T. Reeves, a researcher at Lucasfilm Ltd, did a research on particle systems on a paper called [_Particle Systems - A Technique for Modeling a Class of Fuzzy Objects_](https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/fuzzyParticles.pdf).
 
+This is the sequence mentioned above, as you can see the results are quite impressive considering the time this was done:
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 Reeves describes a particle system in this paper as follows:
 
 > "_A particle system is a collection of many minute particles that together represent
 a fuzzy object. Over a period of time, particles are generated into a system, move
 and change from within the system, and die from the system._"
 
-Paricle 
-
-This is the sequence mentioned above, as you can see the results are quite impressive considering the time this was done:
-
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
+Organic effects are difficult to simulate but what particle systems do is simplify the problem. We divide the effect in tiny and controllable particles that as a whole seems a like something bigger that behaves as natural phenomenas. By managing a large group of these particles we can represent natural effects like water, fire or smoke so much easier than if we tried to treat it as a whole.
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
