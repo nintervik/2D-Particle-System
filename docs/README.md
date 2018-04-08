@@ -74,7 +74,7 @@ Particle systems are very common in computer graphics and have been used since t
 
 This is the sequence mentioned above, as you can see the results are quite impressive considering the time this was done:
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/QXbWCrzWJo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Reeves describes a particle system in this paper as follows:
 
