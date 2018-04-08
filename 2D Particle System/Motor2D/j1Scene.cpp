@@ -190,18 +190,9 @@ bool j1Scene::CleanUp()
 
 /* Things left TODO:
 
-   -  Particle physics: vortex, linear or parabole.
-
-   -  Emitters shapes.
-
-   -  Add rotation as a parameter
-
    -  Control randomization parameters
 
    -  Animations instead of textures?
-
-   -  Once everything is set up try to do different types of particles and create a 
-      unique atlas to store all the textures needed for each type of particle.
 
    -  Look framerate calculations in app.
 
@@ -214,8 +205,6 @@ bool j1Scene::CleanUp()
       then start spawning another types of particles. So it's like a chain of 
 	  emissions. Fire, explosion, smoke in a loop for example.
 
-	  ----
-
-	  -  Emission rate could be lower than 1.
+  -  Emitters shapes.
 
  */

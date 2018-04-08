@@ -64,7 +64,7 @@
       </emitter>
 
       <emitter type ="smoke_2">
-        <angleRange min ="0" max ="360"/>
+        <angleRange min ="90" max ="120"/>
         <rotSpeed value ="5"/>
         <maxSpeed value ="120"/>
         <size startSize ="10" endSize ="100"/>

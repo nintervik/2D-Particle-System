@@ -24,8 +24,8 @@ void Particle::Init(fPoint pos, float speed, float angle, double rotSpeed, float
 	pState.pLive.t = 0.0f;
 
 	//Vortex
-	AddVortex({ 200.0f, 200.0f }, 3.0f, 20.0f);
-	AddVortex({ 700.0f, 700.0f }, 3.0f, 10.0f);
+	AddVortex({ 600.0f, 500.0f }, 0.5f, 100.0f);
+	AddVortex({ 200.0f, 200.0f }, 5.0f, 30.0f);
 }
 
 void Particle::Update(float dt)
