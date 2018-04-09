@@ -103,22 +103,26 @@ Take for example the next teamfight in League of Legends, as you can see particl
 
 ![LOLGIF](https://github.com/nintervik/Testing-Team-Workflow/blob/master/LOLGIF.gif?raw=true)
 
-Now try to picture it without all this particle effects, it wouldn't' make sense right? But you can generate more realistic things like this explosions in Battlefield:
+Now try to picture it without all this particle effects, it wouldn't' make sense right? 
+
+But particle systems are also used ti generate more realistic things like these explosions in Battlefield:
 
 ![battlefield](https://user-images.githubusercontent.com/25589509/38503370-2ecfc162-3c12-11e8-94b3-99a8159b6d0e.gif)
 
 Or more subtle like the main menu in Hollow Knight:
 Put here here...
 
-But particle systems can be a double-edged sword. It can be used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
+But particle systems can be a double-edged sword too. Aside from being used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
 
 Put img here...
 
-This is very nice, but first we must build the system in order to use it. So let's get to work!
+Okay now that you get the idea let's see what a particle system is composed of.
 
 ### **2.3 The components**
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+This is very nice, but first we must build the system in order to use it. So let's get to work!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
