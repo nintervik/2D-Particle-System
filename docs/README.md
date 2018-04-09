@@ -130,7 +130,9 @@ Particle systems usually contain what it's known as an emitter. An emittter is t
 
 The emitter itself contains all the particles that will be updated and die over time. All this data is transfered from the emitter to all this particles os they behave like they are suposed to. Changing this data will change how the particles in that emitter will behave. 
 
-A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate.
+A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters 
+
+Now that we have the base, let's talk about particles.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
