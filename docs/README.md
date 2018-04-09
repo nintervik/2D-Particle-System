@@ -120,6 +120,8 @@ Okay now that you get the idea let's see what composes a particle system.
 
 ### **2.3 The components**
 
+#### The emitters
+
 Particle systems usually contain what it's known as an emitter. An emittter is the object in charge of spawning all the particles and defining the particles behaviour and their properties. An emitter is in charge of the following things:
 
 - Controlling the emission rate of particles. Basically how many particles are generated per frame.
@@ -132,7 +134,11 @@ The emitter itself contains all the particles that will be updated and die over 
 
 A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters. By using this hierearchy there's a particl system whic acts as a parent and contain subsystems that contains other subsystems.
 
+#### The particles
+
 Now that we have the base, let's talk about particles.
+
+
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
