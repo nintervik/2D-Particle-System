@@ -124,13 +124,13 @@ Particle systems usually contain what it's known as an emitter. An emittter is t
 
 - Controlling the emission rate of particles. Basically how many particles are generated per frame.
 - The postion where the particles are generated.
-- Particles' velocity and movement
-- Particles life
-- Other particle properties like colors and size 
+- Particles' velocity and movement.
+- Particles life.
+- Other particle properties like colors, transparency or size.
 
 The emitter itself contains all the particles that will be updated and die over time. All this data is transfered from the emitter to all this particles os they behave like they are suposed to. Changing this data will change how the particles in that emitter will behave. 
 
-A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters 
+A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters. By using this hierearchy there's a particl system whic acts as a parent and contain subsystems that contains other subsystems.
 
 Now that we have the base, let's talk about particles.
 
