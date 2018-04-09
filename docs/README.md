@@ -97,7 +97,13 @@ Since the Genesis effects things have evolved quickly but the foundation is the 
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/ovlVh-QgVao" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-Nowadays particle systems can be found in any almost any game engine or 3D software. Maya and 3D Max have one as well as Unity or Unreal Engine. Let's take a look at how Unity handles this.
+Nowadays particle systems can be found in any almost any game engine or 3D software. Maya and 3D Max have one as well as Unity or Unreal Engine. Particle are really important in a lot of videogames as it makes huge improvement. Particles makes the enviroment or the the player stands ou and it really adds up a lot to the game. Let's see a few examples.
+
+This is the Frozen Mage in World of Warcraft, as you can see particles makes a huge diiference when produing magic spells.
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25589509/38484714-c6a02e90-3bd7-11e8-9c2c-df97ac075f6d.gif)
+
+
 
 
 
