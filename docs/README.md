@@ -99,15 +99,20 @@ Since the Genesis effects things have evolved quickly but the foundation is the 
 
 Nowadays particle systems can be found in any almost any game engine or 3D software. Maya and 3D Max have one as well as Unity or Unreal Engine. Particle are really important in a lot of videogames as it makes huge improvement. Particles makes the enviroment or the the player stands ou and it really adds up a lot to the game. Let's see a few examples.
 
-This is the Frozen Mage in World of Warcraft, as you can see particles makes a huge diiference when produing magic spells.
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25589509/38484714-c6a02e90-3bd7-11e8-9c2c-df97ac075f6d.gif)
-
-Take for example the next teamfight in League of Legends:
+Take for example the next teamfight in League of Legends, as you can see particles makes a huge diiference when produing things like magic spells:
 
 ![LOLGIF](https://github.com/nintervik/Testing-Team-Workflow/blob/master/LOLGIF.gif?raw=true)
 
-It wouldn' make sense right?
+Now try to picture it without all this particle effects, it wouldn't' make sense right? But you can generate more realistic things like this explosions in Battlefield:
+
+![battlefield](https://user-images.githubusercontent.com/25589509/38503370-2ecfc162-3c12-11e8-94b3-99a8159b6d0e.gif)
+
+Or more subtle like the main menu in Hollow Knight:
+Put here here...
+
+But particle systems can be a double-edged sword. It can be used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
+
+Put img here...
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
