@@ -136,7 +136,9 @@ A particle system can be composed of multiple different kind of emitters that at
 
 #### 2.3.2 The particles
 
-Now that we have the base, let's talk about particles. As said before particles inherit its properties from the emitter they came from. But what is exctly the particle itself. The particle itself it's just a simple texture that is renderer on screen.
+Now that we have the base, let's talk about particles. As said before particles inherit its properties from the emitter they came from. But what is exctly the particle itself. The particle itself it's just a simple texture that is renderered on screen. In 3D enviroments they use something called billboards which is basically an image that always faces the camera. But we don't need to worry about that as we will focus only in 2D.
+
+This texture can be anything we want that fits your purpose
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
