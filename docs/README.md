@@ -146,6 +146,8 @@ Particle properties along with the emitter can be anything you like. The possibi
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+The Unity engine for example has big spectrum when it comes to emitters and particle properties, you can change anything you want and this flexibility allows you to generate almost any type of particle you can think of. Down below there's a screenshoot of this options in Unity.
+
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
