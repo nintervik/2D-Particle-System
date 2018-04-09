@@ -105,20 +105,32 @@ Take for example the next teamfight in League of Legends, as you can see particl
 
 Now try to picture it without all this particle effects, it wouldn't' make sense right? 
 
-But particle systems are also used ti generate more realistic things like these explosions in Battlefield:
+But particle systems are also used to generate more realistic things like these explosions in Battlefield:
 
 ![battlefield](https://user-images.githubusercontent.com/25589509/38503370-2ecfc162-3c12-11e8-94b3-99a8159b6d0e.gif)
 
 Or more subtle like the main menu in Hollow Knight:
 Put here here...
 
-But particle systems can be a double-edged sword too. Aside from being used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
+Moreover, particle systems can be a double-edged sword too. Aside from being used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
 
 Put img here...
 
-Okay now that you get the idea let's see what a particle system is composed of.
+Okay now that you get the idea let's see what composes a particle system.
 
 ### **2.3 The components**
+
+Particle systems usually contain what it's known as an emitter. An emittter is the object in charge of spawning all the particles and defining the particles behaviour and their properties. An emitter is in charge of the following things:
+
+- Controlling the emission rate of particles. Basically how many particles are generated per frame.
+- The postion where the particles are generated.
+- Particles' velocity and movement
+- Particles life
+- Other particle properties like colors and size 
+
+The emitter itself contains all the particles that will be updated and die over time. All this data is transfered from the emitter to all this particles os they behave like they are suposed to. Changing this data will change how the particles in that emitter will behave. 
+
+A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
