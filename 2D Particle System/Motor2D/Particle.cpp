@@ -43,6 +43,7 @@ void Particle::Update(float dt)
 	else if (pState.pLive.startSize < pState.pLive.endSize && pState.pLive.currentSize < pState.pLive.endSize)
 		pState.pLive.currentSize += pState.pLive.endSize / pState.pLive.ageRatio - pState.pLive.endSize;*/
 
+	// Particle size interpolation
 	pState.pLive.currentSize = InterpolateBetweenRange(pState.pLive.startSize, pState.pLive.t, pState.pLive.endSize);
 
 	// Assign new size to particle rect

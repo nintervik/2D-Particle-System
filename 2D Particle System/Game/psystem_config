@@ -5,12 +5,12 @@
       
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
-        <rotSpeed value ="0"/>
-        <maxSpeed value ="200"/>
+        <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
+        <maxSpeed value ="200" randMin = "-1" randMax ="1"/>
         <size startSize ="120" endSize ="20"/>
         <emitNumber value ="1"/>
-        <emitVariance value ="0"/>
-        <maxParticleLife value ="100"/>
+        <emitVariance value ="0" randMin = "-1" randMax ="1"/>
+        <maxParticleLife value ="100" randMin = "-1" randMax ="1"/>
         <textureRect x="0" y="0" w="128" h="128"/>
         <startColor r ="255" g="100" b="0" a="255"/>
         <endColor r ="210" g="210" b="210" a ="0"/>

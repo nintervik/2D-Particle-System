@@ -178,6 +178,16 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	tmp.rotSpeed = emitter.child("rotSpeed").attribute("value").as_double();
 	tmp.maxSpeed = emitter.child("maxSpeed").attribute("value").as_float();
 
+	// Random controls
+	tmp.speedRand.x = emitter.child("maxSpeed").attribute("randMin").as_float();
+	tmp.speedRand.y = emitter.child("maxSpeed").attribute("randMax").as_float();
+	tmp.rotSpeedRand.x = emitter.child("rotSpeed").attribute("randMin").as_float();
+	tmp.rotSpeedRand.y = emitter.child("rotSpeed").attribute("randMax").as_float();
+	tmp.emitVarianceRand.x = emitter.child("emitVariance").attribute("randMin").as_float();
+	tmp.emitVarianceRand.y = emitter.child("emitVariance").attribute("randMax").as_float();
+	tmp.lifeRand.x = emitter.child("maxParticleLife").attribute("randMin").as_float();
+	tmp.lifeRand.y = emitter.child("maxParticleLife").attribute("randMax").as_float();
+
 	// Particle size
 	tmp.startSize = emitter.child("size").attribute("startSize").as_float();
 	tmp.endSize = emitter.child("size").attribute("endSize").as_float();

@@ -54,6 +54,12 @@ private:
 		SDL_Color endColor = { 0, 0, 0, 0 };
 		SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 		double rotSpeed = 0;
+		
+		// Randoms
+		fPoint rotSpeedRand = { 0.0f, 0.0f };
+		fPoint speedRand = { 0.0f, 0.0f };
+		fPoint emitVarianceRand = { 0.0f, 0.0f };
+		fPoint lifeRand = { 0.0f, 0.0f };
 	};
 
 	// Static array that stores all the data of emitters
