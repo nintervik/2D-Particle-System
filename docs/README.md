@@ -173,7 +173,20 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
 - An atlas full of particle textures will be used to render different types of particles.
 - All data wil be outside the code, written in an xml file.
 - A pool will be used as a container for emitter particles (we will talk about what this means soon).
-- Diferent type of emitters, hence diferent particles will be created through parametrization
+- Diferent type of emitters, hence diferent particles will be created through parametrization. This means will only have an emitter and   particle class and depending of the data they both recieve the effect will be different.
+- Emitter properties will be covered more in depth later but they will be the next ones:
+  - Angle range of particles' flow
+  - Rotation speed of particles
+  - Particles' speed
+  - Particles' size
+  - Emission rate
+  - Particles' life
+  - Particles' texture
+  - Particles' colors
+  - Particle's blend mode
+  - Emitter life
+
+### **2.2 The structure**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
