@@ -131,7 +131,7 @@ Particle systems usually contain what it's known as an emitter. An emittter is t
 - Particles life.
 - Other particle properties like colors, transparency or size.
 
-The emitter itself contains all the particles that will be updated and die over time. All this data is transfered from the emitter to all this particles os they behave like they are suposed to. Changing this data will change how the particles in that emitter will behave. 
+The emitter itself contains all the particles that will be updated and die over time. All this data is transfered from the emitter to all this particles so they behave like they are suposed to. Changing this data will change how the particles in that emitter will behave. 
 
 A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters. By using this hierearchy there's a particle system which acts as a parent and contains subsystems that contains other subsystems.
 
@@ -147,10 +147,11 @@ Particle properties along with the emitter can be anything you like. The possibi
 
 ![psystem_unity](https://user-images.githubusercontent.com/25589509/38539516-cc407fb4-3c98-11e8-9ae4-5d5439e189ba.PNG)
 
+But how this particles are managed thorugh the system? do we need to generate a completly new particle each time? Will this affect the perdormance? We will discuss this in the next section.
+
 When working in 3D enviroments particle textures are often mapped in a 3D geometry to create more interesting effects. This is called blending geometry and it's quite impressive! Here's a quick video on how particles are done in League of Legends using this technique.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
 
 Okay, I think that's enough theory for now, we must build the system in order to use it. So let's get to work!
 
@@ -160,7 +161,9 @@ Okay, I think that's enough theory for now, we must build the system in order to
 
 ## **Our approach**
 
--	Talk about what we are going to do (2D, not 3D!)
+Okay but what are we going to do? We will keep it simple but solid and flexible. Our particle system will have the following features:
+- It will be 2D (although almost everything explained here can be transfered into 3D if needed).
+- 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
