@@ -151,7 +151,7 @@ Particle properties along with the emitter can be anything you like. The possibi
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
-This is very nice, but first we must build the system in order to use it. So let's get to work!
+Okay, I think that's enough theory for now, we must build the system in order to use it. So let's get to work!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
