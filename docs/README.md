@@ -142,10 +142,13 @@ This texture can be anything we want that fits our purpose. It's usually a balck
 
 ![particle_set](https://user-images.githubusercontent.com/25589509/38513650-29411102-3c2f-11e8-85b7-f3d5725da3f3.jpg)
 
-Particle properties along with the emitter can be anything you like. The possibilities are endless. The Unity engine for example has big spectrum when it comes to emitters and particle properties, you can change anything you want and this flexibility allows you to generate almost any type of particle you can think of. Down below there's a screenshoot of this options in Unity.
+Particle properties along with the emitter can be anything you like. The possibilities are endless. The Unity engine for example has big spectrum when it comes to emitters and particle properties, you can change anything you want and this flexibility allows you to generate almost any type of particle you can think of. You can choose the size, the color, the speed, the emitter shaope, the texture and a lot more. Down below there's a screenshoot of this options in Unity.
+
+![psystem_unity](https://user-images.githubusercontent.com/25589509/38538733-674c4550-3c95-11e8-9849-d247a15a3652.PNG)
+
+
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
 
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
