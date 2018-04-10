@@ -192,7 +192,7 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
   - Emitter life
 - To create an emitter we will call a function in our scene that will return a pointer to the emitter. With this pointer we can call         emitters methods for stoping or starting its emission or simply to destroy it. At the end we want to have something like this:
 
-```c_cpp
+```cpp
 emitter = AddEmitter(positon, EMITTER_TYPE);
 ```
 
@@ -240,8 +240,27 @@ This is the module in charge of everything that happens with our particles. We w
 
 The particle class will have a lot of data that will define its behavior. Let's see how we approach this. We will consider a particle as a moving point in space. It will have a postion, a velocity and a texture at least. Here's a simple diagram of a basic particle:
 
-
 ![particle_scheme](https://user-images.githubusercontent.com/25589509/38579521-9269175a-3d07-11e8-92d2-f46b03a71729.jpg)
+
+So basically a particle will be a class with position, a vector velocity and texture (represented by arectangle indicating the position and size inside the atlas). In this case we will add a lot more data but that's something optional depending of what you want to do. This particle will have a constructor for setting everything up, an update method to render them on screen and that's it.
+
+```cpp
+class Particle
+{
+   private:
+     uint life;
+     float posX, posY;
+     float velX, velY;
+     SDL_Rect pRect;
+     
+   public:
+     Particle();
+     void Update(float dt);
+     void Draw();
+};
+```
+
+But the problem here resides in the fact that we cannot 
 
 
 ### **4.3 Emitter class**
