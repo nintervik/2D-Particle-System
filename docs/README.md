@@ -199,13 +199,13 @@ img here...
 
 ![code_scheme](https://user-images.githubusercontent.com/25589509/38576493-98f82560-3cfe-11e8-874e-c3513a4c08eb.JPG)
 
-### 4.1 Particle system module
+### **4.1 Particle system module**
 
-### 4.2 Particle class
+### **4.2 Particle class**
 
-### 4.3 Emitter class
+### **4.3 Emitter class**
 
-### 4.4 Let's talk about pools 
+### **4.4 Let's talk about pools**
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
