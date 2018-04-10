@@ -52,11 +52,11 @@
       </emitter>
       
       <emitter type ="smoke_1">
-        <angleRange min ="50" max ="130"/>
+        <angleRange min ="60" max ="120"/>
         <rotSpeed value ="0"  randMin ="-1" randMax ="1"/>
         <maxSpeed value ="120" randMin ="0" randMax ="1"/>
         <startSize value ="20" randMin ="0" randMax ="1"/>
-        <endSize value =" 120" randMin ="1" randMax ="1"/>
+        <endSize value =" 200" randMin ="1" randMax ="1"/>
         <emitNumber value ="3"/>
         <emitVariance value ="3" randMin ="0" randMax ="1"/>
         <maxParticleLife value ="400"/>
@@ -68,14 +68,14 @@
       </emitter>
 
       <emitter type ="smoke_2">
-        <angleRange min ="100" max ="120"/>
+        <angleRange min ="60" max ="120"/>
         <rotSpeed value ="5" randMin ="-1" randMax ="1"/>
-        <maxSpeed value ="120" randMin ="0" randMax ="1"/>
-        <startSize value ="10" randMin ="0" randMax ="1"/>
+        <maxSpeed value ="90" randMin ="0" randMax ="1"/>
+        <startSize value ="30" randMin ="0" randMax ="1"/>
         <endSize value =" 100" randMin ="1" randMax ="1"/>
         <emitNumber value ="10"/>
         <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="100" randMin ="0" randMax ="1"/>
+        <maxParticleLife value ="300" randMin ="0" randMax ="1"/>
         <textureRect x="640" y="0" w="512" h="512"/>
         <startColor r ="210" g="210" b="210" a ="50"/>
         <endColor r ="210" g="210" b="210" a ="0"/>
@@ -87,7 +87,7 @@
         <angleRange min ="0" max ="360"/>
         <rotSpeed value ="1" randMin ="-1" randMax ="1"/>
         <maxSpeed value ="300" randMin ="0" randMax ="1"/>
-        <startSize value ="0" randMin ="0" randMax ="1"/>
+        <startSize value ="20" randMin ="0" randMax ="1"/>
         <endSize value =" 100" randMin ="1" randMax ="1"/>
         <emitNumber value ="60"/>
         <emitVariance value ="80" randMin ="0" randMax ="1"/>
