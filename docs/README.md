@@ -279,19 +279,19 @@ This is very nice but have a problem, a huge one. But the problem here resides i
 
 The pool is the most important and fundamental part of the system, everything else is secondary; you can always add more data to the particles whenever you need it.
 
-Let's adress the big elephant in the room. If we need to generate a constant of flow of particles that are born and die over time that means we have to constantly create an destroy particle objects usinf the heap. And that's not a good thing for our CPU. Let's see why.
+Let's adress the big elephant in the room. If we need to generate a constant of flow of particles that are born and die over time that means we have to constantly create an destroy particle objects using the heap. And that's not a good thing for our CPU. Let's see why.
 
-When you write the 'new' operator in your program you allocate enough memory in the heap so the new object can fit in there. But what happens if we are constantly creating and destroying particles hundreds of time per frame? Well, nothing good for sure. Let's highlight them.
+When you write the 'new' operator in your program you allocate enough memory in the heap so the new object can fit in there. But what happens if we are constantly creating and destroying particles hundreds of time per frame? Well, nothing good for sure. Let's highlight the main problems.
 
-- **Memory fragmentation**: as you know memory is a continuous space divide in bytes. If we constantly allocate and destroy memory we     will have what's called 'memory fragmenation'. This means that all the data is not allocated next to each other but there's some gaps   in between. this happens because we've destroyed a particle that was allocated in the middle of other particles and now we have small   gaps that occupies space but cannot be filled with other particles as they might not be small enough. We have free memory but cannot     use it. As [Bob Nystrom](https://twitter.com/munificentbob) says in his [article](http://gameprogrammingpatterns.com/object-pool.html)   about Pools:
+- **Memory fragmentation**: as you know memory is a continuous space divide in bytes. If we constantly allocate and destroy memory we     will have what's called 'memory fragmenation'. This means that all the data is not allocated next to each other but there's some gap   in between. This happens because we've destroyed a particle that was allocated in the middle of other particles and now we have small   gaps that occupies space but cannot be filled with other particles as they might not be small enough. We have free memory but cannot     use it. As [Bob Nystrom](https://twitter.com/munificentbob) says in his [article](http://gameprogrammingpatterns.com/object-pool.html)   about Pools:
 
 > "_It’s like trying to parallel park on a busy street where the already parked cars are spread out a bit too far. If they’d bunch up, there would be room, but the free space is fragmented into bits of open curb between half a dozen cars._"
 
 ![mem_frag](https://user-images.githubusercontent.com/25589509/38582635-b0a7467a-3d10-11e8-91de-e8eb8d79bd32.png)
 
+- **Framerate drop**: another usual thing that can happen in this scenario is resulting bad performance in our application. This has to   do with the garbage collection. The garbage collection is the process which the computer uses to manage resources automatically.it is   in charge of freeing up memory when it's no longer needed. This process is usually done under the hood and we don't actually notice     anything. For example, when we declare a variable inside a function and then this function has finsihed its execution this variable     will be destroyed from memory as it lives only within the function scope. However, when freeing up mempory at high rates can cause the   programe to use a lot of resources to take care of that resulting in a lag or frame driop in our application. 
 
-- **Framerate drop**: 
-- **Risk of memory leaks**: 
+- **Risk of memory leaks**: if you you're constantly allocating memory it's very easy to have memory leaks as you might not dlete         everyhing you need to. Hence, your memory managment is poorly done and your wasting more than you need.
 
 
 ### **4.3 Emitter class**
