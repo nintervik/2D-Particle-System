@@ -197,8 +197,7 @@ Down below there's the UML that describes the structured of our code:
 
 UML here...
 
-
-In case you wonder how the code is organized here's a simple scheme. Our application has a module for each category call. Our application code is structured in modules. The main module (called j1App.cpp) manages all the other modules calling in a loop its respective awake, preupdate, update, postupdte, cleanup that they share thorugh a base class j1Module. So our j1ParticleSystem will be one of these modules that will update all the emitters that at the same time will update its respecitve particles. Down below a basic scheme of this shows what has been explained:
+In case you wonder how the code is organized here's a simple scheme. Our application has a module for each category call. Our application code is structured in modules. The main module (called j1App.cpp) manages all the other modules calling in a loop its respective awake, preupdate, update, postupdte, cleanup that they share thorugh a base class j1Module. So our j1ParticleSystem will be one of these modules that will update all the emitters that at the same time will update its respective particles. Down below a basic scheme of this shows what has been explained:
 
 ![code_scheme](https://user-images.githubusercontent.com/25589509/38576493-98f82560-3cfe-11e8-874e-c3513a4c08eb.JPG)
 
