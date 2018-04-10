@@ -37,12 +37,6 @@ void Particle::Update(float dt)
 	// Age ratio is used to interpolate between particle properties
 	pState.pLive.ageRatio = (float)life / (float)pState.pLive.startLife;
 
-	// Particle size calculations
-	/*if (pState.pLive.startSize > pState.pLive.endSize && pState.pLive.currentSize > pState.pLive.endSize)
-		pState.pLive.currentSize = pState.pLive.startSize * pState.pLive.ageRatio;
-	else if (pState.pLive.startSize < pState.pLive.endSize && pState.pLive.currentSize < pState.pLive.endSize)
-		pState.pLive.currentSize += pState.pLive.endSize / pState.pLive.ageRatio - pState.pLive.endSize;*/
-
 	// Particle size interpolation
 	pState.pLive.currentSize = InterpolateBetweenRange(pState.pLive.startSize, pState.pLive.t, pState.pLive.endSize);
 
