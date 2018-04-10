@@ -202,7 +202,7 @@ Down below there's the UML that describes the structured of our code:
 
 UML here...
 
-So basically we have a module called j1Psystem that will contain a list of emitters. Inside these emitters we will have all the data we have gotten from the xml and they will contain a pool of particles that will be also updated and rendered on screen.
+So basically we have a module called j1ParticleSystem that will contain a list of emitters. Inside these emitters we will have all the data we have gotten from the xml and they will contain a pool of particles that will be also updated and rendered on screen.
 
 In case you wonder how the whole code is organized here's a simple scheme. Our application has a module for each category call. Our application code is structured in modules. The main module (called j1App.cpp) manages all the other modules calling in a loop its respective awake, preupdate, update, postupdte, cleanup that they share thorugh a base class j1Module. So our j1ParticleSystem will be one of these modules that will update all the emitters that at the same time will update its respective particles. Down below a basic scheme of this shows what has been explained:
 
@@ -210,12 +210,31 @@ In case you wonder how the whole code is organized here's a simple scheme. Our a
 
 ### **4.1 Particle system module**
 
-This is the module in charge of everything that happens with our particles. We will not cover how it works as it's something generic that can be implemented according to your needs. With this module you can:
+This is the module in charge of everything that happens with our particles. We will not cover how it works as it's something generic that can be implemented according to your needs and this tutorial is focused on the particles. With this module you can:
 - Destroy an existing emitter
 - Destroy all the emitters
 - Add an emitter
 - Update all the emitters
 - Control emitters destruction
+- Read all the data from the xml file to pass it to the emitter each time we create one. As you've seen on the UML we have a vector       containing all the emittter data for each type of emitter defined on the xml file. This is the structure of a emitter defined in the     xml file:
+
+```xml
+      <emitter type ="fire">
+        <angleRange min ="80" max ="110"/>
+        <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
+        <maxSpeed value ="200" randMin = "0" randMax ="1"/>
+        <startSize value ="120" randMin ="0" randMax ="1"/>
+        <endSize value =" 120" randMin ="1" randMax ="1"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0" randMin = "0" randMax ="1"/>
+        <maxParticleLife value ="100" randMin = "0" randMax ="1"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="-1"/>
+      </emitter>
+```
 
 ### **4.2 Particle class**
 
