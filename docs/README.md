@@ -111,7 +111,7 @@ But particle systems are also used to generate more realistic things like these 
 
 Or more subtle like the main menu in Hollow Knight:
 
-![animated gif-downsized](https://user-images.githubusercontent.com/25589509/38541481-7d70a20e-3c9f-11e8-884a-e65e5e40b045.gif)
+![animated gif-downsized_large](https://user-images.githubusercontent.com/25589509/38541525-a17ec3a6-3c9f-11e8-892c-8e3a803958ab.gif)
 
 Moreover, particle systems can be a double-edged sword too. Aside from being used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
 
