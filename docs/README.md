@@ -171,7 +171,9 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
 - It will be 2D (although almost everything explained here can be transfered into 3D if needed).
 - Particles movement will be linear but with the option of interpolate between start and end speed.
 - An atlas full of particle textures will be used to render different types of particles.
-- All data wil be outside the code, written in an xml file. 
+- All data wil be outside the code, written in an xml file.
+- A pool will be used as a container for emitter particles (we will talk about what this means soon).
+- Diferent type of emitters, hence diferent particles will be created through parametrization
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
