@@ -144,7 +144,7 @@ This texture can be anything we want that fits our purpose. It's usually a balck
 
 Particle properties along with the emitter can be anything you like. The possibilities are endless. The Unity engine for example has big spectrum when it comes to emitters and particle properties, you can change anything you want and this flexibility allows you to generate almost any type of particle you can think of. You can choose the size, the color, the speed, the emitter shape, the texture and a lot more. Down below there's a screenshoot of this options in Unity.
 
-![psystem_unity](https://user-images.githubusercontent.com/25589509/38538733-674c4550-3c95-11e8-9849-d247a15a3652.PNG)
+![psystem_unity](https://user-images.githubusercontent.com/25589509/38539516-cc407fb4-3c98-11e8-9ae4-5d5439e189ba.PNG)
 
 When working in 3D enviroments particle textures are often mapped in a 3D geometry to create more interesting effects. This is called blending geometry and it's quite impressive! Here's a quick video on how particles are done in League of Legends using this technique.
 
