@@ -64,11 +64,11 @@
       </emitter>
 
       <emitter type ="smoke_2">
-        <angleRange min ="90" max ="120"/>
+        <angleRange min ="100" max ="120"/>
         <rotSpeed value ="5"/>
         <maxSpeed value ="120"/>
         <size startSize ="10" endSize ="100"/>
-        <emitNumber value ="15"/>
+        <emitNumber value ="10"/>
         <emitVariance value ="3"/>
         <maxParticleLife value ="100"/>
         <textureRect x="640" y="0" w="512" h="512"/>
