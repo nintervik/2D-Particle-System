@@ -19,8 +19,9 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 * [4. The structure](https://nintervik.github.io/2D-Particle-System/#4-the-structure)
   * [4.1 Particle system module](https://nintervik.github.io/2D-Particle-System/#41-particle-system-module)
   * [4.2 Particle class](https://nintervik.github.io/2D-Particle-System/#42-particle-class)
-  * [4.3 Emitter class](https://nintervik.github.io/2D-Particle-System/#43-emitter-class)
+  * [4.3 It's all about memory!](https://nintervik.github.io/2D-Particle-System/#43-its-all-about-memory!)
   * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
+  * [4.5 Emitter class](https://nintervik.github.io/2D-Particle-System/#45-emitter-class)
 * [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
 * [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
 * [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
@@ -272,10 +273,10 @@ posY += velY * dt;
 
 And that's pretty much it. Update and move in loop. Of course the system will have a lot of more properties but for now let's keep it simple. 
 
-This is very nice but have a problem, a huge one. But the problem here resides in the fact of how generate a constant flow of particles in our code. Well, let's introduce the pool.
+This is very nice but have a problem, a huge one. But the problem here resides in the fact of how generate a constant flow of particles in our code. Well, let's see how.
 
 
-### **4.4 Let's talk about pools**
+### **4.3 It's all about memory!**
 
 The pool is the most important and fundamental part of the system, everything else is secondary; you can always add more data to the particles whenever you need it.
 
@@ -289,15 +290,44 @@ When you write the 'new' operator in your program you allocate enough memory in 
 
 ![mem_frag](https://user-images.githubusercontent.com/25589509/38582635-b0a7467a-3d10-11e8-91de-e8eb8d79bd32.png)
 
-- **Framerate drop**: another usual thing that can happen in this scenario is resulting bad performance in our application. This has to   do with the garbage collection. The garbage collection is the process which the computer uses to manage resources automatically.it is   in charge of freeing up memory when it's no longer needed. This process is usually done under the hood and we don't actually notice     anything. For example, when we declare a variable inside a function and then this function has finsihed its execution this variable     will be destroyed from memory as it lives only within the function scope. However, when freeing up mempory at high rates can cause the   programe to use a lot of resources to take care of that resulting in a lag or frame driop in our application. 
+- **Framerate drop**: another usual thing that can happen in this scenario is bad performance in our application. This has to   do with the garbage collection. The garbage collection is the process which the computer uses to manage resources automatically.it is   in charge of freeing up memory when it's no longer needed. This process is usually done under the hood and we don't actually notice     anything. For example, when we declare a variable inside a function and then this function has finsihed its execution this variable     will be destroyed from memory as it lives only within the function scope. However, when freeing up mempory at high rates can cause the   programe to use a lot of resources to take care of that resulting in a lag or frame driop in our application. 
 
 - **Risk of memory leaks**: if you you're constantly allocating memory it's very easy to have memory leaks as you might not dlete         everyhing you need to. Hence, your memory managment is poorly done and your wasting more than you need.
 
-
-### **4.3 Emitter class**
-
+It's all about memory! It's a not infinite but valuable resource and we must take care of use it wisely. To avoid this let's introduce the pool.
 
 
+### **4.4 Let's talk about the pools**
+
+A pool is simply container of reusable objects. This means that when objects are extracted from the pool they can go back to it when they are no longer needed by the program. It's like a fountain of water that have a closed loop of reusable water. To implement this pool we will follow the great implementation done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html)  of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
+
+Let's start by defining the ParticlePool class:
+
+```cpp
+class ParticlePool
+{
+private:
+	
+	int poolSize = 0;
+	Particle* firstAvailable;
+	std::vector<Particle*> particlesVec;
+	Particle* particleArray = nullptr;
+
+public:
+
+	ParticlePool(Emitter* emitter);
+	virtual ~ParticlePool();
+
+	//Generates a new particle each time it's called
+	void Generate(float posX, float posY, velX, velY, pRect);
+	
+	// Update (move and draw) particles in the pool. If there are no particles alive returns false
+	bool Update(float dt);
+};
+```
+
+
+### **4.5 Emitter class**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
