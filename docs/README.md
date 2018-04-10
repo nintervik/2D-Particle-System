@@ -192,9 +192,9 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
   - Emitter life
 - To create an emitter we will call a function our scene that will return a pointer to the emitter. With this pointer we can call         emitters methods for stoping or starting its emission or simply to destroy it. At the end we want to have something like this:
 
-'''c_cpp
+```c_cpp
 emitter = AddEmitter(positon, EMITTER_TYPE);
-'''
+```
 
 ## **4. The structure**
 
