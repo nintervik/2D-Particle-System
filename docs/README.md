@@ -299,7 +299,9 @@ It's all about memory! It's a not infinite but valuable resource and we must tak
 
 ### **4.4 Let's talk about pools**
 
-A pool is simply container of reusable objects. This means that when objects are extracted from the pool they can go back to it when they are no longer needed by the program. It's like a fountain of water that have a closed loop of reusable water. To implement this pool we will follow the great implementation done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html)  of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
+A pool is simply container of reusable objects. This means that when objects are extracted from the pool they can go back to it when they are no longer needed by the program. It's like a fountain of water that have a closed loop of reusable water. That's perfect for our particles. We no longer need to create and destroy particles, we can allocate enough space for the pool and use always the same particles; that's great, isn't it?
+
+To implement this pool we will follow the great implementation done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html) of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
 
 Let's start by defining the ParticlePool class:
 
