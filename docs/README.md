@@ -279,6 +279,8 @@ This is very nice but have a problem, a huge one. But the problem here resides i
 
 The pool is the most important and fundamental part of the system, everything else is secondary; you can always add more data to the particles whenever you need it.
 
+Let's adress the big elephant in the room. If we need to generate a constant of flow of particles that are born and die over time that means we have to constantly create an destroy particle objects. And that's not a good thing for our CPU. Let's see why
+
 
 ### **4.3 Emitter class**
 
