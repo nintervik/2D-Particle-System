@@ -283,8 +283,14 @@ Let's adress the big elephant in the room. If we need to generate a constant of 
 
 When you write the 'new' operator in your program you allocate enough memory in the heap so the new object can fit in there. But what happens if we are constantly creating and destroying particles hundreds of time per frame? Well, nothing good for sure. Let's highlight them.
 
-- **Memory fragmentation**: as you know memory is a continuous space divide in bytes. If we constantly allocate and destroy memory we     will have what's called 'memory fragmenation'. This means that all the data is not allocated next to each other but there's some gaps   in between. this happens because we've destroyed a particle that was allocated in the middle of other particles and now we have small   gaps that occupies space but cannot be filled with other particles as they might not be small enough.
-- **Framerate drop**:
+- **Memory fragmentation**: as you know memory is a continuous space divide in bytes. If we constantly allocate and destroy memory we     will have what's called 'memory fragmenation'. This means that all the data is not allocated next to each other but there's some gaps   in between. this happens because we've destroyed a particle that was allocated in the middle of other particles and now we have small   gaps that occupies space but cannot be filled with other particles as they might not be small enough. We have free memory but cannot     use it. As [Bob Nystrom](https://twitter.com/munificentbob) says in his [article](http://gameprogrammingpatterns.com/object-pool.html)   about Pools:
+
+> "_It’s like trying to parallel park on a busy street where the already parked cars are spread out a bit too far. If they’d bunch up, there would be room, but the free space is fragmented into bits of open curb between half a dozen cars._"
+
+![mem_frag](https://user-images.githubusercontent.com/25589509/38582635-b0a7467a-3d10-11e8-91de-e8eb8d79bd32.png)
+
+
+- **Framerate drop**: 
 - **Risk of memory leaks**: 
 
 
