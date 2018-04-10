@@ -16,6 +16,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
     * [2.3.1 The emitters](https://nintervik.github.io/2D-Particle-System/#231-the-emitters)
     * [2.3.2 The particles](https://nintervik.github.io/2D-Particle-System/#232-the-particles)
 * [3. Our approach](https://nintervik.github.io/2D-Particle-System/#3-our-approach)
+  * [3.1 The structure](https://nintervik.github.io/2D-Particle-System/#3-1-the-structure)
 * [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
 * [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
 * [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
@@ -187,6 +188,9 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
   - Emitter life
 
 ### **2.2 The structure**
+
+Down below there's the UML that describes the structured of our code:
+
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
