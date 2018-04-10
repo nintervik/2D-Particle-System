@@ -270,12 +270,19 @@ posX += velX * dt;
 posY += velY * dt;
 ```
 
-But the problem here resides in the fact that we cannot 
+And that's pretty much it. Update and move in loop. Of course the system will have a lot of more properties but for now let's keep it simple. 
+
+This is very nice but have a problem, a huge one. But the problem here resides in the fact of how generate a constant flow of particles in our code. Well, let's introduce the pool.
+
+
+### **4.4 Let's talk about pools**
+
+The pool is the most important and fundamental part of the system, everything else is secondary; you can always add more data to the particles whenever you need it.
 
 
 ### **4.3 Emitter class**
 
-### **4.4 Let's talk about pools**
+
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
