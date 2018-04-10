@@ -16,11 +16,11 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
     * [2.3.1 The emitters](https://nintervik.github.io/2D-Particle-System/#231-the-emitters)
     * [2.3.2 The particles](https://nintervik.github.io/2D-Particle-System/#232-the-particles)
 * [3. Our approach](https://nintervik.github.io/2D-Particle-System/#3-our-approach)
-  * [3.1 The structure](https://nintervik.github.io/2D-Particle-System/#3-1-the-structure)
-    * [3.1.1 Particle system module](https://nintervik.github.io/2D-Particle-System/#3-1-1-particle-system-module)
-    * [3.1.2 Particle class](https://nintervik.github.io/2D-Particle-System/#3-1-2-particle-class)
-    * [3.1.3 Emitter class](https://nintervik.github.io/2D-Particle-System/#3-1-3-emitter-class)
-    * [3.1.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#3-1-4-let's-talk-about-pools)
+* [4. The structure](https://nintervik.github.io/2D-Particle-System/#4-the-structure)
+  * [4.1 Particle system module](https://nintervik.github.io/2D-Particle-System/#4-1-particle-system-module)
+  * [4.2 Particle class](https://nintervik.github.io/2D-Particle-System/#4-2-particle-class)
+  * [4.3 Emitter class](https://nintervik.github.io/2D-Particle-System/#4-3-emitter-class)
+  * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#4-4-let's-talk-about-pools)
 * [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
 * [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
 * [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
@@ -191,53 +191,53 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
   - Particle's blend mode
   - Emitter life
 
-### **3.1 The structure**
+## **4. The structure**
 
 Down below there's the UML that describes the structured of our code:
 
 img here...
 
+![code_scheme](https://user-images.githubusercontent.com/25589509/38576493-98f82560-3cfe-11e8-874e-c3513a4c08eb.JPG)
 
+#### 4.1 Particle system module
 
-#### 3.1.1 Particle system module
+#### 4.2 Particle class
 
-#### 3.1.2 Particle class
+#### 4.3 Emitter class
 
-#### 3.1.3 Emitter class
-
-#### 3.1.4 Let's talk about pools 
+#### 4.4 Let's talk about pools 
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **4. TODOs**
+## **5. TODOs**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **5. Performance**
+## **6. Performance**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **6. Improvements and further work**
+## **7. Improvements and further work**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **7. References**
+## **8. References**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 
 ***
 
-## **8. License**
+## **9. License**
 
 ~~~~~~~~~~~~~~~
 
