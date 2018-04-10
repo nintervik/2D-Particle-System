@@ -20,7 +20,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
   * [4.1 Particle system module](https://nintervik.github.io/2D-Particle-System/#41-particle-system-module)
   * [4.2 Particle class](https://nintervik.github.io/2D-Particle-System/#42-particle-class)
   * [4.3 Emitter class](https://nintervik.github.io/2D-Particle-System/#43-emitter-class)
-  * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-let's-talk-about-pools)
+  * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
 * [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
 * [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
 * [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
