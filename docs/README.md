@@ -12,9 +12,15 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 * [2. What is a Particle System and why do we care?](https://nintervik.github.io/2D-Particle-System/#2-what-is-a-particle-system-and-why-do-we-care)
   * [2.1 A bit of history](https://nintervik.github.io/2D-Particle-System/#21-a-bit-of-history)
   * [2.2 Particle systems nowadays](https://nintervik.github.io/2D-Particle-System/#22-particle-systems-nowadays)
-* [Our approach](https://nintervik.github.io/2D-Particle-System/#our-approach)
-* [References](https://nintervik.github.io/2D-Particle-System/#references)
-* [License](https://nintervik.github.io/2D-Particle-System/#license)
+  * [2.3 The components](https://nintervik.github.io/2D-Particle-System/#23-the-components)
+   * [2.3.1 The emitters](https://nintervik.github.io/2D-Particle-System/#231-the-emitters)
+   * [2.3.2 The particles](https://nintervik.github.io/2D-Particle-System/#232-the-particles)
+* [3. Our approach](https://nintervik.github.io/2D-Particle-System/#3-our-approach)
+* [4. Performance](https://nintervik.github.io/2D-Particle-System/#4-performance)
+* [5. TODOs](https://nintervik.github.io/2D-Particle-System/#5-todos)
+* [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
+* [7. References](https://nintervik.github.io/2D-Particle-System/#7-references)
+* [8. License](https://nintervik.github.io/2D-Particle-System/#8-license)
 
 ***
 
@@ -159,7 +165,7 @@ Okay, I think that's enough theory for now, we must build the system in order to
 
 ***
 
-## **Our approach**
+## **3. Our approach**
 
 Okay but what are we going to do? We will keep it simple but solid and flexible. Our particle system will have the following features:
 - It will be 2D (although almost everything explained here can be transfered into 3D if needed).
@@ -169,14 +175,32 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
 
 ***
 
-## **References**
+## **4. Performance**
+
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
+
+***
+
+## **5. Improvements and further work**
+
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
+
+***
+
+## **6. TODOs**
+
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
+
+***
+
+## **7. References**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 
 ***
 
-## **License**
+## **8. License**
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
