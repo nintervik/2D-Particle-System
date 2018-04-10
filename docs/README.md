@@ -146,7 +146,7 @@ Particle properties along with the emitter can be anything you like. The possibi
 
 ![psystem_unity](https://user-images.githubusercontent.com/25589509/38538733-674c4550-3c95-11e8-9849-d247a15a3652.PNG)
 
-When working in 3D envoroments particle textures are often mapped in a 3D geometry to create more interesting effects. This is called blending geometry and it's quite impressive! Here's a quick video on how particles are done in League of Legends using this technique.
+When working in 3D enviroments particle textures are often mapped in a 3D geometry to create more interesting effects. This is called blending geometry and it's quite impressive! Here's a quick video on how particles are done in League of Legends using this technique.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
