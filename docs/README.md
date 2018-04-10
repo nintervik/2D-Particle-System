@@ -16,8 +16,8 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
     * [2.3.1 The emitters](https://nintervik.github.io/2D-Particle-System/#231-the-emitters)
     * [2.3.2 The particles](https://nintervik.github.io/2D-Particle-System/#232-the-particles)
 * [3. Our approach](https://nintervik.github.io/2D-Particle-System/#3-our-approach)
-* [4. Performance](https://nintervik.github.io/2D-Particle-System/#4-performance)
-* [5. TODOs](https://nintervik.github.io/2D-Particle-System/#5-todos)
+* [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
+* [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
 * [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
 * [7. References](https://nintervik.github.io/2D-Particle-System/#7-references)
 * [8. License](https://nintervik.github.io/2D-Particle-System/#8-license)
@@ -175,19 +175,19 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
 
 ***
 
-## **4. Performance**
+## **4. TODOs**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **5. Improvements and further work**
+## **5. Performance**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **6. TODOs**
+## **6. Improvements and further work**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
