@@ -238,11 +238,11 @@ This is the module in charge of everything that happens with our particles. We w
 
 ### **4.2 Particle class**
 
-The particle class will have a lot of data that will define its behavior. Let's see how we approach this. We will consider a particle as a moving point in space. It will have a postion, a velocity and a texture at least. Here's a simple diagram of a basic particle:
+The particle class is very simple, just a lot of data that will define its behavior and a couple of methods to draw and updated its position. Let's see how we approach this. We will consider a particle as a moving point in space. It will have a postion, a velocity and a texture at least. Here's a simple diagram of a basic particle:
 
 ![particle_scheme](https://user-images.githubusercontent.com/25589509/38579521-9269175a-3d07-11e8-92d2-f46b03a71729.jpg)
 
-So basically a particle will be a class with position, a vector velocity and texture (represented by arectangle indicating the position and size inside the atlas). In this case we will add a lot more data but that's something optional depending of what you want to do. This particle will have a constructor for setting everything up, an update method to render them on screen and that's it.
+So basically a particle will be a class with position, a vector velocity and texture (represented by a rectangle indicating the position and size inside the atlas). In this case we will add a lot more data but that's something optional depending of what you want to do. This particle will have a constructor for setting everything up, an update method to render them on screen and that's it.
 
 ```cpp
 class Particle
@@ -258,6 +258,16 @@ class Particle
      void Update(float dt);
      void Draw();
 };
+```
+
+Inside the Update() method we will move our particle according to its velocity. To calculate its velocity we just need the angle that will come from the emitter and the speed norm. It will be something like this:
+
+```cpp
+velX = speed * cos(angle);
+velY = speed * sin(angle);
+
+posX += velX * dt;
+posY += velY * dt;
 ```
 
 But the problem here resides in the fact that we cannot 
