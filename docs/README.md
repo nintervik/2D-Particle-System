@@ -190,7 +190,7 @@ Okay but what are we going to do? We will keep it simple but solid and flexible.
   - Particles' colors
   - Particle's blend mode
   - Emitter life
-- To create an emitter we will call a function our scene that will return a pointer to the emitter. With this pointer we can call         emitters methods for stoping or starting its emission or simply to destroy it. At the end we want to have something like this:
+- To create an emitter we will call a function in our scene that will return a pointer to the emitter. With this pointer we can call         emitters methods for stoping or starting its emission or simply to destroy it. At the end we want to have something like this:
 
 ```c_cpp
 emitter = AddEmitter(positon, EMITTER_TYPE);
@@ -238,6 +238,10 @@ This is the module in charge of everything that happens with our particles. We w
 
 ### **4.2 Particle class**
 
+The particle class will have a lot of data that will define its behavior. Let's see how we approach this. We will consider a particle as a moving point in space. It will have a postion, a velocity and a texture at least. Here's a simple diagram of a basic particle:
+
+
+![particle_scheme](https://user-images.githubusercontent.com/25589509/38579521-9269175a-3d07-11e8-92d2-f46b03a71729.jpg)
 
 
 ### **4.3 Emitter class**
