@@ -7,7 +7,6 @@
 #include "j1Input.h"
 #include "j1Render.h"
 #include "j1Textures.h"
-#include "j1Audio.h"
 #include "j1Scene.h"
 #include "j1ParticleSystem.h"
 #include "j1App.h"
@@ -21,7 +20,6 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	win = new j1Window();
 	render = new j1Render();
 	tex = new j1Textures();
-	audio = new j1Audio();
 	psystem = new j1ParticleSystem();
 	scene = new j1Scene();
 	
@@ -31,7 +29,6 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(input);
 	AddModule(win);
 	AddModule(tex);
-	AddModule(audio);
 	AddModule(psystem);
 	AddModule(scene);
 	

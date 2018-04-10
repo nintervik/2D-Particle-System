@@ -13,7 +13,6 @@ class j1Window;
 class j1Input;
 class j1Render;
 class j1Textures;
-class j1Audio;
 class j1ParticleSystem;
 class j1Scene;
 
@@ -79,7 +78,6 @@ public:
 	j1Input*			 input = nullptr;
 	j1Render*			 render = nullptr;
 	j1Textures*			 tex = nullptr;
-	j1Audio*			 audio = nullptr;
 	j1ParticleSystem*	 psystem = nullptr;
 	j1Scene*			 scene = nullptr;
 	
