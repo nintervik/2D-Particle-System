@@ -87,7 +87,7 @@ Reeves describes a particle system in this paper as follows:
 a fuzzy object. Over a period of time, particles are generated into a system, move
 and change from within the system, and die from the system._"
 
-So basically a particle system contains a bunch of tiny objects called particles that have somo kind of movement and a lifetime. These particles are generated and destroyed over time to simulate a flow. Hence, a particle system is the structure in charge of managing the living particles and generate new ones when needed.
+So basically a particle system contains a bunch of tiny objects called particles that have some kind of movement and a lifetime. These particles are generated and destroyed over time to simulate a flow. Hence, a particle system is the structure in charge of managing the living particles and generate new ones when needed.
 
 Organic effects are difficult to simulate but what particle systems do is simplify the problem. Like in physics, we divide the effect in tiny and controllable particles that as a whole seems like something bigger that behaves as natural phenomenas. By managing a large group of these particles we can represent natural effects like water, fire or smoke so much easier than if we tried to treat it as a whole thing.
 
@@ -97,9 +97,9 @@ Since the Genesis effects things have evolved quickly but the foundation is the 
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/ovlVh-QgVao" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-Nowadays particle systems can be found in any almost any game engine or 3D software. Maya and 3D Max have one as well as Unity or Unreal Engine. Particle are really important in a lot of videogames as it makes huge improvement. Particles makes the enviroment or the the player stands ou and it really adds up a lot to the game. Let's see a few examples.
+Nowadays particle systems can be found in any almost any game engine or 3D software. Maya and 3D Max have one as well as Unity or Unreal Engine. Particle are really important in a lot of videogames as it makes huge improvement. Particles makes the enviroment or the the player stands out and it really adds up a lot to the game. Let's see a few examples.
 
-Take for example the next teamfight in League of Legends, as you can see particles makes a huge diiference when produing things like magic spells:
+Take for example the next teamfight in League of Legends, as you can see particles makes a huge diiference when producing things like magic spells:
 
 ![LOLGIF](https://github.com/nintervik/Testing-Team-Workflow/blob/master/LOLGIF.gif?raw=true)
 
@@ -132,7 +132,7 @@ Particle systems usually contain what it's known as an emitter. An emittter is t
 
 The emitter itself contains all the particles that will be updated and die over time. All this data is transfered from the emitter to all this particles os they behave like they are suposed to. Changing this data will change how the particles in that emitter will behave. 
 
-A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters. By using this hierearchy there's a particl system whic acts as a parent and contain subsystems that contains other subsystems.
+A particle system can be composed of multiple different kind of emitters that at the same time can also have emitters inside of them. This inception thing can go as far as we want depending of what we want to simulate. For example, for the Genesis Effect Reeves explains in his paper that they used a tree structure in order to create this subemitters. By using this hierearchy there's a particle system which acts as a parent and contains subsystems that contains other subsystems.
 
 #### 2.3.2 The particles
 
@@ -142,11 +142,11 @@ This texture can be anything we want that fits our purpose. It's usually a balck
 
 ![particle_set](https://user-images.githubusercontent.com/25589509/38513650-29411102-3c2f-11e8-85b7-f3d5725da3f3.jpg)
 
-Particle properties along with the emitter can be anything you like. The possibilities are endless.
+Particle properties along with the emitter can be anything you like. The possibilities are endless. The Unity engine for example has big spectrum when it comes to emitters and particle properties, you can change anything you want and this flexibility allows you to generate almost any type of particle you can think of. Down below there's a screenshoot of this options in Unity.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/FUu2WNcJbtE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-The Unity engine for example has big spectrum when it comes to emitters and particle properties, you can change anything you want and this flexibility allows you to generate almost any type of particle you can think of. Down below there's a screenshoot of this options in Unity.
+
 
 This is very nice, but first we must build the system in order to use it. So let's get to work!
 
