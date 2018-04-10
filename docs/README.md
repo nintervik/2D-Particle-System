@@ -19,7 +19,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
 * [4. The structure](https://nintervik.github.io/2D-Particle-System/#4-the-structure)
   * [4.1 Particle system module](https://nintervik.github.io/2D-Particle-System/#41-particle-system-module)
   * [4.2 Particle class](https://nintervik.github.io/2D-Particle-System/#42-particle-class)
-  * [4.3 It's all about memory!](https://nintervik.github.io/2D-Particle-System/#43-its-all-about-memory!)
+  * [4.3 It's all about memory!](https://nintervik.github.io/2D-Particle-System/#43-its-all-about-memory)
   * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
   * [4.5 Emitter class](https://nintervik.github.io/2D-Particle-System/#45-emitter-class)
 * [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
@@ -297,7 +297,7 @@ When you write the 'new' operator in your program you allocate enough memory in 
 It's all about memory! It's a not infinite but valuable resource and we must take care of use it wisely. To avoid this let's introduce the pool.
 
 
-### **4.4 Let's talk about the pools**
+### **4.4 Let's talk about pools**
 
 A pool is simply container of reusable objects. This means that when objects are extracted from the pool they can go back to it when they are no longer needed by the program. It's like a fountain of water that have a closed loop of reusable water. To implement this pool we will follow the great implementation done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html)  of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
 
