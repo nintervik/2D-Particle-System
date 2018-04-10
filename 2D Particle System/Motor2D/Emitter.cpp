@@ -2,38 +2,48 @@
 #include <time.h>
 
 
-Emitter::Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, double lifeTime)
+Emitter::Emitter(fPoint pos, EmitterData data)
 { 
+
+	/*fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, double lifeTime*/
 	srand(time(NULL));
 	
 	// Particles size and movement
-	this->angleRange = angleRange;
-	this->maxSpeed = maxSpeed;
-	this->startSize = startSize;
-	this->endSize = endSize;
+	this->angleRange = data.angleRange;
+	this->maxSpeed = data.maxSpeed;
+	this->startSize = data.startSize;
+	this->endSize = data.endSize;
 	this->pos = pos;
-	this->rotSpeed = rotSpeed;
+	this->rotSpeed = data.rotSpeed;
 
 	// Particle emission calculations
-	this->emitNumber = emitNumber;
-	this->emitVariance = emitVariance;
-	this->maxParticleLife = maxParticleLife;
-	maxParticlesPerFrame = emitNumber + emitVariance;
+	this->emitNumber = data.emitNumber;
+	this->emitVariance = data.emitVariance;
+	this->maxParticleLife = data.maxParticleLife;
+	maxParticlesPerFrame = data.emitNumber + data.emitVariance;
 
 	// Pool size calculations
 	poolSize = maxParticlesPerFrame * (maxParticleLife + 1);
 	emitterPool = new ParticlePool(this);
 
 	// Color and render properties
-	this->textureRect = textureRect;
-	this->startColor = startColor;
-	this->endColor = endColor;
-	this->blendMode = blendMode;
+	this->textureRect = data.textureRect;
+	this->startColor = data.startColor;
+	this->endColor = data.endColor;
+	this->blendMode = data.blendMode;
 	timeStep = 1.0f / (float)maxParticleLife;
 
 	// Emission properties
 	active = true;
-	this->lifetime = lifeTime;
+	lifetime = data.lifetime;
+
+	// Random control parameters
+	rotSpeedRand = data.rotSpeedRand;
+	speedRand = data.speedRand;
+	emitVarianceRand = data.emitVarianceRand;
+	lifeRand = data.lifeRand;
+	startSizeRand = data.startSizeRand;
+	endSizeRand = data.endSizeRand;
 
 	if (this->lifetime != -1.0f && this->lifetime > 0.0f)
 		lifeTimer.Start();
@@ -51,15 +61,18 @@ void Emitter::Update(float dt)
 	{
 		// Particle generation from pool
 		
-		emissionRate = (int)(emitNumber + emitVariance * RangeRandomNum());
+		emissionRate = (int)(emitNumber + emitVariance * RangeRandomNum(emitVarianceRand.x, emitVarianceRand.y));
 
 		for (int i = 1; i <= emissionRate; i++)
 		{
-			float randSpeed = maxSpeed * RangeRandomNum(0.0f, 1.0f);
+			float tmpSpeedRand = maxSpeed * RangeRandomNum(speedRand.x, speedRand.y);
 			float randAngle = RangeRandomNum(angleRange.x, angleRange.y);
-			float randRadius = startSize * RangeRandomNum(0.0f, 1.0f);
-			double randRotSpeed = rotSpeed * RangeRandomNum();
-			emitterPool->Generate(pos, randSpeed, randAngle, randRotSpeed, randRadius, endSize, maxParticleLife, textureRect, startColor, endColor, blendMode);
+			float randStart= startSize * RangeRandomNum(startSizeRand.x, startSizeRand.y);
+			float randEnd = startSize * RangeRandomNum(startSizeRand.x, startSizeRand.y);
+			float randRadius = RangeRandomNum(randStart, randEnd);
+			double randRotSpeed = rotSpeed * RangeRandomNum(rotSpeedRand.x, rotSpeedRand.y);
+
+			emitterPool->Generate(pos, tmpSpeedRand, randAngle, randRotSpeed, randRadius, endSize, maxParticleLife, textureRect, startColor, endColor, blendMode);
 			timeStep += timeStep;
 		}
 	}

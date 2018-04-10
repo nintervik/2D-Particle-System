@@ -9,6 +9,7 @@
 
 struct SDL_Texture;
 class ParticlePool;
+struct EmitterData;
 
 class Emitter
 {
@@ -49,11 +50,20 @@ private:
 	SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 	float timeStep = 0.0f;
 
+	// Random control parameters
+	fPoint rotSpeedRand = { 0.0f, 0.0f };
+	fPoint speedRand = { 0.0f, 0.0f };
+	fPoint emitVarianceRand = { 0.0f, 0.0f };
+	fPoint lifeRand = { 0.0f, 0.0f };
+	fPoint startSizeRand = { 0.0f, 0.0f };
+	fPoint endSizeRand = { 0.0f, 0.0f };
+
 public:
 
 	bool toDestroy = false;
 
-	Emitter(fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE, double lifetime = -1.0f);
+	Emitter(fPoint pos, EmitterData data);
+	// fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE, double lifetime = -1.0f
 	virtual ~Emitter();
 	
 	void Update(float dt);

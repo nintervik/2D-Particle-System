@@ -117,13 +117,15 @@ bool j1ParticleSystem::CleanUp()
 
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
-	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance, 
-									   vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange, 
-		                               vecEmitterData[type].rotSpeed, vecEmitterData[type].maxSpeed, 
-		                               vecEmitterData[type].startSize, vecEmitterData[type].endSize,  
-		                               vecEmitterData[type].textureRect, vecEmitterData[type].startColor, 
-		                               vecEmitterData[type].endColor, vecEmitterData[type].blendMode, 
-		                               vecEmitterData[type].lifetime);
+	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type]);
+
+	/*vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance,
+	vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange,
+	vecEmitterData[type].rotSpeed, vecEmitterData[type].maxSpeed,
+	vecEmitterData[type].startSize, vecEmitterData[type].endSize,
+	vecEmitterData[type].textureRect, vecEmitterData[type].startColor,
+	vecEmitterData[type].endColor, vecEmitterData[type].blendMode,
+	vecEmitterData[type].lifetime*/
 
 	emittersList.push_back(tmp_emitter);
 	
@@ -181,16 +183,25 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	// Random controls
 	tmp.speedRand.x = emitter.child("maxSpeed").attribute("randMin").as_float();
 	tmp.speedRand.y = emitter.child("maxSpeed").attribute("randMax").as_float();
+
 	tmp.rotSpeedRand.x = emitter.child("rotSpeed").attribute("randMin").as_float();
 	tmp.rotSpeedRand.y = emitter.child("rotSpeed").attribute("randMax").as_float();
+
 	tmp.emitVarianceRand.x = emitter.child("emitVariance").attribute("randMin").as_float();
 	tmp.emitVarianceRand.y = emitter.child("emitVariance").attribute("randMax").as_float();
+
 	tmp.lifeRand.x = emitter.child("maxParticleLife").attribute("randMin").as_float();
 	tmp.lifeRand.y = emitter.child("maxParticleLife").attribute("randMax").as_float();
 
+	tmp.startSizeRand.x = emitter.child("startSize").attribute("randMin").as_float();
+	tmp.startSizeRand.y = emitter.child("startSize").attribute("randMax").as_float();
+
+	tmp.endSizeRand.x = emitter.child("endSizeRand").attribute("randMin").as_float();
+	tmp.endSizeRand.y = emitter.child("endSizeRand").attribute("randMax").as_float();
+
 	// Particle size
-	tmp.startSize = emitter.child("size").attribute("startSize").as_float();
-	tmp.endSize = emitter.child("size").attribute("endSize").as_float();
+	tmp.startSize = emitter.child("startSize").attribute("value").as_float();
+	tmp.endSize = emitter.child("endSize").attribute("value").as_float();
 
 	// Emission properties
 	tmp.emitNumber = emitter.child("emitNumber").attribute("value").as_uint();

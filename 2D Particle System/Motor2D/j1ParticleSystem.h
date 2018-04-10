@@ -30,6 +30,29 @@ enum EmitterType
 	EMITTER_TYPE_SPARK
 };
 
+struct EmitterData
+{
+	fPoint angleRange = { 0.0f, 0.0f };
+	float maxSpeed = 0.0f;
+	float startSize = 0.0f, endSize = 0.0f;
+	uint emitNumber = 0u;
+	uint emitVariance = 0u;
+	uint maxParticleLife = 0u;
+	SDL_Rect textureRect = { 0, 0 };
+	double lifetime = -1.0f;
+	SDL_Color startColor = { 0, 0, 0, 0 };
+	SDL_Color endColor = { 0, 0, 0, 0 };
+	SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
+	double rotSpeed = 0;
+
+	// Randoms
+	fPoint rotSpeedRand = { 0.0f, 0.0f };
+	fPoint speedRand = { 0.0f, 0.0f };
+	fPoint emitVarianceRand = { 0.0f, 0.0f };
+	fPoint lifeRand = { 0.0f, 0.0f };
+	fPoint startSizeRand = { 0.0f, 0.0f };
+	fPoint endSizeRand = { 0.0f, 0.0f };
+};
 
 class j1ParticleSystem : public j1Module
 {
@@ -39,28 +62,6 @@ private:
 	std::list<Emitter*> emittersList;
 	SDL_Texture* particleAtlas = nullptr;
 	std::string nameParticleAtlas;
-
-	struct EmitterData
-	{
-		fPoint angleRange = { 0.0f, 0.0f };
-		float maxSpeed = 0.0f;
-		float startSize = 0.0f, endSize = 0.0f;
-		uint emitNumber = 0u;
-		uint emitVariance = 0u;
-		uint maxParticleLife = 0u;
-		SDL_Rect textureRect = { 0, 0 };
-		double lifetime = -1.0f;
-		SDL_Color startColor = { 0, 0, 0, 0 };
-		SDL_Color endColor = { 0, 0, 0, 0 };
-		SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
-		double rotSpeed = 0;
-		
-		// Randoms
-		fPoint rotSpeedRand = { 0.0f, 0.0f };
-		fPoint speedRand = { 0.0f, 0.0f };
-		fPoint emitVarianceRand = { 0.0f, 0.0f };
-		fPoint lifeRand = { 0.0f, 0.0f };
-	};
 
 	// Static array that stores all the data of emitters
 	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];
