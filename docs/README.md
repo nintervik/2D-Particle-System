@@ -279,7 +279,13 @@ This is very nice but have a problem, a huge one. But the problem here resides i
 
 The pool is the most important and fundamental part of the system, everything else is secondary; you can always add more data to the particles whenever you need it.
 
-Let's adress the big elephant in the room. If we need to generate a constant of flow of particles that are born and die over time that means we have to constantly create an destroy particle objects. And that's not a good thing for our CPU. Let's see why
+Let's adress the big elephant in the room. If we need to generate a constant of flow of particles that are born and die over time that means we have to constantly create an destroy particle objects usinf the heap. And that's not a good thing for our CPU. Let's see why.
+
+When you write the 'new' operator in your program you allocate enough memory in the heap so the new object can fit in there. But what happens if we are constantly creating and destroying particles hundreds of time per frame? Well, nothing good for sure. Let's highlight them.
+
+- **Memory fragmentation**: as you know memory is a continuous space divide in bytes. If we constantly allocate and destroy memory we     will have what's called 'memory fragmenation'. This means that all the data is not allocated next to each other but there's some gaps   in between. this happens because we've destroyed a particle that was allocated in the middle of other particles and now we have small   gaps that occupies space but cannot be filled with other particles as they might not be small enough.
+- **Framerate drop**:
+- **Risk of memory leaks**: 
 
 
 ### **4.3 Emitter class**
