@@ -63,7 +63,7 @@
         <endSize value =" 100" randMin ="1" randMax ="1"/>
         <emitNumber value ="10"/>
         <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="300" randMin ="0" randMax ="1"/>
+        <maxParticleLife value ="200" randMin ="0" randMax ="1"/>
         <textureRect x="640" y="0" w="512" h="512"/>
         <startColor r ="210" g="210" b="210" a ="50"/>
         <endColor r ="210" g="210" b="210" a ="0"/>
@@ -82,8 +82,8 @@
         <emitVariance value ="0" randMin ="0" randMax ="1"/>
         <maxParticleLife value ="70" randMin ="0" randMax ="1"/>
         <textureRect x="352" y="256" w="32" h="32"/>
-        <startColor r ="210" g="210" b="210" a ="255"/>
-        <endColor r ="210" g="210" b="210" a ="50"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
       </emitter>

@@ -4,8 +4,6 @@
 
 Emitter::Emitter(fPoint pos, EmitterData data)
 { 
-
-	/*fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, double lifeTime*/
 	srand(time(NULL));
 	
 	// Particles size and movement

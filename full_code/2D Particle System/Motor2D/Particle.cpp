@@ -31,7 +31,7 @@ void Particle::Init(fPoint pos, float startSpeed, float endSpeed, float angle, d
 	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
 
 	// Add vortex to the system (optional and only one is allowed)
-	 AddVortex({ 250.0f, 200.0f }, 0.0f, 30.0f);
+	 AddVortex({ 250.0f, 200.0f }, 10.0f, 30.0f);
 }
 
 void Particle::Update(float dt)

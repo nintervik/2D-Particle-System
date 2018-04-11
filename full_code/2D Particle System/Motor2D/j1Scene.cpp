@@ -112,7 +112,6 @@ bool j1Scene::Update(float dt)
 		ePixelSmoke = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_PIXEL_SMOKE);
 	}
 
-
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 	{
 		App->psystem->RemoveAllEmitters();
@@ -123,12 +122,12 @@ bool j1Scene::Update(float dt)
 		eFire->StopEmission(5000.0f);
 	}
 
-	if (ePixelSmoke != nullptr )
+	if (eSmoke != nullptr )
 	{
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		ePixelSmoke->MoveEmitter(pos);
+		eSmoke->MoveEmitter(pos);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && eFire != nullptr)
