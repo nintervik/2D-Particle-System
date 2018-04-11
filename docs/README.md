@@ -312,7 +312,6 @@ private:
 	
 	int poolSize = 0;
 	Particle* firstAvailable;
-	std::vector<Particle*> particlesVec;
 	Particle* particleArray = nullptr;
 
 public:
@@ -327,6 +326,7 @@ public:
 	bool Update(float dt);
 };
 ```
+Our pool will store particles inside an static array. Too keep track of all the particles each particle will have a pointer to the next one. Let's see the methods to take a look at this.
 
 
 ### **4.5 Emitter class**
