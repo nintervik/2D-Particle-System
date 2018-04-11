@@ -466,7 +466,7 @@ But as you've seen we had a lot of parameters in xml file to tweak the particle 
 |Texture rect|The rectangle of the atlas renderer from the atlas.|
 |Particle colors|Start and end color of the particle. We use linear interpolation for this.|
 |Blend mode| How colors interact wich each other. We can create glow of effects using additive blending in SDL.|
-|Life time||How many seconds an emitter lives.|
+|Life time|How many seconds an emitter lives.|
 
 We can have a lot of randomization to make the effect even more organic. That depends on you.
 
