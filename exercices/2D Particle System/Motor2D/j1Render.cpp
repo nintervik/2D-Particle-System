@@ -123,65 +123,19 @@ void j1Render::ResetViewPort()
 }
 
 // Blit particle to screen
-bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* section, float speed, double angle) const
+bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, float speed, double angle) const
 {
-	bool ret = true;
-	uint scale = App->win->GetScale();
-
-	SDL_Rect rect;
-	rect.x = (int)(camera.x * speed) + x * scale;
-	rect.y = (int)(camera.y * speed) + y * scale;
-
-	/*if (rectSize != NULL)
-	{
-		rect.w = rectSize->w;
-		rect.h = rectSize->h;
-	}*/
-
-	if (section != NULL)
-	{
-		rect.w = section->w;
-		rect.h = section->h;
-	}
-	else
-		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
-
-	int px = rect.w / 2;
-	int py = rect.h / 2;
-
-	rect.w *= scale;
-	rect.h *= scale;
-
-	SDL_Point* p = NULL;
-	SDL_Point pivot;
-	pivot.x = px;
-	pivot.y = py;
-	p = &pivot;
-
-	/*
-	if (SDL_SetTextureColorMod(texture, color.r, color.g, color.b) != 0)
-		LOG("Cannot set texture color mode. SDL_SetTextureColorMod error: %s", SDL_GetError());
-
-	if (SDL_SetTextureAlphaMod(texture, color.a) != 0)
-		LOG("Cannot set texture alpha mode. SDL_SetTextureAlphaMod error: %s", SDL_GetError());
-
-	if (SDL_SetTextureBlendMode(texture, blendMode) != 0)
-		LOG("Cannot set texture blend mode. SDL_SetTextureBlendMode error: %s", SDL_GetError());
+	/* TODO 4.2 - Adapt de blit particle method to take color as an argument
+		- Use SDL_SetTextureColorMod() and SDL_SetTextureAlphaMod() to setup the color.
+		- This has to be done just before calling SDL_RenderCopyEx().
 	*/
 
-	if (SDL_RenderCopyEx(renderer, texture, section, &rect, angle, NULL, SDL_FLIP_NONE) != 0)
-	{
-		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
-		ret = false;
-	}
+	/* TODO 4.3 - Adapt de blit particle method to take blending mode as an argument:
+		- Use SDL_SetTextureBlendMode.
+		- As before call it before we the actual render.
+		- Use pState.pLive.blendMode variable.
+	*/
 
-	return ret;
-}
-
-
-
-/*bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* section, const SDL_Rect* rectSize, SDL_Color color, SDL_BlendMode blendMode, float speed, double angle) const
-{
 	bool ret = true;
 	uint scale = App->win->GetScale();
 
@@ -194,7 +148,7 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 		rect.w = rectSize->w;
 		rect.h = rectSize->h;
 	}
-	else if(section != NULL)
+	else if (section != NULL)
 	{
 		rect.w = section->w;
 		rect.h = section->h;
@@ -204,7 +158,7 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 
 	int px = rect.w / 2;
 	int py = rect.h / 2;
-	
+
 	rect.w *= scale;
 	rect.h *= scale;
 
@@ -214,16 +168,7 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 	pivot.y = py;
 	p = &pivot;
 
-	if (SDL_SetTextureColorMod(texture, color.r, color.g, color.b) != 0)
-		LOG("Cannot set texture color mode. SDL_SetTextureColorMod error: %s", SDL_GetError());
 
-	if (SDL_SetTextureAlphaMod(texture, color.a) != 0)
-		LOG("Cannot set texture alpha mode. SDL_SetTextureAlphaMod error: %s", SDL_GetError());
-
-	if (SDL_SetTextureBlendMode(texture, blendMode) != 0)
-		LOG("Cannot set texture blend mode. SDL_SetTextureBlendMode error: %s", SDL_GetError());
-
-	
 	if (SDL_RenderCopyEx(renderer, texture, section, &rect, angle, NULL, SDL_FLIP_NONE) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
@@ -231,7 +176,8 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 	}
 
 	return ret;
-}*/
+}
+
 
 bool j1Render::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool filled, bool use_camera) const
 {

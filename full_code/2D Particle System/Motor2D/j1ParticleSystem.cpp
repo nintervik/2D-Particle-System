@@ -37,7 +37,7 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
 		if (emitterType == "flame")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FLAME);
-		else if (emitterType == "smoke_2")
+		else if (emitterType == "smoke")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE);
 		else if (emitterType == "pixel_smoke")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_PIXEL_SMOKE);

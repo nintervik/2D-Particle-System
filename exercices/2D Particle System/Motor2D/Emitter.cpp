@@ -4,8 +4,6 @@
 
 Emitter::Emitter(fPoint pos, EmitterData data)
 { 
-
-	/*fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, double lifeTime*/
 	srand(time(NULL));
 	
 	// Particles size and movement
@@ -26,12 +24,8 @@ Emitter::Emitter(fPoint pos, EmitterData data)
 	/* TODO 3.1 - Calculate pool size:
 		- Come up with a simple formula to know big the pool must be. Only one line of code!
 		- The number calculated must be always big enough so the pool it's NEVER EMPTY.
-		- Hint: variables emitNumber, emitVariance and maxParticleLife play a big role here.
+		- Hint: the variables maxParticlesPerFrame and maxParticleLife play a big role here.
 	*/
-
-	// Pool size calculations
-	poolSize = maxParticlesPerFrame * (maxParticleLife + 1);
-
 
 	emitterPool = new ParticlePool(this);
 

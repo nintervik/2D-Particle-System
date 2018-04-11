@@ -49,8 +49,8 @@ void Particle::Update(float dt)
 	// Assign new size to particle rect
 	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.currentSize;
 
-	// Calculates new particle position.
-	CalculateParticlePos(dt);
+	// BONUS CODE. Uncomment to unchain vortices
+	//CalculateParticlePos(dt);
 
 	// Decrementing particle life
 	life--;
@@ -66,14 +66,15 @@ void Particle::Draw()
 	// Color interpolation, only if the particle has enough life
 	SDL_Color resColor;
 
-	if (pState.pLive.startLife > MIN_LIFE_TO_INTERPOLATE)
-		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.t, pState.pLive.endColor);
+	/* TODO 4.1 - Interpolate between start and end color
+		- Create a method that takes to colors and a time step and returns the interpolated SDL_Color.
+		- You can use pState.pLive.t as the time step.
+		- For color use the pState.pLive.startColor and pState.pLive.endColor.
+	*/
 
 	// Blitting particle on screen
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect);
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, &pState.pLive.rectSize, 1.0f, pState.pLive.currentRotSpeed);
 
-
-	
 	// Calculating new rotation according to rotation speed
 	pState.pLive.currentRotSpeed += pState.pLive.startRotSpeed;
 
