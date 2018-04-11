@@ -21,12 +21,12 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
   * [4.2 Particle class](https://nintervik.github.io/2D-Particle-System/#42-particle-class)
   * [4.3 It's all about memory!](https://nintervik.github.io/2D-Particle-System/#43-its-all-about-memory)
   * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
-  * [4.5 Emitter class](https://nintervik.github.io/2D-Particle-System/#45-emitter-class)
-* [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
-* [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
-* [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
-* [7. References](https://nintervik.github.io/2D-Particle-System/#7-references)
-* [8. License](https://nintervik.github.io/2D-Particle-System/#8-license)
+* [5. More parameters](https://nintervik.github.io/2D-Particle-System/#5-more-parameters)
+* [6. TODOs](https://nintervik.github.io/2D-Particle-System/#6-todos)
+* [7. Performance](https://nintervik.github.io/2D-Particle-System/#7-performance)
+* [8. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#8-improvements-and-further-work)
+* [9. References](https://nintervik.github.io/2D-Particle-System/#9-references)
+* [10. License](https://nintervik.github.io/2D-Particle-System/#10-license)
 
 ***
 
@@ -42,6 +42,10 @@ There are three main things that I will be focused on for this tutorial:
 Be aware that this web page is focused on the structure and behaviour of a 2D particle system but it assumes you have a base program loop and can render textures on screen at least. However, we will talk about the render part only for particle effects purposes, not the actual rendering of the texture.
 
 Another important thing that I want to remark is that the way I'm going to explain how to implement the system is not unique and probably not the best. There are a lot of ways to do it and professional people that knows a lot more that I do. If you want to learn more about this topic I encourage you to check the [references](https://nintervik.github.io/2D-Particle-System/#references) that helped me doing this.
+
+We will have somehting like this at the of this tutorial:
+
+---put gif here---
 
 Well, without further delay let's get into playing with these particles!
 
@@ -269,6 +273,8 @@ velY = speed * sin(angle);
 
 posX += velX * dt;
 posY += velY * dt;
+
+life--;
 ```
 
 And that's pretty much it. Update and move in loop. Of course the system will have a lot of more properties but for now let's keep it simple. 
@@ -328,39 +334,220 @@ public:
 ```
 Our pool will store particles inside an static array. Too keep track of all the particles each particle will have a pointer to the next one. Let's see the methods to take a look at this.
 
+In the constructor we will allocate enough memory for our pool. We will talk about how to calculate the pool size later (this will be done in the emitter class). This will be done just one time, when a emitter is created. When we have reserved the memory we need to link all the elements like in a forward linked list,; this is called a _free list_. For doing this each particle will have a pointer to the next one. Moreover, we will have a special pointer called 'firstAvailable' that will always point to the particle that will be released. For now it will pointing to the first element.
 
-### **4.5 Emitter class**
+```cpp
+// This pool constructor sets our particles to available
+ParticlePool::ParticlePool(Emitter* emitter)
+{
+	// Fill the pool according to poolSize needed for the emitter
+	poolSize = emitter->GetPoolSize();
+	particleArray = new Particle[poolSize];
+
+	// The first particle is available
+	firstAvailable = &particleArray[0];
+
+	// Each particle points to the next one
+	for (int i = 0; i < poolSize - 1; i++)
+		particleArray[i].SetNext(&particleArray[i + 1]);
+
+	// The last particle points to nullptr indicating the end of the vector
+	particleArray[poolSize - 1].SetNext(nullptr);
+}
+```
+
+Okay, let's see now how the Generate method. In this method we will generate a new particle. How? Well, first we'll check the pool is not empty. Then we store the first available particle in an auxiliar pointer and the firdtAvailable pointer will point shift and point to the next one in the array. Finally we call an init method to initialize all the particle attributes. This generate method will be called inside the emitter update method as many times as we want create particles per frame.
+
+```cpp
+	void ParticlePool::Generate(posX, posY, speed, pRect)
+{
+	// Check if the pool is not full
+	assert(firstAvailable != nullptr);
+
+	// Remove it from the available list
+	Particle* newParticle = firstAvailable;
+	firstAvailable = newParticle->GetNext();
+
+	// Initialize new alive particle
+	newParticle->Init(posX, posY, speed, pRect);
+}
+```
+In the update method we will loop through the entire pool and check if the particles inside it are alive. If it's the case we update it and then draw it. If not the particle will become the first available in the pool. We can update particles and then render them or the other way around. Both ways have advantages and downsides. 
+
+- **Update then Render:** particles won’t spawn exactly at the point where the emitter is because in the first frame they will move       first and then render.
+- **Render then Update:** particles will spawn where they are supposed to. However, particles won’t react to user motion input until       next frame.
+
+We will choose the first option as spawn point is a problem that we can do some workarounds as input delay is not. 
+
+```cpp
+bool ParticlePool::Update(float dt)
+{
+	bool ret = false;
+
+	for (int i = 0; i < poolSize; i++)
+	{
+		if (particleArray[i].IsAlive())
+		{
+			particleArray[i].Update(dt);
+			particleArray[i].Draw();
+			ret = true;
+		}
+		else // if a particle dies it becomes the first available in the pool
+		{
+			// Add this particle to the front of the vector
+			particleArray[i].SetNext(firstAvailable);
+			firstAvailable = &particleArray[i];
+		}
+	}
+
+	return ret;
+}
+```
+
+You've probably seen that particles now are a little bit different. Now for particles we will use unions. Unions are data structures that only uses the memory of the variable that is being used. For our particle we will have a union with a struct inside that will hold all the data of a living particle. Outside the struct a pointer that will be only used when the particle is available in the pool. The only variable that will be outside the union is the particle life variable that will only be relevant to know if the particle is alive or dead.
+
+```cpp
+	/*  This is the only variable we care about no matter if
+	   the particle is alive or dead */
+	uint life = 0;
+	
+	union ParticleInfo
+	{
+		/* This struct holds the state of the particle when 
+		   it's being update (it's still alive).*/
+		struct ParticleState
+		{
+			uint startLife;
+			float posX, posY;
+			float velX, velY;
+			SDL_Rect pRect;
+			ParticleState() {}
+
+		} pLive;
+
+		/* If the particle is dead, then the 'next' member comes 
+		   into play and the struct it's not used. This pointer
+		   called 'next' holds a pointer to the next available 
+		   particle after this one. */
+		Particle* next;
+
+		ParticleInfo() {}
+	} pState;
+```
+Okay that's pretty much it. The only thing that we need to know is how to know the size of the pool. If we supose all the particles have the same life and know how many particles are generated per frame (emission rate) then can do the math. Let's do an example. Imagine we generate 3 particles per frame and our particles have a maximum life of 2 frames.
+
+---drawing here---
+
+The obvious thing would be to do poolSize = particleMaxLife * emissionRate. It's close but not enough. If we generate particles particles from the pool before updating then then will have a frame where the pool will be empty. So we need to do:
+
+```cpp
+poolSize = (particleMaxLife + 1) * emissionRate;
+```
+
+And that's it. The emitter class will not be covered but it's quite simple. The important thing is the pool.
+
+## **5. More parameters**
+
+What we've seen now is simple and you'll be able to do something like this:
+
+---put gif here---
+
+But as you've seen we had a lot of parameters in xml file to tweak the particle behavior. In this table there's all the particle properties explained:
+
+|**ATTRIBUTE**|**DESCRIPTION**|
+|-------|------|
+|Angle range| Angle spectrum of the particle flow.|
+|Rotation speed| How fast you want the texture to spin.|
+|Speed| How fast particle move.|
+|Start and end size| Particle size when born and when die.|
+|Emit number|How many particles are generated per frame.|
+|Emit variance| An offset to randomiza particle generation.|
+|Particle life| How many frames a particle lives.|
+|Texture rect|The rectangle of the atlas renderer from the atlas.|
+|Particle colors|Start and end color of the particle. We use linear interpolation for this.|
+|Blend mode| How colors interact wich each other. We can create glow of effects using additive blending in SDL.|
+|Life time|How many seconds an emitter lives.|
+
+We can have a lot of randomization to make the effect even more organic. That depends on you.
+
+So if we want to create a fire what we need to do is to to change the start and end color, put the blending mode to additive to make it glow, reduce alpha color over time... And will get something like this.
+
+--- gif here ---
+
+Another interesting thing is too play with the particle movement. We have done a linear movment but we can simulate paraboles, accelerated movement, circular and so on. A really cool and simple thing to do is to implement turbulunce in form of vortices. To put it simple, a vortex is like an spinning air wheel that causes objects to change it's movment in a circular and chatoic way. We can simulate this by using a simple ad-hoc formula. In this [article](https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332) is explained how it's done. 
+
+The vortex is very simple:
+
+```cpp
+	struct Vortex
+	{
+		float posX, float posy;
+		float speed;
+		float scale;
+	}
+```
+
+And then we need to modify particle movement like this:
+```cpp
+	float dx = pState.pLive.pos.x - vortex.pos.x;
+	float dy = pState.pLive.pos.y - vortex.pos.y;
+	float vx = -dy * vortex.speed;
+	float vy = dx * vortex.speed;
+	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
+
+	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
+	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
+```
+
+And we can get really cool things like this:
+
+---gif here---
+
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **5. TODOs**
+## **6. TODOs**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **6. Performance**
+## **7. Performance**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **7. Improvements and further work**
+## **8. Improvements and further work**
+
+This particle system is quite cool but there's a lot of room for improvement. Here's a few examples of what can still be done:
+- **Subemitters**: create a system within a system. An emitter that spawn other emitters that spawn other emitters and so on. We could     use this for fireworks for examples.
+- **Multi emitters**: create emitters that spawn different type of particles so if we have an explosion this emitter would spawn fire     first, a wave and the smoke.
+- **Shapes**: instead of limiting emitters to have a single position point they could have shapes to simulate for example a ring of       fire.
+- **Animations**: instead of rendering a single texture for each particle we could render an animation in loop to simulate more complex   effects.
+- **Physics**: we've seen turbulences with vortices but you can do much more. Paraboles, circular movement different types of             turbulences like using the [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise). But there's much more!
+- **Collisions**: you could add colissions between particles to generate more interesting effects.
+- **Other usings**: we can use particle systems as line drawings so instead of rendering the particle we render it's trace. This way we   can create organic grass for example. Like this white.sand by Alvy Ray Smith of Lucasfilm:
+
+![whitesandslg](https://user-images.githubusercontent.com/25589509/38603149-1df37c6a-3d6d-11e8-904f-5afd868d2b81.gif)
+
+
+These are some suggestions but the possibilities are endless so have fun with them!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **8. References**
+## **9. References**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 
 ***
 
-## **9. License**
+## **10. License**
 
 ~~~~~~~~~~~~~~~
 
