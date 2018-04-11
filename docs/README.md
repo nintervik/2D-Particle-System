@@ -456,15 +456,17 @@ But as you've seen we had a lot of parameters in xml file to tweak the particle 
 
 |**ATTRIBUTE**|**DESCRIPTION**|
 |-------|------|
-|name here| description here|
-|name here| description here|
-|name here| description here|
-|name here| description here|
-|name here| description here|
-|name here| description here|
-|name here| description here|
-|name here| description here|
-|name here| description here|
+|Angle range| Angle spectrum of the particle flow.|
+|Rotation speed| How fast you want the texture to spin.|
+|Speed| How fast particle move.|
+|Start and end size| Particle size when born and when die.|
+|Emit number|How many particles are generated per frame.|
+|Emit variance| An offset to randomiza particle generation.|
+|Particle life| How many frames a particle lives.|
+|Texture rect|The rectangle of the atlas renderer from the atlas.|
+|Particle colors|Start and end color of the particle. We use linear interpolation for this.|
+|Blend mode| How colors interact wich each other. We can create glow of effects using additive blending in SDL.|
+|Life time||How many seconds an emitter lives.|
 
 We can have a lot of randomization to make the effect even more organic. That depends on you.
 
