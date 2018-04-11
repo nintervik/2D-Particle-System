@@ -30,7 +30,6 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	for (pugi::xml_node emitters = node->child("particleAtlas").child("emitter"); emitters && ret; emitters = emitters.next_sibling("emitter"))
 	{
 		std::string emitterType = emitters.attribute("type").as_string();
-		EmitterData tmpData;
 
 		if (emitterType == "fire")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE);
