@@ -328,6 +328,25 @@ public:
 ```
 Our pool will store particles inside an static array. Too keep track of all the particles each particle will have a pointer to the next one. Let's see the methods to take a look at this.
 
+```cpp
+// This pool constructor sets our particles to available
+ParticlePool::ParticlePool(Emitter* emitter)
+{
+	// Fill the pool according to poolSize needed for the emitter
+	poolSize = emitter->GetPoolSize();
+	particleArray = new Particle[poolSize];
+
+	// The first particle is available
+	firstAvailable = &particleArray[0];
+
+	// Each particle points to the next one
+	for (int i = 0; i < poolSize - 1; i++)
+		particleArray[i].SetNext(&particleArray[i + 1]);
+
+	// The last particle points to nullptr indicating the end of the vector
+	particleArray[poolSize - 1].SetNext(nullptr);
+}
+```
 
 ### **4.5 Emitter class**
 
