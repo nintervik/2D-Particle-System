@@ -350,7 +350,7 @@ ParticlePool::ParticlePool(Emitter* emitter)
 }
 ```
 
-Okay, let's see now how the Generate method. In this method
+Okay, let's see now how the Generate method. In this method we will generate a new particle. How? Well, first we'll check the pool is not empty. Then we store the first available particle in an auxiliar pointer and the firdtAvailable pointer will point shift and point to the next one in the array. Finally we call an init method to initialize all the particle attributes.
 
 ```cpp
 	void ParticlePool::Generate(posX, posY, speed, pRect)
@@ -366,6 +366,8 @@ Okay, let's see now how the Generate method. In this method
 	newParticle->Init(posX, posY, speed, pRect);
 }
 ```
+
+
 
 
 ### **4.5 Emitter class**
