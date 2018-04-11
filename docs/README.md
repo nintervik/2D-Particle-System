@@ -334,7 +334,7 @@ public:
 ```
 Our pool will store particles inside an static array. Too keep track of all the particles each particle will have a pointer to the next one. Let's see the methods to take a look at this.
 
-In the constructor we will allocate enough memory for our pool. We will talk about how to calculate the pool size later (this will be done in the emitter class). This will be done just one time, when a emitter is created. When we have reserved the memory we need to link all the elements like in a forward linked list. For doing this each particle will have a pointer to the next one. Moreover, we will have a special pointer called 'firstAvailable' that will always point to the particle that will be released. For now it will pointing to the first element.
+In the constructor we will allocate enough memory for our pool. We will talk about how to calculate the pool size later (this will be done in the emitter class). This will be done just one time, when a emitter is created. When we have reserved the memory we need to link all the elements like in a forward linked list,; this is called a _free list_. For doing this each particle will have a pointer to the next one. Moreover, we will have a special pointer called 'firstAvailable' that will always point to the particle that will be released. For now it will pointing to the first element.
 
 ```cpp
 // This pool constructor sets our particles to available
@@ -454,7 +454,17 @@ What we've seen now is simple and you'll be able to do something like this:
 
 But as you've seen we had a lot of parameters in xml file to tweak the particle behavior. In this table there's all the particle properties explained:
 
-
+|**ATTRIBUTE**|**DESCRIPTION**|
+|-------|------|
+|name here| description here|
+|name here| description here|
+|name here| description here|
+|name here| description here|
+|name here| description here|
+|name here| description here|
+|name here| description here|
+|name here| description here|
+|name here| description here|
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
