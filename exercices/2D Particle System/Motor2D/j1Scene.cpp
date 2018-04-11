@@ -196,24 +196,3 @@ bool j1Scene::CleanUp()
 
 	return true;
 }
-
-/* Things left TODO:
-
-   -  Control randomization parameters
-
-   -  Animations instead of textures?
-
-   -  Look framerate calculations in app.
-
-   -  Clean code, add comments and test!
-
-   // TO IMPROVE
-   
-   - Emitters of emitters
-    -  Emitters should be able to have a chain reaction, i.e: change its type and 
-      then start spawning another types of particles. So it's like a chain of 
-	  emissions. Fire, explosion, smoke in a loop for example.
-
-  -  Emitters shapes.
-
- */
