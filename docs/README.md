@@ -330,7 +330,7 @@ public:
 ```
 Our pool will store particles inside an static array. Too keep track of all the particles each particle will have a pointer to the next one. Let's see the methods to take a look at this.
 
-In the constructor we will allocate enough memory for our pool. We will talk about how to calculate the pool size later. This will be done just one time, when a emitter is created. When we have reserved the memory we need to link all the elements like in a forward linked list. For doing this each particle will have a pointer to the next one. Moreover, we will have a special pointer called 'firstAvailable' that will always point to the particle that will be released. For now it will pointing to the first element.
+In the constructor we will allocate enough memory for our pool. We will talk about how to calculate the pool size later (this will be done in the emitter class). This will be done just one time, when a emitter is created. When we have reserved the memory we need to link all the elements like in a forward linked list. For doing this each particle will have a pointer to the next one. Moreover, we will have a special pointer called 'firstAvailable' that will always point to the particle that will be released. For now it will pointing to the first element.
 
 ```cpp
 // This pool constructor sets our particles to available
@@ -352,7 +352,7 @@ ParticlePool::ParticlePool(Emitter* emitter)
 }
 ```
 
-Okay, let's see now how the Generate method. In this method we will generate a new particle. How? Well, first we'll check the pool is not empty. Then we store the first available particle in an auxiliar pointer and the firdtAvailable pointer will point shift and point to the next one in the array. Finally we call an init method to initialize all the particle attributes.
+Okay, let's see now how the Generate method. In this method we will generate a new particle. How? Well, first we'll check the pool is not empty. Then we store the first available particle in an auxiliar pointer and the firdtAvailable pointer will point shift and point to the next one in the array. Finally we call an init method to initialize all the particle attributes. This generate method will be called inside the emitter update method as many times as we want create particles per frame.
 
 ```cpp
 	void ParticlePool::Generate(posX, posY, speed, pRect)
@@ -429,6 +429,15 @@ You've probably seen that particles now are a little bit different. Now for part
 
 		ParticleInfo() {}
 	} pState;
+```
+Okay that's pretty much it. The only thing that we need to know is how to know the size of the pool. If we supose all the particles have the same life and know how many particles are generated per frame (emission rate) then can do the math. Let's do an example. Imagine we generate 3 particles per frame and our particles have a maximum life of 2 frames.
+
+---drawing here---
+
+The obvious thing would be to do poolSize = particleMaxLife * emissionRate. It's close but not enough. If we generate particles particles from the pool before updating then then will have a frame where the pool will be empty. So we need to do:
+
+```cpp
+poolSize = (particleMaxLife + 1) * emissionRate;
 ```
 
 ### **4.5 Emitter class**
