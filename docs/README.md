@@ -522,6 +522,14 @@ And we can get really cool things like this:
 
 ## **8. Improvements and further work**
 
+This particle system is quite cool but there's a lot of room for improvement. Here's a few examples of what can still be done:
+- **Subemitters**: create a system within a system. An emitter that spawn other emitters that spawn other emitters and so on. We could     use this for fireworks for examples.
+- **Multi emitters**: create emitters that spawn different type of particles so if we have an explosion this emitter would spawn fire     first, a wave and the smoke.
+- **Shapes**: instead of limiting emitters to have a single position point they could have shapes to simulate for example a ring of       fire.
+- **Animations**: instead of rendering a single texture for each particle we could render an animation in loop to simulate more complex   effects.
+- **Physics**: we've seen
+
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
