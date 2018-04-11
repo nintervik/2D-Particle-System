@@ -527,8 +527,14 @@ This particle system is quite cool but there's a lot of room for improvement. He
 - **Multi emitters**: create emitters that spawn different type of particles so if we have an explosion this emitter would spawn fire     first, a wave and the smoke.
 - **Shapes**: instead of limiting emitters to have a single position point they could have shapes to simulate for example a ring of       fire.
 - **Animations**: instead of rendering a single texture for each particle we could render an animation in loop to simulate more complex   effects.
-- **Physics**: we've seen
+- **Physics**: we've seen turbulences with vortices but you can do much more. Paraboles, circular movement different types of             turbulences like using the [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise). But there's much more!
+- **Collisions**: you could add colissions between particles to generate more interesting effects.
+- **Other usings**: we can use particle systems as line drawings so instead of rendering the particle we render it's trace. This way we   can create organic grass for example. Like this white.sand by Alvy Ray Smith of Lucasfilm:
 
+![whitesandslg](https://user-images.githubusercontent.com/25589509/38603149-1df37c6a-3d6d-11e8-904f-5afd868d2b81.gif)
+
+
+These are some suggestions but the possibilities are endless so have fun with them!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
