@@ -350,6 +350,24 @@ ParticlePool::ParticlePool(Emitter* emitter)
 }
 ```
 
+Okay, let's see now how the Generate method. In this method
+
+```cpp
+	void ParticlePool::Generate(posX, posY, speed, pRect)
+{
+	// Check if the pool is not full
+	assert(firstAvailable != nullptr);
+
+	// Remove it from the available list
+	Particle* newParticle = firstAvailable;
+	firstAvailable = newParticle->GetNext();
+
+	// Initialize new alive particle
+	newParticle->Init(posX, posY, speed, pRect);
+}
+```
+
+
 ### **4.5 Emitter class**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
