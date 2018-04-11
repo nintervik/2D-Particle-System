@@ -21,12 +21,12 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
   * [4.2 Particle class](https://nintervik.github.io/2D-Particle-System/#42-particle-class)
   * [4.3 It's all about memory!](https://nintervik.github.io/2D-Particle-System/#43-its-all-about-memory)
   * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
-  * [4.5 Emitter class](https://nintervik.github.io/2D-Particle-System/#45-emitter-class)
-* [4. TODOs](https://nintervik.github.io/2D-Particle-System/#4-todos)
-* [5. Performance](https://nintervik.github.io/2D-Particle-System/#5-performance)
-* [6. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#6-improvements-and-further-work)
-* [7. References](https://nintervik.github.io/2D-Particle-System/#7-references)
-* [8. License](https://nintervik.github.io/2D-Particle-System/#8-license)
+* [5. More parameters](https://nintervik.github.io/2D-Particle-System/#5-more-parameters)
+* [6. TODOs](https://nintervik.github.io/2D-Particle-System/#6-todos)
+* [7. Performance](https://nintervik.github.io/2D-Particle-System/#7-performance)
+* [8. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#8-improvements-and-further-work)
+* [9. References](https://nintervik.github.io/2D-Particle-System/#9-references)
+* [10. License](https://nintervik.github.io/2D-Particle-System/#10-license)
 
 ***
 
@@ -440,38 +440,40 @@ The obvious thing would be to do poolSize = particleMaxLife * emissionRate. It's
 poolSize = (particleMaxLife + 1) * emissionRate;
 ```
 
-### **4.5 Emitter class**
+And that's it. The emitter class will not be covered but it's quite simple. The important thing is the pool.
+
+## **5 More parameters**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **5. TODOs**
+## **6. TODOs**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **6. Performance**
+## **7. Performance**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **7. Improvements and further work**
+## **8. Improvements and further work**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
-## **8. References**
+## **9. References**
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 
 ***
 
-## **9. License**
+## **10. License**
 
 ~~~~~~~~~~~~~~~
 
