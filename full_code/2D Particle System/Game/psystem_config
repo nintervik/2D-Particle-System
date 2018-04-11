@@ -72,18 +72,18 @@
       </emitter>
 
       <emitter type ="pixel_smoke">
-        <angleRange min ="0" max ="100"/>
+        <angleRange min ="0" max ="80"/>
         <rotSpeed value ="0" randMin ="-1" randMax ="1"/>
         <startSpeed value ="90" randMin ="0" randMax ="1"/>
-        <endSpeed value ="90" randMin ="0" randMax ="1"/>
-        <startSize value ="20" randMin ="0" randMax ="1"/>
-        <endSize value =" 30" randMin ="1" randMax ="1"/>
+        <endSpeed value ="50" randMin ="0" randMax ="1"/>
+        <startSize value ="15" randMin ="0" randMax ="1"/>
+        <endSize value =" 25" randMin ="1" randMax ="1"/>
         <emitNumber value ="1"/>
         <emitVariance value ="0" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="100" randMin ="0" randMax ="1"/>
+        <maxParticleLife value ="70" randMin ="0" randMax ="1"/>
         <textureRect x="352" y="256" w="32" h="32"/>
-        <startColor r ="210" g="210" b="210" a ="50"/>
-        <endColor r ="210" g="210" b="210" a ="0"/>
+        <startColor r ="210" g="210" b="210" a ="255"/>
+        <endColor r ="210" g="210" b="210" a ="50"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
       </emitter>

@@ -47,6 +47,7 @@ private:
 	Emitter* eBurst_2 = nullptr;
 	Emitter* eBubbles = nullptr;
 	Emitter* eSpark = nullptr;
+	Emitter* ePixelSmoke = nullptr;
 
 };
 

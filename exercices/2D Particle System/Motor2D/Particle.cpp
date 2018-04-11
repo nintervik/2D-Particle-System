@@ -70,8 +70,9 @@ void Particle::Draw()
 		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.t, pState.pLive.endColor);
 
 	// Blitting particle on screen
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, 
-							  &pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
+	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect);
+
+
 	
 	// Calculating new rotation according to rotation speed
 	pState.pLive.currentRotSpeed += pState.pLive.startRotSpeed;

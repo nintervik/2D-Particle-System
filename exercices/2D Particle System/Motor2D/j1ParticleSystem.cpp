@@ -29,6 +29,10 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	
 	for (pugi::xml_node emitters = node->child("particleAtlas").child("emitter"); emitters && ret; emitters = emitters.next_sibling("emitter"))
 	{
+		/* TODO 1: Load emitter data into the emitter data vector:
+			- We just want to load the emitter data from the fire emitter for now
+			- Use LoadEmitterData() to fill the vector
+			*/
 		std::string emitterType = emitters.attribute("type").as_string();
 		EmitterData tmpData;
 

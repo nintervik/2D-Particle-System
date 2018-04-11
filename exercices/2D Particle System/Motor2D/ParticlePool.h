@@ -14,6 +14,10 @@ private:
 	
 	int poolSize = 0;
 	Particle* firstAvailable;
+
+	// TODO 2.1: Declare an static array of 100 particles
+	//Particle particleArray[100];
+
 	Particle* particleArray = nullptr;
 
 public:
