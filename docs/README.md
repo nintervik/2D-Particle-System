@@ -269,6 +269,8 @@ velY = speed * sin(angle);
 
 posX += velX * dt;
 posY += velY * dt;
+
+life--;
 ```
 
 And that's pretty much it. Update and move in loop. Of course the system will have a lot of more properties but for now let's keep it simple. 
@@ -368,11 +370,10 @@ Okay, let's see now how the Generate method. In this method we will generate a n
 ```
 In the update method we will loop through the entire pool and check if the particles inside it are alive. If it's the case we update it and then draw it. If not the particle will become the first available in the pool. We can update particles and then render them or the other way around. Both ways have advantages and downsides. 
 
-- Update then Render: particles won’t spawn exactly at the point where the emitter is because in the first frame they will move first     and then render.
-- Render then Update: particles will spawn where they are supposed to. However, particles won’t react to user motion input until next     frame.
+- **Update then Render:** particles won’t spawn exactly at the point where the emitter is because in the first frame they will move       first and then render.
+- **Render then Update:** particles will spawn where they are supposed to. However, particles won’t react to user motion input until       next frame.
 
 We will choose the first option as spawn point is a problem that we can do some workarounds as input delay is not. 
-
 
 ```cpp
 bool ParticlePool::Update(float dt)
@@ -399,7 +400,36 @@ bool ParticlePool::Update(float dt)
 }
 ```
 
+You've probably seen that particles now are a little bit different. Now for particles we will use unions. Unions are data structures that only uses the memory of the variable that is being used. For our particle we will have a union with a struct inside that will hold all the data of a living particle. Outside the struct a pointer that will be only used when the particle is available in the pool. The only variable that will be outside the union is the particle life variable that will only be relevant to know if the particle is alive or dead.
 
+```cpp
+	/*  This is the only variable we care about no matter if
+	   the particle is alive or dead */
+	uint life = 0;
+	
+	union ParticleInfo
+	{
+		/* This struct holds the state of the particle when 
+		   it's being update (it's still alive).*/
+		struct ParticleState
+		{
+			uint startLife;
+			float posX, posY;
+			float velX, velY;
+			SDL_Rect pRect;
+			ParticleState() {}
+
+		} pLive;
+
+		/* If the particle is dead, then the 'next' member comes 
+		   into play and the struct it's not used. This pointer
+		   called 'next' holds a pointer to the next available 
+		   particle after this one. */
+		Particle* next;
+
+		ParticleInfo() {}
+	} pState;
+```
 
 ### **4.5 Emitter class**
 
