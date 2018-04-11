@@ -366,7 +366,38 @@ Okay, let's see now how the Generate method. In this method we will generate a n
 	newParticle->Init(posX, posY, speed, pRect);
 }
 ```
+In the update method we will loop through the entire pool and check if the particles inside it are alive. If it's the case we update it and then draw it. If not the particle will become the first available in the pool. We can update particles and then render them or the other way around. Both ways have advantages and downsides. 
 
+- Update then Render: particles won’t spawn exactly at the point where the emitter is because in the first frame they will move first     and then render.
+- Render then Update: particles will spawn where they are supposed to. However, particles won’t react to user motion input until next     frame.
+
+We will choose the first option as spawn point is a problem that we can do some workarounds as input delay is not. 
+
+
+```cpp
+bool ParticlePool::Update(float dt)
+{
+	bool ret = false;
+
+	for (int i = 0; i < poolSize; i++)
+	{
+		if (particleArray[i].IsAlive())
+		{
+			particleArray[i].Update(dt);
+			particleArray[i].Draw();
+			ret = true;
+		}
+		else // if a particle dies it becomes the first available in the pool
+		{
+			// Add this particle to the front of the vector
+			particleArray[i].SetNext(firstAvailable);
+			firstAvailable = &particleArray[i];
+		}
+	}
+
+	return ret;
+}
+```
 
 
 
