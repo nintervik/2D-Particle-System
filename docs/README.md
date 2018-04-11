@@ -43,6 +43,10 @@ Be aware that this web page is focused on the structure and behaviour of a 2D pa
 
 Another important thing that I want to remark is that the way I'm going to explain how to implement the system is not unique and probably not the best. There are a lot of ways to do it and professional people that knows a lot more that I do. If you want to learn more about this topic I encourage you to check the [references](https://nintervik.github.io/2D-Particle-System/#references) that helped me doing this.
 
+We will have somehting like this at the of this tutorial:
+
+---put gif here---
+
 Well, without further delay let's get into playing with these particles!
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
@@ -442,7 +446,15 @@ poolSize = (particleMaxLife + 1) * emissionRate;
 
 And that's it. The emitter class will not be covered but it's quite simple. The important thing is the pool.
 
-## **5 More parameters**
+## **5. More parameters**
+
+What we've seen now is simple and you'll be able to do something like this:
+
+---put gif here---
+
+But as you've seen we had a lot of parameters in xml file to tweak the particle behavior. In this table there's all the particle properties explained:
+
+
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
