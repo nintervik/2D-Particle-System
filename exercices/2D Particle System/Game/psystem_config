@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
 <emitters>
-    <particleAtlas name="textures/particle.png">
+    <particleAtlas name="textures/particles.png">
       
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
         <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
         <startSpeed value ="200" randMin = "0" randMax ="1"/>
-        <endSpeed value ="200" randMin = "0" randMax ="1"/>
+        <endSpeed value ="100" randMin = "0" randMax ="1"/>
         <startSize value ="120" randMin ="0" randMax ="1"/>
         <endSize value =" 120" randMin ="1" randMax ="1"/>
         <emitNumber value ="1"/>
@@ -20,158 +20,5 @@
         <lifetime value ="-1"/>
       </emitter>
 
-      <emitter type ="fire_purple">
-        <angleRange min ="80" max ="110"/>
-        <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
-        <startSpeed value ="200" randMin = "0" randMax ="1"/>
-        <endSpeed value ="200" randMin = "0" randMax ="1"/>
-        <startSize value ="120" randMin ="0" randMax ="1"/>
-        <endSize value =" 120" randMin ="1" randMax ="1"/>
-        <emitNumber value ="1"/>
-        <emitVariance value ="0" randMin = "0" randMax ="1"/>
-        <maxParticleLife value ="100" randMin = "0" randMax ="1"/>
-        <textureRect x="0" y="0" w="128" h="128"/>
-        <startColor r ="255" g="100" b="0" a="255"/>
-        <endColor r ="150" g="0" b="205" a ="0"/>
-        <blendMode mode ="blend"/>
-        <lifetime value ="-1"/>
-      </emitter>
-
-      <emitter type ="flame">
-        <angleRange min ="80" max ="110"/>
-        <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
-        <startSpeed value ="200" randMin = "0" randMax ="1"/>
-        <endSpeed value ="200" randMin = "0" randMax ="1"/>
-        <startSize value ="0" randMin ="0" randMax ="1"/>
-        <endSize value =" 120" randMin ="1" randMax ="1"/>
-        <emitNumber value ="3"/>
-        <emitVariance value ="2" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="100"  randMin ="0" randMax ="1"/>
-        <textureRect x="0" y="0" w="128" h="128"/>
-        <startColor r ="255" g="100" b="0" a="255"/>
-        <endColor r ="210" g="210" b="210" a ="0"/>
-        <blendMode mode ="add"/>
-        <lifetime value ="-1"/>
-      </emitter>
-      
-      <emitter type ="smoke_1">
-        <angleRange min ="60" max ="120"/>
-        <rotSpeed value ="0"  randMin ="-1" randMax ="1"/>
-        <startSpeed value ="120" randMin ="0" randMax ="1"/>
-        <endSpeed value ="120" randMin ="0" randMax ="1"/>
-        <startSize value ="20" randMin ="0" randMax ="1"/>
-        <endSize value =" 200" randMin ="1" randMax ="1"/>
-        <emitNumber value ="3"/>
-        <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="400"/>
-        <textureRect x="0" y="0" w="128" h="128"/>
-        <startColor r ="210" g="210" b="210" a ="50"/>
-        <endColor r ="210" g="210" b="210" a ="0"/>
-        <blendMode mode ="blend"/>
-        <lifetime value ="-1"/>
-      </emitter>
-
-      <emitter type ="smoke_2">
-        <angleRange min ="60" max ="120"/>
-        <rotSpeed value ="5" randMin ="-1" randMax ="1"/>
-        <startSpeed value ="90" randMin ="0" randMax ="1"/>
-        <endSpeed value ="90" randMin ="0" randMax ="1"/>
-        <startSize value ="30" randMin ="0" randMax ="1"/>
-        <endSize value =" 100" randMin ="1" randMax ="1"/>
-        <emitNumber value ="10"/>
-        <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="300" randMin ="0" randMax ="1"/>
-        <textureRect x="640" y="0" w="512" h="512"/>
-        <startColor r ="210" g="210" b="210" a ="50"/>
-        <endColor r ="210" g="210" b="210" a ="0"/>
-        <blendMode mode ="blend"/>
-        <lifetime value ="-1"/>
-      </emitter>
-
-      <emitter type ="burst">
-        <angleRange min ="0" max ="360"/>
-        <rotSpeed value ="1" randMin ="-1" randMax ="1"/>
-        <startSpeed value ="300" randMin ="0" randMax ="1"/>
-        <endSpeed value ="300" randMin ="0" randMax ="1"/>
-        <startSize value ="20" randMin ="0" randMax ="1"/>
-        <endSize value =" 100" randMin ="1" randMax ="1"/>
-        <emitNumber value ="60"/>
-        <emitVariance value ="80" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="150" randMin ="0" randMax ="1"/>
-        <textureRect x="0" y="0" w="128" h="128"/>
-        <startColor r ="255" g="100" b="0" a="255"/>
-        <endColor r ="210" g="210" b="210" a ="0"/>
-        <blendMode mode ="add"/>
-        <lifetime value ="50"/>
-      </emitter>
-
-      <emitter type ="wave_1">
-        <angleRange min ="50" max ="130"/>
-        <rotSpeed value ="0" randMin ="-1" randMax ="1"/>
-        <startSpeed value ="0" randMin ="0" randMax ="1"/>
-        <endSpeed value ="0" randMin ="0" randMax ="1"/>
-        <startSize value ="0" randMin ="0" randMax ="1"/>
-        <endSize value =" 800" randMin ="1" randMax ="1"/>
-        <emitNumber value ="1"/>
-        <emitVariance value ="0" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="40" randMin ="0" randMax ="1"/>
-        <textureRect x="128" y="0" w="256" h="256"/>
-        <startColor r ="255" g="100" b="0" a ="255"/>
-        <endColor r ="255" g="100" b="0" a ="0"/>
-        <blendMode mode ="add"/>
-        <lifetime value ="20"/>
-      </emitter>
-      
-      <emitter type ="wave_2">
-        <angleRange min ="50" max ="130"/>
-        <rotSpeed value ="0" randMin ="-1" randMax ="1"/>
-        <startSpeed value ="0" randMin ="0" randMax ="1"/>
-        <endSpeed value ="0" randMin ="0" randMax ="1"/>
-        <startSize value ="0" randMin ="0" randMax ="1"/>
-        <endSize value =" 2600" randMin ="1" randMax ="1"/>
-        <emitNumber value ="1"/>
-        <emitVariance value ="0" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="150" randMin ="0" randMax ="1"/>
-        <textureRect x="384" y="256" w="256" h="256"/>
-        <startColor r ="255" g="100" b="0" a ="200"/>
-        <endColor r ="255" g="100" b="0" a ="0"/>
-        <blendMode mode ="add"/>
-        <lifetime value ="10"/>
-      </emitter>
-      
-      <emitter type ="bubbles">
-        <angleRange min ="50" max ="110"/>
-        <rotSpeed value ="5" randMin ="-1" randMax ="1"/>
-        <startSpeed value ="200" randMin ="0" randMax ="1"/>
-        <endSpeed value ="200" randMin ="0" randMax ="1"/>
-        <startSize value ="60" randMin ="0" randMax ="1"/>
-        <endSize value =" 0" randMin ="1" randMax ="1"/>
-        <emitNumber value ="1"/>
-        <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="150" randMin ="0" randMax ="1"/>
-        <textureRect x="0" y="128" w="32" h="32"/>
-        <startColor r ="47" g="141" b="255" a ="255"/>
-        <endColor r ="57" g="255" b="20" a ="0"/>
-        <blendMode mode ="add"/>
-        <lifetime value ="-1"/>
-      </emitter>
-
-      <emitter type ="spark">
-        <angleRange min ="0" max ="360"/>
-        <rotSpeed value ="15" randMin ="-1" randMax ="1"/>
-        <startSpeed value ="300" randMin ="0" randMax ="1"/>
-        <endSpeed value ="50" randMin ="0" randMax ="1"/>
-        <startSize value ="30" randMin ="0" randMax ="1"/>
-        <endSize value =" 0" randMin ="1" randMax ="1"/>
-        <emitNumber value ="5"/>
-        <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="50" randMin ="0" randMax ="1"/>
-        <textureRect x="0" y="160" w="64" h="64"/>
-        <startColor r ="255" g="100" b="0" a="255"/>
-        <endColor r ="255" g="0" b="0" a="0"/>
-        <blendMode mode ="add"/>
-        <lifetime value ="-1"/>
-      </emitter>
-      
     </particleAtlas>
 </emitters>

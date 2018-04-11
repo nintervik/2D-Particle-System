@@ -38,10 +38,10 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
 		if (emitterType == "flame")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FLAME);
-		else if (emitterType == "smoke_1")
-			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE_1);
 		else if (emitterType == "smoke_2")
-			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE_2);
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE);
+		else if (emitterType == "pixel_smoke")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_PIXEL_SMOKE);
 		else if (emitterType == "burst")
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BURST);
 		else if (emitterType == "wave_1")
@@ -118,14 +118,6 @@ bool j1ParticleSystem::CleanUp()
 Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 {
 	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type]);
-
-	/*vecEmitterData[type].emitNumber, vecEmitterData[type].emitVariance,
-	vecEmitterData[type].maxParticleLife, vecEmitterData[type].angleRange,
-	vecEmitterData[type].rotSpeed, vecEmitterData[type].maxSpeed,
-	vecEmitterData[type].startSize, vecEmitterData[type].endSize,
-	vecEmitterData[type].textureRect, vecEmitterData[type].startColor,
-	vecEmitterData[type].endColor, vecEmitterData[type].blendMode,
-	vecEmitterData[type].lifetime*/
 
 	emittersList.push_back(tmp_emitter);
 	
