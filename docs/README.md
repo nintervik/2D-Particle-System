@@ -466,6 +466,42 @@ But as you've seen we had a lot of parameters in xml file to tweak the particle 
 |name here| description here|
 |name here| description here|
 
+We can have a lot of randomization to make the effect even more organic. That depends on you.
+
+So if we want to create a fire what we need to do is to to change the start and end color, put the blending mode to additive to make it glow, reduce alpha color over time... And will get something like this.
+
+--- gif here ---
+
+Another interesting thing is too play with the particle movement. We have done a linear movment but we can simulate paraboles, accelerated movement, circular and so on. A really cool and simple thing to do is to implement turbulunce in form of vortices. To put it simple, a vortex is like an spinning air wheel that causes objects to change it's movment in a circular and chatoic way. We can simulate this by using a simple ad-hoc formula. In this [article](https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332) is explained how it's done. 
+
+The vortex is very simple:
+
+```cpp
+	struct Vortex
+	{
+		float posX, float posy;
+		float speed;
+		float scale;
+	}
+```
+
+And then we need to modify particle movement like this:
+```cpp
+	float dx = pState.pLive.pos.x - vortex.pos.x;
+	float dy = pState.pLive.pos.y - vortex.pos.y;
+	float vx = -dy * vortex.speed;
+	float vy = dx * vortex.speed;
+	float factor = 1.0f / (1.0f + (dx * dx + dy * dy) / vortex.scale);
+
+	pState.pLive.pos.x += (vx - pState.pLive.vel.x) * factor + pState.pLive.vel.x * dt;
+	pState.pLive.pos.y += (vy - pState.pLive.vel.y) * factor + pState.pLive.vel.y * dt;
+```
+
+And we can get really cool things like this:
+
+---gif here---
+
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
