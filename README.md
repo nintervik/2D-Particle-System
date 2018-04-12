@@ -23,22 +23,34 @@ _IMPORTANT: do not modify, change or add any folder or file (unless specified) a
 
 ## Notes on performance
 
-Be aware that creating a lot of emitters with high emission rates might result in a bad performance.
+Be aware that creating a lot of emitters with high emission rates might result in a bad performance. Due to physics movement calculations, performance gets worser when there are vortices on the scene. Also don't spawn a lot of smoke emitters as they genereate a lot of particles.
 
 ## Controls
 
 ### Keyboard and mouse:
 
-- Right click to create a fire emitter
-- Number 2 to create a fire emitter without smoke
-- Number 3 to create a green fire with purple smoke
-- Return key to remove all emitters
-- ESC to close application
+Emitters creation:
+- RIGHT CLICK: to create a fire emitter that follows the torch
+- NUM 1: Explosion 1
+- NUM 2: Flame
+- NUM 3: Purple fire
+- NUM 4: Bubbles
+- NUM 5: Explosion 2
+- NUM 6: Smoke
+- NUM 7: Spark
+- NUM 8: Pixel smoke
 
-You can change the attributes of the three emitters by changing the its attributes inside the xml file called psystem_config.
+General:
+- RETURN: remove all emitters
+- S: Stop fire emitter for 5 seconds
+- D: Start fire emitter for 5 seconds
+- ESC: exit application
+
+You can change the attributes of the emitters by changing the its attributes inside the xml file called psystem_config. You can also add new ones if needed. Remeber to increase MAX_NUM_EMITTERS_TYPE to store the number of emitters you need.
 
 
 ## Tools used
+
 * IDE: Microsoft Visual Studio 2017
 * Language: C++
 * Graphics and audio: SDL 2.0
