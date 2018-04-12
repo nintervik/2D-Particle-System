@@ -437,7 +437,7 @@ You've probably seen that particles now are a little bit different. Now for part
 ```
 Okay that's pretty much it. The only thing that we need to know is how to know the size of the pool. If we supose all the particles have the same life and know how many particles are generated per frame (emission rate) then can do the math. Let's do an example. Imagine we generate 3 particles per frame and our particles have a maximum life of 2 frames.
 
-![pool size problem](https://user-images.githubusercontent.com/25589509/38660876-212c3cec-3e2f-11e8-9329-25f0fc3d51c6.png)
+![poolsizeproblem](https://user-images.githubusercontent.com/25589509/38701949-8a7dc3f8-3e9f-11e8-8255-26a050c2ea6b.png)
 
 The obvious thing would be to do poolSize = particleMaxLife * emissionRate. It's close but not enough. If we generate particles particles from the pool before updating then then will have a frame where the pool will be empty. So we need to do:
 
@@ -616,10 +616,6 @@ When you're don you should get something like this:
 But what happens if particles have 100 of life? We don't have enough particles in the pool. Let's fix this.
 
 ### **6.3 TODO 3 - Let's introduce the pool**
-
-The main problem:
-
-![pool](https://user-images.githubusercontent.com/25589509/38693348-ee1bc69e-3e86-11e8-97c5-4003c5d4380a.png)
 
 _TODO 3.1 - Calculate pool size:_
 - Come up with a simple formula to know how big the pool must be. Only one line of code!
