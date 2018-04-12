@@ -524,7 +524,12 @@ _Load emitter data into the emitter data vector:_
 
 _SOLUTION_
 
-![1](https://user-images.githubusercontent.com/25589509/38692951-b2b62776-3e85-11e8-94f2-0c12ac7cff69.png)
+```cpp
+std::string emitterType = emitters.attribute("type").as_string();
+
+		if (emitterType == "fire")
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE);
+```
 
 ### **6.2 TODO 2 - Let's introduce the pool**
 
@@ -533,8 +538,9 @@ _TODO 2.1:_
 
 _SOLUTION_
 
-![2](https://user-images.githubusercontent.com/25589509/38693034-f681f926-3e85-11e8-97ae-ede0d9bf9af7.png)
-
+```cpp
+Particle particleArray[100];
+```
 
 _TODO 2.2 - Convert particleArray into a free list:_
 - Make the firstAvailable pointer point to the first element of the pool
@@ -543,7 +549,17 @@ _TODO 2.2 - Convert particleArray into a free list:_
 
 _SOLUTION_
 
-![3](https://user-images.githubusercontent.com/25589509/38693048-03d67f52-3e86-11e8-9c17-c27a95d1629a.png)
+```cpp
+	// The first particle is available
+	firstAvailable = &particleArray[0];
+
+	// Each particle points to the next one
+	for (int i = 0; i < poolSize - 1; i++)
+		particleArray[i].SetNext(&particleArray[i + 1]);
+
+	// The last particle points to nullptr indicating the end of the vector
+	particleArray[poolSize - 1].SetNext(nullptr);
+```
 
 _TODO 2.3 - Generate a new particle from the pool:_
 - Use firstAvailable to Init the particle.
@@ -552,7 +568,17 @@ _TODO 2.3 - Generate a new particle from the pool:_
 
 _SOLUTION_
 
-![4](https://user-images.githubusercontent.com/25589509/38693115-4178f7a4-3e86-11e8-984c-1cabff1ae1ba.png)
+```cpp
+// Check if the pool is not full
+	assert(firstAvailable != nullptr);
+
+	// Remove it from the available list
+	Particle* newParticle = firstAvailable;
+	firstAvailable = newParticle->GetNext();
+
+	// Initialize new alive particle
+	newParticle->Init(pos, startSpeed, endSpeed, angle, rotSpeed, startSize, endSize, life, textureRect, startColor, endColor, blendMode);
+```
 
 _TODO 2.4 - Update and draw living particles in the pool._
 - If it's alive update it, draw it and make sure to return true
@@ -560,7 +586,28 @@ _TODO 2.4 - Update and draw living particles in the pool._
 
 _SOLUTION_
 
-![5](https://user-images.githubusercontent.com/25589509/38693165-6da1b474-3e86-11e8-992e-adb73ab0eac7.png)
+```cpp
+	bool ret = false;
+	
+	for (int i = 0; i < poolSize; i++)
+	{
+		if (particleArray[i].IsAlive())
+		{
+			
+			particleArray[i].Update(dt);
+			particleArray[i].Draw();
+			ret = true;
+		}
+		else // if a particle dies it becomes the first available in the pool
+		{
+			// Add this particle to the front of the vector
+			particleArray[i].SetNext(firstAvailable);
+			firstAvailable = &particleArray[i];
+		}
+	}
+
+	return ret;
+```
 
 When you're don you should get something like this:
 
