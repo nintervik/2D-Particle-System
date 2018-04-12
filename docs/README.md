@@ -26,7 +26,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
   * [6.1 TODO 1 - Getting the emitter data](https://nintervik.github.io/2D-Particle-System/#61-todo-1---getting-the-emitter-data)
   * [6.2 TODO 2 - Let's introduce the pool](https://nintervik.github.io/2D-Particle-System/#62-todo-2---lets-introduce-the-pool)
   * [6.3 TODO 3 - Improving the pool](https://nintervik.github.io/2D-Particle-System/#63-todo-3---improving-the-pool)
-  * [6.4 TODO 4 - Color Interpolation & blending](https://nintervik.github.io/2D-Particle-System/#64-todo-4---color-interpolation-&-blending)
+  * [6.4 TODO 4 - Color Interpolation & blending](https://nintervik.github.io/2D-Particle-System/#64-todo-4---color-interpolation--blending)
   * [6.5 TODO 5 - Fire and Smoke](https://nintervik.github.io/2D-Particle-System/#65-todo-5---fire-and-smoke)
   * [6.6 BONUS CODE - Vortices](https://nintervik.github.io/2D-Particle-System/#66-bonus-code---vortices)
 * [7. Performance](https://nintervik.github.io/2D-Particle-System/#7-performance)
