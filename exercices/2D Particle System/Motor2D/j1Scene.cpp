@@ -53,7 +53,7 @@ bool j1Scene::Update(float dt)
 		- Uncomment code in Scene update to blit the torch.
 		- Optional: create a new one and try simulate smoke.*/
 
-	/*int mx, my;
+	int mx, my;
 	App->input->GetMousePosition(mx, my);
 	fPoint pos((float)mx, (float)my);
 
@@ -66,7 +66,7 @@ bool j1Scene::Update(float dt)
 		fPoint pos((float)mx, (float)my);
 		pos.y -= 230.0f;
 		eFire->MoveEmitter(pos);
-	}*/
+	}
 
 	return true;
 }
