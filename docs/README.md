@@ -768,11 +768,17 @@ Performance of particle systems really depends of how many particles are being r
 
 In our case it handles particles really well but framrate starts to drop when we have have about 2000 particles being rendered and moved on screen. If we have a vortex performance is worse as it needs to do a lot calculations for each individual particle.
 
-If the 
+Here are some examples of performance using Brofiler:
+
+- If the number is not to high we hava an stable framerate of 60 fps and the pool just takes about 0,2 ms to update and render all the particles which is less than a 2% of the frame:
 
 ![brofiler2](https://user-images.githubusercontent.com/25589509/38674691-9a0fc644-3e55-11e8-8b32-3da74bcb9281.PNG)
 
+- If the number is high enough like 2000 then framerate can drop to 30 fps or less. And the pool takes about 18 ms to update and render   the particles which is more than the 50% of the frame:
+
 ![brofiler](https://user-images.githubusercontent.com/25589509/38674780-e007c142-3e55-11e8-8e3c-c94e9d83b6df.PNG)
+
+However, overall the system has a good performance if it's not overused.
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
@@ -791,7 +797,6 @@ This particle system is quite cool but there's a lot of room for improvement. He
 - **Other usings**: we can use particle systems as line drawings so instead of rendering the particle we render it's trace. This way we   can create organic grass for example. Like this white.sand by Alvy Ray Smith of Lucasfilm:
 
 ![whitesandslg](https://user-images.githubusercontent.com/25589509/38603149-1df37c6a-3d6d-11e8-904f-5afd868d2b81.gif)
-
 
 These are some suggestions but the possibilities are endless so have fun with them!
 
