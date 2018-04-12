@@ -611,7 +611,7 @@ _SOLUTION_
 
 When you're don you should get something like this:
 
-![sol1](https://user-images.githubusercontent.com/25589509/38693193-81a66f46-3e86-11e8-9836-980168ad4804.gif)
+![todo1](https://user-images.githubusercontent.com/25589509/38695223-eefc435e-3e8b-11e8-96b0-fa666308a7fc.gif)
 
 But what happens if particles have 100 of life? We don't have enough particles in the pool. Let's fix this.
 
@@ -678,7 +678,7 @@ SDL_Color Particle::RgbInterpolation(SDL_Color startColor, float timeStep, SDL_C
 
 You should see this on screen:
 
-img her ----
+![todo2](https://user-images.githubusercontent.com/25589509/38695345-4e53cbc4-3e8c-11e8-9af7-f0dd7ce9d7aa.gif)
 
 _TODO 4.2 - Adapt de blit particle method to take blending mode as an argument:_
 - Use SDL_SetTextureColorMod() and SDL_SetTextureAlphaMod() to setup the color.
