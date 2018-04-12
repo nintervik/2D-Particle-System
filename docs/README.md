@@ -43,9 +43,9 @@ Be aware that this web page is focused on the structure and behaviour of a 2D pa
 
 Another important thing that I want to remark is that the way I'm going to explain how to implement the system is not unique and probably not the best. There are a lot of ways to do it and professional people that knows a lot more that I do. If you want to learn more about this topic I encourage you to check the [references](https://nintervik.github.io/2D-Particle-System/#references) that helped me doing this.
 
-We will have somehting like this at the of this tutorial:
+We will have somehting like this at the end of this tutorial:
 
----put gif here---
+![particles](https://user-images.githubusercontent.com/25589509/38660947-6e0d0712-3e2f-11e8-9948-780ca7ab02e2.gif)
 
 Well, without further delay let's get into playing with these particles!
 
@@ -227,9 +227,10 @@ This is the module in charge of everything that happens with our particles. We w
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
         <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
-        <maxSpeed value ="200" randMin = "0" randMax ="1"/>
-        <startSize value ="120" randMin ="0" randMax ="1"/>
-        <endSize value =" 120" randMin ="1" randMax ="1"/>
+        <startSpeed value ="200" randMin = "0" randMax ="1"/>
+        <endSpeed value ="200" randMin = "0" randMax ="1"/>
+        <startSize value ="200" randMin ="0" randMax ="1"/>
+        <endSize value =" 80" randMin ="1" randMax ="1"/>
         <emitNumber value ="1"/>
         <emitVariance value ="0" randMin = "0" randMax ="1"/>
         <maxParticleLife value ="100" randMin = "0" randMax ="1"/>
@@ -436,7 +437,7 @@ You've probably seen that particles now are a little bit different. Now for part
 ```
 Okay that's pretty much it. The only thing that we need to know is how to know the size of the pool. If we supose all the particles have the same life and know how many particles are generated per frame (emission rate) then can do the math. Let's do an example. Imagine we generate 3 particles per frame and our particles have a maximum life of 2 frames.
 
----drawing here---
+![pool size problem](https://user-images.githubusercontent.com/25589509/38660876-212c3cec-3e2f-11e8-9329-25f0fc3d51c6.png)
 
 The obvious thing would be to do poolSize = particleMaxLife * emissionRate. It's close but not enough. If we generate particles particles from the pool before updating then then will have a frame where the pool will be empty. So we need to do:
 
@@ -447,10 +448,6 @@ poolSize = (particleMaxLife + 1) * emissionRate;
 And that's it. The emitter class will not be covered but it's quite simple. The important thing is the pool.
 
 ## **5. More parameters**
-
-What we've seen now is simple and you'll be able to do something like this:
-
----put gif here---
 
 But as you've seen we had a lot of parameters in xml file to tweak the particle behavior. In this table there's all the particle properties explained:
 
@@ -472,7 +469,11 @@ We can have a lot of randomization to make the effect even more organic. That de
 
 So if we want to create a fire what we need to do is to to change the start and end color, put the blending mode to additive to make it glow, reduce alpha color over time... And will get something like this.
 
---- gif here ---
+![torch_gi](https://user-images.githubusercontent.com/25589509/38663181-72c78e1a-3e36-11e8-8b45-0691b5dfa89f.gif)
+
+But we can do explosions too:
+
+![explosions](https://user-images.githubusercontent.com/25589509/38663247-9c39fbca-3e36-11e8-95a6-9fb38cb485ca.gif)
 
 Another interesting thing is too play with the particle movement. We have done a linear movment but we can simulate paraboles, accelerated movement, circular and so on. A really cool and simple thing to do is to implement turbulunce in form of vortices. To put it simple, a vortex is like an spinning air wheel that causes objects to change it's movment in a circular and chatoic way. We can simulate this by using a simple ad-hoc formula. In this [article](https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332) is explained how it's done. 
 
@@ -501,7 +502,11 @@ And then we need to modify particle movement like this:
 
 And we can get really cool things like this:
 
----gif here---
+![particles](https://user-images.githubusercontent.com/25589509/38663198-800c8b02-3e36-11e8-9590-81aceefbf5a6.gif)
+
+If we set vortex speed to 0 particles will slow down when they get coloser. We can even do implosions!
+
+![implosions](https://user-images.githubusercontent.com/25589509/38663306-c2bafee8-3e36-11e8-8f13-1bc3b337f5af.gif)
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
@@ -524,6 +529,7 @@ And we can get really cool things like this:
 
 This particle system is quite cool but there's a lot of room for improvement. Here's a few examples of what can still be done:
 - **Subemitters**: create a system within a system. An emitter that spawn other emitters that spawn other emitters and so on. We could     use this for fireworks for examples.
+- **Vortex system**: create an emitter that instead of spawining particles generate moving vortices that result in moving turbulences.
 - **Multi emitters**: create emitters that spawn different type of particles so if we have an explosion this emitter would spawn fire     first, a wave and the smoke.
 - **Shapes**: instead of limiting emitters to have a single position point they could have shapes to simulate for example a ring of       fire.
 - **Animations**: instead of rendering a single texture for each particle we could render an animation in loop to simulate more complex   effects.
