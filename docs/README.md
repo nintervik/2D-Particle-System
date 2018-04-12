@@ -829,7 +829,6 @@ Webs and forums:
 - http://www.di.ubi.pt/~agomes/tjv/teoricas/09-particles.pdf
 - https://gamedevelopment.tutsplus.com/tutorials/object-pools-help-you-reduce-lag-in-resource-intensive-games--gamedev-651
 - https://en.wikipedia.org/wiki/Perlin_noise
-- 
 
 Videos:
 - https://www.youtube.com/watch?v=vdgiqMkFygc
