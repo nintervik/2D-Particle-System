@@ -711,6 +711,40 @@ You should see something like this on screen:
 
 ![todoblending](https://user-images.githubusercontent.com/25589509/38695575-fad8c930-3e8c-11e8-9b71-595ea0fa8a17.gif)
 
+
+### **6.5 BONUS CODE - Fire and Smoke**
+
+_TODO 5 - Tweak the xml parameters:_
+- Change the emitter data in order to get a flame.
+- Uncomment code in Scene update to blit the torch.
+- Optional: create a new one and try simulate smoke.
+
+_SOLUTION_
+
+```xml
+      <emitter type ="fire">
+        <angleRange min ="80" max ="110"/>
+        <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
+        <startSpeed value ="200" randMin = "0" randMax ="1"/>
+        <endSpeed value ="200" randMin = "0" randMax ="1"/>
+        <startSize value ="200" randMin ="0" randMax ="1"/>
+        <endSize value =" 80" randMin ="1" randMax ="1"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0" randMin = "0" randMax ="1"/>
+        <maxParticleLife value ="100" randMin = "0" randMax ="1"/>
+        <textureRect x="0" y="0" w="128" h="128"/>
+        <startColor r ="255" g="100" b="0" a="255"/>
+        <endColor r ="210" g="210" b="210" a ="0"/>
+        <blendMode mode ="add"/>
+        <lifetime value ="-1"/>
+      </emitter>
+```
+
+Now we have a fire!
+
+![finan_re](https://user-images.githubusercontent.com/25589509/38695737-659b545e-3e8d-11e8-8774-04b6c3b1a9cd.gif)
+
+
 ### **6.5 BONUS CODE - Vortices**
 
 Delete the particle movement equations and uncomment this functions to add a vortex!
@@ -720,9 +754,9 @@ Delete the particle movement equations and uncomment this functions to add a vor
 	CalculateParticlePos(dt);
 ```
 
-Now evrytime you approach the torch to the top left corner particles will be affected by the turbulence of the vortex like this:
+Now everytime you approach the torch to the top left corner particles will be affected by the turbulence of the vortex like this:
 
-gif here ---
+![vortextodo](https://user-images.githubusercontent.com/25589509/38695930-fd6424aa-3e8d-11e8-99fe-178db916413e.gif)
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
