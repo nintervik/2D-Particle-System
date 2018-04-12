@@ -227,9 +227,10 @@ This is the module in charge of everything that happens with our particles. We w
       <emitter type ="fire">
         <angleRange min ="80" max ="110"/>
         <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
-        <maxSpeed value ="200" randMin = "0" randMax ="1"/>
-        <startSize value ="120" randMin ="0" randMax ="1"/>
-        <endSize value =" 120" randMin ="1" randMax ="1"/>
+        <startSpeed value ="200" randMin = "0" randMax ="1"/>
+        <endSpeed value ="200" randMin = "0" randMax ="1"/>
+        <startSize value ="200" randMin ="0" randMax ="1"/>
+        <endSize value =" 80" randMin ="1" randMax ="1"/>
         <emitNumber value ="1"/>
         <emitVariance value ="0" randMin = "0" randMax ="1"/>
         <maxParticleLife value ="100" randMin = "0" randMax ="1"/>
