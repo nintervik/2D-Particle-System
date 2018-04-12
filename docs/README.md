@@ -702,13 +702,27 @@ _TODO 4.3 - Adapt de blit particle method to take blending mode as an argument:_
 
 _SOLUTION_
 
-code here
+```cpp
+	if (SDL_SetTextureBlendMode(texture, blendMode) != 0)
+		LOG("Cannot set texture blend mode. SDL_SetTextureBlendMode error: %s", SDL_GetError());
+```
 
 You should see something like this on screen:
 
 img here
 
+### **6.5 BONUS CODE*
 
+Delete the particle movement equations and uncomment this functions to add a vortex!
+
+```cpp
+	// Calculates new particle position.
+	CalculateParticlePos(dt);
+```
+
+Now evrytime you approach the torch to the top left corner particles will be affected by the turbulence of the vortex like this:
+
+gif here ---
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
