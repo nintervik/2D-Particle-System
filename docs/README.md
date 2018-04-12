@@ -23,6 +23,12 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
   * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
 * [5. More parameters](https://nintervik.github.io/2D-Particle-System/#5-more-parameters)
 * [6. TODOs](https://nintervik.github.io/2D-Particle-System/#6-todos)
+  * [6.1 TODO 1 - Getting the data emitter](https://nintervik.github.io/2D-Particle-System/#61-todo-1-getting-the-data-emitter)
+  * [6.2 TODO 2 - Let's introduce the pool](https://nintervik.github.io/2D-Particle-System/#62-todo-2-lets-introduce-the-pool)
+  * [6.3 TODO 3 - Improving the pool](https://nintervik.github.io/2D-Particle-System/#63-todo-3-improving-the-pool)
+  * [6.4 TODO 4 - Color Interpolation & blending](https://nintervik.github.io/2D-Particle-System/#64-todo-4-color-interpolation-&-blending)
+  * [6.5 TODO 5 - Fire and Smoke](https://nintervik.github.io/2D-Particle-System/#65-todo-5-fire-and-smoke)
+  * [6.6 BONUS CODE - Vortices](https://nintervik.github.io/2D-Particle-System/#66-bonus-code-vortices)
 * [7. Performance](https://nintervik.github.io/2D-Particle-System/#7-performance)
 * [8. Improvements and further work](https://nintervik.github.io/2D-Particle-System/#8-improvements-and-further-work)
 * [9. References](https://nintervik.github.io/2D-Particle-System/#9-references)
@@ -648,7 +654,7 @@ _SOLUTION_
 	particleArray = nullptr;
 ```
 
-### **6.4 TODO 4 - Color Interpolation & blending*
+### **6.4 TODO 4 - Color Interpolation & blending**
 
 _TODO 4.1 - Interpolate between start and end color_
 - Create a method that takes to colors and a time step and returns the interpolated SDL_Color.
@@ -708,7 +714,7 @@ You should see something like this on screen:
 ![todoblending](https://user-images.githubusercontent.com/25589509/38695575-fad8c930-3e8c-11e8-9b71-595ea0fa8a17.gif)
 
 
-### **6.5 BONUS CODE - Fire and Smoke**
+### **6.5 TODO 5 - Fire and Smoke**
 
 _TODO 5 - Tweak the xml parameters:_
 - Change the emitter data in order to get a flame.
@@ -741,7 +747,7 @@ Now we have a fire!
 ![finan_re](https://user-images.githubusercontent.com/25589509/38695737-659b545e-3e8d-11e8-8774-04b6c3b1a9cd.gif)
 
 
-### **6.5 BONUS CODE - Vortices**
+### **6.6 BONUS CODE - Vortices**
 
 Delete the particle movement equations and uncomment this functions to add a vortex!
 
@@ -819,8 +825,7 @@ Webs and forums:
 - <https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/particles.pdf>
 - <https://www.gamasutra.com/view/feature/131565/building_an_advanced_particle_.php?page=2>
 - <http://archive.gamedev.net/archive/reference/articles/article1982.html>
-- <https://www.youtube.com/watch?v=G6OGKP3MaUI>
-- <https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332
+- <https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332>
 - <https://es.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-particle-systems/a/intro-to-particle-systems>
 - <https://docs.unity3d.com/Manual/PartSysWhatIs.html>
 - <http://archive.gamedev.net/archive/reference/articles/article2002.html>
@@ -839,6 +844,7 @@ Videos:
 - <https://www.youtube.com/watch?v=QXbWCrzWJo4>
 - <https://www.youtube.com/watch?v=ovlVh-QgVao>
 - <https://www.youtube.com/watch?v=FUu2WNcJbtE>
+- <https://www.youtube.com/watch?v=G6OGKP3MaUI>
 
 Sprites and images:
 - <https://opengameart.org/content/lens-flares-and-particles>
