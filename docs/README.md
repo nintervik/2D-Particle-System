@@ -841,7 +841,7 @@ Videos:
 - https://www.youtube.com/watch?v=FUu2WNcJbtE
 
 Sprites and images:
-- https://opengameart.org/content/lens-flares-and-particles
+- (https://opengameart.org/content/lens-flares-and-particles)
 - https://dribbble.com/shots/1925630-Explosion
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
