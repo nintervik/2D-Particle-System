@@ -16,7 +16,7 @@
         <textureRect x="0" y="0" w="128" h="128"/>
         <startColor r ="0" g="0" b="176" a="255"/>
         <endColor r ="90" g="255" b="22" a ="255"/>
-        <blendMode mode ="blend"/>
+        <blendMode mode ="add"/>
         <lifetime value ="-1"/>
       </emitter>
 
