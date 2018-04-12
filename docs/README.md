@@ -764,6 +764,12 @@ Now everytime you approach the torch to the top left corner particles will be af
 
 ## **7. Performance**
 
+Performance of particle systems really depends of how many particles are being rendered and moved at the same time on screen. At the end of the day, any particle system will eventually crash above a certain number. The higher the number the better the performance.
+
+In our case it handles particles really well but framrate starts to drop when we have have about 2000 particles being rendered and moved on screen. If we have a vortex performance is worse as it needs to do a lot calculations for each individual particle.
+
+If the 
+
 ![brofiler2](https://user-images.githubusercontent.com/25589509/38674691-9a0fc644-3e55-11e8-8b32-3da74bcb9281.PNG)
 
 ![brofiler](https://user-images.githubusercontent.com/25589509/38674780-e007c142-3e55-11e8-8e3c-c94e9d83b6df.PNG)
