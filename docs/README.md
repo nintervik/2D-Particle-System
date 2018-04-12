@@ -23,7 +23,7 @@ I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/),
   * [4.4 Let's talk about pools](https://nintervik.github.io/2D-Particle-System/#44-lets-talk-about-pools)
 * [5. More parameters](https://nintervik.github.io/2D-Particle-System/#5-more-parameters)
 * [6. TODOs](https://nintervik.github.io/2D-Particle-System/#6-todos)
-  * [6.1 TODO 1 - Getting the data emitter](https://nintervik.github.io/2D-Particle-System/#61-todo-1--getting-the-data-emitter)
+  * [6.1 TODO 1 - Getting the emitter data](https://nintervik.github.io/2D-Particle-System/#61-todo-1--getting-the-emitter-data)
   * [6.2 TODO 2 - Let's introduce the pool](https://nintervik.github.io/2D-Particle-System/#62-todo-2--lets-introduce-the-pool)
   * [6.3 TODO 3 - Improving the pool](https://nintervik.github.io/2D-Particle-System/#63-todo-3--improving-the-pool)
   * [6.4 TODO 4 - Color Interpolation & blending](https://nintervik.github.io/2D-Particle-System/#64-todo-4--color-interpolation-&-blending)
@@ -521,7 +521,7 @@ If we set vortex speed to 0 particles will slow down when they get coloser. We c
 
 ## **6. TODOs**
 
-### **6.1 TODO 1 - Getting the data emitter**
+### **6.1 TODO 1 - Getting the emitter data**
 
 _Load emitter data into the emitter data vector:_
 - We just want to load the emitter data from the “fire” emitter for now
