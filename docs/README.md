@@ -203,9 +203,9 @@ emitter = AddEmitter(positon, EMITTER_TYPE);
 
 ## **4. The structure**
 
-Down below there's the UML that describes the structured of our code:
+Down below there's a simple scheme of the structure of the system:
 
-UML here...
+![uml](https://user-images.githubusercontent.com/25589509/38698286-d44df170-3e94-11e8-9da8-a9f3707f9876.PNG)
 
 So basically we have a module called j1ParticleSystem that will contain a list of emitters. Inside these emitters we will have all the data we have gotten from the xml and they will contain a pool of particles that will be also updated and rendered on screen.
 
