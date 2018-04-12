@@ -595,6 +595,47 @@ _SOLUTION_
 
 ![8](https://user-images.githubusercontent.com/25589509/38693494-56ab5a94-3e87-11e8-8a4d-084e1a5b0b19.png)
 
+
+### **6.4 TODO 4 - Color Interpolation & blending*
+
+_TODO 4.1 - Interpolate between start and end color_
+- Create a method that takes to colors and a time step and returns the interpolated SDL_Color.
+- You can use the pState.pLive.t as the time step.
+- For color use pState.pLive.startColor and pState.pLive.endColor.
+- Use the linear interpolation formula: **_b= a + (b - a) * t_**
+
+_SOLUTION_
+
+![9](https://user-images.githubusercontent.com/25589509/38693636-d00734b2-3e87-11e8-91cd-98a5ab55dcb4.png)
+
+You should see this on screen:
+
+img her ----
+
+_TODO 4.2 - Adapt de blit particle method to take blending mode as an argument:_
+- Use SDL_SetTextureColorMod() and SDL_SetTextureAlphaMod() to setup the color.
+- This has to be done just before calling SDL_RenderCopyEx().
+- Use the pState.pLive.blendMode and  variable.
+
+_SOLUTION_
+
+code here
+
+_TODO 4.3 - Adapt de blit particle method to take blending mode as an argument:_
+- Use SDL_SetTextureBlendMode.
+- As before call it before we the actual render.
+- Use the pState.pLive.blendMode variable.
+
+_SOLUTION_
+
+code here
+
+You should see something like this on screen:
+
+img here
+
+
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
