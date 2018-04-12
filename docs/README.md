@@ -473,7 +473,11 @@ We can have a lot of randomization to make the effect even more organic. That de
 
 So if we want to create a fire what we need to do is to to change the start and end color, put the blending mode to additive to make it glow, reduce alpha color over time... And will get something like this.
 
---- gif here ---
+![torch_gi](https://user-images.githubusercontent.com/25589509/38663181-72c78e1a-3e36-11e8-8b45-0691b5dfa89f.gif)
+
+But we can do explosions too:
+
+![explosions](https://user-images.githubusercontent.com/25589509/38663247-9c39fbca-3e36-11e8-95a6-9fb38cb485ca.gif)
 
 Another interesting thing is too play with the particle movement. We have done a linear movment but we can simulate paraboles, accelerated movement, circular and so on. A really cool and simple thing to do is to implement turbulunce in form of vortices. To put it simple, a vortex is like an spinning air wheel that causes objects to change it's movment in a circular and chatoic way. We can simulate this by using a simple ad-hoc formula. In this [article](https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332) is explained how it's done. 
 
@@ -502,7 +506,11 @@ And then we need to modify particle movement like this:
 
 And we can get really cool things like this:
 
----gif here---
+![particles](https://user-images.githubusercontent.com/25589509/38663198-800c8b02-3e36-11e8-9590-81aceefbf5a6.gif)
+
+If we set vortex speed to 0 particles will slow down when they get coloser. We can even do implosions!
+
+![implosions](https://user-images.githubusercontent.com/25589509/38663306-c2bafee8-3e36-11e8-8f13-1bc3b337f5af.gif)
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
