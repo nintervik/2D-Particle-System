@@ -523,6 +523,10 @@ If we set vortex speed to 0 particles will slow down when they get coloser. We c
 
 ## **7. Performance**
 
+![brofiler2](https://user-images.githubusercontent.com/25589509/38674691-9a0fc644-3e55-11e8-8b32-3da74bcb9281.PNG)
+
+![brofiler](https://user-images.githubusercontent.com/25589509/38674780-e007c142-3e55-11e8-8e3c-c94e9d83b6df.PNG)
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
