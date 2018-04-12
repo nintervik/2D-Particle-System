@@ -566,6 +566,35 @@ When you're don you should get something like this:
 
 ![sol1](https://user-images.githubusercontent.com/25589509/38693193-81a66f46-3e86-11e8-9836-980168ad4804.gif)
 
+But what happens if particles have 100 of life? We don't have enough particles in the pool. Let's fix this.
+
+### **6.3 TODO 3 - Let's introduce the pool**
+
+The main problem:
+
+![pool](https://user-images.githubusercontent.com/25589509/38693348-ee1bc69e-3e86-11e8-97c5-4003c5d4380a.png)
+
+_TODO 3.1 - Calculate pool size:_
+- Come up with a simple formula to know how big the pool must be. Only one line of code!
+- The number calculated must be always big enough so the pool it's NEVER EMPTY.
+- Hint: the variables maxParticlesPerFrame and maxParticleLife play a big role here.
+- Pencil and paper will help!
+
+_SOLUTION_
+
+![6](https://user-images.githubusercontent.com/25589509/38693397-0bf329aa-3e87-11e8-8f2d-6cc1b689957f.png)
+
+_TODO 3.2 - Allocate memory for the pool:_
+- Use GetPoolSize() from the given emitter.
+- Remember to free the memory!
+- Once this is done try to execute again. It should not have any pool size problems anymore!
+
+_SOLUTION_
+
+![7](https://user-images.githubusercontent.com/25589509/38693474-457cacaa-3e87-11e8-96e4-3755bf7bd35f.png)
+
+![8](https://user-images.githubusercontent.com/25589509/38693494-56ab5a94-3e87-11e8-8a4d-084e1a5b0b19.png)
+
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
