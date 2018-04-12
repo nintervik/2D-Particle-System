@@ -523,6 +523,7 @@ _Load emitter data into the emitter data vector:_
 - Once you find it use LoadEmitterData() to fill the vector. Use EMITTER_TYPE_FIRE for the enum.
 
 _SOLUTION_
+
 ![1](https://user-images.githubusercontent.com/25589509/38692951-b2b62776-3e85-11e8-94f2-0c12ac7cff69.png)
 
 ### **6.2 TODO 2 - Let's introduce the pool**
@@ -531,6 +532,7 @@ _TODO 2.1:_
 - Declare an static array of 100 particles inside the ParticlePool header.
 
 _SOLUTION_
+
 ![2](https://user-images.githubusercontent.com/25589509/38693034-f681f926-3e85-11e8-97ae-ede0d9bf9af7.png)
 
 
@@ -540,9 +542,29 @@ _TODO 2.2 - Convert particleArray into a free list:_
 - Make the last particle point to nullptr
 
 _SOLUTION_
+
 ![3](https://user-images.githubusercontent.com/25589509/38693048-03d67f52-3e86-11e8-9c17-c27a95d1629a.png)
 
+_TODO 2.3 - Generate a new particle from the pool:_
+- Use firstAvailable to Init the particle.
+- But remember to move the firstAvailable pointer to the next particles so we don't lose track of it.
+- Also check first that the pool is not empty before doing anything. Use assert for this.
 
+_SOLUTION_
+
+![4](https://user-images.githubusercontent.com/25589509/38693115-4178f7a4-3e86-11e8-984c-1cabff1ae1ba.png)
+
+_TODO 2.4 - Update and draw living particles in the pool._
+- If it's alive update it, draw it and make sure to return true
+- If a particle is dead it becomes the first available in the pool. Use IsAlive() method to check this.
+
+_SOLUTION_
+
+![5](https://user-images.githubusercontent.com/25589509/38693165-6da1b474-3e86-11e8-992e-adb73ab0eac7.png)
+
+When you're don you should get something like this:
+
+![sol1](https://user-images.githubusercontent.com/25589509/38693193-81a66f46-3e86-11e8-9836-980168ad4804.gif)
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
