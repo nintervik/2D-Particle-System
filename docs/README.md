@@ -517,12 +517,31 @@ If we set vortex speed to 0 particles will slow down when they get coloser. We c
 
 ### **6.1 TODO 1 - Getting the data emitter**
 
-Load emitter data into the emitter data vector:
+_Load emitter data into the emitter data vector:_
 - We just want to load the emitter data from the “fire” emitter for now
 - The for loop already parses the xml file for you. Just search for the emitter type “fire”.
 - Once you find it use LoadEmitterData() to fill the vector. Use EMITTER_TYPE_FIRE for the enum.
 
-### **6.2 TODO 2 - GLet's introduce the pool**
+_SOLUTION_
+![1](https://user-images.githubusercontent.com/25589509/38692951-b2b62776-3e85-11e8-94f2-0c12ac7cff69.png)
+
+### **6.2 TODO 2 - Let's introduce the pool**
+
+_TODO 2.1:_
+- Declare an static array of 100 particles inside the ParticlePool header.
+
+_SOLUTION_
+![2](https://user-images.githubusercontent.com/25589509/38693034-f681f926-3e85-11e8-97ae-ede0d9bf9af7.png)
+
+
+_TODO 2.2 - Convert particleArray into a free list:_
+- Make the firstAvailable pointer point to the first element of the pool
+- Make each particle inside the pool point to the next one. Use the SetNext() method
+- Make the last particle point to nullptr
+
+_SOLUTION_
+![3](https://user-images.githubusercontent.com/25589509/38693048-03d67f52-3e86-11e8-9c17-c27a95d1629a.png)
+
 
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
