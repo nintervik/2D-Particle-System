@@ -711,7 +711,7 @@ You should see something like this on screen:
 
 img here
 
-### **6.5 BONUS CODE*
+### **6.5 BONUS CODE - Vortices**
 
 Delete the particle movement equations and uncomment this functions to add a vortex!
 
