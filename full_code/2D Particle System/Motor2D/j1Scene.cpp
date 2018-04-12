@@ -1,6 +1,8 @@
 #include "j1App.h"
 #include "j1Input.h"
 #include "j1Scene.h"
+#include "j1Render.h"
+#include "j1Textures.h"
 #include "p2Log.h"
 
 j1Scene::j1Scene() : j1Module()
@@ -24,6 +26,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
+	torchTex = App->tex->Load("textures/torch.png");
 	return true;
 }
 
@@ -36,15 +39,20 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
 	{
+		int mx, my;
+		App->input->GetMousePosition(mx, my);
+		fPoint pos((float)mx,(float)my);
+		pos.y -= 230.0f;
+		eFire = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE);
+	}
+
 	int mx, my;
 	App->input->GetMousePosition(mx, my);
 	fPoint pos((float)mx, (float)my);
 
-	eFire = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE);
-	}
+	App->render->Blit(torchTex, pos.x - 43, pos.y - 270, &rect);
 
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
@@ -122,12 +130,13 @@ bool j1Scene::Update(float dt)
 		eFire->StopEmission(5000.0f);
 	}
 
-	if (eSmoke != nullptr )
+	if (eFire != nullptr )
 	{
 		int mx, my;
 		App->input->GetMousePosition(mx, my);
 		fPoint pos((float)mx, (float)my);
-		eSmoke->MoveEmitter(pos);
+		pos.y -= 230.0f;
+		eFire->MoveEmitter(pos);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && eFire != nullptr)
@@ -164,6 +173,9 @@ bool j1Scene::CleanUp()
 	eBubbles = nullptr;
 	eSpark = nullptr;
 	ePixelSmoke = nullptr;
+
+	App->tex->UnLoad(torchTex);
+	torchTex = nullptr;
 
 	return true;
 }

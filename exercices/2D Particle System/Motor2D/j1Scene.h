@@ -39,6 +39,8 @@ public:
 private:
 
 	Emitter* eFire = nullptr;
+	SDL_Rect rect = { 0, 0, 400, 400 };
+	SDL_Texture* torchTex = nullptr;
 
 };
 

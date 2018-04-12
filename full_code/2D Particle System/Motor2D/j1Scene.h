@@ -48,6 +48,9 @@ private:
 	Emitter* eBubbles = nullptr;
 	Emitter* eSpark = nullptr;
 	Emitter* ePixelSmoke = nullptr;
+	SDL_Rect rect = { 0, 0, 400, 400 };
+	SDL_Texture* torchTex = nullptr;
+
 
 };
 
