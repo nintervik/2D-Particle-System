@@ -258,6 +258,8 @@ So basically a particle will be a class with position, a vector velocity and tex
 
 The only special thing is that it will be an union with a struct with data and a pointer to next one (we'll se ehy when we talk about the pool). This way we the particle data will only occopy memory when it's alive, if it's dead we don't need to.
 
+The next implementation is based on the implementation of a particle system done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html) of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
+
 ```cpp
 union ParticleInfo
 	{
