@@ -449,10 +449,6 @@ And that's it. The emitter class will not be covered but it's quite simple. The 
 
 ## **5. More parameters**
 
-What we've seen now is simple and you'll be able to do something like this:
-
----put gif here---
-
 But as you've seen we had a lot of parameters in xml file to tweak the particle behavior. In this table there's all the particle properties explained:
 
 |**ATTRIBUTE**|**DESCRIPTION**|
@@ -533,6 +529,7 @@ If we set vortex speed to 0 particles will slow down when they get coloser. We c
 
 This particle system is quite cool but there's a lot of room for improvement. Here's a few examples of what can still be done:
 - **Subemitters**: create a system within a system. An emitter that spawn other emitters that spawn other emitters and so on. We could     use this for fireworks for examples.
+- **Vortex system**: create an emitter that instead of spawining particles generate moving vortices that result in moving turbulences.
 - **Multi emitters**: create emitters that spawn different type of particles so if we have an explosion this emitter would spawn fire     first, a wave and the smoke.
 - **Shapes**: instead of limiting emitters to have a single position point they could have shapes to simulate for example a ring of       fire.
 - **Animations**: instead of rendering a single texture for each particle we could render an animation in loop to simulate more complex   effects.
