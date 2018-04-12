@@ -621,7 +621,7 @@ When you're don you should get something like this:
 
 But what happens if particles have 100 of life? We don't have enough particles in the pool. Let's fix this.
 
-### **6.3 TODO 3 - Let's introduce the pool**
+### **6.3 TODO 3 - Improving the pool**
 
 _TODO 3.1 - Calculate pool size:_
 - Come up with a simple formula to know how big the pool must be. Only one line of code!
