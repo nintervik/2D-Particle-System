@@ -802,8 +802,50 @@ These are some suggestions but the possibilities are endless so have fun with th
 
 ## **9. References**
 
-[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
+Webs and forums:
+- http://buildnewgames.com/particle-systems/
+- http://rbwhitaker.wikidot.com/2d-particle-engine-2
+- http://lazyfoo.net/tutorials/SDL/38_particle_engines/index.php
+- https://stackoverflow.com/questions/12657962/how-do-i-generate-a-random-number-between-two-variables-that-i-have-stored
+- http://gameprogrammingpatterns.com/object-pool.html
+- https://www.alanzucconi.com/2016/01/06/colour-interpolation/
+- http://rbwhitaker.wikidot.com/2d-particle-engine-4
+- http://rbwhitaker.wikidot.com/additive-sprites
+- http://particle2dx.com/
+- https://wiki.libsdl.org/SDL_SetTextureColorMod
+- http://natureofcode.com/book/chapter-4-particle-systems/
+- http://www.karlsims.com/papers/ParticlesSiggraph90.pdf
+- https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/fuzzyParticles.pdf
+- https://www.lri.fr/~mbl/ENS/IG2/devoir2/files/docs/particles.pdf
+- https://www.gamasutra.com/view/feature/131565/building_an_advanced_particle_.php?page=2
+- http://archive.gamedev.net/archive/reference/articles/article1982.html
+- https://www.youtube.com/watch?v=G6OGKP3MaUI
+- https://gamedevelopment.tutsplus.com/tutorials/adding-turbulence-to-a-particle-system--gamedev-13332
+- https://es.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-particle-systems/a/intro-to-particle-systems
+- https://docs.unity3d.com/Manual/PartSysWhatIs.html
+- http://archive.gamedev.net/archive/reference/articles/article2002.html
+- https://www.khanacademy.org/partner-content/pixar/effects/particle/v/effects-overview
+- https://www.khanacademy.org/partner-content/pixar/effects/particle-physics/a/start-here-fx
+- http://www.di.ubi.pt/~agomes/tjv/teoricas/09-particles.pdf
+- https://gamedevelopment.tutsplus.com/tutorials/object-pools-help-you-reduce-lag-in-resource-intensive-games--gamedev-651
+- https://en.wikipedia.org/wiki/Perlin_noise
+- 
 
+Videos:
+- https://www.youtube.com/watch?v=vdgiqMkFygc
+- https://www.youtube.com/watch?v=FEA1wTMJAR0
+- https://www.youtube.com/watch?v=rR_bm8f8rVE
+- https://www.youtube.com/watch?v=heW3vn1hP2E
+- https://www.youtube.com/watch?v=OXK2Xbd7D9w&index=1&list=PLZlv_N0_O1gYDLyB3LVfjYIcbBe8NqR8t
+- https://www.youtube.com/watch?v=QXbWCrzWJo4
+- https://www.youtube.com/watch?v=ovlVh-QgVao
+- https://www.youtube.com/watch?v=FUu2WNcJbtE
+
+Sprites and images:
+- https://opengameart.org/content/lens-flares-and-particles
+- https://dribbble.com/shots/1925630-Explosion
+
+[**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
 ***
 
