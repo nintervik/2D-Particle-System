@@ -43,9 +43,9 @@ Be aware that this web page is focused on the structure and behaviour of a 2D pa
 
 Another important thing that I want to remark is that the way I'm going to explain how to implement the system is not unique and probably not the best. There are a lot of ways to do it and professional people that knows a lot more that I do. If you want to learn more about this topic I encourage you to check the [references](https://nintervik.github.io/2D-Particle-System/#references) that helped me doing this.
 
-We will have somehting like this at the of this tutorial:
+We will have somehting like this at the end of this tutorial:
 
----put gif here---
+![particles](https://user-images.githubusercontent.com/25589509/38660947-6e0d0712-3e2f-11e8-9948-780ca7ab02e2.gif)
 
 Well, without further delay let's get into playing with these particles!
 
