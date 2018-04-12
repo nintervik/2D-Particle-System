@@ -709,7 +709,7 @@ _SOLUTION_
 
 You should see something like this on screen:
 
-img here
+![todoblending](https://user-images.githubusercontent.com/25589509/38695575-fad8c930-3e8c-11e8-9b71-595ea0fa8a17.gif)
 
 ### **6.5 BONUS CODE - Vortices**
 
