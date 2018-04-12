@@ -2,6 +2,9 @@
 #include <assert.h>
 
 
+#include "Brofiler\Brofiler.h"
+
+
 // This pool constructor sets our particles to available
 ParticlePool::ParticlePool(Emitter* emitter)
 {
@@ -43,10 +46,12 @@ bool ParticlePool::Update(float dt)
 {
 	bool ret = false;
 
+	BROFILER_CATEGORY("Pool update", Profiler::Color::LightCyan)
 	for (int i = 0; i < poolSize; i++)
 	{
 		if (particleArray[i].IsAlive())
 		{
+			
 			particleArray[i].Update(dt);
 			particleArray[i].Draw();
 			ret = true;
