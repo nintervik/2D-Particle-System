@@ -515,7 +515,15 @@ If we set vortex speed to 0 particles will slow down when they get coloser. We c
 
 ## **6. TODOs**
 
-### **6.1 TODO 1.1**
+### **6.1 TODO 1 - Getting the data emitter**
+
+Load emitter data into the emitter data vector:
+- We just want to load the emitter data from the “fire” emitter for now
+- The for loop already parses the xml file for you. Just search for the emitter type “fire”.
+- Once you find it use LoadEmitterData() to fill the vector. Use EMITTER_TYPE_FIRE for the enum.
+
+### **6.2 TODO 2 - GLet's introduce the pool**
+
 
 [**Back to index**](https://nintervik.github.io/2D-Particle-System/#index)
 
