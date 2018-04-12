@@ -23,7 +23,7 @@ _IMPORTANT: do not modify, change or add any folder or file (unless specified) a
 
 ## Notes on performance
 
-Be aware that creating a lot of emitters with high emission rates might result in a bad performance.
+Be aware that creating a lot of emitters with high emission rates might result in a bad performance. Due to physics movement calculations, performance gets worser when there are vortices on the scene.
 
 ## Controls
 
