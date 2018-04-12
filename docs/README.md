@@ -586,7 +586,7 @@ _SOLUTION_
 	firstAvailable = &particleArray[0];
 
 	// Each particle points to the next one
-	for (int i = 0; i < poolSize - 1; i++)
+	for (int i = 0; i < 100; i++)
 		particleArray[i].SetNext(&particleArray[i + 1]);
 
 	// The last particle points to nullptr indicating the end of the vector
