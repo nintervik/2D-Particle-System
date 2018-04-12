@@ -129,9 +129,9 @@ Or more subtle like the main menu in Hollow Knight:
 
 ![animated gif-downsized_large](https://user-images.githubusercontent.com/25589509/38541558-b983b330-3c9f-11e8-8ce9-21c143d985a4.gif)
 
-Moreover, particle systems can be a double-edged sword too. Aside from being used for creating VFX as well as hiding visual bugs. For instance in this example, the X game does this by...
+Moreover, particle systems can be a double-edged sword too. Aside from being used for creating VFX as well as hiding visual bugs. For instance in fighting games collision geometry is usually hidden by particles to hide erros like 3D models intersection.
 
-Put img here...
+![stnerf](https://user-images.githubusercontent.com/25589509/38696561-d1c865e8-3e8f-11e8-9b77-50b0564186e4.jpg)
 
 Okay now that you get the idea let's see what composes a particle system.
 
