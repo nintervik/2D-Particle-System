@@ -629,7 +629,10 @@ _TODO 3.1 - Calculate pool size:_
 
 _SOLUTION_
 
-![6](https://user-images.githubusercontent.com/25589509/38693397-0bf329aa-3e87-11e8-8f2d-6cc1b689957f.png)
+```cpp
+	// Pool size calculations
+	poolSize = maxParticlesPerFrame * (maxParticleLife + 1);
+```
 
 _TODO 3.2 - Allocate memory for the pool:_
 - Use GetPoolSize() from the given emitter.
@@ -638,10 +641,16 @@ _TODO 3.2 - Allocate memory for the pool:_
 
 _SOLUTION_
 
-![7](https://user-images.githubusercontent.com/25589509/38693474-457cacaa-3e87-11e8-96e4-3755bf7bd35f.png)
+```cpp
+	// Fill the pool according to poolSize needed for the emitter
+	poolSize = emitter->GetPoolSize();
+	particleArray = new Particle[poolSize];
+```
 
-![8](https://user-images.githubusercontent.com/25589509/38693494-56ab5a94-3e87-11e8-8a4d-084e1a5b0b19.png)
-
+```cpp
+	delete[] particleArray;
+	particleArray = nullptr;
+```
 
 ### **6.4 TODO 4 - Color Interpolation & blending*
 
@@ -653,7 +662,19 @@ _TODO 4.1 - Interpolate between start and end color_
 
 _SOLUTION_
 
-![9](https://user-images.githubusercontent.com/25589509/38693636-d00734b2-3e87-11e8-91cd-98a5ab55dcb4.png)
+```cpp
+SDL_Color Particle::RgbInterpolation(SDL_Color startColor, float timeStep, SDL_Color endColor)
+{
+	SDL_Color finalColor;
+
+	finalColor.r = startColor.r + (endColor.r - startColor.r) * timeStep;
+	finalColor.g = startColor.g + (endColor.g - startColor.g) * timeStep;
+	finalColor.b = startColor.b + (endColor.b - startColor.b) * timeStep;
+	finalColor.a = startColor.a + (endColor.a - startColor.a) * timeStep;
+
+	return finalColor;
+}
+```
 
 You should see this on screen:
 
@@ -666,8 +687,14 @@ _TODO 4.2 - Adapt de blit particle method to take blending mode as an argument:_
 
 _SOLUTION_
 
-code here
+```cpp
+	if (SDL_SetTextureColorMod(texture, color.r, color.g, color.b) != 0)
+		LOG("Cannot set texture color mode. SDL_SetTextureColorMod error: %s", SDL_GetError());
 
+	if (SDL_SetTextureAlphaMod(texture, color.a) != 0)
+		LOG("Cannot set texture alpha mode. SDL_SetTextureAlphaMod error: %s", SDL_GetError());
+```
+		
 _TODO 4.3 - Adapt de blit particle method to take blending mode as an argument:_
 - Use SDL_SetTextureBlendMode.
 - As before call it before we the actual render.
