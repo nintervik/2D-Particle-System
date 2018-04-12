@@ -21,6 +21,12 @@ Emitter::Emitter(fPoint pos, EmitterData data)
 	this->maxParticleLife = data.maxParticleLife;
 	maxParticlesPerFrame = data.emitNumber + data.emitVariance;
 
+	/* TODO 3.1 - Calculate pool size:
+	- Come up with a simple formula to know big the pool must be. Only one line of code!
+	- The number calculated must be always big enough so the pool it's NEVER EMPTY.
+	- Hint: the variables maxParticlesPerFrame and maxParticleLife play a big role here.
+	*/
+
 	// Pool size calculations
 	poolSize = maxParticlesPerFrame * (maxParticleLife + 1);
 	emitterPool = new ParticlePool(this);

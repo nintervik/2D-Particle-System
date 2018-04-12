@@ -39,6 +39,10 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
+	/*TODO 5 - Tweak the xml parameters
+	- Change the emitter data in order to get a flame.
+	- Optional: create a new one and try simulate smoke.*/
+
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
 	{
 		int mx, my;

@@ -157,12 +157,16 @@ bool j1Render::BlitParticle(SDL_Texture* texture, int x, int y, const SDL_Rect* 
 	pivot.y = py;
 	p = &pivot;
 
-	/*if (pivot_x != INT_MAX && pivot_y != INT_MAX)
-	{
-		pivot.x = pivot_x;
-		pivot.y = pivot_y;
-		p = &pivot;
-	}*/
+	/* TODO 4.2 - Adapt de blit particle method to take color as an argument
+	- Use SDL_SetTextureColorMod() and SDL_SetTextureAlphaMod() to setup the color.
+	- This has to be done just before calling SDL_RenderCopyEx().
+	*/
+
+	/* TODO 4.3 - Adapt de blit particle method to take blending mode as an argument:
+	- Use SDL_SetTextureBlendMode.
+	- As before call it before we the actual render.
+	- Use pState.pLive.blendMode variable.
+	*/
 	
 	if (SDL_SetTextureColorMod(texture, color.r, color.g, color.b) != 0)
 		LOG("Cannot set texture color mode. SDL_SetTextureColorMod error: %s", SDL_GetError());

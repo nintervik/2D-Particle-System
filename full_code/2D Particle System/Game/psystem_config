@@ -61,9 +61,9 @@
         <endSpeed value ="90" randMin ="0" randMax ="1"/>
         <startSize value ="30" randMin ="0" randMax ="1"/>
         <endSize value =" 100" randMin ="1" randMax ="1"/>
-        <emitNumber value ="10"/>
-        <emitVariance value ="3" randMin ="0" randMax ="1"/>
-        <maxParticleLife value ="200" randMin ="0" randMax ="1"/>
+        <emitNumber value ="5"/>
+        <emitVariance value ="2" randMin ="0" randMax ="1"/>
+        <maxParticleLife value ="140" randMin ="0" randMax ="1"/>
         <textureRect x="640" y="0" w="512" h="512"/>
         <startColor r ="210" g="210" b="210" a ="50"/>
         <endColor r ="210" g="210" b="210" a ="0"/>

@@ -28,7 +28,6 @@ void ParticlePool::Generate(fPoint pos, float startSpeed, float endSpeed, float 
 		- Use firstAvailable to Init the particle.
 		- But remember to move the firstAvailable pointer to the next particles so we don't lose track of it.
 		- Also check first that the pool is not empty befor doing anything. Use assert for this.
-
 	*/
 }
 
