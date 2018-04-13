@@ -621,7 +621,7 @@ _SOLUTION_
 ```cpp
 	bool ret = false;
 	
-	for (int i = 0; i < poolSize; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		if (particleArray[i].IsAlive())
 		{
