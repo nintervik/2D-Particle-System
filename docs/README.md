@@ -254,48 +254,22 @@ The particle class is very simple, just a lot of data that will define its behav
 
 ![particle_scheme](https://user-images.githubusercontent.com/25589509/38579521-9269175a-3d07-11e8-92d2-f46b03a71729.jpg)
 
-So basically a particle will be a class with position, a vector velocity and texture (represented by a rectangle indicating the position and size inside the atlas). In this case we will add a lot more data but that's something optional depending of what you want to do. This particle will have a constructor for setting everything up, an update method to render them on screen and that's it.
-
-The only special thing is that it will be an union with a struct with data and a pointer to next one (we'll se ehy when we talk about the pool). This way we the particle data will only occopy memory when it's alive, if it's dead we don't need to.
-
-The next implementation is based on the implementation of a particle system done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html) of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
+So basically a particle will be a class with position, a vector velocity and texture (represented by a rectangle indicating the position and size inside the atlas). In this case we will add a lot more data but that's something optional depending of what you want to do. This particle will have a constructor for setting everything up, an update method to move them and a draw one to render them on screen and that's it.
 
 ```cpp
-union ParticleInfo
-	{
-		/* This struct holds the state of the particle when 
-		   it's being update (it's still alive).*/
-		struct ParticleState
-		{
-			uint startLife;
-			fPoint pos;
-			fPoint startVel;
-			fPoint endVel;
-			fPoint currentVel;
-			float currentSize, startSize, endSize;
-			float ageRatio;
-			float angle;
-			double startRotSpeed;
-			double currentRotSpeed;
-			SDL_Rect pRect;
-			SDL_Rect rectSize;
-			SDL_Color startColor;
-			SDL_Color endColor;
-			SDL_BlendMode blendMode;
-			float t;
-
-			ParticleState() {}
-
-		} pLive;
-
-		/* If the particle is dead, then the 'next' member comes 
-		   into play and the struct it's not used. This pointer
-		   called 'next' holds a pointer to the next available 
-		   particle after this one. */
-		Particle* next;
-
-		ParticleInfo() {}
-	} pState;
+class Particle
+{
+private:
+	uint startLife;
+	float posX, posY;
+	float velX, velY;
+	SDL_Rect pRect;
+	
+public:
+	Particle();
+	void Update(dt);
+	void Draw();
+} ;
 ```
 
 Inside the Update() method we will move our particle according to its velocity. To calculate its velocity we just need the angle that will come from the emitter and the speed norm. It will be something like this:
@@ -439,6 +413,8 @@ bool ParticlePool::Update(float dt)
 
 You've probably seen that particles now are a little bit different. Now for particles we will use unions. Unions are data structures that only uses the memory of the variable that is being used. For our particle we will have a union with a struct inside that will hold all the data of a living particle. Outside the struct a pointer that will be only used when the particle is available in the pool. The only variable that will be outside the union is the particle life variable that will only be relevant to know if the particle is alive or dead.
 
+The next implementation is based on the implementation of a particle system done by [Bob Nystrom](https://twitter.com/munificentbob) in his [article](http://gameprogrammingpatterns.com/object-pool.html) of his book [Game Programming Patterns](http://gameprogrammingpatterns.com/).
+
 ```cpp
 	/*  This is the only variable we care about no matter if
 	   the particle is alive or dead */
@@ -467,6 +443,7 @@ You've probably seen that particles now are a little bit different. Now for part
 		ParticleInfo() {}
 	} pState;
 ```
+
 Okay that's pretty much it. The only thing that we need to know is how to know the size of the pool. If we supose all the particles have the same life and know how many particles are generated per frame (emission rate) then can do the math. Let's do an example. Imagine we generate 3 particles per frame and our particles have a maximum life of 2 frames.
 
 ![poolsizeproblem](https://user-images.githubusercontent.com/25589509/38701949-8a7dc3f8-3e9f-11e8-8255-26a050c2ea6b.png)
