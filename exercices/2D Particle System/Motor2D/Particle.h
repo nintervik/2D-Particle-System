@@ -75,9 +75,6 @@ class Particle
 	Particle* GetNext();
 	void SetNext(Particle* next);
 
-	// Given two colors interpolates linearly over time and returns the resulting color
-	SDL_Color RgbInterpolation(SDL_Color startColor, float timeStep, SDL_Color endColor);
-
 	float InterpolateBetweenRange(float min, float timeStep, float max);
 
 	// Adds a vortex to the system

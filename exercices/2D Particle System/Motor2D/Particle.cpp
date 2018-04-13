@@ -31,7 +31,7 @@ void Particle::Init(fPoint pos, float startSpeed, float endSpeed, float angle, d
 	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
 
 	// Add vortex to the system (optional and only one is allowed)
-	 AddVortex({ 250.0f, 200.0f }, 0.0f, 30.0f);
+	 AddVortex({ 250.0f, 200.0f }, 10.0f, 30.0f);
 }
 
 void Particle::Update(float dt)
@@ -48,6 +48,10 @@ void Particle::Update(float dt)
 
 	// Assign new size to particle rect
 	pState.pLive.rectSize.w = pState.pLive.rectSize.h = pState.pLive.currentSize;
+
+	// Calculating new particle position
+	pState.pLive.pos.x += pState.pLive.currentVel.x * dt;
+	pState.pLive.pos.y += pState.pLive.currentVel.y * dt;
 
 	// BONUS CODE. Uncomment to unchain vortices
 	//CalculateParticlePos(dt);
@@ -98,18 +102,6 @@ Particle* Particle::GetNext()
 void Particle::SetNext(Particle* next)
 {
 	pState.next = next;
-}
-
-SDL_Color Particle::RgbInterpolation(SDL_Color startColor, float timeStep, SDL_Color endColor)
-{
-	SDL_Color finalColor;
-
-	finalColor.r = startColor.r + (endColor.r - startColor.r) * timeStep;
-	finalColor.g = startColor.g + (endColor.g - startColor.g) * timeStep;
-	finalColor.b = startColor.b + (endColor.b - startColor.b) * timeStep;
-	finalColor.a = startColor.a + (endColor.a - startColor.a) * timeStep;
-
-	return finalColor;
 }
 
 float Particle::InterpolateBetweenRange(float min, float timeStep, float max)
