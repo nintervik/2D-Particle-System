@@ -5,7 +5,6 @@
 #include "j1Textures.h"
 
 
-
 j1ParticleSystem::j1ParticleSystem() : j1Module()
 {
 	name = "psystem";
@@ -29,33 +28,27 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	
 	for (pugi::xml_node emitters = node->child("particleAtlas").child("emitter"); emitters && ret; emitters = emitters.next_sibling("emitter"))
 	{
-		/* TODO 1: Load emitter data into the emitter data vector:
-		- We just want to load the emitter data from the fire emitter for now.
-		- The for loop already parses the xml file for you. Just search for the emitter type “fire”.
-		- Once you find it use LoadEmitterData() to fill the vector. Use EMITTER_TYPE_FIRE for the enum.
-		*/
-
 		std::string emitterType = emitters.attribute("type").as_string();
 
-		if (emitterType == "fire")
+		if (emitterType.compare("fire"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE);
-		if (emitterType == "fire_purple")
+		if (emitterType.compare("fire_purple"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
-		if (emitterType == "flame")
+		if (emitterType.compare("flame"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FLAME);
-		else if (emitterType == "smoke")
+		else if (emitterType.compare("smoke"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE);
-		else if (emitterType == "pixel_smoke")
+		else if (emitterType.compare("pixel_smoke"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_PIXEL_SMOKE);
-		else if (emitterType == "burst")
+		else if (emitterType.compare("burst"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BURST);
-		else if (emitterType == "wave_1")
+		else if (emitterType.compare("wave_1"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_1);
-		else if (emitterType == "wave_2")
+		else if (emitterType.compare("wave_2"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_2);
-		else if (emitterType == "bubbles")
+		else if (emitterType.compare("bubbles"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
-		else if (emitterType == "spark")
+		else if (emitterType.compare("spark"))
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SPARK);
 	}
 	return ret;

@@ -63,12 +63,6 @@ void Particle::Draw()
 	float centerX = pState.pLive.pos.x + ((tmpRect.w - pState.pLive.rectSize.w) / 2.0f);
 	float centerY = pState.pLive.pos.y + ((tmpRect.h - pState.pLive.rectSize.h) / 2.0f);
 
-	/* TODO 4.1 - Interpolate between start and end color
-	- Create a method that takes to colors and a time step and returns the interpolated SDL_Color.
-	- You can use pState.pLive.t as the time step.
-	- For color use the pState.pLive.startColor and pState.pLive.endColor.
-	*/
-
 	// Color interpolation, only if the particle has enough life
 	SDL_Color resColor;
 
