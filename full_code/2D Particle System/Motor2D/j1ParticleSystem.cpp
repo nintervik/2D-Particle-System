@@ -30,25 +30,25 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	{
 		std::string emitterType = emitters.attribute("type").as_string();
 
-		if (emitterType.compare("fire"))
+		if (emitterType.compare("fire") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE);
-		if (emitterType.compare("fire_purple"))
+		if (emitterType.compare("fire_purple") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
-		if (emitterType.compare("flame"))
+		if (emitterType.compare("flame") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_FLAME);
-		else if (emitterType.compare("smoke"))
+		else if (emitterType.compare("smoke") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SMOKE);
-		else if (emitterType.compare("pixel_smoke"))
+		else if (emitterType.compare("pixel_smoke") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_PIXEL_SMOKE);
-		else if (emitterType.compare("burst"))
+		else if (emitterType.compare("burst") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BURST);
-		else if (emitterType.compare("wave_1"))
+		else if (emitterType.compare("wave_1") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_1);
-		else if (emitterType.compare("wave_2"))
+		else if (emitterType.compare("wave_2")== 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_2);
-		else if (emitterType.compare("bubbles"))
+		else if (emitterType.compare("bubbles") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
-		else if (emitterType.compare("spark"))
+		else if (emitterType.compare("spark") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SPARK);
 	}
 	return ret;
