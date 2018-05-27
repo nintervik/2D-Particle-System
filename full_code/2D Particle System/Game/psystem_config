@@ -172,6 +172,23 @@
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
       </emitter>
+
+      <emitter type ="thrall_dash">
+        <angleRange min ="0" max ="0"/>
+        <rotSpeed value ="0" randMin = "-1" randMax ="1"/>
+        <startSpeed value ="100" randMin = "0" randMax ="1"/>
+        <endSpeed value ="100" randMin = "0" randMax ="1"/>
+        <startSize value ="140" randMin ="1" randMax ="1"/>
+        <endSize value =" 140" randMin ="1" randMax ="1"/>
+        <emitNumber value ="1"/>
+        <emitVariance value ="0" randMin = "0" randMax ="1"/>
+        <maxParticleLife value ="50" randMin = "1" randMax ="1"/>
+        <textureRect x="0" y="372" w="140" h="140"/>
+        <startColor r ="48" g="28" b="212" a="255"/>
+        <endColor r ="159" g="38" b="212" a ="0"/>
+        <blendMode mode ="blend"/>
+        <lifetime value ="300"/>
+      </emitter>
       
     </particleAtlas>
 </emitters>
