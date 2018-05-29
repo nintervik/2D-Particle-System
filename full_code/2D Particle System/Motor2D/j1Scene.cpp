@@ -189,4 +189,6 @@ bool j1Scene::CleanUp()
 // - When calling remove and removeAll delete particles when all particles have died. Not instantly.
 // - Try doing particle pixel-type effects.
 // - Change name of modules and files and folders (j1 is not nice).
+// - Make a new branch with th good version maybe.
+// - Revise render for memory leaks. Take Project II as reference.
 // - Other improvements (see web).
