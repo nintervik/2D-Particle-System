@@ -1,11 +1,12 @@
 #include "Emitter.h"
+#include "j1App.h"
 #include <time.h>
 
 
 Emitter::Emitter(fPoint pos, EmitterData data)
-{ 
+{
 	srand(time(NULL));
-	
+
 	// Particles size and movement
 	this->angleRange = data.angleRange;
 	this->startSpeed = data.startSpeed;
@@ -60,7 +61,7 @@ void Emitter::Update(float dt)
 	if (active)
 	{
 		// Particle generation from pool
-		
+
 		emissionRate = (int)(emitNumber + emitVariance * RangeRandomNum(emitVarianceRand.x, emitVarianceRand.y));
 
 		for (int i = 1; i <= emissionRate; i++)
@@ -68,7 +69,7 @@ void Emitter::Update(float dt)
 			float tmpStartSpeed = startSpeed * RangeRandomNum(startSpeedRand.x, startSpeedRand.y);
 			float tmpEndSpeed = endSpeed * RangeRandomNum(endSpeedRand.x, endSpeedRand.y);
 			float randAngle = RangeRandomNum(angleRange.x, angleRange.y);
-			float randStart= startSize * RangeRandomNum(startSizeRand.x, startSizeRand.y);
+			float randStart = startSize * RangeRandomNum(startSizeRand.x, startSizeRand.y);
 			float randEnd = startSize * RangeRandomNum(startSizeRand.x, startSizeRand.y);
 			float randRadius = RangeRandomNum(randStart, randEnd);
 			double randRotSpeed = rotSpeed * RangeRandomNum(rotSpeedRand.x, rotSpeedRand.y);
@@ -79,7 +80,7 @@ void Emitter::Update(float dt)
 	}
 
 	// Emission timing calculations
-	
+
 	if (stopTime > 0.0f && !active)
 	{
 		emissionTime = 0.0f;
@@ -89,7 +90,7 @@ void Emitter::Update(float dt)
 			stopTime = 0.0f;
 		}
 	}
-	
+
 	if (emissionTime > 0.0f)
 	{
 		stopTime = 0.0f;
@@ -108,12 +109,21 @@ void Emitter::Update(float dt)
 			lifetime = 0.0f;
 		}
 	}
+}
 
+bool Emitter::Draw(float dt)
+{
+	bool ret = true;
 	// Updating particles in the pool
 	/* NOTE: if lifetime is 0 and last particles have been updated
 	then the emitter is automatically destroyed */
-	if (!emitterPool->Update(dt) && lifetime == 0.0f)
-		toDestroy = true;
+	if (emitterPool->Update(dt) == -1 && lifetime == 0.0f)
+		App->psystem->RemoveEmitter(this);
+	else if (!emitterPool->Update(dt))
+		ret = false;
+
+	return ret;
+
 }
 
 float Emitter::RangeRandomNum(float min, float max)

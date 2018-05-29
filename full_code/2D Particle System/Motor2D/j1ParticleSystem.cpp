@@ -10,12 +10,12 @@ j1ParticleSystem::j1ParticleSystem() : j1Module()
 	name = "psystem";
 
 	LOG("Loading Languages");
-	
+
 }
 
 j1ParticleSystem::~j1ParticleSystem()
 {
-	
+
 }
 
 bool j1ParticleSystem::Awake(pugi::xml_node& config)
@@ -25,7 +25,7 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 	pugi::xml_document	psystem_config;
 	pugi::xml_node* node = &App->LoadEmitters(psystem_config);
 	nameParticleAtlas = node->child("particleAtlas").attribute("name").as_string();
-	
+
 	for (pugi::xml_node emitters = node->child("particleAtlas").child("emitter"); emitters && ret; emitters = emitters.next_sibling("emitter"))
 	{
 		std::string emitterType = emitters.attribute("type").as_string();
@@ -44,14 +44,14 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BURST);
 		else if (emitterType.compare("wave_1") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_1);
-		else if (emitterType.compare("wave_2")== 0)
+		else if (emitterType.compare("wave_2") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_WAVE_2);
 		else if (emitterType.compare("bubbles") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
 		else if (emitterType.compare("spark") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SPARK);
 		else if (emitterType.compare("thrall_dash") == 0)
-			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_THRALL_DASH);
+			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_DASH);
 	}
 	return ret;
 }
@@ -83,18 +83,44 @@ bool j1ParticleSystem::Update(float dt)
 
 bool j1ParticleSystem::PostUpdate()
 {
-	std::list<Emitter*>::const_iterator it;
+	bool ret = true;
+
+	if (!emittersToDestroy.empty())
+	{
+		std::list<Emitter*>::const_iterator it;
+
+		for (it = emittersToDestroy.begin(); it != emittersToDestroy.end(); ++it)
+		{
+			emittersList.remove(*it);
+			delete (*it);
+		}
+
+		emittersToDestroy.clear();
+	}
+
+	ret = emittersToDestroy.size() <= 0;
+
+	if (ret)
+	{
+		std::list<Emitter*>::iterator it;
+
+		for (it = emittersList.begin(); it != emittersList.end() && ret; ++it)
+			ret = (*it)->Draw(App->dt);
+	}
+
+	return ret;
+	/*std::list<Emitter*>::const_iterator it;
 
 	for (it = emittersList.begin(); it != emittersList.end(); ++it)
 	{
-		if ((*it)->toDestroy)
-		{
-			delete (*it);
-			emittersList.erase(it);
-		}
+	if ((*it)->toDestroy)
+	{
+	delete (*it);
+	emittersList.erase(it);
+	}
 	}
 
-	return true;
+	return true*/
 }
 
 bool j1ParticleSystem::CleanUp()
@@ -120,41 +146,64 @@ Emitter* j1ParticleSystem::AddEmiter(fPoint pos, EmitterType type)
 	Emitter* tmp_emitter = new Emitter(pos, vecEmitterData[type]);
 
 	emittersList.push_back(tmp_emitter);
-	
+
 	return tmp_emitter;
 }
 
-bool j1ParticleSystem::RemoveEmitter(Emitter & emitter)
+bool j1ParticleSystem::RemoveEmitter(Emitter* emitter)
 {
-	std::list<Emitter*>::const_iterator it;
+	bool ret = false;
+
+	if (emitter != nullptr && !emittersList.empty())
+	{
+		emittersToDestroy.push_back(emitter);
+		ret = true;
+	}
+
+	return ret;
+
+	/*std::list<Emitter*>::const_iterator it;
 
 	for (it = emittersList.begin(); it != emittersList.end(); ++it)
 	{
-		if ((*it) == &emitter)
-		{
-			(*it)->toDestroy = true;
-			return true;
-		}
+	if ((*it) == &emitter)
+	{
+	(*it)->toDestroy = true;
+	return true;
+	}
 	}
 
-	return false;
+	return false;*/
 }
 
 bool j1ParticleSystem::RemoveAllEmitters()
 {
 	bool ret = false;
 
-	std::list<Emitter*>::const_iterator it;
-
-	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	if (!emittersList.empty())
 	{
-		if ((*it) != nullptr) (*it)->toDestroy = true;
-		ret = true;
+		std::list<Emitter*>::const_iterator it;
+
+		for (it = emittersList.begin(); it != emittersList.end(); ++it)
+		{
+			if ((*it) != nullptr)
+				emittersToDestroy.push_back(*it);
+
+			ret = true;
+		}
 	}
 
 	return ret;
+
+	/*std::list<Emitter*>::const_iterator it;
+
+	for (it = emittersList.begin(); it != emittersList.end(); ++it)
+	{
+	if ((*it) != nullptr) (*it)->toDestroy = true;
+	ret = true;
+	}*/
 }
- 
+
 SDL_Texture* j1ParticleSystem::GetParticleAtlas() const
 {
 	return particleAtlas;
@@ -202,16 +251,16 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	// Emission properties
 	tmp.emitNumber = emitter.child("emitNumber").attribute("value").as_uint();
 	tmp.emitVariance = emitter.child("emitVariance").attribute("value").as_uint();
-	
+
 	// Particle life
 	tmp.maxParticleLife = emitter.child("maxParticleLife").attribute("value").as_uint();
-	
+
 	// Rect from particle atlas
 	tmp.textureRect.x = emitter.child("textureRect").attribute("x").as_int();
 	tmp.textureRect.y = emitter.child("textureRect").attribute("y").as_int();
 	tmp.textureRect.w = emitter.child("textureRect").attribute("w").as_int();
 	tmp.textureRect.h = emitter.child("textureRect").attribute("h").as_int();
-	
+
 	// Lifetime of emitter
 	tmp.lifetime = emitter.child("lifetime").attribute("value").as_double();
 

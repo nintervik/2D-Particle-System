@@ -42,25 +42,24 @@ void ParticlePool::Generate(fPoint pos, float startSpeed, float endSpeed, float 
 	newParticle->Init(pos, startSpeed, endSpeed, angle, rotSpeed, startSize, endSize, life, textureRect, startColor, endColor, blendMode);
 }
 
-bool ParticlePool::Update(float dt)
+int ParticlePool::Update(float dt)
 {
-	bool ret = false;
+	bool ret = true;
 
 	BROFILER_CATEGORY("Pool update", Profiler::Color::LightCyan)
 	for (int i = 0; i < poolSize; i++)
 	{
 		if (particleArray[i].IsAlive())
 		{
-			
 			particleArray[i].Update(dt);
-			particleArray[i].Draw();
-			ret = true;
+			ret = particleArray[i].Draw();
 		}
 		else // if a particle dies it becomes the first available in the pool
 		{
 			// Add this particle to the front of the vector
 			particleArray[i].SetNext(firstAvailable);
 			firstAvailable = &particleArray[i];
+			ret = -1;
 		}
 	}
 

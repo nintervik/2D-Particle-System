@@ -62,13 +62,12 @@ private:
 
 public:
 
-	bool toDestroy = false;
-
 	Emitter(fPoint pos, EmitterData data);
 	// fPoint pos, uint emitNumber, uint emitVariance, uint maxParticleLife, fPoint angleRange, double rotSpeed, float maxSpeed, float startSize, float endSize, SDL_Rect textureRect, SDL_Color startColor = { 0, 0, 0, 0 }, SDL_Color endColor = { 0, 0, 0, 0 }, SDL_BlendMode blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE, double lifetime = -1.0f
 	virtual ~Emitter();
-	
+
 	void Update(float dt);
+	bool Draw(float dt);
 
 	// Generates random number between given range
 	float RangeRandomNum(float min = -1.0f, float max = 1.0f);

@@ -180,3 +180,11 @@ bool j1Scene::CleanUp()
 
 	return true;
 }
+
+// TODOs:
+
+// - Separate Update and Draw methods to have more error control (revise particlePool update, returns three possible values and it's not very nice, 
+//   maybe return enums or separate draw and update). 
+// - Add animations
+// - When calling remove and removeAll delete particles when all particles have died. Not instantly.
+// - Other improvements (see web).

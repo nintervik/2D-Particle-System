@@ -68,7 +68,7 @@ class Particle
 
 	// Generic methods
 	void Update(float dt);
-	void Draw();
+	bool Draw();
 	bool IsAlive();
 
 	// Particle pointer methods

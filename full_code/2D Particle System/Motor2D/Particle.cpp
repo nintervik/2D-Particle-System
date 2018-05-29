@@ -56,8 +56,10 @@ void Particle::Update(float dt)
 	life--;
 }
 
-void Particle::Draw()
+bool Particle::Draw()
 {
+	bool ret = true;
+
 	// Calculations to determine the current center of particle texture
 	SDL_Rect tmpRect = { (int)pState.pLive.startSize, (int)pState.pLive.startSize };
 	float centerX = pState.pLive.pos.x + ((tmpRect.w - pState.pLive.rectSize.w) / 2.0f);
@@ -70,8 +72,8 @@ void Particle::Draw()
 		resColor = RgbInterpolation(pState.pLive.startColor, pState.pLive.t, pState.pLive.endColor);
 
 	// Blitting particle on screen
-	App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, 
-							  &pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
+	ret = App->render->BlitParticle(App->psystem->GetParticleAtlas(), (int)centerX, (int)centerY, &pState.pLive.pRect, 
+									&pState.pLive.rectSize, resColor, pState.pLive.blendMode, 1.0f, pState.pLive.currentRotSpeed);
 	
 	// Calculating new rotation according to rotation speed
 	pState.pLive.currentRotSpeed += pState.pLive.startRotSpeed;
@@ -81,6 +83,8 @@ void Particle::Draw()
 
 	if (pState.pLive.t >= 1.0f)
 		pState.pLive.t = 0.0f;
+
+	return ret;
 }
 
 bool Particle::IsAlive()

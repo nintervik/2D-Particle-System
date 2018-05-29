@@ -1,5 +1,5 @@
-#ifndef __J1_PARTICLE_SYSTEM_H__
-#define __J1_PARTICLE_SYSTEM_H__
+#ifndef __PARTICLE_SYSTEM_H__
+#define __PARTICLE_SYSTEM_H__
 
 #include "p2Point.h"
 #include "j1Module.h"
@@ -8,7 +8,7 @@
 #include <string>
 #include "SDL/include/SDL.h"
 
-#define MAX_NUM_EMITTERS_TYPE 11
+#define MAX_NUM_EMITTERS_TYPE 12
 
 class Emitter;
 struct SDL_Texture;
@@ -28,7 +28,7 @@ enum EmitterType
 	EMITTER_TYPE_WAVE_2,
 	EMITTER_TYPE_BUBBLE,
 	EMITTER_TYPE_SPARK,
-	EMITTER_TYPE_THRALL_DASH
+	EMITTER_TYPE_DASH
 };
 
 struct EmitterData
@@ -62,12 +62,13 @@ class j1ParticleSystem : public j1Module
 private:
 
 	std::list<Emitter*> emittersList;
+	std::list<Emitter*> emittersToDestroy;
 	SDL_Texture* particleAtlas = nullptr;
 	std::string nameParticleAtlas;
 
 	// Static array that stores all the data of emitters
 	EmitterData vecEmitterData[MAX_NUM_EMITTERS_TYPE];
-	
+
 public:
 
 	j1ParticleSystem();
@@ -95,11 +96,11 @@ public:
 
 	// Emitter methods
 	Emitter* AddEmiter(fPoint pos, EmitterType type);
-	bool RemoveEmitter(Emitter& emitter);
+	bool RemoveEmitter(Emitter* emitter);
 	bool RemoveAllEmitters();
 
 	SDL_Texture* GetParticleAtlas() const;
 	void LoadEmitterData(pugi::xml_node& config, EmitterType type);
 };
 
-#endif
+#endif // __PARTICLE_SYSTEM_H__
