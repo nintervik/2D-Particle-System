@@ -11,10 +11,10 @@ void Particle::Init(fPoint pos, float startSpeed, float endSpeed, float angle, d
 {
 	// Movement properties
 	pState.pLive.pos = pos;
-	pState.pLive.startVel.x = startSpeed * cos(DEG_TO_RAD(angle));
-	pState.pLive.startVel.y = -startSpeed * sin(DEG_TO_RAD(angle));
-	pState.pLive.endVel.x = endSpeed * cos(DEG_TO_RAD(angle));
-	pState.pLive.endVel.y = -endSpeed * sin(DEG_TO_RAD(angle));
+	pState.pLive.startVel.x = startSpeed * cos(DEG_2_RAD(angle));
+	pState.pLive.startVel.y = -startSpeed * sin(DEG_2_RAD(angle));
+	pState.pLive.endVel.x = endSpeed * cos(DEG_2_RAD(angle));
+	pState.pLive.endVel.y = -endSpeed * sin(DEG_2_RAD(angle));
 	pState.pLive.startRotSpeed = rotSpeed;
 	pState.pLive.currentRotSpeed = rotSpeed;
 

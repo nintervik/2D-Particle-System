@@ -187,4 +187,6 @@ bool j1Scene::CleanUp()
 //   maybe return enums or separate draw and update). 
 // - Add animations
 // - When calling remove and removeAll delete particles when all particles have died. Not instantly.
+// - Try doing particle pixel-type effects.
+// - Change name of modules and files and folders (j1 is not nice).
 // - Other improvements (see web).

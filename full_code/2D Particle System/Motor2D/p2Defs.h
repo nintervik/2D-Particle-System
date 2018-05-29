@@ -68,7 +68,7 @@ inline const char* const PATH(const char* folder, const char* file)
 
 // Maths calculations
 #define PI 3.14159265359f
-#define DEG_TO_RAD(a) a * PI / 180.0f
-#define RAD_TO_DEG(a) a * 180.0f / PI
+#define DEG_2_RAD(a) a * PI / 180.0f
+#define RAD_2_DEG(a) a * 180.0f / PI
 
 #endif
