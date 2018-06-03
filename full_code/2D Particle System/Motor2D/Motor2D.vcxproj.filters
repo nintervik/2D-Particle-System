@@ -126,4 +126,10 @@
       <UniqueIdentifier>{ea93f3cf-2cfa-4d42-862f-727a238cdcb5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\Game\psystem_config.xml">
+      <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
+    </Xml>
+    <Xml Include="..\Game\config.xml" />
+  </ItemGroup>
 </Project>

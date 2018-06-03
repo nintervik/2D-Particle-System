@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 
+<!-- Config file for the particle system -->
+
 <emitters>
     <particleAtlas name="textures/particles.png">
       
