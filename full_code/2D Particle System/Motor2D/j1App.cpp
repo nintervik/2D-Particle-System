@@ -304,7 +304,7 @@ pugi::xml_node j1App::LoadEmitters(pugi::xml_document& psystem_file) const
 {
 	pugi::xml_node ret;
 
-	pugi::xml_parse_result result = psystem_file.load_file("psystem_config");
+	pugi::xml_parse_result result = psystem_file.load_file("psystem_config.xml");
 
 	if (result == NULL)
 		LOG("Could not load xml file config.xml. Pugi error: %s", result.description());
