@@ -82,7 +82,7 @@ int main(int argc, char* args[])
 			// Loop all modules until we are asked to leave ---------------------
 			case LOOP:
 			{
-				BROFILER_FRAME("TEMPLE ESCAPE");
+				BROFILER_FRAME("2D PARTICLE SYSTEM");
 
 				if (App->Update() == false)
 					state = CLEAN;
