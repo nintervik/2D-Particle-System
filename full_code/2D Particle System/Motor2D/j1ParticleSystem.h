@@ -53,6 +53,9 @@ struct EmitterData
 	fPoint lifeRand = { 0.0f, 0.0f };
 	fPoint startSizeRand = { 0.0f, 0.0f };
 	fPoint endSizeRand = { 0.0f, 0.0f };
+
+	// Vortex
+	bool vortexSensitive = false;
 };
 
 class j1ParticleSystem : public j1Module

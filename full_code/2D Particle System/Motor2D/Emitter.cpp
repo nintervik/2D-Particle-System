@@ -46,6 +46,9 @@ Emitter::Emitter(fPoint pos, EmitterData data)
 	startSizeRand = data.startSizeRand;
 	endSizeRand = data.endSizeRand;
 
+	// Vortex control parameters
+	vortexSensitive = data.vortexSensitive;
+
 	if (this->lifetime != -1.0f && this->lifetime > 0.0f)
 		lifeTimer.Start();
 }
@@ -74,7 +77,7 @@ void Emitter::Update(float dt)
 			float randRadius = RangeRandomNum(randStart, randEnd);
 			double randRotSpeed = rotSpeed * RangeRandomNum(rotSpeedRand.x, rotSpeedRand.y);
 
-			emitterPool->Generate(pos, tmpStartSpeed, tmpEndSpeed, randAngle, randRotSpeed, randRadius, endSize, maxParticleLife, textureRect, startColor, endColor, blendMode);
+			emitterPool->Generate(pos, tmpStartSpeed, tmpEndSpeed, randAngle, randRotSpeed, randRadius, endSize, maxParticleLife, textureRect, startColor, endColor, blendMode, vortexSensitive);
 			timeStep += timeStep;
 		}
 	}
@@ -168,4 +171,9 @@ void Emitter::MoveEmitter(fPoint newPos)
 fPoint Emitter::GetEmitterPos() const
 {
 	return pos;
+}
+
+void Emitter::VortexSensitive(bool sensitive)
+{
+	vortexSensitive = sensitive;
 }

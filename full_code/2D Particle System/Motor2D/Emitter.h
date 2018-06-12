@@ -60,6 +60,9 @@ private:
 	fPoint startSizeRand = { 0.0f, 0.0f };
 	fPoint endSizeRand = { 0.0f, 0.0f };
 
+	// Vortex control parameters
+	bool vortexSensitive = false;
+
 public:
 
 	Emitter(fPoint pos, EmitterData data);
@@ -84,6 +87,8 @@ public:
 	// Emitter move methods
 	void MoveEmitter(fPoint newPos);
 	fPoint GetEmitterPos() const;
+
+	void VortexSensitive(bool sensitive);
 };
 
 #endif

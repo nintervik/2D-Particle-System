@@ -7,7 +7,7 @@
 
 Particle::Particle():life(0) { }
 
-void Particle::Init(fPoint pos, float startSpeed, float endSpeed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
+void Particle::Init(fPoint pos, float startSpeed, float endSpeed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, bool vortexSensitive)
 {
 	// Movement properties
 	pState.pLive.pos = pos;
@@ -30,12 +30,20 @@ void Particle::Init(fPoint pos, float startSpeed, float endSpeed, float angle, d
 	pState.pLive.blendMode = blendMode;
 	pState.pLive.pRect = pState.pLive.rectSize = textureRect;
 
+	// Vortex
+	pState.pLive.vortexSensitive = vortexSensitive;
+
 	// Add vortex to the system (optional and only one is allowed)
-	 AddVortex({ 250.0f, 200.0f }, 10.0f, 30.0f);
+	if (pState.pLive.vortexSensitive)
+		AddVortex({ 250.0f, 200.0f }, 10.0f, 30.0f);
 }
 
 void Particle::Update(float dt)
 {
+	// Vortex control 
+	if (!pState.pLive.vortexSensitive && vortex.scale != 0 && vortex.speed != 0)
+		AddVortex({ 0.0f, 0.0f }, 0.0f, 0.0f);
+
 	// Age ratio is used to interpolate between particle properties
 	pState.pLive.ageRatio = (float)life / (float)pState.pLive.startLife;
 

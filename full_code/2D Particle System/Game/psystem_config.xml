@@ -20,6 +20,7 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "false"/>
       </emitter>
 
       <emitter type ="fire_purple">
@@ -37,6 +38,7 @@
         <endColor r ="150" g="0" b="205" a ="0"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="flame">
@@ -54,6 +56,7 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="smoke">
@@ -71,6 +74,7 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="pixel_smoke">
@@ -88,6 +92,7 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="blend"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="burst">
@@ -105,6 +110,7 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="50"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="wave_1">
@@ -122,6 +128,7 @@
         <endColor r ="255" g="100" b="0" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="20"/>
+        <vortexSensitive state = "true"/>
       </emitter>
       
       <emitter type ="wave_2">
@@ -139,6 +146,7 @@
         <endColor r ="255" g="100" b="0" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="10"/>
+        <vortexSensitive state = "true"/>
       </emitter>
       
       <emitter type ="bubbles">
@@ -156,6 +164,7 @@
         <endColor r ="57" g="255" b="20" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="spark">
@@ -173,6 +182,7 @@
         <endColor r ="255" g="0" b="0" a="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
+        <vortexSensitive state = "true"/>
       </emitter>
       
     </particleAtlas>

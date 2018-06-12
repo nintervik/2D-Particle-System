@@ -253,5 +253,8 @@ void j1ParticleSystem::LoadEmitterData(pugi::xml_node & emitter, EmitterType typ
 	else if (blendModeString == "none")
 		tmp.blendMode = SDL_BlendMode::SDL_BLENDMODE_NONE;
 
+	// Vortex
+	tmp.vortexSensitive = emitter.child("vortexSensitive").attribute("state").as_bool();
+
 	vecEmitterData[type] = tmp;
 }

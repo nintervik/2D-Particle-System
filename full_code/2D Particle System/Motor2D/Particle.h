@@ -44,6 +44,7 @@ class Particle
 			SDL_Color startColor;
 			SDL_Color endColor;
 			SDL_BlendMode blendMode;
+			bool vortexSensitive;
 			float t;
 
 			ParticleState() {}
@@ -64,7 +65,7 @@ class Particle
 	Particle();
 
 	// Initializes new generated particle
-	void Init(fPoint pos, float startSpeed, float endSpeed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode);
+	void Init(fPoint pos, float startSpeed, float endSpeed, float angle, double rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, bool vortexSensitive);
 
 	// Generic methods
 	void Update(float dt);

@@ -80,6 +80,12 @@ bool j1Scene::Update(float dt)
 		eFlame = App->psystem->AddEmiter(pos, EmitterType::EMITTER_TYPE_FIRE_PURPLE);
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN && eFlame != nullptr)
+		eFlame->VortexSensitive(false);
+	
+	if (App->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN && eFlame != nullptr)
+		eFlame->VortexSensitive(true);
+
 	if (App->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN)
 	{
 		int mx, my;

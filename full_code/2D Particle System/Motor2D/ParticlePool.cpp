@@ -29,7 +29,7 @@ ParticlePool::~ParticlePool()
 	particleArray = nullptr;
 }
 
-void ParticlePool::Generate(fPoint pos, float startSpeed, float endSpeed, float angle, float rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode)
+void ParticlePool::Generate(fPoint pos, float startSpeed, float endSpeed, float angle, float rotSpeed, float startSize, float endSize, uint life, SDL_Rect textureRect, SDL_Color startColor, SDL_Color endColor, SDL_BlendMode blendMode, bool vortexSensitive)
 {
 	// Check if the pool is not full
 	assert(firstAvailable != nullptr);
@@ -39,7 +39,7 @@ void ParticlePool::Generate(fPoint pos, float startSpeed, float endSpeed, float 
 	firstAvailable = newParticle->GetNext();
 
 	// Initialize new alive particle
-	newParticle->Init(pos, startSpeed, endSpeed, angle, rotSpeed, startSize, endSize, life, textureRect, startColor, endColor, blendMode);
+	newParticle->Init(pos, startSpeed, endSpeed, angle, rotSpeed, startSize, endSize, life, textureRect, startColor, endColor, blendMode, vortexSensitive);
 }
 
 int ParticlePool::Update(float dt)
