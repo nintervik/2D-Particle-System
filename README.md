@@ -61,18 +61,19 @@ v0.2
 - Added a lot of new emitter types
 - Added methods to start and stop emitters
 - Minor bugs solved
-- Optimized memory managment
+- Optimized memory management
 
 v0.3 
 - Changed string compare methods
 - Removed unnecessary comments
 - Optimized particle removing process 
-- More error control when bliting textures on screen
+- More error control when blitting textures on screen
 - Improved define names
 - Add xml extension to psystem_config file
 - Solved memory leaks in texture module
-- Vortex control thorugh xml
+- Vortex control through xml
 - Vortex method to switch it on or off for each emitter
+- Minor bugs fixed
 
 ## Tools used
 
