@@ -1,4 +1,4 @@
-# 2D-Particle-System
+﻿# 2D-Particle-System
 
 I am [Víctor Masó](https://www.linkedin.com/in/v%C3%ADctor-mas%C3%B3-garcia/), student of the [Bachelor’s Degree in Video Games by UPC at CITM](https://www.citm.upc.edu/ing/estudis/graus-videojocs/). This content is generated for the second year’s subject Project 2, under supervision of lecturer [Ricard Pillosu](https://es.linkedin.com/in/ricardpillosu).
 
@@ -13,7 +13,7 @@ There are three main things that I will be focused on for this tutorial:
 
 * [Github repository](https://github.com/nintervik/2D-Particle-System)  
 * [Website](https://nintervik.github.io/2D-Particle-System/)
-* [Release](https://github.com/nintervik/2D-Particle-System/releases)
+* [Releases](https://github.com/nintervik/2D-Particle-System/releases)
 
 ## Installation instructions
 
@@ -44,9 +44,11 @@ General:
 - RETURN: remove all emitters
 - S: Stop fire emitter for 5 seconds
 - D: Start fire emitter for 5 seconds
+- O: Turn on vortex sensitive on purple flame emitter
+- F: Turn off vortex sensitive on purple flame emitterg
 - ESC: exit application
 
-You can change the attributes of the emitters by changing the its attributes inside the xml file called psystem_config. You can also add new ones if needed. Remeber to increase MAX_NUM_EMITTERS_TYPE to store the number of emitters you need.
+You can change the attributes of the emitters by changing its attributes inside the xml file called psystem_config. You can also add new ones if needed. Remeber to increase MAX_NUM_EMITTERS_TYPE to store the number of emitters you need.
 
 
 ## Tools used
