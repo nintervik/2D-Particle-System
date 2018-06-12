@@ -69,7 +69,7 @@ v0.3
 - Optimized particle removing process 
 - More error control when blitting textures on screen
 - Improved define names
-- Add xml extension to psystem_config file
+- Added xml extension to psystem_config file
 - Solved memory leaks in texture module
 - Vortex control through xml
 - Vortex method to switch it on or off for each emitter
