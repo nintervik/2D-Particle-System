@@ -51,7 +51,6 @@ private:
 	SDL_Rect rect = { 0, 0, 400, 400 };
 	SDL_Texture* torchTex = nullptr;
 
-
 };
 
 #endif // __j1SCENE_H__

@@ -50,8 +50,6 @@ bool j1ParticleSystem::Awake(pugi::xml_node& config)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_BUBBLE);
 		else if (emitterType.compare("spark") == 0)
 			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_SPARK);
-		else if (emitterType.compare("thrall_dash") == 0)
-			LoadEmitterData(emitters, EmitterType::EMITTER_TYPE_DASH);
 	}
 	return ret;
 }
@@ -109,18 +107,6 @@ bool j1ParticleSystem::PostUpdate()
 	}
 
 	return ret;
-	/*std::list<Emitter*>::const_iterator it;
-
-	for (it = emittersList.begin(); it != emittersList.end(); ++it)
-	{
-	if ((*it)->toDestroy)
-	{
-	delete (*it);
-	emittersList.erase(it);
-	}
-	}
-
-	return true*/
 }
 
 bool j1ParticleSystem::CleanUp()
@@ -161,19 +147,6 @@ bool j1ParticleSystem::RemoveEmitter(Emitter* emitter)
 	}
 
 	return ret;
-
-	/*std::list<Emitter*>::const_iterator it;
-
-	for (it = emittersList.begin(); it != emittersList.end(); ++it)
-	{
-	if ((*it) == &emitter)
-	{
-	(*it)->toDestroy = true;
-	return true;
-	}
-	}
-
-	return false;*/
 }
 
 bool j1ParticleSystem::RemoveAllEmitters()
@@ -194,14 +167,6 @@ bool j1ParticleSystem::RemoveAllEmitters()
 	}
 
 	return ret;
-
-	/*std::list<Emitter*>::const_iterator it;
-
-	for (it = emittersList.begin(); it != emittersList.end(); ++it)
-	{
-	if ((*it) != nullptr) (*it)->toDestroy = true;
-	ret = true;
-	}*/
 }
 
 SDL_Texture* j1ParticleSystem::GetParticleAtlas() const

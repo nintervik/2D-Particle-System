@@ -190,7 +190,7 @@ bool j1Scene::CleanUp()
 // - Try doing particle pixel-type effects.
 // - Change name of modules and files and folders (j1 is not nice).
 // - Make a new branch with th good version maybe.
-// - Revise render for memory leaks. Take Project II as reference.
 // - Prewarm options.
 // - Add a boolean so particles can react or not to vortex. Check Project II to see how it's done. But do it through xml, cleaner.
 // - Other improvements (see web).
+// - Solve warnings
