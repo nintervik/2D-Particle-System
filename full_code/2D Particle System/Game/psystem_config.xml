@@ -20,7 +20,7 @@
         <endColor r ="210" g="210" b="210" a ="0"/>
         <blendMode mode ="add"/>
         <lifetime value ="-1"/>
-        <vortexSensitive state = "false"/>
+        <vortexSensitive state = "true"/>
       </emitter>
 
       <emitter type ="fire_purple">
