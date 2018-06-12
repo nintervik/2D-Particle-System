@@ -50,6 +50,29 @@ General:
 
 You can change the attributes of the emitters by changing its attributes inside the xml file called psystem_config. You can also add new ones if needed. Remeber to increase MAX_NUM_EMITTERS_TYPE to store the number of emitters you need.
 
+## Changelog
+
+v0.1
+- 2D Particle System implemented
+- Just fire and color changing fire implemented
+
+v0.2
+- Improved particle system structure
+- Added a lot of new emitter types
+- Added methods to start and stop emitters
+- Minor bugs solved
+- Optimized memory managment
+
+v0.3 
+- Changed string compare methods
+- Removed unnecessary comments
+- Optimized particle removing process 
+- More error control when bliting textures on screen
+- Improved define names
+- Add xml extension to psystem_config file
+- Solved memory leaks in texture module
+- Vortex control thorugh xml
+- Vortex method to switch it on or off for each emitter
 
 ## Tools used
 
