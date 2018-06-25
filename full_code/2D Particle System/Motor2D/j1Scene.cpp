@@ -192,7 +192,22 @@ bool j1Scene::CleanUp()
 // - Separate Update and Draw methods to have more error control (revise particlePool update, returns three possible values and it's not very nice, 
 //   maybe return enums or separate draw and update). 
 // - Add animations
-// - When calling remove and removeAll delete particles when all particles have died. Not instantly.
+
+//   CUBIC BEZIER CURVES!--------------------------------------------------------------------------------------------------------------------------
+// - Add cubic bezier curve to particles' speed in psystem_config.xml, maybe something along these lines:
+//	 <cubicBezier handleAx = "1" handleAy = "1" handleBx = "1" handleBy = "1"/>
+//	 In case startSpeed is not 0 or endSpeed is not 0 (and they both are different) then we would need to do some workarounds. NOTE: figure out how 
+//   to solve this issue. One potential solution might be:
+//   Case startSpeed < endSpeed:
+//		- Current particle speed = startSpeed + (endSpeed - startSpeed) * BezierValue (between -1 and 1)
+//   Case startSpeed > endSpeed:
+//		- Current particle speed = startSpeed - abs(endSpeed - startSpeed) * BezierValue (between -1 and 1)
+//   Case startSpeed = endSpeed || cases where Bezier curve is linear (see http://cubic-bezier.com):
+//		- Current particle speed = startSpeed (no calculations are performed)
+//	 NOTE: control cases where bezier user input values exceeds 1 or -1 limits (if it's > 1 then it's 1, and if it's < -1 then it's -1).
+//   ----------------------------------------------------------------------------------------------------------------------------------------------
+
+// - When calling remove and removeAll delete particles when all particles have died. Not instantly. Maybe create tow new special methods for that.
 // - Try doing particle pixel-type effects.
 // - Change name of modules and files and folders (j1 is not nice).
 // - Make a new branch with th good version maybe.
