@@ -202,8 +202,10 @@ bool j1Scene::CleanUp()
 //		- Current particle speed = startSpeed + (endSpeed - startSpeed) * BezierValue (between -1 and 1)
 //   Case startSpeed > endSpeed:
 //		- Current particle speed = startSpeed - abs(endSpeed - startSpeed) * BezierValue (between -1 and 1)
-//   Case startSpeed = endSpeed || cases where Bezier curve is linear (see http://cubic-bezier.com):
+//   Case startSpeed = endSpeed:
 //		- Current particle speed = startSpeed (no calculations are performed)
+//   Case where Bezier curve is linear (see http://cubic-bezier.com):
+//      - Linear interpolation between startSpeed and endSpeed is applied
 //	 NOTE: control cases where bezier user input values exceeds 1 or -1 limits (if it's > 1 then it's 1, and if it's < -1 then it's -1).
 //   ----------------------------------------------------------------------------------------------------------------------------------------------
 
