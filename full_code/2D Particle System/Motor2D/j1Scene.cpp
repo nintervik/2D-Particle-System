@@ -209,11 +209,15 @@ bool j1Scene::CleanUp()
 //	 NOTE: control cases where bezier user input values exceeds 1 or -1 limits (if it's > 1 then it's 1, and if it's < -1 then it's -1).
 //   ----------------------------------------------------------------------------------------------------------------------------------------------
 
+// - Add a parameter in the psystem_config.xml where you can toggle between applying the additive blending mode to all particles or adjust it according to size to give a
+//   sense of depth of field as closer particles will look more blurry. This could be done with velocity too in some way, like closer particles moving faster than further
+//   ones. For both cases we could maybe change these parameters according to some fixed percentage that will depen on distance to the camera, which, in this case, it will
+//   depen on particle size. 100% could be the base startSize or endSize (the bigger one always, or maybe always the startSize) and the we could use that percentatge as
+//   a factor ratio for blur and velocity. NOTE: need to figure out how to apply gradient blur in SDL. Box blur seems a good option maybe.
 // - When calling remove and removeAll delete particles when all particles have died. Not instantly. Maybe create tow new special methods for that.
 // - Try doing particle pixel-type effects.
 // - Change name of modules and files and folders (j1 is not nice).
-// - Make a new branch with th good version maybe.
+// - Make a new branch with the good version maybe.
 // - Prewarm options.
-// - Add a boolean so particles can react or not to vortex. Check Project II to see how it's done. But do it through xml, cleaner.
 // - Other improvements (see web).
 // - Solve warnings
