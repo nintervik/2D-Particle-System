@@ -42,9 +42,9 @@ void ParticlePool::Generate(fPoint pos, float startSpeed, float endSpeed, float 
 	newParticle->Init(pos, startSpeed, endSpeed, angle, rotSpeed, startSize, endSize, life, textureRect, startColor, endColor, blendMode, vortexSensitive);
 }
 
-int ParticlePool::Update(float dt)
+ParticleState ParticlePool::Update(float dt)
 {
-	bool ret = true;
+	ParticleState retState = ParticleState::PARTICLE_STATE_NOT_DEF;
 
 	BROFILER_CATEGORY("Pool update", Profiler::Color::LightCyan)
 	for (int i = 0; i < poolSize; i++)
@@ -52,16 +52,20 @@ int ParticlePool::Update(float dt)
 		if (particleArray[i].IsAlive())
 		{
 			particleArray[i].Update(dt);
-			ret = particleArray[i].Draw();
+
+			if (particleArray[i].Draw())
+				retState = ParticleState::PARTICLE_ALIVE_DRAWN;
+			else
+				retState = ParticleState::PARTICLE_ALIVE_NOT_DRAWN;
 		}
 		else // if a particle dies it becomes the first available in the pool
 		{
 			// Add this particle to the front of the vector
 			particleArray[i].SetNext(firstAvailable);
 			firstAvailable = &particleArray[i];
-			ret = -1;
+			retState = ParticleState::PARTICLE_DEAD;
 		}
 	}
 
-	return ret;
+	return retState;
 }

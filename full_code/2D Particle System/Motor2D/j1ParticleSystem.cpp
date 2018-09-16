@@ -9,7 +9,7 @@ j1ParticleSystem::j1ParticleSystem() : j1Module()
 {
 	name = "psystem";
 
-	LOG("Loading Languages");
+	LOG("Loading Particle System");
 
 }
 

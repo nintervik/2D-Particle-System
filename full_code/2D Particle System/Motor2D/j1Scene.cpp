@@ -189,8 +189,6 @@ bool j1Scene::CleanUp()
 
 // TODOs:
 
-// - Separate Update and Draw methods to have more error control (revise particlePool update, returns three possible values and it's not very nice, 
-//   maybe return enums or separate draw and update). 
 // - Add animations
 
 //   CUBIC BEZIER CURVES!--------------------------------------------------------------------------------------------------------------------------

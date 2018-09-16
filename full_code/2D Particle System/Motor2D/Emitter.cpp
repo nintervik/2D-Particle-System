@@ -120,9 +120,9 @@ bool Emitter::Draw(float dt)
 	// Updating particles in the pool
 	/* NOTE: if lifetime is 0 and last particles have been updated
 	then the emitter is automatically destroyed */
-	if (emitterPool->Update(dt) == -1 && lifetime == 0.0f)
+	if (emitterPool->Update(dt) == ParticleState::PARTICLE_DEAD && lifetime == 0.0f)
 		App->psystem->RemoveEmitter(this);
-	else if (!emitterPool->Update(dt))
+	else if (emitterPool->Update(dt) == ParticleState::PARTICLE_ALIVE_NOT_DRAWN)
 		ret = false;
 
 	return ret;
