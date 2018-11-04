@@ -46,6 +46,9 @@
     <ClCompile Include="j1ParticleSystem.cpp">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClCompile>
+    <ClCompile Include="mmgr\mmgr.cpp">
+      <Filter>Desenvolupament  ========\Tools\mmgr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -102,6 +105,12 @@
     <ClInclude Include="j1ParticleSystem.h">
       <Filter>Desenvolupament  ========\2D Particle Engine</Filter>
     </ClInclude>
+    <ClInclude Include="mmgr\mmgr.h">
+      <Filter>Desenvolupament  ========\Tools\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="mmgr\nommgr.h">
+      <Filter>Desenvolupament  ========\Tools\mmgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">
@@ -124,6 +133,9 @@
     </Filter>
     <Filter Include="Desenvolupament  ========\2D Particle Engine">
       <UniqueIdentifier>{ea93f3cf-2cfa-4d42-862f-727a238cdcb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\Tools\mmgr">
+      <UniqueIdentifier>{7e0becc9-470a-4643-bd21-d6e71826b2cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,12 @@
 #include "p2Log.h"
 #include "j1App.h"
 
+// Old school memory leak detector and other random awesomeness
+#ifdef _DEBUG
+	//#define TEST_MEMORY_MANAGER
+#include "mmgr/mmgr.h"
+#endif
+
 // This is needed here because SDL redefines main function
 // do not add any other libraries here, instead put them in their modules
 #include "SDL/include/SDL.h"
@@ -37,7 +43,6 @@ int main(int argc, char* args[])
 	{
 		switch(state)
 		{
-
 			// Allocate the engine --------------------------------------------
 			case CREATE:
 			LOG("CREATION PHASE ===============================");
@@ -115,6 +120,11 @@ int main(int argc, char* args[])
 
 	LOG("... Bye! :)\n");
 
-	// Dump memory leaks
+	
+#ifdef _DEBUG
+	int leaks = MAX(0, m_getMemoryStatistics().totalAllocUnitCount);
+	LOG("With %d memory leaks!\n", (leaks > 0) ? leaks : 0);
+#endif
+
 	return result;
 }

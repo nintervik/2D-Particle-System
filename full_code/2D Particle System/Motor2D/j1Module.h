@@ -18,6 +18,9 @@ public:
 	j1Module() : active(false)
 	{}
 
+	virtual ~j1Module()
+	{}
+
 	void Init()
 	{
 		active = true;
