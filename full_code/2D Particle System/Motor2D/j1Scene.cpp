@@ -128,14 +128,10 @@ bool j1Scene::Update(float dt)
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
-	{
 		App->psystem->RemoveAllEmitters();
-	}
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN && eFire != nullptr)
-	{
 		eFire->StopEmission(5000.0f);
-	}
 
 	if (eFire != nullptr )
 	{
@@ -147,9 +143,7 @@ bool j1Scene::Update(float dt)
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN && eFire != nullptr)
-	{
 		eFire->StartEmission(5000.0f);
-	}
 	
 	return true;
 }
